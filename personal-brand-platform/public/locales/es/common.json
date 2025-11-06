@@ -1,0 +1,66 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Acerca de",
+    "blog": "Blog",
+    "products": "Productos",
+    "speaking": "Conferencias",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "title": "Transforma Tu Potencial En",
+    "titleHighlight": "Excelencia",
+    "description": "Descubre estrategias probadas y conocimientos de un experto de clase mundial dedicado a ayudarte a alcanzar el máximo rendimiento en todos los aspectos de tu vida.",
+    "exploreProgramsBtn": "Explorar Programas",
+    "learnMoreBtn": "Saber Más"
+  },
+  "cta": {
+    "title": "¿Listo para Desbloquear Tu Máximo Potencial?",
+    "description": "Únete a miles de personas de alto rendimiento que han transformado sus vidas a través de estrategias probadas y orientación experta.",
+    "exploreProgramsBtn": "Explorar Programas",
+    "scheduleCallBtn": "Programar una Llamada"
+  },
+  "login": {
+    "title": "Iniciar sesión",
+    "description": "Ingresa tu correo electrónico y contraseña para acceder a tu cuenta",
+    "email": "Correo electrónico",
+    "emailPlaceholder": "nombre@ejemplo.com",
+    "password": "Contraseña",
+    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "signInBtn": "Iniciar sesión",
+    "signingInBtn": "Iniciando sesión...",
+    "orContinueWith": "O continuar con",
+    "googleBtn": "Google",
+    "noAccount": "¿No tienes una cuenta?",
+    "signUpLink": "Registrarse"
+  },
+  "footer": {
+    "allRightsReserved": "Todos los derechos reservados.",
+    "privacyPolicy": "Política de Privacidad",
+    "termsOfService": "Términos de Servicio",
+    "cookiePolicy": "Política de Cookies"
+  },
+  "cookies": {
+    "title": "Preferencias de Cookies",
+    "description": "Utilizamos cookies para mejorar tu experiencia, analizar el tráfico del sitio y personalizar el contenido. Puedes personalizar tus preferencias a continuación.",
+    "acceptAll": "Aceptar Todas",
+    "rejectAll": "Rechazar Todas",
+    "customize": "Personalizar",
+    "hide": "Ocultar",
+    "savePreferences": "Guardar Preferencias",
+    "necessary": "Cookies Necesarias",
+    "necessaryRequired": "(Requeridas)",
+    "necessaryDesc": "Esenciales para la funcionalidad del sitio",
+    "analytics": "Cookies de Análisis",
+    "analyticsDesc": "Nos ayudan a entender los patrones de uso",
+    "marketing": "Cookies de Marketing",
+    "marketingDesc": "Utilizadas para publicidad personalizada",
+    "preferences": "Cookies de Preferencias",
+    "preferencesDesc": "Recuerdan tus configuraciones y preferencias"
+  },
+  "skipNav": {
+    "skipToContent": "Saltar al contenido principal"
+  },
+  "loading": "Cargando...",
+  "error": "Ocurrió un error"
+}

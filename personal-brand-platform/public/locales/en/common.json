@@ -1,0 +1,66 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "blog": "Blog",
+    "products": "Products",
+    "speaking": "Speaking",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Transform Your Potential Into",
+    "titleHighlight": "Excellence",
+    "description": "Discover proven strategies and insights from a world-class expert dedicated to helping you achieve peak performance in every aspect of your life.",
+    "exploreProgramsBtn": "Explore Programs",
+    "learnMoreBtn": "Learn More"
+  },
+  "cta": {
+    "title": "Ready to Unlock Your Full Potential?",
+    "description": "Join thousands of high performers who have transformed their lives through proven strategies and expert guidance.",
+    "exploreProgramsBtn": "Explore Programs",
+    "scheduleCallBtn": "Schedule a Call"
+  },
+  "login": {
+    "title": "Sign in",
+    "description": "Enter your email and password to access your account",
+    "email": "Email",
+    "emailPlaceholder": "name@example.com",
+    "password": "Password",
+    "forgotPassword": "Forgot password?",
+    "signInBtn": "Sign in",
+    "signingInBtn": "Signing in...",
+    "orContinueWith": "Or continue with",
+    "googleBtn": "Google",
+    "noAccount": "Don't have an account?",
+    "signUpLink": "Sign up"
+  },
+  "footer": {
+    "allRightsReserved": "All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "cookiePolicy": "Cookie Policy"
+  },
+  "cookies": {
+    "title": "Cookie Preferences",
+    "description": "We use cookies to enhance your experience, analyze site traffic, and personalize content. You can customize your preferences below.",
+    "acceptAll": "Accept All",
+    "rejectAll": "Reject All",
+    "customize": "Customize",
+    "hide": "Hide",
+    "savePreferences": "Save Preferences",
+    "necessary": "Necessary Cookies",
+    "necessaryRequired": "(Required)",
+    "necessaryDesc": "Essential for site functionality",
+    "analytics": "Analytics Cookies",
+    "analyticsDesc": "Help us understand usage patterns",
+    "marketing": "Marketing Cookies",
+    "marketingDesc": "Used for personalized advertising",
+    "preferences": "Preferences Cookies",
+    "preferencesDesc": "Remember your settings and preferences"
+  },
+  "skipNav": {
+    "skipToContent": "Skip to main content"
+  },
+  "loading": "Loading...",
+  "error": "An error occurred"
+}

@@ -22,10 +22,10 @@ export default async function ProductDetailPage({ params }: { params: { slug: st
       <div className="container mx-auto px-4 py-16">
         <div className="grid md:grid-cols-2 gap-12">
           <div>
-            {(product as any).image_url ? (
+            {(product && typeof product === 'object' && 'image_url' in product && product.image_url) ? (
               <Image
-                src={(product as any).image_url}
-                alt={(product as any).title}
+                src={String(product.image_url)}
+                alt={(product && typeof product === 'object' && 'title' in product) ? String(product.title) : 'Product'}
                 width={600}
                 height={600}
                 className="rounded-lg w-full"
@@ -38,19 +38,23 @@ export default async function ProductDetailPage({ params }: { params: { slug: st
           </div>
 
           <div>
-            <h1 className="text-4xl font-bold mb-4">{(product as any).title}</h1>
+            <h1 className="text-4xl font-bold mb-4">
+              {(product && typeof product === 'object' && 'title' in product) ? String(product.title) : 'Product'}
+            </h1>
             
             <div className="mb-6">
-              <span className="text-3xl font-bold">${(product as any).price}</span>
+              <span className="text-3xl font-bold">
+                ${(product && typeof product === 'object' && 'price' in product) ? String(product.price) : '0'}
+              </span>
             </div>
 
             <p className="text-gray-600 mb-8">
-              {(product as any).description || 'No description available.'}
+              {(product && typeof product === 'object' && 'description' in product && product.description) ? String(product.description) : 'No description available.'}
             </p>
 
             <div className="mb-6">
               <span className="inline-block px-3 py-1 bg-gray-100 rounded-full text-sm">
-                {(product as any).type}
+                {(product && typeof product === 'object' && 'type' in product) ? String(product.type) : 'Product'}
               </span>
             </div>
 

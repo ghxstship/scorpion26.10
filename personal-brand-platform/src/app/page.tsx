@@ -5,11 +5,11 @@ import { CTASection } from '@/components/sections/CTASection'
 
 export default function Home() {
   return (
-    <>
+    <div role="main">
       <HeroSection />
       <AboutSection />
       <TestimonialsSection />
       <CTASection />
-    </>
+    </div>
   )
 }

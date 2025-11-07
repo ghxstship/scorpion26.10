@@ -37,13 +37,11 @@ export async function requireAdmin(tenantId?: string) {
     .eq('id', user.id)
     .single()
   
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  if (!userProfile || (userProfile as any).role !== 'admin') {
+  if (!userProfile || typeof userProfile !== 'object' || !('role' in userProfile) || userProfile.role !== 'admin') {
     return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
   }
   
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  if (tenantId && (userProfile as any).tenant_id !== tenantId) {
+  if (tenantId && userProfile && typeof userProfile === 'object' && 'tenant_id' in userProfile && userProfile.tenant_id !== tenantId) {
     return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
   }
   
@@ -53,8 +51,18 @@ export async function requireAdmin(tenantId?: string) {
 export function handleError(error: unknown) {
   console.error('API Error:', error)
   
+  // In production, don't expose internal error messages
+  const isDevelopment = process.env.NODE_ENV === 'development'
+  
   if (error instanceof Error) {
-    return NextResponse.json({ error: error.message }, { status: 500 })
+    const message = isDevelopment ? error.message : 'Internal server error'
+    return NextResponse.json({ error: message }, { status: 500 })
+  }
+  
+  // Handle database errors
+  if (typeof error === 'object' && error !== null && 'code' in error) {
+    const message = isDevelopment ? 'Database error occurred' : 'Internal server error'
+    return NextResponse.json({ error: message }, { status: 500 })
   }
   
   return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
@@ -95,7 +103,7 @@ export async function insertRecord<T extends keyof Database['public']['Tables']>
   data: Database['public']['Tables'][T]['Insert']
 ) {
   const supabase = await createClient()
-  return await supabase.from(table).insert(data as any).select().single()
+  return await supabase.from(table).insert(data as Database['public']['Tables'][T]['Insert']).select().single()
 }
 
 // Type-safe update helper
@@ -105,5 +113,5 @@ export async function updateRecord<T extends keyof Database['public']['Tables']>
   data: Database['public']['Tables'][T]['Update']
 ) {
   const supabase = await createClient()
-  return await supabase.from(table).update(data as any).eq('id', id).select().single()
+  return await supabase.from(table).update(data as Database['public']['Tables'][T]['Update']).eq('id', id).select().single()
 }

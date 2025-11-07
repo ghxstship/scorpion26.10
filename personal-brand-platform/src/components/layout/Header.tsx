@@ -19,17 +19,18 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <nav className="container flex h-16 items-center justify-between">
+      <nav className="container flex h-16 items-center justify-between" aria-label="Main navigation" role="navigation">
         <div className="flex items-center gap-6 md:gap-10">
           <Link href="/" className="flex items-center space-x-2">
             <span className="text-2xl font-bold">BRAND</span>
           </Link>
-          <div className="hidden md:flex md:gap-6">
+          <div className="hidden md:flex md:gap-6" role="menubar">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
                 className="text-sm font-medium transition-colors hover:text-primary"
+                aria-current={item.href === '/' ? 'page' : undefined}
               >
                 {item.name}
               </Link>
@@ -47,17 +48,20 @@ export function Header() {
             type="button"
             className="md:hidden"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-menu"
           >
             {mobileMenuOpen ? (
-              <X className="h-6 w-6" />
+              <X className="h-6 w-6" aria-hidden="true" />
             ) : (
-              <Menu className="h-6 w-6" />
+              <Menu className="h-6 w-6" aria-hidden="true" />
             )}
           </button>
         </div>
       </nav>
       {mobileMenuOpen && (
-        <div className="md:hidden">
+        <div className="md:hidden" id="mobile-menu" role="menu">
           <div className="space-y-1 px-4 pb-3 pt-2">
             {navigation.map((item) => (
               <Link
@@ -65,6 +69,7 @@ export function Header() {
                 href={item.href}
                 className="block rounded-md px-3 py-2 text-base font-medium hover:bg-accent"
                 onClick={() => setMobileMenuOpen(false)}
+                aria-current={item.href === '/' ? 'page' : undefined}
               >
                 {item.name}
               </Link>

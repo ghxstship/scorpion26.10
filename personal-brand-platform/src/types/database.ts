@@ -699,3 +699,44 @@ export interface Database {
     }
   }
 }
+
+// Helper types for common queries
+export type Tables<T extends keyof Database['public']['Tables']> = Database['public']['Tables'][T]['Row']
+export type Inserts<T extends keyof Database['public']['Tables']> = Database['public']['Tables'][T]['Insert']
+export type Updates<T extends keyof Database['public']['Tables']> = Database['public']['Tables'][T]['Update']
+
+// Extended types with relations
+export type OrderWithItems = Tables<'orders'> & {
+  order_items?: (Tables<'order_items'> & {
+    products?: Tables<'products'>
+  })[]
+  users?: Pick<Tables<'users'>, 'email' | 'full_name'>
+}
+
+export type BookingWithDetails = Tables<'bookings'> & {
+  products?: Tables<'products'>
+  users?: Pick<Tables<'users'>, 'email' | 'full_name'>
+}
+
+export type EmailSubscriber = Tables<'email_subscribers'>
+
+export type EmailCampaignWithDetails = Tables<'email_campaigns'>
+
+// Cart item type for checkout
+export interface CartItem {
+  id: string
+  title: string
+  price: number
+  quantity: number
+  image_url?: string | null
+}
+
+// Web Vitals metric type
+export interface WebVitalsMetric {
+  id: string
+  name: string
+  value: number
+  rating: 'good' | 'needs-improvement' | 'poor'
+  delta: number
+  navigationType: string
+}

@@ -4,25 +4,25 @@ import { requireAdmin, handleError } from '@/lib/utils/api-helpers'
 import Stripe from 'stripe'
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2024-11-20.acacia',
+  apiVersion: '2025-10-29.clover',
 })
 
 export async function POST(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params
     const authResult = await requireAdmin()
     if (authResult instanceof NextResponse) return authResult
 
-    const { amount } = await request.json()
     const supabase = await createClient()
 
     // Get order
     const { data: order, error: orderError } = await supabase
       .from('orders')
       .select('*')
-      .eq('id', params.id)
+      .eq('id', id)
       .single()
 
     if (orderError || !order) {
@@ -30,19 +30,20 @@ export async function POST(
     }
 
     // Process refund with Stripe
-    const paymentIntentId = (order as any).stripe_payment_intent_id
-    if (paymentIntentId) {
-      await stripe.refunds.create({
-        payment_intent: paymentIntentId,
-        amount: amount ? Math.round(amount * 100) : undefined,
-      })
+    if (order && typeof order === 'object' && 'stripe_payment_intent_id' in order) {
+      const paymentIntentId = String(order.stripe_payment_intent_id)
+      if (paymentIntentId) {
+        await stripe.refunds.create({
+          payment_intent: paymentIntentId,
+        })
+      }
     }
 
     // Update order status
     const { data, error } = await supabase
       .from('orders')
-      .update({ status: 'refunded' } as any)
-      .eq('id', params.id)
+      .update({ status: 'refunded' })
+      .eq('id', id)
       .select()
       .single()
 

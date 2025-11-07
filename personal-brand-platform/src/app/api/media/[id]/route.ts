@@ -4,9 +4,10 @@ import { requireAdmin, handleError } from '@/lib/utils/api-helpers'
 
 export async function PUT(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params
     const authResult = await requireAdmin()
     if (authResult instanceof NextResponse) return authResult
 
@@ -15,8 +16,8 @@ export async function PUT(
 
     const { data, error } = await supabase
       .from('media_files')
-      .update({ file_name: body.fileName } as any)
-      .eq('id', params.id)
+      .update({ file_name: body.fileName })
+      .eq('id', id)
       .select()
       .single()
 
@@ -32,9 +33,10 @@ export async function PUT(
 
 export async function DELETE(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params
     const authResult = await requireAdmin()
     if (authResult instanceof NextResponse) return authResult
 
@@ -44,12 +46,12 @@ export async function DELETE(
     const { data: file } = await supabase
       .from('media_files')
       .select('file_url')
-      .eq('id', params.id)
+      .eq('id', id)
       .single()
 
-    if (file) {
+    if (file && typeof file === 'object' && 'file_url' in file) {
       // Delete from storage
-      const fileName = (file as any).file_url.split('/').pop()
+      const fileName = String(file.file_url).split('/').pop()
       await supabase.storage.from('media').remove([fileName])
     }
 
@@ -57,7 +59,7 @@ export async function DELETE(
     const { error } = await supabase
       .from('media_files')
       .delete()
-      .eq('id', params.id)
+      .eq('id', id)
 
     if (error) {
       return NextResponse.json({ error: error.message }, { status: 400 })

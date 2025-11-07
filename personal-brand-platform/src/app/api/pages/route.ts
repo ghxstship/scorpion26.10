@@ -44,7 +44,7 @@ export async function POST(request: Request) {
         seo_title: body.seoTitle,
         seo_description: body.seoDescription,
         is_published: body.isPublished || false,
-      } as any)
+      })
       .select()
       .single()
 

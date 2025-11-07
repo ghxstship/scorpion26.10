@@ -4,17 +4,18 @@ import { requireAdmin, handleError } from '@/lib/utils/api-helpers'
 
 export async function PUT(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params
     const authResult = await requireAdmin()
     if (authResult instanceof NextResponse) return authResult
 
     const supabase = await createClient()
     const { data, error } = await supabase
       .from('testimonials')
-      .update({ is_approved: true } as any)
-      .eq('id', params.id)
+      .update({ is_approved: true })
+      .eq('id', id)
       .select()
       .single()
 

@@ -4,9 +4,10 @@ import { handleError, getTenantFromRequest } from '@/lib/utils/api-helpers'
 
 export async function GET(
   request: Request,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
+    const { slug } = await params
     const tenantId = await getTenantFromRequest(request)
     if (!tenantId) {
       return NextResponse.json({ error: 'Tenant not found' }, { status: 404 })
@@ -17,7 +18,7 @@ export async function GET(
       .from('blog_posts')
       .select('*, users(full_name, email)')
       .eq('tenant_id', tenantId)
-      .eq('slug', params.slug)
+      .eq('slug', slug)
       .eq('is_published', true)
       .single()
 

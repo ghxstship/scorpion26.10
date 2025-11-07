@@ -12,17 +12,20 @@ export async function POST(request: Request) {
     const validatedData = createProductSchema.parse(body)
 
     const supabase = await createClient()
+    
+    const insertData: Record<string, unknown> = {
+      tenant_id: validatedData.tenantId,
+      title: validatedData.title,
+      description: validatedData.description,
+      type: validatedData.type,
+      price: validatedData.price,
+      image_url: validatedData.imageUrl,
+      is_active: true,
+    }
+    
     const { data, error } = await supabase
       .from('products')
-      .insert({
-        tenant_id: validatedData.tenantId,
-        title: validatedData.title,
-        description: validatedData.description,
-        type: validatedData.type,
-        price: validatedData.price,
-        image_url: validatedData.imageUrl,
-        is_active: true,
-      } as any)
+      .insert(insertData)
       .select()
       .single()
 

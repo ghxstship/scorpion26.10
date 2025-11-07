@@ -39,14 +39,16 @@ export async function POST(request: Request) {
     const totalAmount = items.reduce((sum, item) => sum + (item.price * item.quantity), 0)
 
     // Create order
+    const orderData: Record<string, unknown> = {
+      tenant_id: tenantId,
+      user_id: user.id,
+      total_amount: totalAmount,
+      status: 'pending',
+    }
+    
     const { data: order, error: orderError } = await supabase
       .from('orders')
-      .insert({
-        tenant_id: tenantId,
-        user_id: user.id,
-        total_amount: totalAmount,
-        status: 'pending',
-      } as any)
+      .insert(orderData)
       .select()
       .single()
 
@@ -56,7 +58,7 @@ export async function POST(request: Request) {
 
     // Create order items
     const orderItems = items.map(item => ({
-      order_id: (order as any).id,
+      order_id: order && typeof order === 'object' && 'id' in order ? String(order.id) : '',
       product_id: item.productId,
       quantity: item.quantity,
       price: item.price,
@@ -64,7 +66,7 @@ export async function POST(request: Request) {
 
     const { error: itemsError } = await supabase
       .from('order_items')
-      .insert(orderItems as any)
+      .insert(orderItems)
 
     if (itemsError) {
       return NextResponse.json({ error: itemsError.message }, { status: 400 })

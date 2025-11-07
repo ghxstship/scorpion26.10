@@ -2,6 +2,9 @@ import { createClient } from '@/lib/supabase/server'
 import { NextResponse } from 'next/server'
 import { requireAdmin, handleError } from '@/lib/utils/api-helpers'
 import { Resend } from 'resend'
+import { sendCampaignSchema } from '@/lib/utils/validation-extended'
+import { z } from 'zod'
+import type { EmailSubscriber, EmailCampaignWithDetails, Updates } from '@/types/database'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
@@ -10,7 +13,8 @@ export async function POST(request: Request) {
     const authResult = await requireAdmin()
     if (authResult instanceof NextResponse) return authResult
 
-    const { campaignId, tenantId } = await request.json()
+    const body = await request.json()
+    const { campaignId, tenantId } = sendCampaignSchema.parse(body)
     const supabase = await createClient()
 
     // Get campaign
@@ -36,11 +40,11 @@ export async function POST(request: Request) {
     }
 
     // Send emails (batch)
-    const emails = subscribers.map((sub: any) => ({
+    const emails = subscribers.map((sub: EmailSubscriber) => ({
       from: 'noreply@yourdomain.com',
       to: sub.email,
-      subject: (campaign as any).subject,
-      html: (campaign as any).content,
+      subject: campaign.subject,
+      html: campaign.content,
     }))
 
     await resend.batch.send(emails)
@@ -49,13 +53,19 @@ export async function POST(request: Request) {
     await supabase
       .from('email_campaigns')
       .update({
-        status: 'sent',
+        status: 'sent' as const,
         sent_at: new Date().toISOString(),
-      } as any)
+      } satisfies Updates<'email_campaigns'>)
       .eq('id', campaignId)
 
     return NextResponse.json({ success: true, sent: emails.length })
   } catch (error) {
+    if (error instanceof z.ZodError) {
+      return NextResponse.json(
+        { error: 'Validation failed', details: error.issues },
+        { status: 400 }
+      )
+    }
     return handleError(error)
   }
 }

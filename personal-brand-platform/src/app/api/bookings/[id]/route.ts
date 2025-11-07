@@ -4,22 +4,25 @@ import { requireAuth, handleError } from '@/lib/utils/api-helpers'
 
 export async function PUT(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params
     const user = await requireAuth()
     if (user instanceof NextResponse) return user
 
     const body = await request.json()
     const supabase = await createClient()
 
+    const updateData: Record<string, unknown> = {
+      booking_date: body.bookingDate,
+      status: body.status,
+    }
+
     const { data, error } = await supabase
       .from('bookings')
-      .update({
-        booking_date: body.bookingDate,
-        status: body.status,
-      } as any)
-      .eq('id', params.id)
+      .update(updateData)
+      .eq('id', id)
       .eq('user_id', user.id)
       .select()
       .single()
@@ -36,17 +39,18 @@ export async function PUT(
 
 export async function DELETE(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params
     const user = await requireAuth()
     if (user instanceof NextResponse) return user
 
     const supabase = await createClient()
     const { error } = await supabase
       .from('bookings')
-      .update({ status: 'cancelled' } as any)
-      .eq('id', params.id)
+      .delete()
+      .eq('id', id)
       .eq('user_id', user.id)
 
     if (error) {

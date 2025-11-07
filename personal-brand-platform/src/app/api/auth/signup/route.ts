@@ -47,7 +47,7 @@ export async function POST(request: Request) {
 
     const { error: profileError } = await supabase
       .from('users')
-      .insert(userInsert as any)
+      .insert(userInsert)
 
     if (profileError) {
       return NextResponse.json({ error: profileError.message }, { status: 500 })

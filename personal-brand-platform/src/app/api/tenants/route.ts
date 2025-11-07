@@ -31,16 +31,18 @@ export async function POST(request: Request) {
     const body = await request.json()
     const supabase = await createClient()
 
+    const insertData: Record<string, unknown> = {
+      name: body.name,
+      slug: body.slug,
+      custom_domain: body.customDomain,
+      logo_url: body.logoUrl,
+      primary_color: body.primaryColor || '#000000',
+      secondary_color: body.secondaryColor || '#ffffff',
+    }
+    
     const { data, error } = await supabase
       .from('tenants')
-      .insert({
-        name: body.name,
-        slug: body.slug,
-        custom_domain: body.customDomain,
-        logo_url: body.logoUrl,
-        primary_color: body.primaryColor || '#000000',
-        secondary_color: body.secondaryColor || '#ffffff',
-      } as any)
+      .insert(insertData)
       .select()
       .single()
 

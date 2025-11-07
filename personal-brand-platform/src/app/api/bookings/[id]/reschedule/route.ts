@@ -4,22 +4,25 @@ import { requireAuth, handleError } from '@/lib/utils/api-helpers'
 
 export async function POST(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params
     const user = await requireAuth()
     if (user instanceof NextResponse) return user
 
-    const { newDate } = await request.json()
+    const body = await request.json()
     const supabase = await createClient()
+
+    const updateData: Record<string, unknown> = {
+      booking_date: body.newDate,
+      status: 'pending',
+    }
 
     const { data, error } = await supabase
       .from('bookings')
-      .update({
-        booking_date: newDate,
-        status: 'pending',
-      } as any)
-      .eq('id', params.id)
+      .update(updateData)
+      .eq('id', id)
       .eq('user_id', user.id)
       .select()
       .single()

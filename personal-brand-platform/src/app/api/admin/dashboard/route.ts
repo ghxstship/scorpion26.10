@@ -25,8 +25,11 @@ export async function GET(request: Request) {
       supabase.from('email_subscribers').select('*').eq('tenant_id', tenantId).eq('status', 'active'),
     ])
 
-    const totalRevenue = orders.data?.reduce((sum: number, order: any) => {
-      return order.status === 'completed' ? sum + parseFloat(order.total_amount) : sum
+    const totalRevenue = orders.data?.reduce((sum: number, order: Record<string, unknown>) => {
+      if (order.status === 'completed' && typeof order.total_amount === 'string') {
+        return sum + parseFloat(order.total_amount)
+      }
+      return sum
     }, 0) || 0
 
     return NextResponse.json({

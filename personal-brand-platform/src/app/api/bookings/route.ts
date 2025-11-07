@@ -44,7 +44,7 @@ export async function POST(request: Request) {
         booking_date: bookingDate,
         duration_minutes: durationMinutes,
         status: 'pending',
-      } as any)
+      })
       .select()
       .single()
 

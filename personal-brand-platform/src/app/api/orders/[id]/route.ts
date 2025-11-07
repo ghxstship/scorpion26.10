@@ -4,17 +4,18 @@ import { requireAuth, handleError } from '@/lib/utils/api-helpers'
 
 export async function GET(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params
     const user = await requireAuth()
     if (user instanceof NextResponse) return user
 
     const supabase = await createClient()
     const { data, error } = await supabase
       .from('orders')
-      .select('*, order_items(*, products(*))')
-      .eq('id', params.id)
+      .select('*, order_items(*)')
+      .eq('id', id)
       .eq('user_id', user.id)
       .single()
 

@@ -1,6 +1,7 @@
 import { createClient } from '@/lib/supabase/server'
 import { NextResponse } from 'next/server'
 import { requireAuth, handleError } from '@/lib/utils/api-helpers'
+import { validateFile, generateSecureFilename, formatFileSize } from '@/lib/utils/file-security'
 
 export async function POST(request: Request) {
   try {
@@ -15,11 +16,20 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'No file provided' }, { status: 400 })
     }
 
+    // Validate file security
+    const validation = await validateFile(file)
+    if (!validation.valid) {
+      return NextResponse.json({ 
+        error: validation.error,
+        details: `File: ${file.name}, Size: ${formatFileSize(file.size)}, Type: ${file.type}`
+      }, { status: 400 })
+    }
+
     const supabase = await createClient()
     
-    // Upload to Supabase Storage
-    const fileName = `${Date.now()}-${file.name}`
-    const { data: uploadData, error: uploadError } = await supabase.storage
+    // Upload to Supabase Storage with secure filename
+    const fileName = generateSecureFilename(validation.sanitizedFilename || file.name)
+    const { error: uploadError } = await supabase.storage
       .from('media')
       .upload(fileName, file)
 
@@ -42,7 +52,7 @@ export async function POST(request: Request) {
         file_type: file.type,
         file_size: file.size,
         uploaded_by: user.id,
-      } as any)
+      })
       .select()
       .single()
 

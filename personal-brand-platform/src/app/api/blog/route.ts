@@ -37,19 +37,22 @@ export async function POST(request: Request) {
     if (authResult instanceof NextResponse) return authResult
 
     const supabase = await createClient()
+    
+    const insertData: Record<string, unknown> = {
+      tenant_id: validatedData.tenantId,
+      author_id: authResult.user.id,
+      title: validatedData.title,
+      slug: validatedData.slug,
+      content: validatedData.content,
+      excerpt: validatedData.excerpt,
+      featured_image: validatedData.featuredImage,
+      is_published: validatedData.isPublished,
+      published_at: validatedData.isPublished ? new Date().toISOString() : null,
+    }
+    
     const { data: post, error } = await supabase
       .from('blog_posts')
-      .insert({
-        tenant_id: validatedData.tenantId,
-        author_id: authResult.user.id,
-        title: validatedData.title,
-        slug: validatedData.slug,
-        content: validatedData.content,
-        excerpt: validatedData.excerpt,
-        featured_image: validatedData.featuredImage,
-        is_published: validatedData.isPublished,
-        published_at: validatedData.isPublished ? new Date().toISOString() : null,
-      } as any)
+      .insert(insertData)
       .select()
       .single()
 

@@ -33,7 +33,7 @@ export default async function SettingsPage() {
             <label className="block text-sm font-medium mb-2">Full Name</label>
             <Input 
               type="text" 
-              defaultValue={(profile as any)?.full_name || ''} 
+              defaultValue={(profile && typeof profile === 'object' && 'full_name' in profile && typeof profile.full_name === 'string') ? profile.full_name : ''} 
               placeholder="Enter your full name"
             />
           </div>

@@ -30,7 +30,7 @@ export default async function AccountPage() {
                 <strong>Email:</strong> {user.email}
               </p>
               <p className="text-gray-600 mb-4">
-                <strong>Name:</strong> {(profile as any)?.full_name || 'Not set'}
+                <strong>Name:</strong> {(profile && typeof profile === 'object' && 'full_name' in profile) ? String(profile.full_name) : 'Not set'}
               </p>
               <Button asChild className="w-full">
                 <Link href="/account/settings">Edit Profile</Link>

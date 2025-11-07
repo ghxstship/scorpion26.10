@@ -44,7 +44,7 @@ export async function POST(request: Request) {
         content: validatedData.content,
         rating: validatedData.rating,
         is_approved: false,
-      } as any)
+      })
       .select()
       .single()
 

@@ -1,17 +1,21 @@
 import { createClient } from '@/lib/supabase/server'
 import { NextResponse } from 'next/server'
 import { requireAdmin, handleError } from '@/lib/utils/api-helpers'
+import { createProductVariantSchema } from '@/lib/utils/validation-extended'
+import { z } from 'zod'
 
 export async function GET(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params
     const supabase = await createClient()
+
     const { data, error } = await supabase
       .from('product_variants')
       .select('*')
-      .eq('product_id', params.id)
+      .eq('product_id', id)
       .eq('is_active', true)
 
     if (error) {
@@ -26,25 +30,33 @@ export async function GET(
 
 export async function POST(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params
     const authResult = await requireAdmin()
     if (authResult instanceof NextResponse) return authResult
 
     const body = await request.json()
+    const validatedData = createProductVariantSchema.parse({
+      ...body,
+      productId: id
+    })
+
     const supabase = await createClient()
+    
+    const insertData: Record<string, unknown> = {
+      product_id: validatedData.productId,
+      name: validatedData.name,
+      sku: validatedData.sku,
+      price: validatedData.price,
+      stripe_price_id: validatedData.stripePriceId,
+      inventory_count: validatedData.inventoryCount,
+    }
     
     const { data, error } = await supabase
       .from('product_variants')
-      .insert({
-        product_id: params.id,
-        name: body.name,
-        sku: body.sku,
-        price: body.price,
-        stripe_price_id: body.stripePriceId,
-        inventory_count: body.inventoryCount || 0,
-      } as any)
+      .insert(insertData)
       .select()
       .single()
 
@@ -54,6 +66,12 @@ export async function POST(
 
     return NextResponse.json(data)
   } catch (error) {
+    if (error instanceof z.ZodError) {
+      return NextResponse.json(
+        { error: 'Validation failed', details: error.issues },
+        { status: 400 }
+      )
+    }
     return handleError(error)
   }
 }

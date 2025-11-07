@@ -1,5 +1,6 @@
 import { redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
+import type { BookingWithDetails } from '@/types/database'
 
 export default async function BookingsPage() {
   const supabase = await createClient()
@@ -22,11 +23,11 @@ export default async function BookingsPage() {
         
         {!bookings || bookings.length === 0 ? (
           <div className="text-center py-12">
-            <p className="text-gray-600 mb-4">You don't have any bookings yet.</p>
+            <p className="text-gray-600 mb-4">You don&apos;t have any bookings yet.</p>
           </div>
         ) : (
           <div className="space-y-4">
-            {bookings.map((booking: any) => (
+            {bookings.map((booking: BookingWithDetails) => (
               <div key={booking.id} className="border rounded-lg p-6">
                 <div className="flex justify-between items-start">
                   <div>

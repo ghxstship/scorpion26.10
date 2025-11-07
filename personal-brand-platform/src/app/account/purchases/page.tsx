@@ -1,5 +1,6 @@
 import { redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
+import type { OrderWithItems } from '@/types/database'
 
 export default async function PurchasesPage() {
   const supabase = await createClient()
@@ -22,11 +23,11 @@ export default async function PurchasesPage() {
         
         {!orders || orders.length === 0 ? (
           <div className="text-center py-12">
-            <p className="text-gray-600 mb-4">You haven't made any purchases yet.</p>
+            <p className="text-muted-foreground">You haven&apos;t made any purchases yet.</p>
           </div>
         ) : (
           <div className="space-y-4">
-            {orders.map((order: any) => (
+            {orders.map((order: OrderWithItems) => (
               <div key={order.id} className="border rounded-lg p-6">
                 <div className="flex justify-between items-start mb-4">
                   <div>
@@ -42,7 +43,7 @@ export default async function PurchasesPage() {
                 </div>
                 
                 <div className="space-y-2">
-                  {order.order_items?.map((item: any) => (
+                  {order.order_items?.map((item) => (
                     <div key={item.id} className="flex justify-between text-sm">
                       <span>{item.products?.title}</span>
                       <span>x{item.quantity}</span>

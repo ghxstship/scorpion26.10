@@ -18,13 +18,13 @@ export async function GET() {
     }
 
     // Convert to CSV format
-    const csv = data?.map((order: any) => ({
+    const csv = data?.map((order: Record<string, unknown>) => ({
       id: order.id,
-      customer: order.users?.email || 'N/A',
+      customer: (order.users && typeof order.users === 'object' && 'email' in order.users) ? order.users.email : 'N/A',
       total: order.total_amount,
       status: order.status,
-      items: order.order_items?.length || 0,
-      created: new Date(order.created_at).toLocaleDateString(),
+      items: (order.order_items && Array.isArray(order.order_items)) ? order.order_items.length : 0,
+      created: typeof order.created_at === 'string' ? new Date(order.created_at).toLocaleDateString() : 'N/A',
     }))
 
     return NextResponse.json(csv)

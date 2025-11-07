@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import { stripe } from '@/lib/stripe'
 import { createClient } from '@/lib/supabase/server'
+import type { CartItem } from '@/types/database'
 
 export async function POST(request: Request) {
   const supabase = await createClient()
@@ -17,7 +18,7 @@ export async function POST(request: Request) {
     // Create Stripe checkout session
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
-      line_items: items.map((item: any) => ({
+      line_items: items.map((item: CartItem) => ({
         price_data: {
           currency: 'usd',
           product_data: {
@@ -46,7 +47,7 @@ export async function POST(request: Request) {
           user_id: user.id,
           tenant_id: 'default-tenant-id', // Replace with actual tenant ID
           total_amount: items.reduce(
-            (sum: number, item: any) => sum + item.price * item.quantity,
+            (sum: number, item: CartItem) => sum + item.price * item.quantity,
             0
           ) / 100,
           status: 'pending',
@@ -58,7 +59,7 @@ export async function POST(request: Request) {
       // Create order items
       if (order) {
         await supabase.from('order_items').insert(
-          items.map((item: any) => ({
+          items.map((item: CartItem) => ({
             order_id: order.id,
             product_id: item.id,
             quantity: item.quantity,

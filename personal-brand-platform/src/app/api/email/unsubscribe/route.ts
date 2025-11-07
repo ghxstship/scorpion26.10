@@ -9,7 +9,7 @@ export async function POST(request: Request) {
 
     const { error } = await supabase
       .from('email_subscribers')
-      .update({ status: 'unsubscribed' } as any)
+      .update({ status: 'unsubscribed' })
       .eq('email', email)
       .eq('tenant_id', tenantId)
 

@@ -2,41 +2,61 @@ import { formatDate } from '@/lib/utils'
 import { Calendar, User, ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
+import { createClient } from '@/lib/supabase/server'
+import { notFound } from 'next/navigation'
+import { ContentRenderer } from '@/components/content/ContentRenderer'
+import { generateSEO, generateArticleSchema } from '@/lib/utils/seo'
+import type { Metadata } from 'next'
+import Image from 'next/image'
 
-// Mock data - will be replaced with actual database query
-const blogPost = {
-  id: '1',
-  title: 'The Path to Excellence: 5 Key Principles',
-  content: `
-    <h2>Introduction</h2>
-    <p>Excellence isn't achieved overnight. It's the result of consistent effort, strategic thinking, and unwavering commitment to growth. In this article, we'll explore five fundamental principles that separate good from great.</p>
-    
-    <h2>1. Clarity of Purpose</h2>
-    <p>The first step toward excellence is knowing exactly what you're working toward. Without a clear purpose, effort becomes scattered and ineffective. Define your goals with precision and revisit them regularly.</p>
-    
-    <h2>2. Disciplined Execution</h2>
-    <p>Knowing what to do isn't enough—you must do it consistently. Excellence requires discipline, especially when motivation wanes. Build systems and habits that support your goals.</p>
-    
-    <h2>3. Continuous Learning</h2>
-    <p>The pursuit of excellence is never complete. Commit to lifelong learning, seek feedback actively, and remain open to new perspectives. Your willingness to learn determines your ceiling.</p>
-    
-    <h2>4. Resilience Under Pressure</h2>
-    <p>Setbacks are inevitable. What matters is how you respond. Develop mental toughness, learn from failures, and use challenges as opportunities for growth.</p>
-    
-    <h2>5. Strategic Rest</h2>
-    <p>Peak performance requires recovery. Excellence isn't about working harder—it's about working smarter. Prioritize rest, recovery, and renewal to sustain long-term performance.</p>
-    
-    <h2>Conclusion</h2>
-    <p>These five principles form the foundation of excellence. Apply them consistently, and you'll see transformation in every area of your life.</p>
-  `,
-  excerpt: 'Discover the fundamental principles that separate good from great.',
-  featured_image: null,
-  author: 'Admin',
-  published_at: new Date('2024-01-15'),
-  category: 'Performance',
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const supabase = await createClient()
+  
+  const { data: post } = await supabase
+    .from('blog_posts')
+    .select('title, excerpt, featured_image')
+    .eq('slug', params.slug)
+    .eq('is_published', true)
+    .single()
+  
+  if (!post) {
+    return {}
+  }
+  
+  return generateSEO({
+    title: post.title,
+    description: post.excerpt || '',
+    path: `/blog/${params.slug}`,
+    image: post.featured_image || undefined,
+  })
 }
 
-export default function BlogPostPage() {
+export default async function BlogPostPage({ params }: { params: { slug: string } }) {
+  const supabase = await createClient()
+  
+  const { data: post, error } = await supabase
+    .from('blog_posts')
+    .select(`
+      *,
+      author:users(full_name)
+    `)
+    .eq('slug', params.slug)
+    .eq('is_published', true)
+    .single()
+  
+  if (error || !post) {
+    notFound()
+  }
+  
+  const articleSchema = generateArticleSchema({
+    title: post.title,
+    description: post.excerpt || '',
+    author: post.author?.full_name || 'Admin',
+    publishedDate: post.published_at || post.created_at,
+    modifiedDate: post.created_at,
+    image: post.featured_image || '',
+    url: `/blog/${params.slug}`,
+  })
   return (
     <article className="container py-12 md:py-20">
       <div className="mx-auto max-w-3xl">
@@ -48,34 +68,45 @@ export default function BlogPostPage() {
           Back to Blog
         </Link>
 
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        />
+
         <div className="mb-8">
           <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
             <span className="flex items-center gap-1">
               <Calendar className="h-4 w-4" />
-              {formatDate(blogPost.published_at)}
+              {formatDate(new Date(post.published_at || post.created_at))}
             </span>
             <span className="flex items-center gap-1">
               <User className="h-4 w-4" />
-              {blogPost.author}
-            </span>
-            <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs">
-              {blogPost.category}
+              {post.author?.full_name || 'Admin'}
             </span>
           </div>
 
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl mb-4">
-            {blogPost.title}
+            {post.title}
           </h1>
 
-          <p className="text-xl text-muted-foreground">{blogPost.excerpt}</p>
+          {post.excerpt && (
+            <p className="text-xl text-muted-foreground">{post.excerpt}</p>
+          )}
         </div>
 
-        <div className="h-96 bg-muted rounded-xl mb-8" />
+        {post.featured_image && (
+          <div className="mb-8">
+            <Image
+              src={post.featured_image}
+              alt={post.title}
+              width={1200}
+              height={630}
+              className="rounded-xl w-full"
+            />
+          </div>
+        )}
 
-        <div
-          className="prose prose-lg max-w-none"
-          dangerouslySetInnerHTML={{ __html: blogPost.content }}
-        />
+        <ContentRenderer content={post.content} />
 
         <div className="mt-12 border-t pt-8">
           <div className="flex items-center justify-between">

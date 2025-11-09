@@ -1,6 +1,10 @@
 import * as React from "react"
 import { cn } from "@/lib/utils"
 
+/**
+ * Spartan Warrior Card Component
+ * Dark charcoal background with gold accent and hover effects
+ */
 const Card = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
@@ -8,7 +12,7 @@ const Card = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "rounded-xl border bg-card text-card-foreground shadow",
+      "rounded-sm border border-[var(--grey-700)] bg-[var(--grey-850)] text-[var(--grey-100)] shadow-md overflow-hidden transition-all duration-300 ease-out hover:border-[var(--gold-600)] hover:shadow-[var(--glow-gold)] hover:-translate-y-0.5",
       className
     )}
     {...props}
@@ -22,7 +26,10 @@ const CardHeader = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("flex flex-col space-y-1.5 p-6", className)}
+    className={cn(
+      "flex flex-col space-y-1.5 p-6 border-b border-[var(--grey-700)] border-t-2 border-t-[var(--gold-600)]",
+      className
+    )}
     {...props}
   />
 ))
@@ -34,7 +41,10 @@ const CardTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <h3
     ref={ref}
-    className={cn("font-semibold leading-none tracking-tight", className)}
+    className={cn(
+      "font-[family-name:var(--font-bebas)] text-xl font-bold leading-tight tracking-[0.05em] uppercase text-[var(--grey-100)]",
+      className
+    )}
     {...props}
   />
 ))
@@ -46,7 +56,7 @@ const CardDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <p
     ref={ref}
-    className={cn("text-sm text-muted-foreground", className)}
+    className={cn("text-sm text-[var(--grey-300)] leading-relaxed", className)}
     {...props}
   />
 ))
@@ -56,7 +66,11 @@ const CardContent = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn("p-6 pt-0", className)} {...props} />
+  <div 
+    ref={ref} 
+    className={cn("p-6 text-[var(--grey-300)]", className)} 
+    {...props} 
+  />
 ))
 CardContent.displayName = "CardContent"
 
@@ -66,7 +80,10 @@ const CardFooter = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("flex items-center p-6 pt-0", className)}
+    className={cn(
+      "flex items-center justify-between p-6 pt-0 border-t border-[var(--grey-700)]",
+      className
+    )}
     {...props}
   />
 ))

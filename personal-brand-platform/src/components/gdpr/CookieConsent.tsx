@@ -45,12 +45,15 @@ export function CookieConsent() {
   useEffect(() => {
     // Check if user has already made a choice
     const consent = localStorage.getItem('cookie-consent')
-    if (!consent) {
-      setShowBanner(true)
-    } else {
+    if (consent) {
       const saved = JSON.parse(consent) as CookiePreferences
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setPreferences(saved)
       applyPreferences(saved)
+    } else {
+      // Show banner after initial render to avoid hydration mismatch
+      const timer = setTimeout(() => setShowBanner(true), 100)
+      return () => clearTimeout(timer)
     }
   }, [])
 

@@ -156,7 +156,7 @@ export function ProductDetail({ product, variants = [], onAddToCart }: ProductDe
 
         {/* Features */}
         <div className="space-y-3 pt-4">
-          <h3 className="font-semibold">What's included:</h3>
+          <h3 className="font-semibold">What&apos;s included:</h3>
           <ul className="space-y-2">
             {features.map((feature, index) => (
               <li key={index} className="flex items-center gap-2 text-sm">

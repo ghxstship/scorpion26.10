@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Bebas_Neue } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -9,6 +9,12 @@ import { SkipNav } from "@/components/ui/skip-nav";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+});
+
+const bebasNeue = Bebas_Neue({
+  weight: ["400"],
+  subsets: ["latin"],
+  variable: "--font-bebas",
 });
 
 export const metadata: Metadata = {
@@ -23,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${bebasNeue.variable} font-sans antialiased bg-[var(--color-surface-primary)] text-[var(--color-text-primary)]`}>
         <SkipNav />
         <div className="flex min-h-screen flex-col">
           <Header />

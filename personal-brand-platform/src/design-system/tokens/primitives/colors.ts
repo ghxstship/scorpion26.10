@@ -1,96 +1,77 @@
 /**
- * Primitive Color Tokens
+ * Primitive Color Tokens - Spartan Warrior Aesthetic
  * Base color palette - do not use directly in components
  * Use semantic tokens instead for better maintainability
+ * 
+ * Inspired by: Movie "300" + Elite Performance Brands
+ * Philosophy: Greyscale dominant with deep red and gold accents
  */
 
 export const primitiveColors = {
-  // Neutral scale (0-950)
-  neutral: {
-    0: '#FFFFFF',
-    50: '#F9FAFB',
-    100: '#F3F4F6',
-    200: '#E5E7EB',
-    300: '#D1D5DB',
-    400: '#9CA3AF',
-    500: '#6B7280',
-    600: '#4B5563',
-    700: '#374151',
-    800: '#1F2937',
-    900: '#111827',
-    950: '#030712',
+  // Greyscale Foundation (90% of UI)
+  grey: {
+    950: '#000000',  // Pure black
+    900: '#0A0A0A',  // Deep charcoal
+    850: '#141414',  // Dark charcoal
+    800: '#1A1A1A',  // Charcoal
+    700: '#2A2A2A',  // Dark grey
+    600: '#404040',  // Medium-dark grey
+    500: '#5A5A5A',  // Medium grey
+    400: '#7A7A7A',  // Light-medium grey
+    300: '#A0A0A0',  // Light grey
+    200: '#C8C8C8',  // Very light grey
+    100: '#E8E8E8',  // Off-white
+    50: '#F5F5F5',   // Near-white
   },
   
-  // Brand colors
-  brand: {
-    50: '#EEF2FF',
-    100: '#E0E7FF',
-    200: '#C7D2FE',
-    300: '#A5B4FC',
-    400: '#818CF8',
-    500: '#6366F1',    // Primary brand
-    600: '#4F46E5',
-    700: '#4338CA',
-    800: '#3730A3',
-    900: '#312E81',
-    950: '#1E1B4B',
+  // Deep Red Accents - Spartan Blood (5% of UI)
+  // Use for: Primary CTAs, urgent actions, alerts, badges
+  red: {
+    900: '#8B0000',  // Blood red (darkest)
+    800: '#A00000',  // Deep crimson
+    700: '#B50000',  // Crimson (PRIMARY)
+    600: '#C80000',  // Rich red
+    500: '#DC0000',  // Primary red
+    400: '#E61A1A',  // Bright red
+    300: '#F04040',  // Light red
   },
   
-  // Semantic color bases
+  // Gold Accents - Spartan Glory (5% of UI)
+  // Use for: Premium features, success states, highlights, focus
+  gold: {
+    900: '#6B4E00',  // Deep bronze (darkest)
+    800: '#8B6500',  // Dark gold
+    700: '#B8860B',  // Antique gold
+    600: '#D4AF37',  // Rich gold (PRIMARY)
+    500: '#FFD700',  // Primary gold
+    400: '#FFE44D',  // Bright gold
+    300: '#FFF099',  // Light gold
+  },
+  
+  // Legacy color bases (kept for backward compatibility)
+  // NOTE: Prefer grey/red/gold above for new implementations
   success: {
     50: '#F0FDF4',
-    100: '#DCFCE7',
-    200: '#BBF7D0',
-    300: '#86EFAC',
-    400: '#4ADE80',
     500: '#22C55E',
-    600: '#16A34A',
-    700: '#15803D',
-    800: '#166534',
     900: '#14532D',
-    950: '#052E16',
   },
   
   error: {
     50: '#FEF2F2',
-    100: '#FEE2E2',
-    200: '#FECACA',
-    300: '#FCA5A5',
-    400: '#F87171',
     500: '#EF4444',
-    600: '#DC2626',
-    700: '#B91C1C',
-    800: '#991B1B',
     900: '#7F1D1D',
-    950: '#450A0A',
   },
   
   warning: {
     50: '#FFFBEB',
-    100: '#FEF3C7',
-    200: '#FDE68A',
-    300: '#FCD34D',
-    400: '#FBBF24',
     500: '#F59E0B',
-    600: '#D97706',
-    700: '#B45309',
-    800: '#92400E',
     900: '#78350F',
-    950: '#451A03',
   },
   
   info: {
     50: '#EFF6FF',
-    100: '#DBEAFE',
-    200: '#BFDBFE',
-    300: '#93C5FD',
-    400: '#60A5FA',
     500: '#3B82F6',
-    600: '#2563EB',
-    700: '#1D4ED8',
-    800: '#1E40AF',
     900: '#1E3A8A',
-    950: '#172554',
   },
 } as const;
 

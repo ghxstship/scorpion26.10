@@ -1,103 +1,162 @@
 import Link from 'next/link'
 import { Facebook, Twitter, Instagram, Linkedin, Youtube } from 'lucide-react'
+import { Input } from '@/components/ui/input'
+import { Button } from '@/components/ui/button'
 
+/**
+ * Spartan Warrior Footer Component
+ * Black background with gold accents and organized link sections
+ */
 export function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="border-t bg-background">
-      <div className="container py-12 md:py-16">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
-          <div className="space-y-4">
-            <h3 className="text-lg font-bold">BRAND</h3>
-            <p className="text-sm text-muted-foreground">
-              Empowering excellence through proven strategies and transformative insights.
+    <footer className="border-t-2 border-[var(--gold-600)] bg-[var(--grey-950)]">
+      <div className="container py-16 md:py-20 px-6">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-4">
+          {/* Brand Section */}
+          <div className="space-y-6">
+            <h3 className="font-[family-name:var(--font-bebas)] text-3xl font-black tracking-wider text-[var(--gold-600)]">
+              456PRO
+            </h3>
+            <p className="text-sm text-[var(--grey-300)] leading-relaxed">
+              Transforming lives through elite fitness training and performance excellence.
             </p>
-            <div className="flex gap-4">
-              <Link href="#" className="text-muted-foreground hover:text-primary">
-                <Facebook className="h-5 w-5" />
+            <p className="text-sm text-[var(--grey-400)] font-bold">
+              📍 Orlando, FL | Est. 2025
+            </p>
+            <div className="flex gap-4 pt-2">
+              <Link 
+                href="#" 
+                className="text-[var(--grey-400)] hover:text-[var(--gold-600)] transition-colors"
+                aria-label="Facebook"
+              >
+                <Facebook className="h-6 w-6" />
               </Link>
-              <Link href="#" className="text-muted-foreground hover:text-primary">
-                <Twitter className="h-5 w-5" />
+              <Link 
+                href="#" 
+                className="text-[var(--grey-400)] hover:text-[var(--gold-600)] transition-colors"
+                aria-label="Twitter"
+              >
+                <Twitter className="h-6 w-6" />
               </Link>
-              <Link href="#" className="text-muted-foreground hover:text-primary">
-                <Instagram className="h-5 w-5" />
+              <Link 
+                href="#" 
+                className="text-[var(--grey-400)] hover:text-[var(--gold-600)] transition-colors"
+                aria-label="Instagram"
+              >
+                <Instagram className="h-6 w-6" />
               </Link>
-              <Link href="#" className="text-muted-foreground hover:text-primary">
-                <Linkedin className="h-5 w-5" />
+              <Link 
+                href="#" 
+                className="text-[var(--grey-400)] hover:text-[var(--gold-600)] transition-colors"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="h-6 w-6" />
               </Link>
-              <Link href="#" className="text-muted-foreground hover:text-primary">
-                <Youtube className="h-5 w-5" />
+              <Link 
+                href="#" 
+                className="text-[var(--grey-400)] hover:text-[var(--gold-600)] transition-colors"
+                aria-label="YouTube"
+              >
+                <Youtube className="h-6 w-6" />
               </Link>
             </div>
           </div>
+
+          {/* Quick Links */}
           <div>
-            <h4 className="mb-4 text-sm font-semibold">Quick Links</h4>
-            <ul className="space-y-2 text-sm">
+            <h4 className="mb-6 font-[family-name:var(--font-bebas)] text-lg font-bold uppercase tracking-wide text-[var(--grey-100)]">
+              Quick Links
+            </h4>
+            <ul className="space-y-3 text-sm">
               <li>
-                <Link href="/about" className="text-muted-foreground hover:text-primary">
+                <Link href="/about" className="text-[var(--grey-300)] hover:text-[var(--gold-600)] transition-colors">
                   About
                 </Link>
               </li>
               <li>
-                <Link href="/products" className="text-muted-foreground hover:text-primary">
-                  Products
+                <Link href="/products" className="text-[var(--grey-300)] hover:text-[var(--gold-600)] transition-colors">
+                  Training Programs
                 </Link>
               </li>
               <li>
-                <Link href="/speaking" className="text-muted-foreground hover:text-primary">
-                  Speaking
+                <Link href="/university" className="text-[var(--grey-300)] hover:text-[var(--gold-600)] transition-colors">
+                  456ProU
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="text-muted-foreground hover:text-primary">
+                <Link href="/community" className="text-[var(--grey-300)] hover:text-[var(--gold-600)] transition-colors">
+                  Club456
+                </Link>
+              </li>
+              <li>
+                <Link href="/customs" className="text-[var(--grey-300)] hover:text-[var(--gold-600)] transition-colors">
+                  456Customs
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog" className="text-[var(--grey-300)] hover:text-[var(--gold-600)] transition-colors">
                   Blog
                 </Link>
               </li>
             </ul>
           </div>
+
+          {/* Resources */}
           <div>
-            <h4 className="mb-4 text-sm font-semibold">Resources</h4>
-            <ul className="space-y-2 text-sm">
+            <h4 className="mb-6 font-[family-name:var(--font-bebas)] text-lg font-bold uppercase tracking-wide text-[var(--grey-100)]">
+              Resources
+            </h4>
+            <ul className="space-y-3 text-sm">
               <li>
-                <Link href="/contact" className="text-muted-foreground hover:text-primary">
+                <Link href="/contact" className="text-[var(--grey-300)] hover:text-[var(--gold-600)] transition-colors">
                   Contact
                 </Link>
               </li>
               <li>
-                <Link href="/privacy" className="text-muted-foreground hover:text-primary">
+                <Link href="/privacy" className="text-[var(--grey-300)] hover:text-[var(--gold-600)] transition-colors">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/terms" className="text-muted-foreground hover:text-primary">
+                <Link href="/terms" className="text-[var(--grey-300)] hover:text-[var(--gold-600)] transition-colors">
                   Terms of Service
                 </Link>
               </li>
             </ul>
           </div>
+
+          {/* Newsletter */}
           <div>
-            <h4 className="mb-4 text-sm font-semibold">Newsletter</h4>
-            <p className="mb-4 text-sm text-muted-foreground">
+            <h4 className="mb-6 font-[family-name:var(--font-bebas)] text-lg font-bold uppercase tracking-wide text-[var(--grey-100)]">
+              Newsletter
+            </h4>
+            <p className="mb-6 text-sm text-[var(--grey-300)] leading-relaxed">
               Subscribe to get the latest updates and insights.
             </p>
-            <form className="flex gap-2">
-              <input
+            <form className="space-y-3">
+              <Input
                 type="email"
-                placeholder="Enter your email"
-                className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                placeholder="YOUR EMAIL"
+                className="w-full"
               />
-              <button
+              <Button
                 type="submit"
-                className="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90"
+                size="sm"
+                className="w-full"
               >
                 Subscribe
-              </button>
+              </Button>
             </form>
           </div>
         </div>
-        <div className="mt-8 border-t pt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; {currentYear} Personal Brand Platform. All rights reserved.</p>
+
+        {/* Bottom Bar */}
+        <div className="mt-12 border-t border-[var(--grey-800)] pt-8 text-center">
+          <p className="text-sm text-[var(--grey-400)]">
+            &copy; {currentYear} <span className="text-[var(--gold-600)] font-bold">456Pro</span>. All rights reserved. | Founded by <span className="text-[var(--grey-200)]">Matthew Alarcon</span>
+          </p>
         </div>
       </div>
     </footer>

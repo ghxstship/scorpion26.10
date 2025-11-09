@@ -1,21 +1,30 @@
 import Link from 'next/link'
-import { FileQuestion } from 'lucide-react'
+import { Shield } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
+/**
+ * 404 Not Found Page - Spartan Warrior Design
+ * Custom error page with brand styling
+ */
 export default function NotFound() {
   return (
-    <div className="flex min-h-[600px] flex-col items-center justify-center p-8 text-center">
-      <FileQuestion className="mb-4 h-16 w-16 text-muted-foreground" aria-hidden="true" />
-      <h1 className="mb-2 text-3xl font-bold">404 - Page Not Found</h1>
-      <p className="mb-6 max-w-md text-muted-foreground">
-        Sorry, we couldn&apos;t find the page you&apos;re looking for. It may have been moved or deleted.
+    <div className="flex min-h-screen flex-col items-center justify-center bg-[var(--grey-950)] p-8 text-center">
+      <Shield className="mb-8 h-24 w-24 text-[var(--gold-600)]" aria-hidden="true" />
+      <h1 className="mb-4 font-[family-name:var(--font-bebas)] text-7xl font-black uppercase tracking-wider text-[var(--grey-100)] md:text-8xl lg:text-9xl">
+        404
+      </h1>
+      <h2 className="mb-6 font-[family-name:var(--font-bebas)] text-3xl font-bold uppercase tracking-wide text-[var(--gold-600)] md:text-4xl">
+        Page Not Found
+      </h2>
+      <p className="mb-12 max-w-md text-lg text-[var(--grey-300)]">
+        This page has gone AWOL. Return to base or contact command for assistance.
       </p>
-      <div className="flex gap-4">
-        <Button asChild>
-          <Link href="/">Go home</Link>
+      <div className="flex flex-col gap-4 sm:flex-row">
+        <Button asChild size="lg">
+          <Link href="/">Return to Base</Link>
         </Button>
-        <Button variant="outline" asChild>
-          <Link href="/contact">Contact support</Link>
+        <Button variant="secondary" asChild size="lg">
+          <Link href="/contact">Contact Command</Link>
         </Button>
       </div>
     </div>

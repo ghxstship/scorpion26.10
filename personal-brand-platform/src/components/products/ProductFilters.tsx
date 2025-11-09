@@ -81,7 +81,7 @@ export function ProductFilters({ onFilterChange, maxPrice = 1000 }: ProductFilte
     filters.priceRange[0] > 0 || 
     filters.priceRange[1] < maxPrice
 
-  const FilterContent = () => (
+  const renderFilterContent = () => (
     <div className="space-y-6">
       {/* Search */}
       <div className="space-y-2">
@@ -196,7 +196,7 @@ export function ProductFilters({ onFilterChange, maxPrice = 1000 }: ProductFilte
             </Button>
           )}
         </div>
-        <FilterContent />
+        {renderFilterContent()}
       </div>
 
       {/* Mobile Filters */}
@@ -220,7 +220,7 @@ export function ProductFilters({ onFilterChange, maxPrice = 1000 }: ProductFilte
             </SheetDescription>
           </SheetHeader>
           <div className="mt-6">
-            <FilterContent />
+            {renderFilterContent()}
           </div>
         </SheetContent>
       </Sheet>

@@ -102,7 +102,7 @@ export function OrderConfirmation({
         </EmailButton>
         
         <Text style={paragraph}>
-          If you have any questions about your order, please don't hesitate to contact us.
+          If you have any questions about your order, please don&apos;t hesitate to contact us.
         </Text>
       </Section>
       

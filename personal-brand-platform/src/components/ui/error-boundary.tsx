@@ -37,16 +37,18 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
 
       return (
         <div 
-          className="flex min-h-[400px] flex-col items-center justify-center p-8 text-center"
+          className="flex min-h-[400px] flex-col items-center justify-center bg-[var(--grey-950)] p-8 text-center"
           role="alert"
           aria-live="assertive"
         >
-          <AlertTriangle className="mb-4 h-12 w-12 text-destructive" aria-hidden="true" />
-          <h2 className="mb-2 text-2xl font-bold">Something went wrong</h2>
-          <p className="mb-6 text-muted-foreground">
+          <AlertTriangle className="mb-6 h-16 w-16 text-[var(--red-700)]" aria-hidden="true" />
+          <h2 className="mb-4 font-[family-name:var(--font-bebas)] text-4xl font-black uppercase tracking-wider text-[var(--grey-100)] md:text-5xl">
+            Something Went <span className="text-[var(--gold-600)]">Wrong</span>
+          </h2>
+          <p className="mb-8 text-lg text-[var(--grey-300)]">
             We apologize for the inconvenience. Please try refreshing the page.
           </p>
-          <Button onClick={() => window.location.reload()}>
+          <Button onClick={() => window.location.reload()} size="lg">
             Refresh Page
           </Button>
         </div>

@@ -20,7 +20,7 @@ export function WelcomeEmail({ userName, loginUrl, logoUrl }: WelcomeEmailProps)
         <Heading style={heading}>Welcome, {userName}!</Heading>
         
         <Text style={paragraph}>
-          Thank you for joining us. We're excited to have you on board!
+          Thank you for joining us. We&apos;re excited to have you on board!
         </Text>
         
         <Text style={paragraph}>
@@ -34,7 +34,7 @@ export function WelcomeEmail({ userName, loginUrl, logoUrl }: WelcomeEmailProps)
         
         <Text style={paragraph}>
           If you have any questions or need assistance, feel free to reach out to our
-          support team. We're here to help!
+          support team. We&apos;re here to help!
         </Text>
       </Section>
       

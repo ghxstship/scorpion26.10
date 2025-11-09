@@ -127,7 +127,7 @@ export async function validateTenantAccess(
 ): Promise<boolean> {
   const supabase = await createClient()
   
-  const { data: userProfile } = await supabase
+  const { data: userProfile } = await (supabase as any)
     .from('users')
     .select('tenant_id, role')
     .eq('id', userId)
@@ -137,11 +137,13 @@ export async function validateTenantAccess(
     return false
   }
   
+  const profile = userProfile as any
+  
   // Super admins can access any tenant
-  if (userProfile.role === 'super_admin') {
+  if (profile.role === 'super_admin') {
     return true
   }
   
   // Regular users can only access their own tenant
-  return userProfile.tenant_id === tenantId
+  return profile.tenant_id === tenantId
 }

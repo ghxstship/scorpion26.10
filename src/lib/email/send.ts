@@ -20,7 +20,7 @@ export async function sendEmail({
   replyTo,
 }: SendEmailOptions) {
   try {
-    const html = render(template)
+    const html = await render(template)
 
     const { data, error } = await resend.emails.send({
       from,

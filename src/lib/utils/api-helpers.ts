@@ -37,15 +37,15 @@ export async function requireAdmin(tenantId?: string) {
     .eq('id', user.id)
     .single()
   
-  if (!userProfile || typeof userProfile !== 'object' || !('role' in userProfile) || userProfile.role !== 'admin') {
+  if (!userProfile || typeof userProfile !== 'object' || !('role' in userProfile) || (userProfile as any).role !== 'admin') {
     return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
   }
   
-  if (tenantId && userProfile && typeof userProfile === 'object' && 'tenant_id' in userProfile && userProfile.tenant_id !== tenantId) {
+  if (tenantId && userProfile && typeof userProfile === 'object' && 'tenant_id' in userProfile && (userProfile as any).tenant_id !== tenantId) {
     return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
   }
   
-  return { user, userProfile }
+  return { user, userProfile: userProfile as any }
 }
 
 export function handleError(error: unknown) {
@@ -78,23 +78,23 @@ export async function getTenantFromRequest(request: Request): Promise<string | n
   // Check if it's a subdomain
   const subdomain = hostname.split('.')[0]
   if (subdomain && subdomain !== 'www') {
-    const { data: tenant } = await supabase
+    const { data: tenant } = await (supabase as any)
       .from('tenants')
       .select('id')
       .eq('slug', subdomain)
       .single()
     
-    if (tenant) return tenant.id
+    if (tenant) return (tenant as any).id
   }
   
   // Check if it's a custom domain
-  const { data: tenant } = await supabase
+  const { data: tenant } = await (supabase as any)
     .from('tenants')
     .select('id')
     .eq('custom_domain', hostname)
     .single()
   
-  return tenant?.id || null
+  return (tenant as any)?.id || null
 }
 
 // Type-safe insert helper
@@ -103,7 +103,7 @@ export async function insertRecord<T extends keyof Database['public']['Tables']>
   data: Database['public']['Tables'][T]['Insert']
 ) {
   const supabase = await createClient()
-  return await supabase.from(table).insert(data as Database['public']['Tables'][T]['Insert']).select().single()
+  return await (supabase as any).from(table).insert(data as Database['public']['Tables'][T]['Insert']).select().single()
 }
 
 // Type-safe update helper
@@ -113,5 +113,5 @@ export async function updateRecord<T extends keyof Database['public']['Tables']>
   data: Database['public']['Tables'][T]['Update']
 ) {
   const supabase = await createClient()
-  return await supabase.from(table).update(data as Database['public']['Tables'][T]['Update']).eq('id', id).select().single()
+  return await (supabase as any).from(table).update(data as Database['public']['Tables'][T]['Update']).eq('id', id).select().single()
 }

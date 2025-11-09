@@ -10,7 +10,7 @@ export async function POST(request: NextRequest) {
     return authResult
   }
 
-  const { user, userProfile } = authResult
+  const { user, userProfile } = authResult as any
 
   try {
     const { email, country = 'US' } = await request.json()

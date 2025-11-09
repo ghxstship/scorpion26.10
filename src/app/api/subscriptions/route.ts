@@ -81,30 +81,31 @@ export async function POST(request: NextRequest) {
     })
 
     // Save subscription to database
-    const { data: newSubscription, error } = await (supabase as any)
+    const sub = subscription as any
+    const { data: dbSubscription, error: dbError } = await (supabase as any)
       .from('subscriptions')
       .insert({
         user_id: user.id,
         tenant_id: validatedData.tenantId,
-        stripe_subscription_id: subscription.id,
+        stripe_subscription_id: sub.id,
         stripe_customer_id: stripeCustomerId,
         stripe_price_id: validatedData.priceId,
-        status: subscription.status,
-        current_period_start: new Date(subscription.current_period_start * 1000).toISOString(),
-        current_period_end: new Date(subscription.current_period_end * 1000).toISOString(),
-        cancel_at_period_end: subscription.cancel_at_period_end,
+        status: sub.status,
+        current_period_start: new Date(sub.current_period_start * 1000).toISOString(),
+        current_period_end: new Date(sub.current_period_end * 1000).toISOString(),
+        cancel_at_period_end: sub.cancel_at_period_end,
       })
       .select()
       .single()
 
-    if (error) throw error
+    if (dbError) throw dbError
 
     // Get client secret for payment
-    const invoice = subscription.latest_invoice as Stripe.Invoice
-    const paymentIntent = invoice.payment_intent as Stripe.PaymentIntent
+    const invoice = (subscription as any).latest_invoice
+    const paymentIntent = (invoice as any)?.payment_intent
 
     return NextResponse.json({
-      data: newSubscription,
+      data: dbSubscription,
       clientSecret: paymentIntent?.client_secret,
     }, { status: 201 })
   } catch (error) {

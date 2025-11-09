@@ -14,7 +14,7 @@ import Link from 'next/link'
 export default async function ProductDetailPage({ params }: { params: { id: string } }) {
   const supabase = await createClient()
   
-  const { data: product, error } = await supabase
+  const { data: product, error } = await (supabase as any)
     .from('products')
     .select('*')
     .eq('id', params.id)
@@ -24,6 +24,8 @@ export default async function ProductDetailPage({ params }: { params: { id: stri
   if (error || !product) {
     notFound()
   }
+  
+  const prod = product as any
 
   // Mock features for demo (in production, these would come from the database)
   const features = [
@@ -48,11 +50,11 @@ export default async function ProductDetailPage({ params }: { params: { id: stri
         <div className="grid gap-12 md:grid-cols-2">
           {/* Product Image */}
           <div className="relative">
-            {(product && typeof product === 'object' && 'image_url' in product && product.image_url) ? (
+            {(product && typeof product === 'object' && 'image_url' in product && (product as any).image_url) ? (
               <div className="relative aspect-square overflow-hidden rounded-sm border-2 border-[var(--grey-800)]">
                 <Image
-                  src={String(product.image_url)}
-                  alt={(product && typeof product === 'object' && 'title' in product) ? String(product.title) : 'Product'}
+                  src={String(prod.image_url)}
+                  alt={(product && typeof product === 'object' && 'title' in product) ? String(prod.title) : 'Product'}
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -72,28 +74,28 @@ export default async function ProductDetailPage({ params }: { params: { id: stri
             {/* Type Badge */}
             <div className="mb-6">
               <Badge className="font-[family-name:var(--font-bebas)] uppercase tracking-wide">
-                {(product && typeof product === 'object' && 'type' in product) ? String(product.type) : 'Product'}
+                {(product && typeof product === 'object' && 'type' in product) ? String(prod.type) : 'Product'}
               </Badge>
             </div>
 
             {/* Title */}
             <h1 className="mb-6 font-[family-name:var(--font-bebas)] text-5xl font-black uppercase tracking-wider text-[var(--grey-100)] md:text-6xl lg:text-7xl">
-              {(product && typeof product === 'object' && 'title' in product) ? String(product.title) : 'Product'}
+              {(product && typeof product === 'object' && 'title' in product) ? String(prod.title) : 'Product'}
             </h1>
             
             {/* Price */}
             <div className="mb-8 border-b border-[var(--grey-800)] pb-8">
               <span className="font-[family-name:var(--font-bebas)] text-6xl font-black text-[var(--gold-600)]">
-                ${(product && typeof product === 'object' && 'price' in product) ? (Number(product.price) / 100).toFixed(0) : '0'}
+                ${(product && typeof product === 'object' && 'price' in product) ? (Number(prod.price) / 100).toFixed(0) : '0'}
               </span>
-              {(product && typeof product === 'object' && 'type' in product && String(product.type) === 'subscription') && (
+              {(product && typeof product === 'object' && 'type' in product && String(prod.type) === 'subscription') && (
                 <span className="ml-2 text-sm uppercase tracking-wide text-[var(--grey-500)]">/month</span>
               )}
             </div>
 
             {/* Description */}
             <p className="mb-8 text-lg leading-relaxed text-[var(--grey-300)]">
-              {(product && typeof product === 'object' && 'description' in product && product.description) ? String(product.description) : 'No description available.'}
+              {(product && typeof product === 'object' && 'description' in product && prod.description) ? String(prod.description) : 'No description available.'}
             </p>
 
             {/* Features */}

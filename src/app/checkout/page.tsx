@@ -44,7 +44,7 @@ export default function CheckoutPage() {
       // Redirect to Stripe Checkout
       const stripe = await stripePromise
       if (stripe) {
-        const { error } = await stripe.redirectToCheckout({ sessionId })
+        const { error } = await (stripe as any).redirectToCheckout({ sessionId })
         if (error) {
           console.error('Stripe error:', error)
         }

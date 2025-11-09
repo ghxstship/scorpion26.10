@@ -76,7 +76,7 @@ export async function recordLoginAttempt(
 async function logLoginAttempt(email: string, success: boolean, ip?: string): Promise<void> {
   try {
     const supabase = await createClient()
-    await supabase.from('audit_logs').insert({
+    await (supabase as any).from('audit_logs').insert({
       action: success ? 'LOGIN_SUCCESS' : 'LOGIN_FAILED',
       entity_type: 'auth',
       description: success ? 'Successful login' : 'Failed login attempt',

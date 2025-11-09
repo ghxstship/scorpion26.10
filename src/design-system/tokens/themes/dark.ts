@@ -1,5 +1,7 @@
-import { primitiveColors } from '../primitives/colors';
-import { lightTheme } from './light';
+import { primitiveColors } from '../primitives/colors'
+import { lightTheme } from './light'
+
+const colors = primitiveColors as any;
 
 /**
  * Dark Theme
@@ -13,87 +15,87 @@ export const darkTheme = {
     // Interactive elements
     interactive: {
       primary: {
-        default: primitiveColors.brand[400],
-        hover: primitiveColors.brand[500],
-        active: primitiveColors.brand[600],
-        disabled: primitiveColors.neutral[700],
+        default: colors.brand[400],
+        hover: colors.brand[500],
+        active: colors.brand[600],
+        disabled: colors.neutral[700],
       },
       secondary: {
-        default: primitiveColors.neutral[400],
-        hover: primitiveColors.neutral[300],
-        active: primitiveColors.neutral[200],
-        disabled: primitiveColors.neutral[700],
+        default: colors.neutral[400],
+        hover: colors.neutral[300],
+        active: colors.neutral[200],
+        disabled: colors.neutral[700],
       },
       tertiary: {
         default: 'transparent',
-        hover: primitiveColors.neutral[800],
-        active: primitiveColors.neutral[700],
-        disabled: primitiveColors.neutral[700],
+        hover: colors.neutral[800],
+        active: colors.neutral[700],
+        disabled: colors.neutral[700],
       },
     },
     
     // Status indicators
     status: {
       success: {
-        default: primitiveColors.success[400],
-        bg: primitiveColors.success[950],
-        border: primitiveColors.success[400],
-        text: primitiveColors.success[100],
+        default: colors.success[400],
+        bg: colors.success[950],
+        border: colors.success[400],
+        text: colors.success[100],
       },
       error: {
-        default: primitiveColors.error[400],
-        bg: primitiveColors.error[950],
-        border: primitiveColors.error[400],
-        text: primitiveColors.error[100],
+        default: colors.error[400],
+        bg: colors.error[950],
+        border: colors.error[400],
+        text: colors.error[100],
       },
       warning: {
-        default: primitiveColors.warning[400],
-        bg: primitiveColors.warning[950],
-        border: primitiveColors.warning[400],
-        text: primitiveColors.warning[100],
+        default: colors.warning[400],
+        bg: colors.warning[950],
+        border: colors.warning[400],
+        text: colors.warning[100],
       },
       info: {
-        default: primitiveColors.info[400],
-        bg: primitiveColors.info[950],
-        border: primitiveColors.info[400],
-        text: primitiveColors.info[100],
+        default: colors.info[400],
+        bg: colors.info[950],
+        border: colors.info[400],
+        text: colors.info[100],
       },
     },
     
     // Text colors
     text: {
-      primary: primitiveColors.neutral[50],
-      secondary: primitiveColors.neutral[400],
-      tertiary: primitiveColors.neutral[500],
-      disabled: primitiveColors.neutral[600],
-      inverse: primitiveColors.neutral[900],
-      brand: primitiveColors.brand[400],
-      success: primitiveColors.success[100],
-      error: primitiveColors.error[100],
-      warning: primitiveColors.warning[100],
-      info: primitiveColors.info[100],
+      primary: colors.neutral[50],
+      secondary: colors.neutral[400],
+      tertiary: colors.neutral[500],
+      disabled: colors.neutral[600],
+      inverse: colors.neutral[900],
+      brand: colors.brand[400],
+      success: colors.success[100],
+      error: colors.error[100],
+      warning: colors.warning[100],
+      info: colors.info[100],
     },
     
     // Surface colors
     surface: {
-      primary: primitiveColors.neutral[900],
-      secondary: primitiveColors.neutral[800],
-      tertiary: primitiveColors.neutral[700],
-      raised: primitiveColors.neutral[800],
+      primary: colors.neutral[900],
+      secondary: colors.neutral[800],
+      tertiary: colors.neutral[700],
+      raised: colors.neutral[800],
       overlay: 'rgba(0, 0, 0, 0.7)',
       overlayLight: 'rgba(0, 0, 0, 0.5)',
     },
     
     // Border colors
     border: {
-      default: primitiveColors.neutral[700],
-      strong: primitiveColors.neutral[600],
-      subtle: primitiveColors.neutral[800],
-      brand: primitiveColors.brand[400],
-      focus: primitiveColors.brand[400],
-      error: primitiveColors.error[400],
-      success: primitiveColors.success[400],
-      warning: primitiveColors.warning[400],
+      default: colors.neutral[700],
+      strong: colors.neutral[600],
+      subtle: colors.neutral[800],
+      brand: colors.brand[400],
+      focus: colors.brand[400],
+      error: colors.error[400],
+      success: colors.success[400],
+      warning: colors.warning[400],
     },
   },
   

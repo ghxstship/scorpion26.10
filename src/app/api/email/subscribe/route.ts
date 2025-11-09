@@ -44,7 +44,7 @@ export async function POST(request: Request) {
       if (error) throw error
     } else {
       // Create new subscription
-      const { error } = await supabase.from('email_subscribers').insert({
+      const { error } = await (supabase as any).from('email_subscribers').insert({
         email,
         first_name,
         tenant_id,

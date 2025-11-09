@@ -42,7 +42,7 @@ export async function POST(request: NextRequest) {
   try {
     const supabase = await createClient()
     const body = await request.json()
-    const { userProfile } = authResult
+    const { userProfile } = authResult as any
 
     const { data: video, error } = await (supabase as any)
       .from('videos')

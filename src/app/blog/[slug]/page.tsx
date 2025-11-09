@@ -12,7 +12,7 @@ import Image from 'next/image'
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const supabase = await createClient()
   
-  const { data: post } = await supabase
+  const { data: post } = await (supabase as any)
     .from('blog_posts')
     .select('title, excerpt, featured_image')
     .eq('slug', params.slug)
@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 export default async function BlogPostPage({ params }: { params: { slug: string } }) {
   const supabase = await createClient()
   
-  const { data: post, error } = await supabase
+  const { data: post, error } = await (supabase as any)
     .from('blog_posts')
     .select(`
       *,

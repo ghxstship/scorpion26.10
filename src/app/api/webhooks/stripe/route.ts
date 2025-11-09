@@ -97,15 +97,16 @@ export async function POST(request: NextRequest) {
         const subscription = event.data.object as Stripe.Subscription
         
         // Update subscription in database
+        const sub = subscription as any
         const { error } = await (supabase as any)
           .from('subscriptions')
           .upsert({
-            stripe_subscription_id: subscription.id,
-            stripe_customer_id: subscription.customer as string,
-            status: subscription.status,
-            current_period_start: new Date(subscription.current_period_start * 1000).toISOString(),
-            current_period_end: new Date(subscription.current_period_end * 1000).toISOString(),
-            cancel_at_period_end: subscription.cancel_at_period_end,
+            stripe_subscription_id: sub.id,
+            stripe_customer_id: sub.customer as string,
+            status: sub.status,
+            current_period_start: new Date(sub.current_period_start * 1000).toISOString(),
+            current_period_end: new Date(sub.current_period_end * 1000).toISOString(),
+            cancel_at_period_end: sub.cancel_at_period_end,
           })
 
         if (error) {

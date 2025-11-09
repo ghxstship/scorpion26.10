@@ -14,7 +14,7 @@ export class UserService extends BaseService {
     try {
       const supabase = await this.getClient()
       
-      const { data, error } = await supabase
+      const { data, error } = await (supabase as any)
         .from('users')
         .select('*')
         .eq('id', userId)
@@ -35,7 +35,7 @@ export class UserService extends BaseService {
     try {
       const supabase = await this.getClient()
       
-      const { data, error } = await supabase
+      const { data, error } = await (supabase as any)
         .from('users')
         .update(updates)
         .eq('id', userId)
@@ -66,12 +66,12 @@ export class UserService extends BaseService {
         subscriptions,
         enrollments,
       ] = await Promise.all([
-        supabase.from('users').select('*').eq('id', userId).single(),
-        supabase.from('orders').select('*, order_items(*)').eq('user_id', userId),
-        supabase.from('bookings').select('*').eq('user_id', userId),
-        supabase.from('user_favorites').select('*').eq('user_id', userId),
-        supabase.from('subscriptions').select('*').eq('user_id', userId),
-        supabase.from('course_enrollments').select('*, course_progress(*)').eq('user_id', userId),
+        (supabase as any).from('users').select('*').eq('id', userId).single(),
+        (supabase as any).from('orders').select('*, order_items(*)').eq('user_id', userId),
+        (supabase as any).from('bookings').select('*').eq('user_id', userId),
+        (supabase as any).from('user_favorites').select('*').eq('user_id', userId),
+        (supabase as any).from('subscriptions').select('*').eq('user_id', userId),
+        (supabase as any).from('course_enrollments').select('*, course_progress(*)').eq('user_id', userId),
       ])
       
       return {
@@ -98,27 +98,27 @@ export class UserService extends BaseService {
       
       // Delete in order (respecting foreign key constraints)
       await Promise.all([
-        supabase.from('course_progress').delete().eq('enrollment_id', userId),
-        supabase.from('user_favorites').delete().eq('user_id', userId),
-        supabase.from('analytics_events').delete().eq('user_id', userId),
+        (supabase as any).from('course_progress').delete().eq('enrollment_id', userId),
+        (supabase as any).from('user_favorites').delete().eq('user_id', userId),
+        (supabase as any).from('analytics_events').delete().eq('user_id', userId),
       ])
       
       await Promise.all([
-        supabase.from('course_enrollments').delete().eq('user_id', userId),
-        supabase.from('order_items').delete().in('order_id', 
-          (await supabase.from('orders').select('id').eq('user_id', userId)).data?.map(o => o.id) || []
+        (supabase as any).from('course_enrollments').delete().eq('user_id', userId),
+        (supabase as any).from('order_items').delete().in('order_id', 
+          (await (supabase as any).from('orders').select('id').eq('user_id', userId)).data?.map((o: any) => o.id) || []
         ),
       ])
       
       await Promise.all([
-        supabase.from('orders').delete().eq('user_id', userId),
-        supabase.from('bookings').delete().eq('user_id', userId),
-        supabase.from('subscriptions').delete().eq('user_id', userId),
-        supabase.from('blog_posts').delete().eq('author_id', userId),
+        (supabase as any).from('orders').delete().eq('user_id', userId),
+        (supabase as any).from('bookings').delete().eq('user_id', userId),
+        (supabase as any).from('subscriptions').delete().eq('user_id', userId),
+        (supabase as any).from('blog_posts').delete().eq('author_id', userId),
       ])
       
       // Finally delete user
-      const { error } = await supabase.from('users').delete().eq('id', userId)
+      const { error } = await (supabase as any).from('users').delete().eq('id', userId)
       
       if (error) throw error
       
@@ -143,7 +143,7 @@ export class UserService extends BaseService {
       
       const anonymousEmail = `deleted_${userId.slice(0, 8)}@anonymized.local`
       
-      const { error } = await supabase
+      const { error } = await (supabase as any)
         .from('users')
         .update({
           email: anonymousEmail,

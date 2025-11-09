@@ -95,14 +95,14 @@ export const createTenantSchema = z.object({
   name: z.string().min(2, 'Tenant name must be at least 2 characters'),
   slug: z.string().min(2).regex(/^[a-z0-9-]+$/, 'Slug must be lowercase alphanumeric with hyphens'),
   domain: z.string().url().optional(),
-  settings: z.record(z.unknown()).optional(),
+  settings: z.record(z.string(), z.unknown()).optional(),
 })
 
 export const updateTenantSchema = z.object({
   name: z.string().min(2).optional(),
   slug: z.string().min(2).regex(/^[a-z0-9-]+$/).optional(),
   domain: z.string().url().optional(),
-  settings: z.record(z.unknown()).optional(),
+  settings: z.record(z.string(), z.unknown()).optional(),
   isActive: z.boolean().optional(),
 })
 
@@ -171,7 +171,7 @@ export const updateEmailTemplateSchema = z.object({
 export const stripeWebhookSchema = z.object({
   type: z.string(),
   data: z.object({
-    object: z.record(z.unknown()),
+    object: z.record(z.string(), z.unknown()),
   }),
 })
 

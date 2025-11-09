@@ -154,7 +154,7 @@ export async function POST(request: NextRequest) {
           .from('email_logs')
           .update({
             opened_at: new Date().toISOString(),
-            open_count: supabase.rpc('increment', { row_id: emailData.email_id }),
+            open_count: (supabase as any).rpc('increment', { row_id: emailData.email_id }),
           })
           .eq('email_id', emailData.email_id)
         break
@@ -168,7 +168,7 @@ export async function POST(request: NextRequest) {
           .from('email_logs')
           .update({
             clicked_at: new Date().toISOString(),
-            click_count: supabase.rpc('increment', { row_id: emailData.email_id }),
+            click_count: (supabase as any).rpc('increment', { row_id: emailData.email_id }),
           })
           .eq('email_id', emailData.email_id)
         break

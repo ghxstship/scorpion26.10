@@ -71,3 +71,6 @@ export const strictLimiter = rateLimit({
   windowMs: 60 * 1000, // 1 minute
   maxRequests: 10
 })
+
+// Alias for backward compatibility
+export const applyRateLimit = apiLimiter

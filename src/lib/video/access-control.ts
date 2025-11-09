@@ -14,7 +14,7 @@ export async function checkVideoAccess(
   const supabase = await createClient()
 
   // Get video details
-  const { data: video } = await supabase
+  const { data: video } = await (supabase as any)
     .from('videos')
     .select('is_premium, tenant_id')
     .eq('id', videoId)
@@ -24,8 +24,10 @@ export async function checkVideoAccess(
     return false
   }
 
+  const vid = video as any
+
   // If not premium, everyone has access
-  if (!video.is_premium) {
+  if (!vid.is_premium) {
     return true
   }
 
@@ -35,7 +37,7 @@ export async function checkVideoAccess(
   }
 
   // Check if user has active subscription
-  const { data: subscription } = await supabase
+  const { data: subscription } = await (supabase as any)
     .from('subscriptions')
     .select('status')
     .eq('user_id', userId)
@@ -80,7 +82,7 @@ export async function getAccessibleVideos(
   }
 
   // Check subscription status
-  const { data: subscription } = await supabase
+  const { data: subscription } = await (supabase as any)
     .from('subscriptions')
     .select('status')
     .eq('user_id', userId)
@@ -94,5 +96,5 @@ export async function getAccessibleVideos(
   }
 
   // Otherwise, filter to only non-premium
-  return videos.filter((v) => !v.is_premium)
+  return videos.filter((v: any) => !v.is_premium)
 }

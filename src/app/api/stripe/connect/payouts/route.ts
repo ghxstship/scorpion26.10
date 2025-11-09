@@ -10,7 +10,7 @@ export async function GET(request: NextRequest) {
     return authResult
   }
 
-  const { userProfile } = authResult
+  const { userProfile } = authResult as any
 
   try {
     const supabase = await createClient()

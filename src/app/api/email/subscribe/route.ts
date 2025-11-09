@@ -2,7 +2,13 @@ import { NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
 import { Resend } from 'resend'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+// Lazy-load Resend
+function getResend() {
+  if (!process.env.RESEND_API_KEY) {
+    throw new Error('RESEND_API_KEY is not set')
+  }
+  return new Resend(process.env.RESEND_API_KEY)
+}
 
 export async function POST(request: Request) {
   const supabase = await createClient()
@@ -56,6 +62,7 @@ export async function POST(request: Request) {
 
     // Send welcome email
     try {
+      const resend = getResend()
       await resend.emails.send({
         from: 'welcome@yourdomain.com',
         to: email,

@@ -6,7 +6,13 @@ import { sendCampaignSchema } from '@/lib/utils/validation-extended'
 import { z } from 'zod'
 import type { EmailSubscriber, EmailCampaignWithDetails, Updates } from '@/types/database'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+// Lazy-load Resend
+function getResend() {
+  if (!process.env.RESEND_API_KEY) {
+    throw new Error('RESEND_API_KEY is not set')
+  }
+  return new Resend(process.env.RESEND_API_KEY)
+}
 
 export async function POST(request: Request) {
   try {
@@ -47,6 +53,7 @@ export async function POST(request: Request) {
       html: campaign.content,
     }))
 
+    const resend = getResend()
     await resend.batch.send(emails)
 
     // Update campaign status

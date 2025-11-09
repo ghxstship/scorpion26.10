@@ -2,7 +2,18 @@ import { Resend } from 'resend'
 import { render } from '@react-email/components'
 import * as React from 'react'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+// Lazy-load Resend to avoid build-time errors when env vars are missing
+let resendInstance: Resend | null = null
+
+function getResend(): Resend {
+  if (!resendInstance) {
+    if (!process.env.RESEND_API_KEY) {
+      throw new Error('RESEND_API_KEY is not set')
+    }
+    resendInstance = new Resend(process.env.RESEND_API_KEY)
+  }
+  return resendInstance
+}
 
 interface SendEmailOptions {
   to: string | string[]
@@ -21,6 +32,7 @@ export async function sendEmail({
 }: SendEmailOptions) {
   try {
     const html = await render(template)
+    const resend = getResend()
 
     const { data, error } = await resend.emails.send({
       from,

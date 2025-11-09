@@ -5,11 +5,12 @@ import { handleError } from '@/lib/utils/api-helpers'
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params
     const user = await getAuthenticatedUser()
-    const hasAccess = await checkVideoAccess(params.id, user?.id || null)
+    const hasAccess = await checkVideoAccess(id, user?.id || null)
 
     return NextResponse.json({ hasAccess })
   } catch (error) {

@@ -27,7 +27,7 @@ async function BlogPostsList() {
 
   return (
     <div className="space-y-4">
-      {posts?.map((post) => (
+      {posts?.map((post: any) => (
         <Link key={post.id} href={`/admin/blog/${post.id}`}>
           <Card className="hover:shadow-lg transition-shadow cursor-pointer">
             <CardHeader>

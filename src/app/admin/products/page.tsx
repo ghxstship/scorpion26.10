@@ -33,7 +33,7 @@ async function ProductsList() {
 
   return (
     <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-      {products?.map((product) => (
+      {products?.map((product: any) => (
         <Link key={product.id} href={`/admin/products/${product.id}`}>
           <Card className="h-full hover:shadow-lg transition-shadow cursor-pointer">
             <CardHeader>

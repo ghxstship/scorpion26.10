@@ -4,15 +4,16 @@ import { requireAdmin, handleError } from '@/lib/utils/api-helpers'
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params
     const supabase = await createClient()
 
     const { data: video, error } = await supabase
       .from('videos')
       .select('*')
-      .eq('id', params.id)
+      .eq('id', id)
       .single()
 
     if (error) throw error
@@ -32,7 +33,7 @@ export async function GET(
 
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   const authResult = await requireAdmin()
   if (authResult instanceof NextResponse) {
@@ -40,6 +41,7 @@ export async function PUT(
   }
 
   try {
+    const { id } = await params
     const supabase = await createClient()
     const body = await request.json()
 
@@ -54,7 +56,7 @@ export async function PUT(
         thumbnail_url: body.thumbnail_url,
         duration_seconds: body.duration_seconds,
       })
-      .eq('id', params.id)
+      .eq('id', id)
       .select()
       .single()
 
@@ -68,7 +70,7 @@ export async function PUT(
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   const authResult = await requireAdmin()
   if (authResult instanceof NextResponse) {
@@ -76,12 +78,13 @@ export async function DELETE(
   }
 
   try {
+    const { id } = await params
     const supabase = await createClient()
 
     const { error } = await supabase
       .from('videos')
       .delete()
-      .eq('id', params.id)
+      .eq('id', id)
 
     if (error) throw error
 

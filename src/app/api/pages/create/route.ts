@@ -15,7 +15,7 @@ export async function POST(request: NextRequest) {
     const supabase = await createClient()
 
     // Check if slug already exists for this tenant
-    const { data: existingPage } = await supabase
+    const { data: existingPage } = await (supabase as any)
       .from('pages')
       .select('id')
       .eq('tenant_id', validatedData.tenantId)
@@ -27,7 +27,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Create page
-    const { data: page, error } = await supabase
+    const { data: page, error } = await (supabase as any)
       .from('pages')
       .insert({
         tenant_id: validatedData.tenantId,

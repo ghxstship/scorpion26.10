@@ -21,7 +21,7 @@ export async function GET(
 
     const supabase = await createClient()
 
-    const { data: user, error } = await supabase
+    const { data: user, error } = await (supabase as any)
       .from('users')
       .select('*')
       .eq('id', id)
@@ -63,7 +63,7 @@ export async function PUT(
     if (validatedData.role) updateData.role = validatedData.role
     if (validatedData.tenantId) updateData.tenant_id = validatedData.tenantId
 
-    const { data: user, error } = await supabase
+    const { data: user, error } = await (supabase as any)
       .from('users')
       .update(updateData)
       .eq('id', id)
@@ -106,7 +106,7 @@ export async function DELETE(
       )
     }
 
-    const { error } = await supabase
+    const { error } = await (supabase as any)
       .from('users')
       .update({ deleted_at: new Date().toISOString() })
       .eq('id', id)

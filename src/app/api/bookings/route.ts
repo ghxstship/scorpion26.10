@@ -9,7 +9,7 @@ export async function GET(request: Request) {
     if (user instanceof NextResponse) return user
 
     const supabase = await createClient()
-    const { data: bookings, error } = await supabase
+    const { data: bookings, error } = await (supabase as any)
       .from('bookings')
       .select('*, products(*)')
       .eq('user_id', user.id)
@@ -35,7 +35,7 @@ export async function POST(request: Request) {
 
     const supabase = await createClient()
 
-    const { data: booking, error } = await supabase
+    const { data: booking, error } = await (supabase as any)
       .from('bookings')
       .insert({
         tenant_id: tenantId,

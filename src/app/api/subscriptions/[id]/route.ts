@@ -24,7 +24,7 @@ export async function GET(
 
     const supabase = await createClient()
     
-    const { data: subscription, error } = await supabase
+    const { data: subscription, error } = await (supabase as any)
       .from('subscriptions')
       .select('*')
       .eq('id', id)
@@ -62,7 +62,7 @@ export async function PUT(
     const supabase = await createClient()
 
     // Get subscription
-    const { data: subscription, error: fetchError } = await supabase
+    const { data: subscription, error: fetchError } = await (supabase as any)
       .from('subscriptions')
       .select('*')
       .eq('id', id)
@@ -93,7 +93,7 @@ export async function PUT(
       })
 
       // Update database
-      const { data: updatedSubscription, error: updateError } = await supabase
+      const { data: updatedSubscription, error: updateError } = await (supabase as any)
         .from('subscriptions')
         .update({
           stripe_price_id: validatedData.priceId,
@@ -133,7 +133,7 @@ export async function DELETE(
     const supabase = await createClient()
 
     // Get subscription
-    const { data: subscription, error: fetchError } = await supabase
+    const { data: subscription, error: fetchError } = await (supabase as any)
       .from('subscriptions')
       .select('*')
       .eq('id', id)
@@ -155,7 +155,7 @@ export async function DELETE(
     await stripe.subscriptions.cancel(stripeSubscriptionId)
 
     // Update database
-    const { error: updateError } = await supabase
+    const { error: updateError } = await (supabase as any)
       .from('subscriptions')
       .update({
         status: 'cancelled',

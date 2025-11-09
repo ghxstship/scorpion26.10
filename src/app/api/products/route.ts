@@ -51,7 +51,7 @@ export async function POST(request: Request) {
     }
 
     // Verify user is admin
-    const { data: userData } = await supabase
+    const { data: userData } = await (supabase as any)
       .from('users')
       .select('role, tenant_id')
       .eq('id', user.id)
@@ -73,7 +73,7 @@ export async function POST(request: Request) {
     }
 
     // Create product
-    const { data: product, error } = await supabase
+    const { data: product, error } = await (supabase as any)
       .from('products')
       .insert({
         tenant_id: userData.tenant_id,

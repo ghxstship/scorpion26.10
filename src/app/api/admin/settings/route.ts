@@ -10,16 +10,14 @@ export async function PUT(request: Request) {
     const body = await request.json()
     const supabase = await createClient()
 
-    const updateData: Record<string, unknown> = {
-      name: body.name,
-      logo_url: body.logoUrl,
-      primary_color: body.primaryColor,
-      secondary_color: body.secondaryColor,
-    }
-
-    const { data, error } = await supabase
+    const { data, error } = await (supabase as any)
       .from('tenants')
-      .update(updateData)
+      .update({
+        name: body.name,
+        logo_url: body.logoUrl,
+        primary_color: body.primaryColor,
+        secondary_color: body.secondaryColor,
+      })
       .eq('id', body.tenantId)
       .select()
       .single()

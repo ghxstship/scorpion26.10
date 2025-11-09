@@ -58,7 +58,7 @@ export async function POST(request: NextRequest) {
         const emailData = event.data
         
         // Log email sent
-        await supabase
+        await (supabase as any)
           .from('email_logs')
           .insert({
             email_id: emailData.email_id,
@@ -74,7 +74,7 @@ export async function POST(request: NextRequest) {
         const emailData = event.data
         
         // Update email status to delivered
-        await supabase
+        await (supabase as any)
           .from('email_logs')
           .update({
             status: 'delivered',
@@ -88,7 +88,7 @@ export async function POST(request: NextRequest) {
         const emailData = event.data
         
         // Update email status to delayed
-        await supabase
+        await (supabase as any)
           .from('email_logs')
           .update({
             status: 'delayed',
@@ -102,7 +102,7 @@ export async function POST(request: NextRequest) {
         const emailData = event.data
         
         // Update email status to bounced
-        await supabase
+        await (supabase as any)
           .from('email_logs')
           .update({
             status: 'bounced',
@@ -112,7 +112,7 @@ export async function POST(request: NextRequest) {
           .eq('email_id', emailData.email_id)
 
         // Mark subscriber as bounced if exists
-        await supabase
+        await (supabase as any)
           .from('email_subscribers')
           .update({
             status: 'bounced',
@@ -126,7 +126,7 @@ export async function POST(request: NextRequest) {
         const emailData = event.data
         
         // Update email status to complained (spam)
-        await supabase
+        await (supabase as any)
           .from('email_logs')
           .update({
             status: 'complained',
@@ -135,7 +135,7 @@ export async function POST(request: NextRequest) {
           .eq('email_id', emailData.email_id)
 
         // Unsubscribe user who complained
-        await supabase
+        await (supabase as any)
           .from('email_subscribers')
           .update({
             status: 'unsubscribed',
@@ -150,7 +150,7 @@ export async function POST(request: NextRequest) {
         const emailData = event.data
         
         // Log email open
-        await supabase
+        await (supabase as any)
           .from('email_logs')
           .update({
             opened_at: new Date().toISOString(),
@@ -164,7 +164,7 @@ export async function POST(request: NextRequest) {
         const emailData = event.data
         
         // Log email click
-        await supabase
+        await (supabase as any)
           .from('email_logs')
           .update({
             clicked_at: new Date().toISOString(),

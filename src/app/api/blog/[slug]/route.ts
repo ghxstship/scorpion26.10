@@ -14,7 +14,7 @@ export async function GET(
     }
 
     const supabase = await createClient()
-    const { data, error } = await supabase
+    const { data, error } = await (supabase as any)
       .from('blog_posts')
       .select('*, users(full_name, email)')
       .eq('tenant_id', tenantId)

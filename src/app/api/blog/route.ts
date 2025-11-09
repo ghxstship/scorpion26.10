@@ -11,7 +11,7 @@ export async function GET(request: Request) {
     }
 
     const supabase = await createClient()
-    const { data: posts, error } = await supabase
+    const { data: posts, error } = await (supabase as any)
       .from('blog_posts')
       .select('*')
       .eq('tenant_id', tenantId)
@@ -50,7 +50,7 @@ export async function POST(request: Request) {
       published_at: validatedData.isPublished ? new Date().toISOString() : null,
     }
     
-    const { data: post, error } = await supabase
+    const { data: post, error } = await (supabase as any)
       .from('blog_posts')
       .insert(insertData)
       .select()

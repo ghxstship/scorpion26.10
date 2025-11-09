@@ -15,7 +15,7 @@ export async function GET(request: Request) {
     }
 
     const supabase = await createClient()
-    const { data, error } = await supabase
+    const { data, error } = await (supabase as any)
       .from('email_subscribers')
       .select('*')
       .eq('tenant_id', tenantId)

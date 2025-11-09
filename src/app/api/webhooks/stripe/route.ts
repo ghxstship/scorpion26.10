@@ -41,7 +41,7 @@ export async function POST(request: NextRequest) {
         const paymentIntent = event.data.object as Stripe.PaymentIntent
         
         // Update order status to completed
-        const { error } = await supabase
+        const { error } = await (supabase as any)
           .from('orders')
           .update({
             status: 'completed',
@@ -60,7 +60,7 @@ export async function POST(request: NextRequest) {
         const paymentIntent = event.data.object as Stripe.PaymentIntent
         
         // Update order status to failed
-        const { error } = await supabase
+        const { error } = await (supabase as any)
           .from('orders')
           .update({
             status: 'failed',
@@ -78,7 +78,7 @@ export async function POST(request: NextRequest) {
         const charge = event.data.object as Stripe.Charge
         
         // Update order status to refunded
-        const { error } = await supabase
+        const { error } = await (supabase as any)
           .from('orders')
           .update({
             status: 'refunded',
@@ -97,7 +97,7 @@ export async function POST(request: NextRequest) {
         const subscription = event.data.object as Stripe.Subscription
         
         // Update subscription in database
-        const { error } = await supabase
+        const { error } = await (supabase as any)
           .from('subscriptions')
           .upsert({
             stripe_subscription_id: subscription.id,
@@ -118,7 +118,7 @@ export async function POST(request: NextRequest) {
         const subscription = event.data.object as Stripe.Subscription
         
         // Mark subscription as cancelled
-        const { error } = await supabase
+        const { error } = await (supabase as any)
           .from('subscriptions')
           .update({
             status: 'cancelled',

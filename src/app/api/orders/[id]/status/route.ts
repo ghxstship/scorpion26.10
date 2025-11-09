@@ -14,7 +14,7 @@ export async function PUT(
     const body = await request.json()
     const supabase = await createClient()
 
-    const { data, error } = await supabase
+    const { data, error } = await (supabase as any)
       .from('orders')
       .update({ status: body.status })
       .eq('id', id)

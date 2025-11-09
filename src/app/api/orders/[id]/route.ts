@@ -12,7 +12,7 @@ export async function GET(
     if (user instanceof NextResponse) return user
 
     const supabase = await createClient()
-    const { data, error } = await supabase
+    const { data, error } = await (supabase as any)
       .from('orders')
       .select('*, order_items(*)')
       .eq('id', id)

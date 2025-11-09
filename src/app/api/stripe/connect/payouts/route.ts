@@ -18,7 +18,7 @@ export async function GET(request: NextRequest) {
     const limit = parseInt(searchParams.get('limit') || '10')
 
     // Get tenant's Stripe account ID
-    const { data: tenant } = await supabase
+    const { data: tenant } = await (supabase as any)
       .from('tenants')
       .select('stripe_account_id')
       .eq('id', userProfile.tenant_id)

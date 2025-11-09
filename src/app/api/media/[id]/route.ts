@@ -14,7 +14,7 @@ export async function PUT(
     const body = await request.json()
     const supabase = await createClient()
 
-    const { data, error } = await supabase
+    const { data, error } = await (supabase as any)
       .from('media_files')
       .update({ file_name: body.fileName })
       .eq('id', id)
@@ -43,7 +43,7 @@ export async function DELETE(
     const supabase = await createClient()
 
     // Get file info
-    const { data: file } = await supabase
+    const { data: file } = await (supabase as any)
       .from('media_files')
       .select('file_url')
       .eq('id', id)
@@ -56,7 +56,7 @@ export async function DELETE(
     }
 
     // Delete from database
-    const { error } = await supabase
+    const { error } = await (supabase as any)
       .from('media_files')
       .delete()
       .eq('id', id)

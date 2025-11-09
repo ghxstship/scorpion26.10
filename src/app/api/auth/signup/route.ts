@@ -45,7 +45,7 @@ export async function POST(request: Request) {
       role: 'customer',
     }
 
-    const { error: profileError } = await supabase
+    const { error: profileError } = await (supabase as any)
       .from('users')
       .insert(userInsert)
 

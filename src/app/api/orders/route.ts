@@ -9,7 +9,7 @@ export async function GET(request: Request) {
     if (user instanceof NextResponse) return user
 
     const supabase = await createClient()
-    const { data: orders, error } = await supabase
+    const { data: orders, error } = await (supabase as any)
       .from('orders')
       .select('*, order_items(*, products(*))')
       .eq('user_id', user.id)
@@ -46,7 +46,7 @@ export async function POST(request: Request) {
       status: 'pending',
     }
     
-    const { data: order, error: orderError } = await supabase
+    const { data: order, error: orderError } = await (supabase as any)
       .from('orders')
       .insert(orderData)
       .select()
@@ -64,7 +64,7 @@ export async function POST(request: Request) {
       price: item.price,
     }))
 
-    const { error: itemsError } = await supabase
+    const { error: itemsError } = await (supabase as any)
       .from('order_items')
       .insert(orderItems)
 

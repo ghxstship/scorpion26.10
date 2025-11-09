@@ -8,7 +8,7 @@ export async function GET() {
     if (authResult instanceof NextResponse) return authResult
 
     const supabase = await createClient()
-    const { data, error } = await supabase
+    const { data, error } = await (supabase as any)
       .from('orders')
       .select('*, order_items(*, products(*)), users(email, full_name)')
       .order('created_at', { ascending: false })

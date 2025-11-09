@@ -18,7 +18,7 @@ export async function POST(request: NextRequest) {
     const totalAmount = validatedData.items.reduce((sum, item) => sum + (item.price * item.quantity), 0)
 
     // Create order
-    const { data: order, error: orderError } = await supabase
+    const { data: order, error: orderError } = await (supabase as any)
       .from('orders')
       .insert({
         tenant_id: validatedData.tenantId,
@@ -39,7 +39,7 @@ export async function POST(request: NextRequest) {
       price: item.price,
     }))
 
-    const { error: itemsError } = await supabase
+    const { error: itemsError } = await (supabase as any)
       .from('order_items')
       .insert(orderItems)
 

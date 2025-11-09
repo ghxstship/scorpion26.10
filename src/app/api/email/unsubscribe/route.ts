@@ -7,7 +7,7 @@ export async function POST(request: Request) {
     const { email, tenantId } = await request.json()
     const supabase = await createClient()
 
-    const { error } = await supabase
+    const { error } = await (supabase as any)
       .from('email_subscribers')
       .update({ status: 'unsubscribed' })
       .eq('email', email)

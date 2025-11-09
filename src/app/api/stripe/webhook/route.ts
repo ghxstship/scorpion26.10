@@ -41,7 +41,7 @@ export async function POST(req: Request) {
         
         // Update order status
         if (session.metadata?.order_id) {
-          await supabase
+          await (supabase as any)
             .from('orders')
             .update({
               status: 'completed',
@@ -67,7 +67,7 @@ export async function POST(req: Request) {
         
         // Handle failed payment
         if (paymentIntent.metadata?.order_id) {
-          await supabase
+          await (supabase as any)
             .from('orders')
             .update({ status: 'failed' })
             .eq('id', paymentIntent.metadata.order_id)

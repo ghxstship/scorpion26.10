@@ -11,7 +11,7 @@ export async function DELETE(
     const supabase = await createClient()
 
     // Get existing product
-    const { data: existingProduct, error: fetchError } = await supabase
+    const { data: existingProduct, error: fetchError } = await (supabase as any)
       .from('products')
       .select('tenant_id')
       .eq('id', id)
@@ -25,7 +25,7 @@ export async function DELETE(
     if (authResult instanceof NextResponse) return authResult
 
     // Delete product
-    const { error } = await supabase
+    const { error } = await (supabase as any)
       .from('products')
       .delete()
       .eq('id', id)

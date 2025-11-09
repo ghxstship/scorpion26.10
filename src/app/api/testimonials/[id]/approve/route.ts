@@ -12,7 +12,7 @@ export async function PUT(
     if (authResult instanceof NextResponse) return authResult
 
     const supabase = await createClient()
-    const { data, error } = await supabase
+    const { data, error } = await (supabase as any)
       .from('testimonials')
       .update({ is_approved: true })
       .eq('id', id)

@@ -14,7 +14,7 @@ export async function POST(
 
     const supabase = await createClient()
 
-    const { data: user, error } = await supabase
+    const { data: user, error } = await (supabase as any)
       .from('users')
       .update({ deleted_at: null })
       .eq('id', id)

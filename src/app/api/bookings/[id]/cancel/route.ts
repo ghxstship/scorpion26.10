@@ -14,7 +14,7 @@ export async function POST(
     const supabase = await createClient()
 
     // Get booking
-    const { data: booking, error: fetchError } = await supabase
+    const { data: booking, error: fetchError } = await (supabase as any)
       .from('bookings')
       .select('*')
       .eq('id', id)
@@ -25,7 +25,7 @@ export async function POST(
     }
 
     // Verify ownership or admin access
-    const { data: userProfile } = await supabase
+    const { data: userProfile } = await (supabase as any)
       .from('users')
       .select('role, tenant_id')
       .eq('id', user.id)
@@ -46,7 +46,7 @@ export async function POST(
     }
 
     // Update booking status
-    const { data: updatedBooking, error } = await supabase
+    const { data: updatedBooking, error } = await (supabase as any)
       .from('bookings')
       .update({ status: 'cancelled' })
       .eq('id', id)

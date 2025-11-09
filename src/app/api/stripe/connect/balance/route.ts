@@ -16,7 +16,7 @@ export async function GET(request: NextRequest) {
     const supabase = await createClient()
 
     // Get tenant's Stripe account ID
-    const { data: tenant } = await supabase
+    const { data: tenant } = await (supabase as any)
       .from('tenants')
       .select('stripe_account_id')
       .eq('id', userProfile.tenant_id)

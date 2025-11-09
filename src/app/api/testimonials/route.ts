@@ -11,7 +11,7 @@ export async function GET(request: Request) {
     }
 
     const supabase = await createClient()
-    const { data: testimonials, error } = await supabase
+    const { data: testimonials, error } = await (supabase as any)
       .from('testimonials')
       .select('*')
       .eq('tenant_id', tenantId)
@@ -34,7 +34,7 @@ export async function POST(request: Request) {
     const validatedData = createTestimonialSchema.parse(body)
 
     const supabase = await createClient()
-    const { data: testimonial, error } = await supabase
+    const { data: testimonial, error } = await (supabase as any)
       .from('testimonials')
       .insert({
         tenant_id: validatedData.tenantId,

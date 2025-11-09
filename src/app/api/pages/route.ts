@@ -10,7 +10,7 @@ export async function GET(request: Request) {
     }
 
     const supabase = await createClient()
-    const { data, error } = await supabase
+    const { data, error } = await (supabase as any)
       .from('pages')
       .select('*')
       .eq('tenant_id', tenantId)
@@ -34,7 +34,7 @@ export async function POST(request: Request) {
     const body = await request.json()
     const supabase = await createClient()
 
-    const { data, error } = await supabase
+    const { data, error } = await (supabase as any)
       .from('pages')
       .insert({
         tenant_id: body.tenantId,

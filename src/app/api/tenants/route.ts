@@ -8,7 +8,7 @@ export async function GET() {
     if (user instanceof NextResponse) return user
 
     const supabase = await createClient()
-    const { data, error } = await supabase
+    const { data, error } = await (supabase as any)
       .from('tenants')
       .select('*')
       .order('created_at', { ascending: false })
@@ -40,7 +40,7 @@ export async function POST(request: Request) {
       secondary_color: body.secondaryColor || '#ffffff',
     }
     
-    const { data, error } = await supabase
+    const { data, error } = await (supabase as any)
       .from('tenants')
       .insert(insertData)
       .select()

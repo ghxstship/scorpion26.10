@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
     const supabase = await createClient()
 
     // Check if tenant already has a Stripe account
-    const { data: tenant } = await supabase
+    const { data: tenant } = await (supabase as any)
       .from('tenants')
       .select('stripe_account_id')
       .eq('id', userProfile.tenant_id)
@@ -31,7 +31,7 @@ export async function POST(request: NextRequest) {
       accountId = account.id
 
       // Save to database
-      await supabase
+      await (supabase as any)
         .from('tenants')
         .update({ stripe_account_id: accountId })
         .eq('id', userProfile.tenant_id)

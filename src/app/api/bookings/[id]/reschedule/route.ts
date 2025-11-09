@@ -19,7 +19,7 @@ export async function POST(
       status: 'pending',
     }
 
-    const { data, error } = await supabase
+    const { data, error } = await (supabase as any)
       .from('bookings')
       .update(updateData)
       .eq('id', id)

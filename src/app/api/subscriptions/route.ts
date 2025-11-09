@@ -21,7 +21,7 @@ export async function GET(request: NextRequest) {
 
     const supabase = await createClient()
     
-    const { data: subscriptions, error } = await supabase
+    const { data: subscriptions, error } = await (supabase as any)
       .from('subscriptions')
       .select('*')
       .eq('user_id', user.id)
@@ -49,7 +49,7 @@ export async function POST(request: NextRequest) {
     // Get or create Stripe customer
     let stripeCustomerId: string
 
-    const { data: existingSubscription } = await supabase
+    const { data: existingSubscription } = await (supabase as any)
       .from('subscriptions')
       .select('stripe_customer_id')
       .eq('user_id', user.id)
@@ -81,7 +81,7 @@ export async function POST(request: NextRequest) {
     })
 
     // Save subscription to database
-    const { data: newSubscription, error } = await supabase
+    const { data: newSubscription, error } = await (supabase as any)
       .from('subscriptions')
       .insert({
         user_id: user.id,

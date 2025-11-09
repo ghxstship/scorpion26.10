@@ -18,7 +18,7 @@ export async function POST(request: Request) {
     const supabase = await createClient()
 
     // Get campaign
-    const { data: campaign, error: campaignError } = await supabase
+    const { data: campaign, error: campaignError } = await (supabase as any)
       .from('email_campaigns')
       .select('*')
       .eq('id', campaignId)
@@ -29,7 +29,7 @@ export async function POST(request: Request) {
     }
 
     // Get subscribers
-    const { data: subscribers } = await supabase
+    const { data: subscribers } = await (supabase as any)
       .from('email_subscribers')
       .select('email, first_name')
       .eq('tenant_id', tenantId)
@@ -50,7 +50,7 @@ export async function POST(request: Request) {
     await resend.batch.send(emails)
 
     // Update campaign status
-    await supabase
+    await (supabase as any)
       .from('email_campaigns')
       .update({
         status: 'sent' as const,

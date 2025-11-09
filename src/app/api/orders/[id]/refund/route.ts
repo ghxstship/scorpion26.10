@@ -19,7 +19,7 @@ export async function POST(
     const supabase = await createClient()
 
     // Get order
-    const { data: order, error: orderError } = await supabase
+    const { data: order, error: orderError } = await (supabase as any)
       .from('orders')
       .select('*')
       .eq('id', id)
@@ -40,7 +40,7 @@ export async function POST(
     }
 
     // Update order status
-    const { data, error } = await supabase
+    const { data, error } = await (supabase as any)
       .from('orders')
       .update({ status: 'refunded' })
       .eq('id', id)

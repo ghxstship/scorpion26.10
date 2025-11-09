@@ -20,7 +20,7 @@ export async function POST(request: Request) {
     }
 
     // Check if already subscribed
-    const { data: existing } = await supabase
+    const { data: existing } = await (supabase as any)
       .from('email_subscribers')
       .select('id, status')
       .eq('email', email)
@@ -36,7 +36,7 @@ export async function POST(request: Request) {
       }
 
       // Reactivate subscription
-      const { error } = await supabase
+      const { error } = await (supabase as any)
         .from('email_subscribers')
         .update({ status: 'active' })
         .eq('id', existing.id)

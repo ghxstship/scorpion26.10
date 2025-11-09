@@ -18,7 +18,7 @@ export async function GET(request: NextRequest) {
     const limit = parseInt(searchParams.get('limit') || '50')
     const offset = parseInt(searchParams.get('offset') || '0')
 
-    const { data: videos, error } = await supabase
+    const { data: videos, error } = await (supabase as any)
       .from('videos')
       .select('*')
       .eq('tenant_id', tenantId)
@@ -44,7 +44,7 @@ export async function POST(request: NextRequest) {
     const body = await request.json()
     const { userProfile } = authResult
 
-    const { data: video, error } = await supabase
+    const { data: video, error } = await (supabase as any)
       .from('videos')
       .insert({
         tenant_id: userProfile.tenant_id,

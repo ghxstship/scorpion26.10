@@ -10,7 +10,7 @@ export async function GET(
   try {
     const { id } = await params
     const supabase = await createClient()
-    const { data, error } = await supabase
+    const { data, error } = await (supabase as any)
       .from('products')
       .select('*')
       .eq('id', id)
@@ -48,7 +48,7 @@ export async function PUT(
       image_url: validatedData.imageUrl,
     }
     
-    const { data, error } = await supabase
+    const { data, error } = await (supabase as any)
       .from('products')
       .update(updateData)
       .eq('id', id)
@@ -75,7 +75,7 @@ export async function DELETE(
     if (authResult instanceof NextResponse) return authResult
 
     const supabase = await createClient()
-    const { error } = await supabase
+    const { error } = await (supabase as any)
       .from('products')
       .delete()
       .eq('id', id)

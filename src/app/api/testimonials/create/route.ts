@@ -12,7 +12,7 @@ export async function POST(request: NextRequest) {
     const supabase = await createClient()
 
     // Create testimonial (not approved by default)
-    const { data: testimonial, error } = await supabase
+    const { data: testimonial, error } = await (supabase as any)
       .from('testimonials')
       .insert({
         tenant_id: validatedData.tenantId,

@@ -20,7 +20,7 @@ export async function POST(
     const supabase = await createClient()
 
     // Get subscription
-    const { data: subscription, error: fetchError } = await supabase
+    const { data: subscription, error: fetchError } = await (supabase as any)
       .from('subscriptions')
       .select('*')
       .eq('id', id)
@@ -52,7 +52,7 @@ export async function POST(
     })
 
     // Update in database
-    const { data: updatedSubscription, error: updateError } = await supabase
+    const { data: updatedSubscription, error: updateError } = await (supabase as any)
       .from('subscriptions')
       .update({
         cancel_at_period_end: false,

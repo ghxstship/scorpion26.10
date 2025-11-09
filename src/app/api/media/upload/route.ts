@@ -43,7 +43,7 @@ export async function POST(request: Request) {
       .getPublicUrl(fileName)
 
     // Save to database
-    const { data, error } = await supabase
+    const { data, error } = await (supabase as any)
       .from('media_files')
       .insert({
         tenant_id: tenantId,

@@ -16,7 +16,7 @@ export async function PUT(
     const supabase = await createClient()
 
     // Get existing product
-    const { data: existingProduct, error: fetchError } = await supabase
+    const { data: existingProduct, error: fetchError } = await (supabase as any)
       .from('products')
       .select('tenant_id')
       .eq('id', id)
@@ -37,7 +37,7 @@ export async function PUT(
     if (validatedData.price) updateData.price = validatedData.price
     if (validatedData.imageUrl !== undefined) updateData.image_url = validatedData.imageUrl
 
-    const { data: updatedProduct, error } = await supabase
+    const { data: updatedProduct, error } = await (supabase as any)
       .from('products')
       .update(updateData)
       .eq('id', id)

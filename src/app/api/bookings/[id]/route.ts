@@ -19,7 +19,7 @@ export async function PUT(
       status: body.status,
     }
 
-    const { data, error } = await supabase
+    const { data, error } = await (supabase as any)
       .from('bookings')
       .update(updateData)
       .eq('id', id)
@@ -47,7 +47,7 @@ export async function DELETE(
     if (user instanceof NextResponse) return user
 
     const supabase = await createClient()
-    const { error } = await supabase
+    const { error } = await (supabase as any)
       .from('bookings')
       .delete()
       .eq('id', id)

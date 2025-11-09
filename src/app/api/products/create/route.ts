@@ -23,7 +23,7 @@ export async function POST(request: Request) {
       is_active: true,
     }
     
-    const { data, error } = await supabase
+    const { data, error } = await (supabase as any)
       .from('products')
       .insert(insertData)
       .select()

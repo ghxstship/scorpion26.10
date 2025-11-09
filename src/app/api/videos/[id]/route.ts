@@ -10,7 +10,7 @@ export async function GET(
     const { id } = await params
     const supabase = await createClient()
 
-    const { data: video, error } = await supabase
+    const { data: video, error } = await (supabase as any)
       .from('videos')
       .select('*')
       .eq('id', id)
@@ -45,7 +45,7 @@ export async function PUT(
     const supabase = await createClient()
     const body = await request.json()
 
-    const { data: video, error } = await supabase
+    const { data: video, error } = await (supabase as any)
       .from('videos')
       .update({
         title: body.title,
@@ -81,7 +81,7 @@ export async function DELETE(
     const { id } = await params
     const supabase = await createClient()
 
-    const { error } = await supabase
+    const { error } = await (supabase as any)
       .from('videos')
       .delete()
       .eq('id', id)

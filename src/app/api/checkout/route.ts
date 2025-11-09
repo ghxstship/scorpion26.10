@@ -18,12 +18,12 @@ export async function POST(request: Request) {
     // Create Stripe checkout session
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
-      line_items: items.map((item: CartItem) => ({
+      line_items: items.map((item: any) => ({
         price_data: {
           currency: 'usd',
           product_data: {
             name: item.title,
-            description: item.type,
+            description: item.type || item.description || '',
           },
           unit_amount: item.price,
         },
@@ -41,7 +41,7 @@ export async function POST(request: Request) {
 
     // Create order in database
     if (user) {
-      const { data: order } = await supabase
+      const { data: order } = await (supabase as any)
         .from('orders')
         .insert({
           user_id: user.id,

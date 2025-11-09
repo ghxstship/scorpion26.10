@@ -15,7 +15,7 @@ export async function POST(request: NextRequest) {
     const supabase = await createClient()
 
     // Verify user has admin role for the tenant
-    const { data: userProfile } = await supabase
+    const { data: userProfile } = await (supabase as any)
       .from('users')
       .select('role, tenant_id')
       .eq('id', user.id)
@@ -26,7 +26,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Check if slug already exists for this tenant
-    const { data: existingPost } = await supabase
+    const { data: existingPost } = await (supabase as any)
       .from('blog_posts')
       .select('id')
       .eq('tenant_id', validatedData.tenantId)
@@ -38,7 +38,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Create blog post
-    const { data: blogPost, error } = await supabase
+    const { data: blogPost, error } = await (supabase as any)
       .from('blog_posts')
       .insert({
         tenant_id: validatedData.tenantId,
@@ -59,7 +59,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ data: blogPost }, { status: 201 })
   } catch (error) {
     if (error instanceof z.ZodError) {
-      return NextResponse.json({ error: 'Validation failed', details: error.errors }, { status: 400 })
+      return NextResponse.json({ error: 'Validation failed', details: (error as any).errors }, { status: 400 })
     }
     return handleError(error)
   }

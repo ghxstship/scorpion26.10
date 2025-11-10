@@ -1,11 +1,8 @@
 import { createClient } from '@/lib/supabase/server'
+import { stripe } from '@/lib/stripe'
 import { NextResponse } from 'next/server'
 import { requireAdmin, handleError } from '@/lib/utils/api-helpers'
-import Stripe from 'stripe'
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2025-10-29.clover',
-})
 
 export async function POST(
   request: Request,

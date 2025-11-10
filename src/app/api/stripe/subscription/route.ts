@@ -1,10 +1,7 @@
 import { NextResponse } from 'next/server'
+import { stripe } from '@/lib/stripe'
 import { requireAuth, handleError } from '@/lib/utils/api-helpers'
-import Stripe from 'stripe'
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2025-10-29.clover' as any,
-})
 
 export async function POST(request: Request) {
   try {

@@ -1,4 +1,6 @@
 import { formatDate } from '@/lib/utils'
+export const dynamic = 'force-dynamic'
+
 import { Calendar, User, ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'

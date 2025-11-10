@@ -1,4 +1,6 @@
 import { redirect } from 'next/navigation'
+export const dynamic = 'force-dynamic'
+
 import { createClient } from '@/lib/supabase/server'
 import type { OrderWithItems } from '@/types/database'
 

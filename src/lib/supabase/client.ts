@@ -2,8 +2,9 @@ import { createBrowserClient } from '@supabase/ssr'
 import { Database } from '@/types/database'
 
 export function createClient() {
-  return createBrowserClient<Database>(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-  )
+  // Use empty strings as fallback during build/prerender
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL || ''
+  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || ''
+  
+  return createBrowserClient<Database>(url, key)
 }

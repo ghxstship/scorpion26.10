@@ -1,6 +1,7 @@
-import { createClient } from '@/lib/supabase/server'
 import { NextResponse } from 'next/server'
+import { createClient } from '@/lib/supabase/server'
 import { requireAdmin, handleError } from '@/lib/utils/api-helpers'
+import { typedInsert } from '@/lib/supabase/typed-client'
 import { createProductSchema } from '@/lib/utils/validation'
 
 export async function POST(request: Request) {
@@ -13,19 +14,17 @@ export async function POST(request: Request) {
 
     const supabase = await createClient()
     
-    const insertData: Record<string, unknown> = {
+    const insertData = {
       tenant_id: validatedData.tenantId,
       title: validatedData.title,
       description: validatedData.description,
-      type: validatedData.type,
+      type: validatedData.type as 'digital' | 'physical' | 'service' | 'subscription',
       price: validatedData.price,
       image_url: validatedData.imageUrl,
       is_active: true,
     }
     
-    const { data, error } = await (supabase as any)
-      .from('products')
-      .insert(insertData)
+    const { data, error } = await typedInsert(supabase, 'products', insertData)
       .select()
       .single()
 

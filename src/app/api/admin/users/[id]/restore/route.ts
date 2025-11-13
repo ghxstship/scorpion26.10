@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
 import { requireAdmin, handleError } from '@/lib/utils/api-helpers'
+import { typedUpdate } from '@/lib/supabase/typed-client'
 
 // POST /api/admin/users/[id]/restore - Restore soft-deleted user
 export async function POST(
@@ -14,9 +15,7 @@ export async function POST(
 
     const supabase = await createClient()
 
-    const { data: user, error } = await (supabase as any)
-      .from('users')
-      .update({ deleted_at: null })
+    const { data: user, error } = await typedUpdate(supabase, 'users', { deleted_at: null })
       .eq('id', id)
       .not('deleted_at', 'is', null)
       .select()

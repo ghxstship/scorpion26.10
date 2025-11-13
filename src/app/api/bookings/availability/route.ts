@@ -13,7 +13,7 @@ export async function GET(request: Request) {
     }
 
     const supabase = await createClient()
-    const { data, error } = await (supabase as any)
+    const { data, error } = await supabase
       .from('booking_availability')
       .select('*')
       .eq('service_id', serviceId)
@@ -25,7 +25,7 @@ export async function GET(request: Request) {
 
     // Get existing bookings for the date
     if (date) {
-      const { data: bookings } = await (supabase as any)
+      const { data: bookings } = await supabase
         .from('bookings')
         .select('booking_date, duration_minutes')
         .eq('service_id', serviceId)

@@ -1,6 +1,7 @@
 import { createClient } from '@/lib/supabase/server'
 import { NextResponse } from 'next/server'
 import { requireAuth, handleError } from '@/lib/utils/api-helpers'
+import { typedInsert } from '@/lib/supabase/typed-client'
 import { validateFile, generateSecureFilename, formatFileSize } from '@/lib/utils/file-security'
 
 export async function POST(request: Request) {
@@ -43,9 +44,7 @@ export async function POST(request: Request) {
       .getPublicUrl(fileName)
 
     // Save to database
-    const { data, error } = await (supabase as any)
-      .from('media_files')
-      .insert({
+    const { data, error } = await typedInsert(supabase, 'media_files', {
         tenant_id: tenantId,
         file_name: file.name,
         file_url: publicUrl,

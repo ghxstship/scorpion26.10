@@ -1,6 +1,7 @@
 import { createClient } from '@/lib/supabase/server'
 import { NextResponse } from 'next/server'
 import { requireAdmin, handleError, getTenantFromRequest } from '@/lib/utils/api-helpers'
+import { typedInsert } from '@/lib/supabase/typed-client'
 
 export async function GET(request: Request) {
   try {
@@ -10,15 +11,13 @@ export async function GET(request: Request) {
     }
 
     const supabase = await createClient()
-    const { data, error } = await (supabase as any)
+    const { data, error } = await supabase
       .from('pages')
       .select('*')
       .eq('tenant_id', tenantId)
       .eq('is_published', true)
 
-    if (error) {
-      return NextResponse.json({ error: error.message }, { status: 400 })
-    }
+    if (error) throw error
 
     return NextResponse.json(data)
   } catch (error) {
@@ -34,9 +33,7 @@ export async function POST(request: Request) {
     const body = await request.json()
     const supabase = await createClient()
 
-    const { data, error } = await (supabase as any)
-      .from('pages')
-      .insert({
+    const { data, error } = await typedInsert(supabase, 'pages', {
         tenant_id: body.tenantId,
         slug: body.slug,
         title: body.title,

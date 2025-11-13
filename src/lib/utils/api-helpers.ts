@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
+import { typedInsert, typedUpdate } from '@/lib/supabase/typed-client'
 import type { Database } from '@/types/database'
 
 export async function getAuthenticatedUser() {
@@ -37,15 +38,15 @@ export async function requireAdmin(tenantId?: string) {
     .eq('id', user.id)
     .single()
   
-  if (!userProfile || typeof userProfile !== 'object' || !('role' in userProfile) || (userProfile as any).role !== 'admin') {
+  if (!userProfile || typeof userProfile !== 'object' || !('role' in userProfile) || (userProfile as Record<string, unknown>).role !== 'admin') {
     return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
   }
   
-  if (tenantId && userProfile && typeof userProfile === 'object' && 'tenant_id' in userProfile && (userProfile as any).tenant_id !== tenantId) {
+  if (tenantId && userProfile && typeof userProfile === 'object' && 'tenant_id' in userProfile && (userProfile as Record<string, unknown>).tenant_id !== tenantId) {
     return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
   }
   
-  return { user, userProfile: userProfile as any }
+  return { user, userProfile: userProfile as Record<string, unknown> }
 }
 
 export function handleError(error: unknown) {
@@ -54,14 +55,41 @@ export function handleError(error: unknown) {
   // In production, don't expose internal error messages
   const isDevelopment = process.env.NODE_ENV === 'development'
   
-  if (error instanceof Error) {
-    const message = isDevelopment ? error.message : 'Internal server error'
-    return NextResponse.json({ error: message }, { status: 500 })
+  // Handle Supabase/PostgreSQL errors
+  if (typeof error === 'object' && error !== null && 'code' in error) {
+    const dbError = error as { code: string; message?: string; details?: string }
+    
+    // Handle specific PostgreSQL error codes
+    switch (dbError.code) {
+      case 'PGRST116': // No rows returned (not found)
+      case '22P02': // Invalid text representation
+        return NextResponse.json(
+          { error: isDevelopment ? (dbError.message || 'Resource not found') : 'Resource not found' },
+          { status: 404 }
+        )
+      case '23505': // Unique violation
+        return NextResponse.json(
+          { error: isDevelopment ? (dbError.message || 'Duplicate entry') : 'Duplicate entry' },
+          { status: 409 }
+        )
+      case '23503': // Foreign key violation
+        return NextResponse.json(
+          { error: isDevelopment ? (dbError.message || 'Referenced resource not found') : 'Invalid reference' },
+          { status: 400 }
+        )
+      case '42501': // Insufficient privilege
+        return NextResponse.json(
+          { error: 'Forbidden' },
+          { status: 403 }
+        )
+      default:
+        const message = isDevelopment ? (dbError.message || 'Database error occurred') : 'Internal server error'
+        return NextResponse.json({ error: message }, { status: 500 })
+    }
   }
   
-  // Handle database errors
-  if (typeof error === 'object' && error !== null && 'code' in error) {
-    const message = isDevelopment ? 'Database error occurred' : 'Internal server error'
+  if (error instanceof Error) {
+    const message = isDevelopment ? error.message : 'Internal server error'
     return NextResponse.json({ error: message }, { status: 500 })
   }
   
@@ -78,23 +106,23 @@ export async function getTenantFromRequest(request: Request): Promise<string | n
   // Check if it's a subdomain
   const subdomain = hostname.split('.')[0]
   if (subdomain && subdomain !== 'www') {
-    const { data: tenant } = await (supabase as any)
+    const { data: tenant } = await supabase
       .from('tenants')
       .select('id')
       .eq('slug', subdomain)
       .single()
     
-    if (tenant) return (tenant as any).id
+    if (tenant) return (tenant as Record<string, unknown>).id as string
   }
   
   // Check if it's a custom domain
-  const { data: tenant } = await (supabase as any)
+  const { data: tenant } = await supabase
     .from('tenants')
     .select('id')
     .eq('custom_domain', hostname)
     .single()
   
-  return (tenant as any)?.id || null
+  return (tenant as Record<string, unknown> | null)?.id as string || null
 }
 
 // Type-safe insert helper
@@ -103,7 +131,7 @@ export async function insertRecord<T extends keyof Database['public']['Tables']>
   data: Database['public']['Tables'][T]['Insert']
 ) {
   const supabase = await createClient()
-  return await (supabase as any).from(table).insert(data as Database['public']['Tables'][T]['Insert']).select().single()
+  return await typedInsert(supabase, table, data).select().single()
 }
 
 // Type-safe update helper
@@ -113,5 +141,5 @@ export async function updateRecord<T extends keyof Database['public']['Tables']>
   data: Database['public']['Tables'][T]['Update']
 ) {
   const supabase = await createClient()
-  return await (supabase as any).from(table).update(data as Database['public']['Tables'][T]['Update']).eq('id', id).select().single()
+  return await typedUpdate(supabase, table, data).eq('id', id).select().single()
 }

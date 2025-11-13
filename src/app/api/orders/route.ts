@@ -1,25 +1,24 @@
 import { createClient } from '@/lib/supabase/server'
 import { NextResponse } from 'next/server'
 import { requireAuth, handleError } from '@/lib/utils/api-helpers'
+import { typedInsert } from '@/lib/supabase/typed-client'
 import { createOrderSchema } from '@/lib/utils/validation'
 
-export async function GET(request: Request) {
+export async function GET() {
   try {
     const user = await requireAuth()
     if (user instanceof NextResponse) return user
 
     const supabase = await createClient()
-    const { data: orders, error } = await (supabase as any)
+    const { data, error } = await supabase
       .from('orders')
-      .select('*, order_items(*, products(*))')
+      .select('*, order_items(*)')
       .eq('user_id', user.id)
       .order('created_at', { ascending: false })
 
-    if (error) {
-      return NextResponse.json({ error: error.message }, { status: 400 })
-    }
+    if (error) throw error
 
-    return NextResponse.json(orders)
+    return NextResponse.json(data)
   } catch (error) {
     return handleError(error)
   }
@@ -39,16 +38,14 @@ export async function POST(request: Request) {
     const totalAmount = items.reduce((sum, item) => sum + (item.price * item.quantity), 0)
 
     // Create order
-    const orderData: Record<string, unknown> = {
+    const orderData = {
       tenant_id: tenantId,
       user_id: user.id,
       total_amount: totalAmount,
-      status: 'pending',
+      status: 'pending' as const,
     }
     
-    const { data: order, error: orderError } = await (supabase as any)
-      .from('orders')
-      .insert(orderData)
+    const { data: order, error: orderError } = await typedInsert(supabase, 'orders', orderData)
       .select()
       .single()
 
@@ -64,9 +61,7 @@ export async function POST(request: Request) {
       price: item.price,
     }))
 
-    const { error: itemsError } = await (supabase as any)
-      .from('order_items')
-      .insert(orderItems)
+    const { error: itemsError } = await typedInsert(supabase, 'order_items', orderItems)
 
     if (itemsError) {
       return NextResponse.json({ error: itemsError.message }, { status: 400 })

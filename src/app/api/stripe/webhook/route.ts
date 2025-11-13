@@ -1,8 +1,9 @@
 import { headers } from 'next/headers'
 import { NextResponse } from 'next/server'
-import Stripe from 'stripe'
 import { stripe } from '@/lib/stripe'
 import { createClient } from '@/lib/supabase/server'
+import { typedUpdate } from '@/lib/supabase/typed-client'
+import Stripe from 'stripe'
 
 export async function POST(req: Request) {
   const body = await req.text()
@@ -41,9 +42,7 @@ export async function POST(req: Request) {
         
         // Update order status
         if (session.metadata?.order_id) {
-          await (supabase as any)
-            .from('orders')
-            .update({
+          await typedUpdate(supabase, 'orders', {
               status: 'completed',
               stripe_payment_intent_id: session.payment_intent as string,
             })
@@ -67,9 +66,7 @@ export async function POST(req: Request) {
         
         // Handle failed payment
         if (paymentIntent.metadata?.order_id) {
-          await (supabase as any)
-            .from('orders')
-            .update({ status: 'failed' })
+          await typedUpdate(supabase, 'orders', { status: 'failed' })
             .eq('id', paymentIntent.metadata.order_id)
         }
         

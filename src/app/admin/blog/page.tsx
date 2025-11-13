@@ -9,6 +9,11 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge'
 import { Skeleton } from '@/components/ui/skeleton'
 import { formatDistanceToNow } from 'date-fns'
+import { Tables } from '@/types/database'
+
+type BlogPostWithAuthor = Tables<'blog_posts'> & {
+  users: Pick<Tables<'users'>, 'full_name'> | null
+}
 
 export const metadata = {
   title: 'Blog Posts | Admin',
@@ -29,7 +34,7 @@ async function BlogPostsList() {
 
   return (
     <div className="space-y-4">
-      {posts?.map((post: any) => (
+      {posts?.map((post: BlogPostWithAuthor) => (
         <Link key={post.id} href={`/admin/blog/${post.id}`}>
           <Card className="hover:shadow-lg transition-shadow cursor-pointer">
             <CardHeader>

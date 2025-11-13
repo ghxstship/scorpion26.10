@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
 import { requireAdmin, handleError } from '@/lib/utils/api-helpers'
+import { typedUpdate } from '@/lib/supabase/typed-client'
 
 export async function GET(
   request: NextRequest,
@@ -10,7 +11,7 @@ export async function GET(
     const { id } = await params
     const supabase = await createClient()
 
-    const { data: video, error } = await (supabase as any)
+    const { data: video, error } = await supabase
       .from('videos')
       .select('*')
       .eq('id', id)
@@ -45,9 +46,7 @@ export async function PUT(
     const supabase = await createClient()
     const body = await request.json()
 
-    const { data: video, error } = await (supabase as any)
-      .from('videos')
-      .update({
+    const { data: video, error } = await typedUpdate(supabase, 'videos', {
         title: body.title,
         description: body.description,
         url: body.url,
@@ -81,7 +80,7 @@ export async function DELETE(
     const { id } = await params
     const supabase = await createClient()
 
-    const { error } = await (supabase as any)
+    const { error } = await supabase
       .from('videos')
       .delete()
       .eq('id', id)

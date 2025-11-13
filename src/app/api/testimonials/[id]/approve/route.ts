@@ -1,6 +1,7 @@
 import { createClient } from '@/lib/supabase/server'
 import { NextResponse } from 'next/server'
 import { requireAdmin, handleError } from '@/lib/utils/api-helpers'
+import { typedUpdate } from '@/lib/supabase/typed-client'
 
 export async function PUT(
   request: Request,
@@ -12,9 +13,7 @@ export async function PUT(
     if (authResult instanceof NextResponse) return authResult
 
     const supabase = await createClient()
-    const { data, error } = await (supabase as any)
-      .from('testimonials')
-      .update({ is_approved: true })
+    const { data, error } = await typedUpdate(supabase, 'testimonials', { is_approved: true })
       .eq('id', id)
       .select()
       .single()

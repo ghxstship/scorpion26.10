@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
-import { Lock, Play } from 'lucide-react'
+import { Lock } from 'lucide-react'
 import Link from 'next/link'
 
 interface VideoPlayerProps {
@@ -19,13 +19,14 @@ interface VideoPlayerProps {
 }
 
 export function VideoPlayer({ video, hasAccess = true }: VideoPlayerProps) {
-  const [isPlaying, setIsPlaying] = useState(false)
+  const [isPlaying] = useState(false)
 
   // If premium video and user doesn't have access, show lock screen
   if (video.is_premium && !hasAccess) {
     return (
       <div className="relative aspect-video bg-gradient-to-br from-gray-900 to-gray-800 rounded-lg overflow-hidden">
         {video.thumbnail_url && (
+          // eslint-disable-next-line @next/next/no-img-element
           <img
             src={video.thumbnail_url}
             alt={video.title}

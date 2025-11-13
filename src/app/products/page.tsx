@@ -1,78 +1,105 @@
 import Link from 'next/link'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { BookOpen, Video, Users, Zap, Check } from 'lucide-react'
+import { Badge } from '@/components/ui/badge'
+import { Users, Video, Zap, Crown, Check } from 'lucide-react'
 
 /**
- * Products Page - Spartan Warrior Design
- * Showcases 456Pro's 4 curated training programs
+ * Programs Page - 456AF Training Programs
+ * Choose Your Vertical → Choose Your Program → Checkout
  */
 
-// 456Pro Curated Training Programs
-const products = [
+// 456AF Training Programs
+const programs = [
   {
-    id: '1',
+    id: 'basicaf',
     title: 'BasicAF',
-    description: 'Community Access Only - Your foundation for fitness excellence. Join Club456 and start your transformation journey.',
-    type: 'community',
+    tagline: 'Community Access Only',
+    description: 'Stop lurking. Community access is literally $30. What\'s your excuse? Join Club456 and get access to group workouts, basic programming, and a community that actually shows up.',
     tier: 'Foundation',
-    price: 0,
-    image: null,
+    price: 30,
+    priceLabel: '/month',
+    capacity: null,
+    capacityLabel: 'Unlimited',
     icon: Users,
     features: [
       'Club456 community access',
       'Group workouts',
       'Basic programming',
       'Community support',
+      'Monthly challenges',
+      'Workout library',
     ],
+    cta: 'Join BasicAF',
+    highlight: false,
   },
   {
-    id: '2',
+    id: 'strongaf',
     title: 'StrongAF',
-    description: 'Virtual Program - Build strength and power with our comprehensive online training platform. Perfect for intermediate athletes.',
-    type: 'virtual',
+    tagline: 'Virtual Group Training',
+    description: 'Virtual training that doesn\'t suck. 3 live group sessions per week, actual programming (not random workouts), and monthly check-ins. Plus in-person sessions when you need that extra push.',
     tier: 'Virtual',
-    price: 9999,
-    image: null,
+    price: 350,
+    priceLabel: '/month',
+    sessionPrice: 200,
+    capacity: 60,
+    capacityLabel: '60 spots available',
     icon: Video,
     features: [
-      'Online training platform',
-      'Video coaching library',
+      '3 live virtual sessions/week',
+      'Personalized programming',
+      'Monthly video check-ins',
       'Progress tracking',
-      'Monthly check-ins',
+      'Private Slack community',
+      'Optional in-person sessions ($200/session)',
     ],
+    cta: 'Join StrongAF',
+    highlight: false,
   },
   {
-    id: '3',
+    id: 'rareaf',
     title: 'RareAF',
-    description: 'Private Program - Elite one-on-one coaching with personalized programming and direct access to Coach Matthew Alarcon.',
-    type: 'private',
+    tagline: 'Private Personal Training',
+    description: 'Elite 1-on-1 coaching. Only 6 slots available. Custom programming, weekly video analysis, and direct access to your coach. This isn\'t for everyone. That\'s the point.',
     tier: 'Elite',
-    price: 29999,
-    image: null,
+    price: 800,
+    priceLabel: '/month',
+    sessionPrice: 300,
+    capacity: 6,
+    capacityLabel: 'Only 6 slots',
     icon: Zap,
     features: [
-      '1-on-1 coaching sessions',
-      'Custom programming',
-      'Direct coach access',
+      '2 private sessions/week',
+      '100% custom programming',
       'Weekly video analysis',
+      'Direct coach access (text/call)',
+      'Nutrition guidance',
+      'In-person sessions available ($300/session)',
     ],
+    cta: 'Apply for RareAF',
+    highlight: true,
   },
   {
-    id: '4',
-    title: 'EliteAF',
-    description: 'Residential/Destination Program - The ultimate immersive fitness experience. Train at our Orlando facility or exclusive destination locations.',
-    type: 'residential',
+    id: 'faraf',
+    title: 'FarAF',
+    tagline: 'Residential Program',
+    description: 'The ultimate immersive experience. 3 clients per year. That\'s it. Live-in training at our Orlando facility or exclusive destination locations. Full lifestyle transformation. VIP everything.',
     tier: 'Ultimate',
-    price: 99999,
-    image: null,
-    icon: BookOpen,
+    price: 50000,
+    priceLabel: '/month',
+    capacity: 3,
+    capacityLabel: '3 clients per year',
+    icon: Crown,
     features: [
-      'Immersive training experience',
-      'Orlando facility access',
-      'Destination programs',
-      'VIP treatment',
+      'Exclusive residency (Orlando or destination)',
+      '24/7 trainer access',
+      'Private chef & nutrition',
+      'Luxury accommodations',
+      'Full lifestyle management',
+      'Recovery & wellness suite',
     ],
+    cta: 'Inquire About FarAF',
+    highlight: false,
   },
 ]
 
@@ -80,31 +107,41 @@ export default function ProductsPage() {
   return (
     <main className="min-h-screen bg-[var(--grey-950)]">
       <div className="container px-6 py-24">
-        <div className="mx-auto max-w-4xl text-center">
+        {/* Header */}
+        <div className="mx-auto max-w-4xl text-center mb-16">
           <h1 className="mb-6 font-[family-name:var(--font-bebas)] text-6xl font-black uppercase tracking-wider text-[var(--grey-100)] md:text-7xl lg:text-8xl">
-            456Pro Training <span className="text-[var(--gold-600)]">Programs</span>
+            456AF Training <span className="text-[var(--gold-600)]">Programs</span>
           </h1>
-          <p className="mb-16 text-lg text-[var(--grey-300)] md:text-xl">
-            From community access to elite residential training - find your perfect fit
+          <p className="mb-4 text-lg text-[var(--grey-300)] md:text-xl">
+            Choose Your Vertical → Choose Your Program → Checkout
+          </p>
+          <p className="text-base text-[var(--grey-400)]">
+            From $30/month community access to $50k/month residential training. Pick your level.
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2">
-          {products.map((product, index) => {
-            const Icon = product.icon
-            const isElite = index === 3 // EliteAF is the ultimate program
+        {/* Programs Grid */}
+        <div className="grid gap-8 md:grid-cols-2 mb-24">
+          {programs.map((program) => {
+            const Icon = program.icon
+            const isHighlight = program.highlight
             
             return (
               <Card 
-                key={product.id} 
-                className={`group flex flex-col ${isElite ? 'border-2 border-[var(--gold-600)] shadow-[var(--glow-gold)]' : ''}`}
+                key={program.id} 
+                className={`group flex flex-col ${isHighlight ? 'border-2 border-[var(--gold-600)] shadow-[var(--glow-gold)]' : ''}`}
               >
                 <CardHeader>
-                  {/* Tier Badge */}
-                  <div className="mb-4 inline-flex w-fit items-center gap-2 rounded-sm border border-[var(--gold-600)] bg-[var(--grey-900)] px-3 py-1">
-                    <span className="text-xs font-bold uppercase tracking-wider text-[var(--gold-600)]">
-                      {product.tier}
-                    </span>
+                  {/* Tier Badge & Capacity */}
+                  <div className="mb-4 flex items-center justify-between gap-2">
+                    <Badge variant="outline" className="border-[var(--gold-600)] text-[var(--gold-600)]">
+                      {program.tier}
+                    </Badge>
+                    {program.capacity && (
+                      <span className="text-xs uppercase tracking-wider text-[var(--grey-500)]">
+                        {program.capacityLabel}
+                      </span>
+                    )}
                   </div>
 
                   {/* Icon */}
@@ -112,29 +149,39 @@ export default function ProductsPage() {
                     <Icon className="h-8 w-8 text-[var(--red-700)] transition-colors group-hover:text-[var(--grey-950)]" />
                   </div>
 
-                  {/* Title */}
-                  <CardTitle className="mb-3">{product.title}</CardTitle>
+                  {/* Title & Tagline */}
+                  <CardTitle className="mb-2">{program.title}</CardTitle>
+                  <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-[var(--grey-500)]">
+                    {program.tagline}
+                  </p>
                   
                   {/* Description */}
                   <CardDescription className="text-base leading-relaxed">
-                    {product.description}
+                    {program.description}
                   </CardDescription>
                 </CardHeader>
 
                 <CardContent className="flex-1">
                   {/* Price */}
                   <div className="mb-6 border-b border-[var(--grey-800)] pb-6">
-                    <span className="font-[family-name:var(--font-bebas)] text-5xl font-black text-[var(--gold-600)]">
-                      {product.price === 0 ? 'FREE' : `$${(product.price / 100).toFixed(0)}`}
-                    </span>
-                    {product.type !== 'community' && product.type !== 'residential' && (
-                      <span className="ml-2 text-sm uppercase tracking-wide text-[var(--grey-500)]">/month</span>
+                    <div className="flex items-baseline gap-2">
+                      <span className="font-[family-name:var(--font-bebas)] text-5xl font-black text-[var(--gold-600)]">
+                        ${program.price.toLocaleString()}
+                      </span>
+                      <span className="text-sm uppercase tracking-wide text-[var(--grey-500)]">
+                        {program.priceLabel}
+                      </span>
+                    </div>
+                    {program.sessionPrice && (
+                      <p className="mt-2 text-sm text-[var(--grey-400)]">
+                        In-person sessions: ${program.sessionPrice}/session
+                      </p>
                     )}
                   </div>
 
                   {/* Features */}
                   <div className="space-y-3">
-                    {product.features.map((feature, idx) => (
+                    {program.features.map((feature, idx) => (
                       <div key={idx} className="flex items-start gap-3">
                         <Check className="mt-0.5 h-5 w-5 flex-shrink-0 text-[var(--gold-600)]" />
                         <span className="text-sm text-[var(--grey-300)]">{feature}</span>
@@ -144,8 +191,8 @@ export default function ProductsPage() {
                 </CardContent>
 
                 <CardFooter>
-                  <Button asChild className="w-full" variant={isElite ? 'default' : 'secondary'}>
-                    <Link href="/contact">Get Started</Link>
+                  <Button asChild className="w-full" variant={isHighlight ? 'default' : 'secondary'}>
+                    <Link href="/contact">{program.cta}</Link>
                   </Button>
                 </CardFooter>
               </Card>
@@ -153,16 +200,34 @@ export default function ProductsPage() {
           })}
         </div>
 
-        {/* CTA Section */}
-        <div className="mt-24 rounded-sm border-2 border-[var(--gold-600)] bg-[var(--grey-900)] p-12 text-center md:p-16">
+        {/* Vertical Selection CTA */}
+        <div className="mb-24 rounded-sm border-2 border-[var(--red-700)] bg-[var(--grey-900)] p-12 text-center md:p-16">
           <h2 className="mb-6 font-[family-name:var(--font-bebas)] text-4xl font-black uppercase tracking-wider text-[var(--grey-100)] md:text-5xl">
-            Not Sure Which Program is <span className="text-[var(--gold-600)]">Right For You?</span>
+            First Time? <span className="text-[var(--gold-600)]">Choose Your Vertical</span>
           </h2>
           <p className="mb-8 text-lg text-[var(--grey-300)]">
-            Schedule a free consultation to discuss your goals and find the perfect fit.
+            456 Lifestyle (Tier 1) → 456 Strength (Tier 2) → 456 Athlete (Tier 3)
+          </p>
+          <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
+            <Button size="lg" asChild variant="outline">
+              <Link href="/pricing">View Vertical Pricing</Link>
+            </Button>
+            <Button size="lg" asChild>
+              <Link href="/contact">Get Assessment</Link>
+            </Button>
+          </div>
+        </div>
+
+        {/* 456ProU CTA */}
+        <div className="rounded-sm border-2 border-[var(--gold-600)] bg-gradient-to-br from-[var(--grey-900)] to-[var(--grey-950)] p-12 text-center md:p-16">
+          <h2 className="mb-6 font-[family-name:var(--font-bebas)] text-4xl font-black uppercase tracking-wider text-[var(--grey-100)] md:text-5xl">
+            Want to <span className="text-[var(--gold-600)]">Become a Trainer?</span>
+          </h2>
+          <p className="mb-8 text-lg text-[var(--grey-300)]">
+            456ProU certification academy. 3 cohorts per year. Limited spots.
           </p>
           <Button size="lg" asChild>
-            <Link href="/contact">Schedule Free Consultation</Link>
+            <Link href="/456prou">Learn About 456ProU</Link>
           </Button>
         </div>
       </div>

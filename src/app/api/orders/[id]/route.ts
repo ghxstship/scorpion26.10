@@ -12,15 +12,17 @@ export async function GET(
     if (user instanceof NextResponse) return user
 
     const supabase = await createClient()
-    const { data, error } = await (supabase as any)
+    const { data, error } = await supabase
       .from('orders')
       .select('*, order_items(*)')
       .eq('id', id)
       .eq('user_id', user.id)
       .single()
 
-    if (error) {
-      return NextResponse.json({ error: error.message }, { status: 404 })
+    if (error) throw error
+
+    if (!data) {
+      return NextResponse.json({ error: 'Order not found' }, { status: 404 })
     }
 
     return NextResponse.json(data)

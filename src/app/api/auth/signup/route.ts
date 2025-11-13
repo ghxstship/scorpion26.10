@@ -1,6 +1,7 @@
 import { createClient } from '@/lib/supabase/server'
 import { NextResponse } from 'next/server'
 import { z } from 'zod'
+import { typedInsert } from '@/lib/supabase/typed-client'
 import type { Database } from '@/types/database'
 
 const signupSchema = z.object({
@@ -45,9 +46,7 @@ export async function POST(request: Request) {
       role: 'customer',
     }
 
-    const { error: profileError } = await (supabase as any)
-      .from('users')
-      .insert(userInsert)
+    const { error: profileError } = await typedInsert(supabase, 'users', userInsert)
 
     if (profileError) {
       return NextResponse.json({ error: profileError.message }, { status: 500 })

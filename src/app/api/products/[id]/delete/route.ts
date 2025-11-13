@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
 import { requireAdmin, handleError } from '@/lib/utils/api-helpers'
+import { typedFrom } from '@/lib/supabase/typed-client'
 
 export async function DELETE(
   request: NextRequest,
@@ -11,8 +12,7 @@ export async function DELETE(
     const supabase = await createClient()
 
     // Get existing product
-    const { data: existingProduct, error: fetchError } = await (supabase as any)
-      .from('products')
+    const { data: existingProduct, error: fetchError } = await typedFrom(supabase, 'products')
       .select('tenant_id')
       .eq('id', id)
       .single()
@@ -25,7 +25,7 @@ export async function DELETE(
     if (authResult instanceof NextResponse) return authResult
 
     // Delete product
-    const { error } = await (supabase as any)
+    const { error } = await supabase
       .from('products')
       .delete()
       .eq('id', id)

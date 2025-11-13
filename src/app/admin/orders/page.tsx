@@ -14,6 +14,11 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
+import { Tables } from '@/types/database'
+
+type OrderWithUser = Tables<'orders'> & {
+  users: Pick<Tables<'users'>, 'full_name' | 'email'> | null
+}
 
 export const metadata = {
   title: 'Orders | Admin',
@@ -80,7 +85,7 @@ async function OrdersList() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {orders?.map((order: any) => (
+            {orders?.map((order: OrderWithUser) => (
               <TableRow key={order.id}>
                 <TableCell>
                   <Link

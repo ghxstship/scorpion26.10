@@ -1,9 +1,10 @@
+import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
-import { NextResponse } from 'next/server'
 import { requireAuth, handleError } from '@/lib/utils/api-helpers'
+import { typedUpdate } from '@/lib/supabase/typed-client'
 
 export async function PUT(
-  request: Request,
+  request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
@@ -14,14 +15,12 @@ export async function PUT(
     const body = await request.json()
     const supabase = await createClient()
 
-    const updateData: Record<string, unknown> = {
+    const updateData = {
       booking_date: body.bookingDate,
       status: body.status,
     }
 
-    const { data, error } = await (supabase as any)
-      .from('bookings')
-      .update(updateData)
+    const { data, error } = await typedUpdate(supabase, 'bookings', updateData)
       .eq('id', id)
       .eq('user_id', user.id)
       .select()
@@ -47,7 +46,7 @@ export async function DELETE(
     if (user instanceof NextResponse) return user
 
     const supabase = await createClient()
-    const { error } = await (supabase as any)
+    const { error } = await supabase
       .from('bookings')
       .delete()
       .eq('id', id)

@@ -5,6 +5,7 @@ import { Calendar, User, ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { createClient } from '@/lib/supabase/server'
+import { typedFrom } from '@/lib/supabase/typed-client'
 import { notFound } from 'next/navigation'
 import { ContentRenderer } from '@/components/content/ContentRenderer'
 import { generateSEO, generateArticleSchema } from '@/lib/utils/seo'
@@ -14,8 +15,7 @@ import Image from 'next/image'
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const supabase = await createClient()
   
-  const { data: post } = await (supabase as any)
-    .from('blog_posts')
+  const { data: post } = await typedFrom(supabase, 'blog_posts')
     .select('title, excerpt, featured_image')
     .eq('slug', params.slug)
     .eq('is_published', true)
@@ -36,8 +36,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 export default async function BlogPostPage({ params }: { params: { slug: string } }) {
   const supabase = await createClient()
   
-  const { data: post, error } = await (supabase as any)
-    .from('blog_posts')
+  const { data: post, error } = await typedFrom(supabase, 'blog_posts')
     .select(`
       *,
       author:users(full_name)

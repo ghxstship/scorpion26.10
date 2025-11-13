@@ -1,8 +1,17 @@
-import { createClient } from '@/lib/supabase/server'
 import { NextResponse } from 'next/server'
+import { createClient } from '@/lib/supabase/server'
 import { requireAdmin, handleError } from '@/lib/utils/api-helpers'
-import { createProductVariantSchema } from '@/lib/utils/validation-extended'
+import { typedInsert } from '@/lib/supabase/typed-client'
 import { z } from 'zod'
+
+const createProductVariantSchema = z.object({
+  productId: z.string(),
+  name: z.string(),
+  sku: z.string().optional(),
+  price: z.number(),
+  stripePriceId: z.string().optional(),
+  inventoryCount: z.number().optional(),
+})
 
 export async function GET(
   request: Request,
@@ -12,7 +21,7 @@ export async function GET(
     const { id } = await params
     const supabase = await createClient()
 
-    const { data, error } = await (supabase as any)
+    const { data, error } = await supabase
       .from('product_variants')
       .select('*')
       .eq('product_id', id)
@@ -45,7 +54,7 @@ export async function POST(
 
     const supabase = await createClient()
     
-    const insertData: Record<string, unknown> = {
+    const insertData = {
       product_id: validatedData.productId,
       name: validatedData.name,
       sku: validatedData.sku,
@@ -54,9 +63,7 @@ export async function POST(
       inventory_count: validatedData.inventoryCount,
     }
     
-    const { data, error } = await (supabase as any)
-      .from('product_variants')
-      .insert(insertData)
+    const { data, error } = await typedInsert(supabase, 'product_variants', insertData)
       .select()
       .single()
 

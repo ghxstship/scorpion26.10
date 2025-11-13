@@ -1,4 +1,5 @@
 import { createClient } from '@/lib/supabase/server'
+import { typedFrom } from '@/lib/supabase/typed-client'
 
 /**
  * Check if user has access to a premium video
@@ -14,8 +15,7 @@ export async function checkVideoAccess(
   const supabase = await createClient()
 
   // Get video details
-  const { data: video } = await (supabase as any)
-    .from('videos')
+  const { data: video } = await typedFrom(supabase, 'videos')
     .select('is_premium, tenant_id')
     .eq('id', videoId)
     .single()
@@ -24,10 +24,8 @@ export async function checkVideoAccess(
     return false
   }
 
-  const vid = video as any
-
   // If not premium, everyone has access
-  if (!vid.is_premium) {
+  if (!video.is_premium) {
     return true
   }
 
@@ -37,8 +35,7 @@ export async function checkVideoAccess(
   }
 
   // Check if user has active subscription
-  const { data: subscription } = await (supabase as any)
-    .from('subscriptions')
+  const { data: subscription } = await typedFrom(supabase, 'subscriptions')
     .select('status')
     .eq('user_id', userId)
     .eq('tenant_id', video.tenant_id)
@@ -82,7 +79,7 @@ export async function getAccessibleVideos(
   }
 
   // Check subscription status
-  const { data: subscription } = await (supabase as any)
+  const { data: subscription } = await supabase
     .from('subscriptions')
     .select('status')
     .eq('user_id', userId)
@@ -96,5 +93,5 @@ export async function getAccessibleVideos(
   }
 
   // Otherwise, filter to only non-premium
-  return videos.filter((v: any) => !v.is_premium)
+  return videos.filter((v: Record<string, unknown>) => !v.is_premium)
 }

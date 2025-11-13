@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { stripe } from '@/lib/stripe'
 import { createClient } from '@/lib/supabase/server'
 import { requireAuth, handleError } from '@/lib/utils/api-helpers'
+import { typedFrom, typedUpdate } from '@/lib/supabase/typed-client'
 
 
 export async function POST(
@@ -16,8 +17,7 @@ export async function POST(
     const supabase = await createClient()
 
     // Get subscription
-    const { data: subscription, error: fetchError } = await (supabase as any)
-      .from('subscriptions')
+    const { data: subscription, error: fetchError } = await typedFrom(supabase, 'subscriptions')
       .select('*')
       .eq('id', id)
       .single()
@@ -38,9 +38,7 @@ export async function POST(
     )
 
     // Update in database
-    const { data: updatedSubscription, error } = await (supabase as any)
-      .from('subscriptions')
-      .update({
+    const { data: updatedSubscription, error } = await typedUpdate(supabase, 'subscriptions', {
         cancel_at_period_end: true,
         status: 'canceled'
       })

@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
 import { requireAdmin, handleError } from '@/lib/utils/api-helpers'
+import { typedFrom, typedUpdate } from '@/lib/supabase/typed-client'
 import { updateProductSchema } from '@/lib/utils/validation'
 import { z } from 'zod'
 
@@ -16,8 +17,7 @@ export async function PUT(
     const supabase = await createClient()
 
     // Get existing product
-    const { data: existingProduct, error: fetchError } = await (supabase as any)
-      .from('products')
+    const { data: existingProduct, error: fetchError } = await typedFrom(supabase, 'products')
       .select('tenant_id')
       .eq('id', id)
       .single()
@@ -37,9 +37,7 @@ export async function PUT(
     if (validatedData.price) updateData.price = validatedData.price
     if (validatedData.imageUrl !== undefined) updateData.image_url = validatedData.imageUrl
 
-    const { data: updatedProduct, error } = await (supabase as any)
-      .from('products')
-      .update(updateData)
+    const { data: updatedProduct, error } = await typedUpdate(supabase, 'products', updateData)
       .eq('id', id)
       .select()
       .single()

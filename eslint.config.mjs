@@ -21,13 +21,19 @@ const eslintConfig = defineConfig([
       "@typescript-eslint/no-unused-vars": "warn",
     },
   },
-  // Disable problematic rules for pre-existing code
+  // Allow 'any' in typed helper files (controlled type assertions)
+  {
+    files: ["**/typed-client.ts", "**/typed-helpers.ts"],
+    rules: {
+      "@typescript-eslint/no-explicit-any": "off",
+    },
+  },
+  // Production-grade rules - zero tolerance
   {
     rules: {
-      "react/no-unescaped-entities": "off",
-      "react-hooks/static-components": "off",
-      "@typescript-eslint/no-explicit-any": "off",
-      "@typescript-eslint/no-unused-vars": "warn",
+      "react/no-unescaped-entities": "error",
+      "@typescript-eslint/no-explicit-any": "error",
+      "@typescript-eslint/no-unused-vars": "error",
     },
   },
 ]);

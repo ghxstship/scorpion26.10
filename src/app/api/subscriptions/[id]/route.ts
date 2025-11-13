@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { stripe } from '@/lib/stripe'
 import { createClient } from '@/lib/supabase/server'
 import { requireAuth, handleError } from '@/lib/utils/api-helpers'
+import { typedFrom, typedUpdate } from '@/lib/supabase/typed-client'
 import { z } from 'zod'
 
 
@@ -21,8 +22,7 @@ export async function GET(
 
     const supabase = await createClient()
     
-    const { data: subscription, error } = await (supabase as any)
-      .from('subscriptions')
+    const { data: subscription, error } = await typedFrom(supabase, 'subscriptions')
       .select('*')
       .eq('id', id)
       .eq('user_id', user.id)
@@ -31,10 +31,7 @@ export async function GET(
     if (error) throw error
 
     if (!subscription) {
-      return NextResponse.json(
-        { error: 'Subscription not found' },
-        { status: 404 }
-      )
+      return NextResponse.json({ error: 'Subscription not found' }, { status: 404 })
     }
 
     return NextResponse.json({ data: subscription })
@@ -59,7 +56,7 @@ export async function PUT(
     const supabase = await createClient()
 
     // Get subscription
-    const { data: subscription, error: fetchError } = await (supabase as any)
+    const { data: subscription, error: fetchError } = await supabase
       .from('subscriptions')
       .select('*')
       .eq('id', id)
@@ -75,7 +72,7 @@ export async function PUT(
       )
     }
 
-    const stripeSubscriptionId = String(subscription.stripe_subscription_id)
+    const stripeSubscriptionId = String((subscription as { stripe_subscription_id: string }).stripe_subscription_id)
 
     // Update Stripe subscription if price changed
     if (validatedData.priceId) {
@@ -90,9 +87,7 @@ export async function PUT(
       })
 
       // Update database
-      const { data: updatedSubscription, error: updateError } = await (supabase as any)
-        .from('subscriptions')
-        .update({
+      const { data: updatedSubscription, error: updateError } = await typedUpdate(supabase, 'subscriptions', {
           stripe_price_id: validatedData.priceId,
           updated_at: new Date().toISOString(),
         })
@@ -130,7 +125,7 @@ export async function DELETE(
     const supabase = await createClient()
 
     // Get subscription
-    const { data: subscription, error: fetchError } = await (supabase as any)
+    const { data: subscription, error: fetchError } = await supabase
       .from('subscriptions')
       .select('*')
       .eq('id', id)
@@ -146,16 +141,14 @@ export async function DELETE(
       )
     }
 
-    const stripeSubscriptionId = String(subscription.stripe_subscription_id)
+    const stripeSubscriptionId = String((subscription as { stripe_subscription_id: string }).stripe_subscription_id)
 
     // Cancel in Stripe immediately
     await stripe.subscriptions.cancel(stripeSubscriptionId)
 
     // Update database
-    const { error: updateError } = await (supabase as any)
-      .from('subscriptions')
-      .update({
-        status: 'cancelled',
+    const { error: updateError } = await typedUpdate(supabase, 'subscriptions', {
+        status: 'canceled',
         cancelled_at: new Date().toISOString(),
       })
       .eq('id', id)

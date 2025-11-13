@@ -1,6 +1,7 @@
 import { createClient } from '@/lib/supabase/server'
 import { NextResponse } from 'next/server'
 import { requireAdmin, handleError, getTenantFromRequest } from '@/lib/utils/api-helpers'
+import { typedInsert } from '@/lib/supabase/typed-client'
 import { createBlogPostSchema } from '@/lib/utils/validation'
 
 export async function GET(request: Request) {
@@ -11,18 +12,16 @@ export async function GET(request: Request) {
     }
 
     const supabase = await createClient()
-    const { data: posts, error } = await (supabase as any)
+    const { data, error } = await supabase
       .from('blog_posts')
-      .select('*')
+      .select('*, users(full_name, email)')
       .eq('tenant_id', tenantId)
       .eq('is_published', true)
       .order('published_at', { ascending: false })
 
-    if (error) {
-      return NextResponse.json({ error: error.message }, { status: 400 })
-    }
+    if (error) throw error
 
-    return NextResponse.json(posts)
+    return NextResponse.json(data)
   } catch (error) {
     return handleError(error)
   }
@@ -38,7 +37,7 @@ export async function POST(request: Request) {
 
     const supabase = await createClient()
     
-    const insertData: Record<string, unknown> = {
+    const insertData = {
       tenant_id: validatedData.tenantId,
       author_id: authResult.user.id,
       title: validatedData.title,
@@ -50,9 +49,7 @@ export async function POST(request: Request) {
       published_at: validatedData.isPublished ? new Date().toISOString() : null,
     }
     
-    const { data: post, error } = await (supabase as any)
-      .from('blog_posts')
-      .insert(insertData)
+    const { data: post, error } = await typedInsert(supabase, 'blog_posts', insertData)
       .select()
       .single()
 

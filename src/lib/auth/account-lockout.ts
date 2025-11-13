@@ -1,4 +1,5 @@
 import { createClient } from '@/lib/supabase/server'
+import { typedInsert } from '@/lib/supabase/typed-client'
 
 const MAX_FAILED_ATTEMPTS = 5
 const LOCKOUT_DURATION_MS = 15 * 60 * 1000 // 15 minutes
@@ -76,7 +77,7 @@ export async function recordLoginAttempt(
 async function logLoginAttempt(email: string, success: boolean, ip?: string): Promise<void> {
   try {
     const supabase = await createClient()
-    await (supabase as any).from('audit_logs').insert({
+    await typedInsert(supabase, 'audit_logs', {
       action: success ? 'LOGIN_SUCCESS' : 'LOGIN_FAILED',
       entity_type: 'auth',
       description: success ? 'Successful login' : 'Failed login attempt',

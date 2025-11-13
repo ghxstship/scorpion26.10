@@ -166,7 +166,7 @@ export async function createConnectSubscriptionCheckout(
 export async function deleteConnectAccount(
   accountId: string
 ): Promise<Stripe.Account> {
-  return await stripe.accounts.del(accountId) as any
+  return await stripe.accounts.del(accountId) as unknown as Stripe.Account
 }
 
 /**

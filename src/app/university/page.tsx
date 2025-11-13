@@ -143,7 +143,7 @@ export default function UniversityPage() {
 
         {/* What You'll Learn */}
         <div className="mb-16 bg-muted/50 rounded-2xl p-8 md:p-12">
-          <h2 className="text-3xl font-bold mb-8 text-center">What You'll Learn</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center">What You&apos;ll Learn</h2>
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div>
               <h3 className="text-xl font-semibold mb-4">Technical Skills</h3>

@@ -2,6 +2,7 @@ import { createClient } from '@/lib/supabase/server'
 import { stripe } from '@/lib/stripe'
 import { NextResponse } from 'next/server'
 import { requireAdmin, handleError } from '@/lib/utils/api-helpers'
+import { typedFrom, typedUpdate } from '@/lib/supabase/typed-client'
 
 
 export async function POST(
@@ -16,8 +17,7 @@ export async function POST(
     const supabase = await createClient()
 
     // Get order
-    const { data: order, error: orderError } = await (supabase as any)
-      .from('orders')
+    const { data: order, error: orderError } = await typedFrom(supabase, 'orders')
       .select('*')
       .eq('id', id)
       .single()
@@ -37,9 +37,7 @@ export async function POST(
     }
 
     // Update order status
-    const { data, error } = await (supabase as any)
-      .from('orders')
-      .update({ status: 'refunded' })
+    const { data, error } = await typedUpdate(supabase, 'orders', { status: 'refunded' })
       .eq('id', id)
       .select()
       .single()

@@ -1,6 +1,7 @@
-import { createClient } from '@/lib/supabase/server'
 import { NextResponse } from 'next/server'
+import { createClient } from '@/lib/supabase/server'
 import { requireAdmin, handleError } from '@/lib/utils/api-helpers'
+import { typedUpdate } from '@/lib/supabase/typed-client'
 import { updateProductSchema } from '@/lib/utils/validation'
 
 export async function GET(
@@ -10,14 +11,16 @@ export async function GET(
   try {
     const { id } = await params
     const supabase = await createClient()
-    const { data, error } = await (supabase as any)
+    const { data, error } = await supabase
       .from('products')
       .select('*')
       .eq('id', id)
       .single()
 
-    if (error) {
-      return NextResponse.json({ error: error.message }, { status: 404 })
+    if (error) throw error
+
+    if (!data) {
+      return NextResponse.json({ error: 'Product not found' }, { status: 404 })
     }
 
     return NextResponse.json(data)
@@ -48,16 +51,12 @@ export async function PUT(
       image_url: validatedData.imageUrl,
     }
     
-    const { data, error } = await (supabase as any)
-      .from('products')
-      .update(updateData)
+    const { data, error } = await typedUpdate(supabase, 'products', updateData)
       .eq('id', id)
       .select()
       .single()
 
-    if (error) {
-      return NextResponse.json({ error: error.message }, { status: 400 })
-    }
+    if (error) throw error
 
     return NextResponse.json(data)
   } catch (error) {
@@ -75,14 +74,12 @@ export async function DELETE(
     if (authResult instanceof NextResponse) return authResult
 
     const supabase = await createClient()
-    const { error } = await (supabase as any)
+    const { error } = await supabase
       .from('products')
       .delete()
       .eq('id', id)
 
-    if (error) {
-      return NextResponse.json({ error: error.message }, { status: 400 })
-    }
+    if (error) throw error
 
     return NextResponse.json({ success: true })
   } catch (error) {

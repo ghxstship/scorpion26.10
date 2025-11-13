@@ -12,7 +12,7 @@ export async function DELETE(
     if (authResult instanceof NextResponse) return authResult
 
     const supabase = await createClient()
-    const { error } = await (supabase as any)
+    const { error } = await supabase
       .from('testimonials')
       .delete()
       .eq('id', id)

@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
 import { listConnectPayouts } from '@/lib/stripe/connect'
 import { requireAdmin } from '@/lib/utils/api-helpers'
+import { typedFrom } from '@/lib/supabase/typed-client'
 
 export async function GET(request: NextRequest) {
   // Verify admin access
@@ -10,7 +11,7 @@ export async function GET(request: NextRequest) {
     return authResult
   }
 
-  const { userProfile } = authResult as any
+  const { userProfile } = authResult as { user: unknown; userProfile: { tenant_id: string } }
 
   try {
     const supabase = await createClient()
@@ -18,8 +19,7 @@ export async function GET(request: NextRequest) {
     const limit = parseInt(searchParams.get('limit') || '10')
 
     // Get tenant's Stripe account ID
-    const { data: tenant } = await (supabase as any)
-      .from('tenants')
+    const { data: tenant } = await typedFrom(supabase, 'tenants')
       .select('stripe_account_id')
       .eq('id', userProfile.tenant_id)
       .single()

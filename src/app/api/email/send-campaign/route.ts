@@ -1,10 +1,15 @@
-import { createClient } from '@/lib/supabase/server'
 import { NextResponse } from 'next/server'
+import { createClient } from '@/lib/supabase/server'
 import { requireAdmin, handleError } from '@/lib/utils/api-helpers'
+import { typedFrom, typedUpdate } from '@/lib/supabase/typed-client'
 import { Resend } from 'resend'
-import { sendCampaignSchema } from '@/lib/utils/validation-extended'
 import { z } from 'zod'
-import type { EmailSubscriber, EmailCampaignWithDetails, Updates } from '@/types/database'
+import type { EmailSubscriber } from '@/types/database'
+
+const sendCampaignSchema = z.object({
+  campaignId: z.string(),
+  tenantId: z.string(),
+})
 
 // Lazy-load Resend
 function getResend() {
@@ -24,8 +29,7 @@ export async function POST(request: Request) {
     const supabase = await createClient()
 
     // Get campaign
-    const { data: campaign, error: campaignError } = await (supabase as any)
-      .from('email_campaigns')
+    const { data: campaign, error: campaignError } = await typedFrom(supabase, 'email_campaigns')
       .select('*')
       .eq('id', campaignId)
       .single()
@@ -35,8 +39,7 @@ export async function POST(request: Request) {
     }
 
     // Get subscribers
-    const { data: subscribers } = await (supabase as any)
-      .from('email_subscribers')
+    const { data: subscribers } = await typedFrom(supabase, 'email_subscribers')
       .select('email, first_name')
       .eq('tenant_id', tenantId)
       .eq('status', 'active')
@@ -57,12 +60,10 @@ export async function POST(request: Request) {
     await resend.batch.send(emails)
 
     // Update campaign status
-    await (supabase as any)
-      .from('email_campaigns')
-      .update({
+    await typedUpdate(supabase, 'email_campaigns', {
         status: 'sent' as const,
         sent_at: new Date().toISOString(),
-      } satisfies Updates<'email_campaigns'>)
+      })
       .eq('id', campaignId)
 
     return NextResponse.json({ success: true, sent: emails.length })

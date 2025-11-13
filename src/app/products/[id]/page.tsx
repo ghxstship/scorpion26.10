@@ -16,7 +16,7 @@ import Link from 'next/link'
 export default async function ProductDetailPage({ params }: { params: { id: string } }) {
   const supabase = await createClient()
   
-  const { data: product, error } = await (supabase as any)
+  const { data: product, error } = await supabase
     .from('products')
     .select('*')
     .eq('id', params.id)
@@ -27,7 +27,7 @@ export default async function ProductDetailPage({ params }: { params: { id: stri
     notFound()
   }
   
-  const prod = product as any
+  const prod = product as Record<string, unknown>
 
   // Mock features for demo (in production, these would come from the database)
   const features = [
@@ -52,7 +52,7 @@ export default async function ProductDetailPage({ params }: { params: { id: stri
         <div className="grid gap-12 md:grid-cols-2">
           {/* Product Image */}
           <div className="relative">
-            {(product && typeof product === 'object' && 'image_url' in product && (product as any).image_url) ? (
+            {(product && typeof product === 'object' && 'image_url' in product && (product as Record<string, unknown>).image_url) ? (
               <div className="relative aspect-square overflow-hidden rounded-sm border-2 border-[var(--grey-800)]">
                 <Image
                   src={String(prod.image_url)}

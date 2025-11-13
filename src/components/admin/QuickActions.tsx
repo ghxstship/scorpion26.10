@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Plus, FileText, Package, Calendar, Mail } from 'lucide-react'
+import { FileText, Package, Calendar, Mail } from 'lucide-react'
 
 const actions = [
   {

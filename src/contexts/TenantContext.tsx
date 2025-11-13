@@ -89,7 +89,6 @@ export function useTenantBranding() {
  * Hook to check if current user is tenant admin
  */
 export function useIsTenantAdmin() {
-  const { tenant } = useTenant()
   // This would need to be combined with user context
   // For now, return false as placeholder
   return false

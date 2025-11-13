@@ -83,7 +83,7 @@ export function lazyLoad<T extends React.ComponentType<unknown>>(
     return EmptyComponent as React.LazyExoticComponent<T>
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-var-requires, @typescript-eslint/no-require-imports
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   const React = require('react')
   return React.lazy(importFn)
 }

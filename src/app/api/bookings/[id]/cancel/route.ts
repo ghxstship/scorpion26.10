@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
 import { requireAuth, handleError } from '@/lib/utils/api-helpers'
+import { typedUpdate, typedFrom } from '@/lib/supabase/typed-client'
 
 export async function POST(
   request: NextRequest,
@@ -14,8 +15,7 @@ export async function POST(
     const supabase = await createClient()
 
     // Get booking
-    const { data: booking, error: fetchError } = await (supabase as any)
-      .from('bookings')
+    const { data: booking, error: fetchError } = await typedFrom(supabase, 'bookings')
       .select('*')
       .eq('id', id)
       .single()
@@ -25,8 +25,7 @@ export async function POST(
     }
 
     // Verify ownership or admin access
-    const { data: userProfile } = await (supabase as any)
-      .from('users')
+    const { data: userProfile } = await typedFrom(supabase, 'users')
       .select('role, tenant_id')
       .eq('id', user.id)
       .single()
@@ -46,9 +45,7 @@ export async function POST(
     }
 
     // Update booking status
-    const { data: updatedBooking, error } = await (supabase as any)
-      .from('bookings')
-      .update({ status: 'cancelled' })
+    const { data: updatedBooking, error } = await typedUpdate(supabase, 'bookings', { status: 'cancelled' })
       .eq('id', id)
       .select()
       .single()

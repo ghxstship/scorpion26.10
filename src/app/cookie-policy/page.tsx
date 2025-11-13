@@ -144,7 +144,7 @@ export default function CookiePolicyPage() {
           <h2 className="mb-4 text-2xl font-semibold">8. Updates to This Policy</h2>
           <p>
             We may update our Cookie Policy from time to time. We will notify you of any changes by posting the new 
-            Cookie Policy on this page and updating the "Last Updated" date.
+            Cookie Policy on this page and updating the &ldquo;Last Updated&rdquo; date.
           </p>
         </section>
 

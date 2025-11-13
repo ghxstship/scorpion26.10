@@ -3,6 +3,7 @@ import Stripe from 'stripe'
 import { stripe } from '@/lib/stripe'
 import { createClient } from '@/lib/supabase/server'
 import { handleError } from '@/lib/utils/api-helpers'
+import { typedUpdate } from '@/lib/supabase/typed-client'
 
 
 const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET!
@@ -39,9 +40,7 @@ export async function POST(request: NextRequest) {
         const paymentIntent = event.data.object as Stripe.PaymentIntent
         
         // Update order status to completed
-        const { error } = await (supabase as any)
-          .from('orders')
-          .update({
+        const { error } = await typedUpdate(supabase, 'orders', {
             status: 'completed',
             stripe_payment_intent_id: paymentIntent.id,
             paid_at: new Date().toISOString(),
@@ -58,9 +57,7 @@ export async function POST(request: NextRequest) {
         const paymentIntent = event.data.object as Stripe.PaymentIntent
         
         // Update order status to failed
-        const { error } = await (supabase as any)
-          .from('orders')
-          .update({
+        const { error } = await typedUpdate(supabase, 'orders', {
             status: 'failed',
             stripe_payment_intent_id: paymentIntent.id,
           })
@@ -76,9 +73,7 @@ export async function POST(request: NextRequest) {
         const charge = event.data.object as Stripe.Charge
         
         // Update order status to refunded
-        const { error } = await (supabase as any)
-          .from('orders')
-          .update({
+        const { error } = await typedUpdate(supabase, 'orders', {
             status: 'refunded',
             refunded_at: new Date().toISOString(),
           })
@@ -93,19 +88,24 @@ export async function POST(request: NextRequest) {
       case 'customer.subscription.created':
       case 'customer.subscription.updated': {
         const subscription = event.data.object as Stripe.Subscription
+        const sub = subscription as unknown as {
+          id: string
+          customer: string | { id: string }
+          status: string
+          current_period_start: number
+          current_period_end: number
+          cancel_at_period_end: boolean
+        }
         
         // Update subscription in database
-        const sub = subscription as any
-        const { error } = await (supabase as any)
-          .from('subscriptions')
-          .upsert({
-            stripe_subscription_id: sub.id,
-            stripe_customer_id: sub.customer as string,
-            status: sub.status,
+        const { error } = await typedUpdate(supabase, 'subscriptions', {
+            stripe_customer_id: typeof sub.customer === 'string' ? sub.customer : sub.customer.id,
+            status: sub.status as 'active' | 'canceled' | 'past_due' | 'unpaid' | 'trialing',
             current_period_start: new Date(sub.current_period_start * 1000).toISOString(),
             current_period_end: new Date(sub.current_period_end * 1000).toISOString(),
             cancel_at_period_end: sub.cancel_at_period_end,
           })
+          .eq('stripe_subscription_id', sub.id)
 
         if (error) {
           console.error('Error updating subscription:', error)
@@ -117,10 +117,8 @@ export async function POST(request: NextRequest) {
         const subscription = event.data.object as Stripe.Subscription
         
         // Mark subscription as cancelled
-        const { error } = await (supabase as any)
-          .from('subscriptions')
-          .update({
-            status: 'cancelled',
+        const { error } = await typedUpdate(supabase, 'subscriptions', {
+            status: 'canceled',
             cancelled_at: new Date().toISOString(),
           })
           .eq('stripe_subscription_id', subscription.id)

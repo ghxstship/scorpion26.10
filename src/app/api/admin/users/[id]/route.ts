@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
 import { requireAdmin, handleError } from '@/lib/utils/api-helpers'
+import { typedUpdate } from '@/lib/supabase/typed-client'
+import type { Updates } from '@/types/database'
 import { z } from 'zod'
 
 const updateUserSchema = z.object({
@@ -21,7 +23,7 @@ export async function GET(
 
     const supabase = await createClient()
 
-    const { data: user, error } = await (supabase as any)
+    const { data: user, error } = await supabase
       .from('users')
       .select('*')
       .eq('id', id)
@@ -58,14 +60,12 @@ export async function PUT(
 
     const supabase = await createClient()
 
-    const updateData: Record<string, unknown> = {}
+    const updateData: Updates<'users'> = {}
     if (validatedData.fullName) updateData.full_name = validatedData.fullName
-    if (validatedData.role) updateData.role = validatedData.role
+    if (validatedData.role) updateData.role = validatedData.role as 'admin' | 'customer'
     if (validatedData.tenantId) updateData.tenant_id = validatedData.tenantId
 
-    const { data: user, error } = await (supabase as any)
-      .from('users')
-      .update(updateData)
+    const { data: user, error } = await typedUpdate(supabase, 'users', updateData)
       .eq('id', id)
       .is('deleted_at', null)
       .select()
@@ -106,9 +106,7 @@ export async function DELETE(
       )
     }
 
-    const { error } = await (supabase as any)
-      .from('users')
-      .update({ deleted_at: new Date().toISOString() })
+    const { error } = await typedUpdate(supabase, 'users', { deleted_at: new Date().toISOString() })
       .eq('id', id)
       .is('deleted_at', null)
 

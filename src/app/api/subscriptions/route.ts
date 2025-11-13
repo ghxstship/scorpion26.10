@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { stripe } from '@/lib/stripe'
 import { createClient } from '@/lib/supabase/server'
-import { requireAuth, requireAdmin, handleError } from '@/lib/utils/api-helpers'
+import { requireAuth, handleError } from '@/lib/utils/api-helpers'
+import { typedInsert, typedFrom } from '@/lib/supabase/typed-client'
 import { z } from 'zod'
 
 
@@ -11,14 +12,14 @@ const createSubscriptionSchema = z.object({
 })
 
 // GET /api/subscriptions - List user's subscriptions
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
     const user = await requireAuth()
     if (user instanceof NextResponse) return user
 
     const supabase = await createClient()
     
-    const { data: subscriptions, error } = await (supabase as any)
+    const { data: subscriptions, error } = await supabase
       .from('subscriptions')
       .select('*')
       .eq('user_id', user.id)
@@ -46,8 +47,7 @@ export async function POST(request: NextRequest) {
     // Get or create Stripe customer
     let stripeCustomerId: string
 
-    const { data: existingSubscription } = await (supabase as any)
-      .from('subscriptions')
+    const { data: existingSubscription } = await typedFrom(supabase, 'subscriptions')
       .select('stripe_customer_id')
       .eq('user_id', user.id)
       .not('stripe_customer_id', 'is', null)
@@ -78,16 +78,27 @@ export async function POST(request: NextRequest) {
     })
 
     // Save subscription to database
-    const sub = subscription as any
-    const { data: dbSubscription, error: dbError } = await (supabase as any)
-      .from('subscriptions')
-      .insert({
+    const sub = subscription as unknown as {
+      id: string
+      status: string
+      current_period_start: number
+      current_period_end: number
+      cancel_at_period_end: boolean
+      latest_invoice?: {
+        payment_intent?: {
+          client_secret?: string
+        }
+      }
+    }
+    
+    const { data: dbSubscription, error: dbError } = await typedInsert(supabase, 'subscriptions', {
         user_id: user.id,
         tenant_id: validatedData.tenantId,
+        product_id: '', // TODO: Link to product
         stripe_subscription_id: sub.id,
         stripe_customer_id: stripeCustomerId,
         stripe_price_id: validatedData.priceId,
-        status: sub.status,
+        status: sub.status as 'active' | 'canceled' | 'past_due' | 'unpaid' | 'trialing',
         current_period_start: new Date(sub.current_period_start * 1000).toISOString(),
         current_period_end: new Date(sub.current_period_end * 1000).toISOString(),
         cancel_at_period_end: sub.cancel_at_period_end,
@@ -98,8 +109,7 @@ export async function POST(request: NextRequest) {
     if (dbError) throw dbError
 
     // Get client secret for payment
-    const invoice = (subscription as any).latest_invoice
-    const paymentIntent = (invoice as any)?.payment_intent
+    const paymentIntent = sub.latest_invoice?.payment_intent
 
     return NextResponse.json({
       data: dbSubscription,

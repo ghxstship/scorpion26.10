@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
+import { typedInsert, typedFrom } from '@/lib/supabase/typed-client'
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
@@ -51,8 +52,7 @@ export async function POST(request: Request) {
     }
 
     // Verify user is admin
-    const { data: userData } = await (supabase as any)
-      .from('users')
+    const { data: userData } = await typedFrom(supabase, 'users')
       .select('role, tenant_id')
       .eq('id', user.id)
       .single()
@@ -73,9 +73,7 @@ export async function POST(request: Request) {
     }
 
     // Create product
-    const { data: product, error } = await (supabase as any)
-      .from('products')
-      .insert({
+    const { data: product, error } = await typedInsert(supabase, 'products', {
         tenant_id: userData.tenant_id,
         title,
         description,

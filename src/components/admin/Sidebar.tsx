@@ -30,10 +30,8 @@ const navigation = [
   { name: 'Settings', href: '/admin/settings', icon: Settings },
 ]
 
-export function Sidebar() {
-  const pathname = usePathname()
-
-  const SidebarContent = () => (
+function SidebarContent({ pathname }: { pathname: string }) {
+  return (
     <div className="flex h-full flex-col gap-2">
       <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
         <Link href="/admin" className="flex items-center gap-2 font-semibold">
@@ -65,6 +63,10 @@ export function Sidebar() {
       </div>
     </div>
   )
+}
+
+export function Sidebar() {
+  const pathname = usePathname()
 
   return (
     <>
@@ -81,14 +83,14 @@ export function Sidebar() {
           </Button>
         </SheetTrigger>
         <SheetContent side="left" className="flex flex-col p-0">
-          <SidebarContent />
+          <SidebarContent pathname={pathname} />
         </SheetContent>
       </Sheet>
 
       {/* Desktop Sidebar */}
       <div className="hidden border-r bg-muted/40 md:block">
         <div className="flex h-full max-h-screen flex-col gap-2">
-          <SidebarContent />
+          <SidebarContent pathname={pathname} />
         </div>
       </div>
     </>

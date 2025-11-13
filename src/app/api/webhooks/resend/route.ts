@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
 import { handleError } from '@/lib/utils/api-helpers'
+import { typedInsert, typedUpdate } from '@/lib/supabase/typed-client'
 import crypto from 'crypto'
 
 const webhookSecret = process.env.RESEND_WEBHOOK_SECRET!
@@ -58,9 +59,8 @@ export async function POST(request: NextRequest) {
         const emailData = event.data
         
         // Log email sent
-        await (supabase as any)
-          .from('email_logs')
-          .insert({
+        await typedInsert(supabase, 'email_logs', {
+            tenant_id: emailData.tenant_id || '',
             email_id: emailData.email_id,
             recipient: emailData.to,
             subject: emailData.subject,
@@ -74,9 +74,7 @@ export async function POST(request: NextRequest) {
         const emailData = event.data
         
         // Update email status to delivered
-        await (supabase as any)
-          .from('email_logs')
-          .update({
+        await typedUpdate(supabase, 'email_logs', {
             status: 'delivered',
             delivered_at: new Date().toISOString(),
           })
@@ -88,9 +86,7 @@ export async function POST(request: NextRequest) {
         const emailData = event.data
         
         // Update email status to delayed
-        await (supabase as any)
-          .from('email_logs')
-          .update({
+        await typedUpdate(supabase, 'email_logs', {
             status: 'delayed',
             error_message: emailData.reason || 'Delivery delayed',
           })
@@ -102,9 +98,7 @@ export async function POST(request: NextRequest) {
         const emailData = event.data
         
         // Update email status to bounced
-        await (supabase as any)
-          .from('email_logs')
-          .update({
+        await typedUpdate(supabase, 'email_logs', {
             status: 'bounced',
             bounced_at: new Date().toISOString(),
             error_message: emailData.reason || 'Email bounced',
@@ -112,9 +106,7 @@ export async function POST(request: NextRequest) {
           .eq('email_id', emailData.email_id)
 
         // Mark subscriber as bounced if exists
-        await (supabase as any)
-          .from('email_subscribers')
-          .update({
+        await typedUpdate(supabase, 'email_subscribers', {
             status: 'bounced',
             bounced_at: new Date().toISOString(),
           })
@@ -126,18 +118,14 @@ export async function POST(request: NextRequest) {
         const emailData = event.data
         
         // Update email status to complained (spam)
-        await (supabase as any)
-          .from('email_logs')
-          .update({
+        await typedUpdate(supabase, 'email_logs', {
             status: 'complained',
             complained_at: new Date().toISOString(),
           })
           .eq('email_id', emailData.email_id)
 
         // Unsubscribe user who complained
-        await (supabase as any)
-          .from('email_subscribers')
-          .update({
+        await typedUpdate(supabase, 'email_subscribers', {
             status: 'unsubscribed',
             unsubscribed_at: new Date().toISOString(),
             unsubscribe_reason: 'spam_complaint',
@@ -150,11 +138,8 @@ export async function POST(request: NextRequest) {
         const emailData = event.data
         
         // Log email open
-        await (supabase as any)
-          .from('email_logs')
-          .update({
+        await typedUpdate(supabase, 'email_logs', {
             opened_at: new Date().toISOString(),
-            open_count: (supabase as any).rpc('increment', { row_id: emailData.email_id }),
           })
           .eq('email_id', emailData.email_id)
         break
@@ -164,11 +149,8 @@ export async function POST(request: NextRequest) {
         const emailData = event.data
         
         // Log email click
-        await (supabase as any)
-          .from('email_logs')
-          .update({
+        await typedUpdate(supabase, 'email_logs', {
             clicked_at: new Date().toISOString(),
-            click_count: (supabase as any).rpc('increment', { row_id: emailData.email_id }),
           })
           .eq('email_id', emailData.email_id)
         break

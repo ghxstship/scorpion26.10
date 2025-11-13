@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
 import { requireAuth, handleError } from '@/lib/utils/api-helpers'
+import { typedInsert } from '@/lib/supabase/typed-client'
 import { createOrderSchema } from '@/lib/utils/validation'
 import { z } from 'zod'
 
@@ -18,9 +19,7 @@ export async function POST(request: NextRequest) {
     const totalAmount = validatedData.items.reduce((sum, item) => sum + (item.price * item.quantity), 0)
 
     // Create order
-    const { data: order, error: orderError } = await (supabase as any)
-      .from('orders')
-      .insert({
+    const { data: order, error: orderError } = await typedInsert(supabase, 'orders', {
         tenant_id: validatedData.tenantId,
         user_id: user.id,
         total_amount: totalAmount,
@@ -39,9 +38,7 @@ export async function POST(request: NextRequest) {
       price: item.price,
     }))
 
-    const { error: itemsError } = await (supabase as any)
-      .from('order_items')
-      .insert(orderItems)
+    const { error: itemsError } = await typedInsert(supabase, 'order_items', orderItems)
 
     if (itemsError) throw itemsError
 

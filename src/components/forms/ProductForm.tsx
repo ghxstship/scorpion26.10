@@ -94,7 +94,7 @@ export function ProductForm({ product, onSubmit }: ProductFormProps) {
                 <Label htmlFor="type">Product Type *</Label>
                 <Select
                   value={formData.type}
-                  onValueChange={(value: any) => setFormData({ ...formData, type: value })}
+                  onValueChange={(value: string) => setFormData({ ...formData, type: value as 'digital' | 'physical' | 'service' | 'subscription' })}
                 >
                   <SelectTrigger id="type">
                     <SelectValue />

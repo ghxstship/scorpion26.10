@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
 import { requireAuth, handleError } from '@/lib/utils/api-helpers'
+import { typedInsert, typedFrom } from '@/lib/supabase/typed-client'
 import { createBlogPostSchema } from '@/lib/utils/validation'
 import { z } from 'zod'
 
@@ -15,8 +16,7 @@ export async function POST(request: NextRequest) {
     const supabase = await createClient()
 
     // Verify user has admin role for the tenant
-    const { data: userProfile } = await (supabase as any)
-      .from('users')
+    const { data: userProfile } = await typedFrom(supabase, 'users')
       .select('role, tenant_id')
       .eq('id', user.id)
       .single()
@@ -26,8 +26,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Check if slug already exists for this tenant
-    const { data: existingPost } = await (supabase as any)
-      .from('blog_posts')
+    const { data: existingPost } = await typedFrom(supabase, 'blog_posts')
       .select('id')
       .eq('tenant_id', validatedData.tenantId)
       .eq('slug', validatedData.slug)
@@ -38,9 +37,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Create blog post
-    const { data: blogPost, error } = await (supabase as any)
-      .from('blog_posts')
-      .insert({
+    const { data: blogPost, error } = await typedInsert(supabase, 'blog_posts', {
         tenant_id: validatedData.tenantId,
         author_id: user.id,
         title: validatedData.title,
@@ -59,7 +56,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ data: blogPost }, { status: 201 })
   } catch (error) {
     if (error instanceof z.ZodError) {
-      return NextResponse.json({ error: 'Validation failed', details: (error as any).errors }, { status: 400 })
+      return NextResponse.json({ error: 'Validation failed', details: error.issues }, { status: 400 })
     }
     return handleError(error)
   }

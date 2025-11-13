@@ -1,6 +1,7 @@
-import { createClient } from '@/lib/supabase/server'
 import { NextResponse } from 'next/server'
+import { createClient } from '@/lib/supabase/server'
 import { requireAdmin, handleError } from '@/lib/utils/api-helpers'
+import { typedFrom } from '@/lib/supabase/typed-client'
 
 export async function GET(request: Request) {
   try {
@@ -18,10 +19,10 @@ export async function GET(request: Request) {
 
     // Get various analytics
     const [orders, products, subscribers, bookings] = await Promise.all([
-      supabase.from('orders').select('total_amount, status, created_at').eq('tenant_id', tenantId),
-      supabase.from('products').select('id').eq('tenant_id', tenantId).eq('is_active', true),
-      supabase.from('email_subscribers').select('id').eq('tenant_id', tenantId).eq('status', 'active'),
-      supabase.from('bookings').select('id, status').eq('tenant_id', tenantId),
+      typedFrom(supabase, 'orders').select('total_amount, status, created_at').eq('tenant_id', tenantId),
+      typedFrom(supabase, 'products').select('id').eq('tenant_id', tenantId).eq('is_active', true),
+      typedFrom(supabase, 'email_subscribers').select('id').eq('tenant_id', tenantId).eq('status', 'active'),
+      typedFrom(supabase, 'bookings').select('id, status').eq('tenant_id', tenantId),
     ])
 
     const totalRevenue = orders.data?.reduce((sum: number, order: Record<string, unknown>) => {

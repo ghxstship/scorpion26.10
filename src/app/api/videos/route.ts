@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
 import { requireAdmin, handleError } from '@/lib/utils/api-helpers'
+import { typedInsert } from '@/lib/supabase/typed-client'
 
 export async function GET(request: NextRequest) {
   try {
@@ -18,7 +19,7 @@ export async function GET(request: NextRequest) {
     const limit = parseInt(searchParams.get('limit') || '50')
     const offset = parseInt(searchParams.get('offset') || '0')
 
-    const { data: videos, error } = await (supabase as any)
+    const { data: videos, error } = await supabase
       .from('videos')
       .select('*')
       .eq('tenant_id', tenantId)
@@ -42,11 +43,9 @@ export async function POST(request: NextRequest) {
   try {
     const supabase = await createClient()
     const body = await request.json()
-    const { userProfile } = authResult as any
+    const { userProfile } = authResult as { user: unknown; userProfile: { tenant_id: string } }
 
-    const { data: video, error } = await (supabase as any)
-      .from('videos')
-      .insert({
+    const { data: video, error } = await typedInsert(supabase, 'videos', {
         tenant_id: userProfile.tenant_id,
         title: body.title,
         description: body.description,

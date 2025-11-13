@@ -1,6 +1,7 @@
 import { createClient } from '@/lib/supabase/server'
 import { NextResponse } from 'next/server'
 import { requireAdmin, handleError } from '@/lib/utils/api-helpers'
+import { typedUpdate } from '@/lib/supabase/typed-client'
 
 export async function PUT(
   request: Request,
@@ -14,9 +15,7 @@ export async function PUT(
     const body = await request.json()
     const supabase = await createClient()
 
-    const { data, error } = await (supabase as any)
-      .from('orders')
-      .update({ status: body.status })
+    const { data, error } = await typedUpdate(supabase, 'orders', { status: body.status })
       .eq('id', id)
       .select()
       .single()

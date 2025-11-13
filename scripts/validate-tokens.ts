@@ -93,14 +93,12 @@ function validateFile(filePath: string): ValidationError[] {
       const matches = line.match(regex);
 
       if (matches) {
-        matches.forEach(match => {
-          errors.push({
-            file: filePath,
-            line: index + 1,
-            violation: name,
-            suggestion,
-            code: line.trim(),
-          });
+        errors.push({
+          file: filePath,
+          line: index + 1,
+          violation: name,
+          suggestion,
+          code: line.trim(),
         });
       }
     });

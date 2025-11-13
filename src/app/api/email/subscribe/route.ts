@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
+import { typedFrom, typedInsert, typedUpdate } from '@/lib/supabase/typed-client'
 import { Resend } from 'resend'
 
 // Lazy-load Resend
@@ -26,8 +27,7 @@ export async function POST(request: Request) {
     }
 
     // Check if already subscribed
-    const { data: existing } = await (supabase as any)
-      .from('email_subscribers')
+    const { data: existing } = await typedFrom(supabase, 'email_subscribers')
       .select('id, status')
       .eq('email', email)
       .eq('tenant_id', tenant_id)
@@ -42,15 +42,13 @@ export async function POST(request: Request) {
       }
 
       // Reactivate subscription
-      const { error } = await (supabase as any)
-        .from('email_subscribers')
-        .update({ status: 'active' })
+      const { error } = await typedUpdate(supabase, 'email_subscribers', { status: 'active' })
         .eq('id', existing.id)
 
       if (error) throw error
     } else {
       // Create new subscription
-      const { error } = await (supabase as any).from('email_subscribers').insert({
+      const { error } = await typedInsert(supabase, 'email_subscribers', {
         email,
         first_name,
         tenant_id,

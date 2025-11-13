@@ -36,7 +36,7 @@ export default function TermsOfServicePage() {
             <li>Use the materials for any commercial purpose or for any public display</li>
             <li>Attempt to decompile or reverse engineer any software contained on the website</li>
             <li>Remove any copyright or other proprietary notations from the materials</li>
-            <li>Transfer the materials to another person or "mirror" the materials on any other server</li>
+            <li>Transfer the materials to another person or &ldquo;mirror&rdquo; the materials on any other server</li>
           </ul>
         </section>
 
@@ -78,14 +78,14 @@ export default function TermsOfServicePage() {
             <li>In any way that violates any applicable national or international law or regulation</li>
             <li>To transmit, or procure the sending of, any advertising or promotional material without our prior written consent</li>
             <li>To impersonate or attempt to impersonate the Company, a Company employee, another user, or any other person or entity</li>
-            <li>To engage in any other conduct that restricts or inhibits anyone's use or enjoyment of the Service</li>
+            <li>To engage in any other conduct that restricts or inhibits anyone&apos;s use or enjoyment of the Service</li>
           </ul>
         </section>
 
         <section className="mb-8">
           <h2 className="mb-4 text-2xl font-semibold">7. Disclaimer</h2>
           <p>
-            The materials on Personal Brand Platform are provided on an 'as is' basis. We make no warranties, expressed 
+            The materials on Personal Brand Platform are provided on an &lsquo;as is&rsquo; basis. We make no warranties, expressed 
             or implied, and hereby disclaim and negate all other warranties including, without limitation, implied 
             warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of 
             intellectual property or other violation of rights.
@@ -122,8 +122,8 @@ export default function TermsOfServicePage() {
           <h2 className="mb-4 text-2xl font-semibold">11. Changes to Terms</h2>
           <p>
             We reserve the right, at our sole discretion, to modify or replace these Terms at any time. We will provide 
-            notice of any significant changes by posting the new Terms of Service on this page and updating the "Last 
-            Updated" date.
+            notice of any significant changes by posting the new Terms of Service on this page and updating the &ldquo;Last 
+            Updated&rdquo; date.
           </p>
         </section>
 

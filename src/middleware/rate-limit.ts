@@ -8,10 +8,6 @@ interface RateLimitConfig {
   maxRequests: number
 }
 
-interface RateLimiter {
-  (request: NextRequest): Promise<NextResponse | null>
-}
-
 export function rateLimit(config: RateLimitConfig) {
   return async (request: NextRequest): Promise<NextResponse | null> => {
     const ip = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown'

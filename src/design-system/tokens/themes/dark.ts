@@ -1,7 +1,7 @@
 import { primitiveColors } from '../primitives/colors'
 import { lightTheme } from './light'
 
-const colors = primitiveColors as any;
+const colors = primitiveColors as Record<string, Record<number, string>>;
 
 /**
  * Dark Theme

@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { stripe } from '@/lib/stripe'
 import { createClient } from '@/lib/supabase/server'
 import { requireAuth, handleError } from '@/lib/utils/api-helpers'
+import { typedFrom, typedUpdate } from '@/lib/supabase/typed-client'
 
 
 // POST /api/subscriptions/[id]/resume - Resume a cancelled subscription
@@ -17,8 +18,7 @@ export async function POST(
     const supabase = await createClient()
 
     // Get subscription
-    const { data: subscription, error: fetchError } = await (supabase as any)
-      .from('subscriptions')
+    const { data: subscription, error: fetchError } = await typedFrom(supabase, 'subscriptions')
       .select('*')
       .eq('id', id)
       .eq('user_id', user.id)
@@ -27,10 +27,7 @@ export async function POST(
     if (fetchError) throw fetchError
 
     if (!subscription || typeof subscription !== 'object' || !('stripe_subscription_id' in subscription)) {
-      return NextResponse.json(
-        { error: 'Subscription not found' },
-        { status: 404 }
-      )
+      return NextResponse.json({ error: 'Subscription not found' }, { status: 404 })
     }
 
     const stripeSubscriptionId = String(subscription.stripe_subscription_id)
@@ -49,9 +46,7 @@ export async function POST(
     })
 
     // Update in database
-    const { data: updatedSubscription, error: updateError } = await (supabase as any)
-      .from('subscriptions')
-      .update({
+    const { data: updatedSubscription, error: updateError } = await typedUpdate(supabase, 'subscriptions', {
         cancel_at_period_end: false,
         status: 'active',
         updated_at: new Date().toISOString(),

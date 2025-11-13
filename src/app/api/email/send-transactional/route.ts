@@ -15,7 +15,7 @@ export async function POST(request: Request) {
     const user = await requireAuth()
     if (user instanceof NextResponse) return user
 
-    const { to, subject, html, templateType } = await request.json()
+    const { to, subject, html } = await request.json()
 
     const resend = getResend()
     const { data, error } = await resend.emails.send({

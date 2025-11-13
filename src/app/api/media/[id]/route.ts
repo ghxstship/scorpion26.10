@@ -1,6 +1,7 @@
-import { createClient } from '@/lib/supabase/server'
 import { NextResponse } from 'next/server'
+import { createClient } from '@/lib/supabase/server'
 import { requireAdmin, handleError } from '@/lib/utils/api-helpers'
+import { typedUpdate, typedFrom } from '@/lib/supabase/typed-client'
 
 export async function PUT(
   request: Request,
@@ -14,16 +15,12 @@ export async function PUT(
     const body = await request.json()
     const supabase = await createClient()
 
-    const { data, error } = await (supabase as any)
-      .from('media_files')
-      .update({ file_name: body.fileName })
+    const { data, error } = await typedUpdate(supabase, 'media_files', { file_name: body.fileName })
       .eq('id', id)
       .select()
       .single()
 
-    if (error) {
-      return NextResponse.json({ error: error.message }, { status: 400 })
-    }
+    if (error) throw error
 
     return NextResponse.json(data)
   } catch (error) {
@@ -43,8 +40,7 @@ export async function DELETE(
     const supabase = await createClient()
 
     // Get file info
-    const { data: file } = await (supabase as any)
-      .from('media_files')
+    const { data: file } = await typedFrom(supabase, 'media_files')
       .select('file_url')
       .eq('id', id)
       .single()
@@ -52,18 +48,18 @@ export async function DELETE(
     if (file && typeof file === 'object' && 'file_url' in file) {
       // Delete from storage
       const fileName = String(file.file_url).split('/').pop()
-      await supabase.storage.from('media').remove([fileName])
+      if (fileName) {
+        await supabase.storage.from('media').remove([fileName])
+      }
     }
 
     // Delete from database
-    const { error } = await (supabase as any)
+    const { error } = await supabase
       .from('media_files')
       .delete()
       .eq('id', id)
 
-    if (error) {
-      return NextResponse.json({ error: error.message }, { status: 400 })
-    }
+    if (error) throw error
 
     return NextResponse.json({ success: true })
   } catch (error) {

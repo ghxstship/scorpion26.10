@@ -55,6 +55,7 @@ export interface Database {
           full_name: string | null
           role: 'admin' | 'customer'
           created_at: string
+          deleted_at: string | null
         }
         Insert: {
           id: string
@@ -71,6 +72,7 @@ export interface Database {
           full_name?: string | null
           role?: 'admin' | 'customer'
           created_at?: string
+          deleted_at?: string | null
         }
       }
       products: {
@@ -123,6 +125,8 @@ export interface Database {
           total_amount: number
           status: 'pending' | 'completed' | 'failed' | 'refunded'
           created_at: string
+          paid_at: string | null
+          refunded_at: string | null
         }
         Insert: {
           id?: string
@@ -141,6 +145,8 @@ export interface Database {
           total_amount?: number
           status?: 'pending' | 'completed' | 'failed' | 'refunded'
           created_at?: string
+          paid_at?: string | null
+          refunded_at?: string | null
         }
       }
       pages: {
@@ -216,6 +222,56 @@ export interface Database {
           featured_image?: string | null
           is_published?: boolean
           published_at?: string | null
+          created_at?: string
+        }
+      }
+      email_logs: {
+        Row: {
+          id: string
+          tenant_id: string
+          email_id: string
+          recipient: string
+          subject: string
+          status: 'sent' | 'delivered' | 'delayed' | 'bounced' | 'complained'
+          sent_at: string | null
+          delivered_at: string | null
+          bounced_at: string | null
+          complained_at: string | null
+          opened_at: string | null
+          clicked_at: string | null
+          error_message: string | null
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          tenant_id: string
+          email_id: string
+          recipient: string
+          subject: string
+          status?: 'sent' | 'delivered' | 'delayed' | 'bounced' | 'complained'
+          sent_at?: string | null
+          delivered_at?: string | null
+          bounced_at?: string | null
+          complained_at?: string | null
+          opened_at?: string | null
+          clicked_at?: string | null
+          error_message?: string | null
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          tenant_id?: string
+          email_id?: string
+          recipient?: string
+          subject?: string
+          status?: 'sent' | 'delivered' | 'delayed' | 'bounced' | 'complained'
+          sent_at?: string | null
+          delivered_at?: string | null
+          bounced_at?: string | null
+          complained_at?: string | null
+          opened_at?: string | null
+          clicked_at?: string | null
+          error_message?: string | null
           created_at?: string
         }
       }
@@ -298,8 +354,11 @@ export interface Database {
           tenant_id: string
           email: string
           first_name: string | null
-          status: 'active' | 'unsubscribed'
+          status: 'active' | 'unsubscribed' | 'bounced'
           subscribed_at: string
+          unsubscribed_at: string | null
+          bounced_at: string | null
+          unsubscribe_reason: string | null
         }
         Insert: {
           id?: string
@@ -314,8 +373,11 @@ export interface Database {
           tenant_id?: string
           email?: string
           first_name?: string | null
-          status?: 'active' | 'unsubscribed'
+          status?: 'active' | 'unsubscribed' | 'bounced'
           subscribed_at?: string
+          unsubscribed_at?: string | null
+          bounced_at?: string | null
+          unsubscribe_reason?: string | null
         }
       }
       order_items: {
@@ -387,12 +449,14 @@ export interface Database {
           product_id: string
           stripe_subscription_id: string
           stripe_customer_id: string
+          stripe_price_id: string | null
           status: 'active' | 'canceled' | 'past_due' | 'unpaid' | 'trialing'
           current_period_start: string
           current_period_end: string
           cancel_at_period_end: boolean
           created_at: string
           updated_at: string
+          cancelled_at: string | null
         }
         Insert: {
           id?: string
@@ -401,12 +465,14 @@ export interface Database {
           product_id: string
           stripe_subscription_id: string
           stripe_customer_id: string
+          stripe_price_id?: string | null
           status?: 'active' | 'canceled' | 'past_due' | 'unpaid' | 'trialing'
           current_period_start: string
           current_period_end: string
           cancel_at_period_end?: boolean
           created_at?: string
           updated_at?: string
+          cancelled_at?: string | null
         }
         Update: {
           id?: string
@@ -415,12 +481,14 @@ export interface Database {
           product_id?: string
           stripe_subscription_id?: string
           stripe_customer_id?: string
+          stripe_price_id?: string | null
           status?: 'active' | 'canceled' | 'past_due' | 'unpaid' | 'trialing'
           current_period_start?: string
           current_period_end?: string
           cancel_at_period_end?: boolean
           created_at?: string
           updated_at?: string
+          cancelled_at?: string | null
         }
       }
       user_favorites: {
@@ -684,6 +752,82 @@ export interface Database {
           user_id?: string | null
           event_type?: string
           event_data?: Json
+          created_at?: string
+        }
+      }
+      videos: {
+        Row: {
+          id: string
+          tenant_id: string
+          title: string
+          description: string | null
+          url: string
+          provider: string
+          is_premium: boolean
+          thumbnail_url: string | null
+          duration_seconds: number | null
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          tenant_id: string
+          title: string
+          description?: string | null
+          url: string
+          provider: string
+          is_premium?: boolean
+          thumbnail_url?: string | null
+          duration_seconds?: number | null
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          tenant_id?: string
+          title?: string
+          description?: string | null
+          url?: string
+          provider?: string
+          is_premium?: boolean
+          thumbnail_url?: string | null
+          duration_seconds?: number | null
+          created_at?: string
+          updated_at?: string
+        }
+      }
+      audit_logs: {
+        Row: {
+          id: string
+          action: string
+          entity_type: string
+          entity_id: string | null
+          description: string | null
+          ip_address: string | null
+          user_agent: string | null
+          metadata: Json | null
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          action: string
+          entity_type: string
+          entity_id?: string | null
+          description?: string | null
+          ip_address?: string | null
+          user_agent?: string | null
+          metadata?: Json | null
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          action?: string
+          entity_type?: string
+          entity_id?: string | null
+          description?: string | null
+          ip_address?: string | null
+          user_agent?: string | null
+          metadata?: Json | null
           created_at?: string
         }
       }

@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
 import { handleError } from '@/lib/utils/api-helpers'
+import { typedInsert } from '@/lib/supabase/typed-client'
 import { createTestimonialSchema } from '@/lib/utils/validation'
 import { z } from 'zod'
 
@@ -12,9 +13,7 @@ export async function POST(request: NextRequest) {
     const supabase = await createClient()
 
     // Create testimonial (not approved by default)
-    const { data: testimonial, error } = await (supabase as any)
-      .from('testimonials')
-      .insert({
+    const { data: testimonial, error } = await typedInsert(supabase, 'testimonials', {
         tenant_id: validatedData.tenantId,
         author_name: validatedData.authorName,
         author_title: validatedData.authorTitle,

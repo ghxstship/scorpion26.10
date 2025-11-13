@@ -1,6 +1,7 @@
-import { createClient } from '@/lib/supabase/server'
 import { NextResponse } from 'next/server'
+import { createClient } from '@/lib/supabase/server'
 import { requireAdmin, handleError } from '@/lib/utils/api-helpers'
+import { typedUpdate } from '@/lib/supabase/typed-client'
 
 export async function PUT(
   request: Request,
@@ -24,9 +25,7 @@ export async function PUT(
       stripe_account_id: body.stripeAccountId,
     }
 
-    const { data, error } = await (supabase as any)
-      .from('tenants')
-      .update(updateData)
+    const { data, error } = await typedUpdate(supabase, 'tenants', updateData)
       .eq('id', id)
       .select()
       .single()
@@ -51,7 +50,7 @@ export async function DELETE(
     if (authResult instanceof NextResponse) return authResult
 
     const supabase = await createClient()
-    const { error } = await (supabase as any)
+    const { error } = await supabase
       .from('tenants')
       .delete()
       .eq('id', id)

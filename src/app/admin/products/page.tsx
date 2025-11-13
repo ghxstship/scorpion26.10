@@ -8,6 +8,7 @@ import { createClient } from '@/lib/supabase/server'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Skeleton } from '@/components/ui/skeleton'
+import { Tables } from '@/types/database'
 
 export const metadata = {
   title: 'Products | Admin',
@@ -35,7 +36,7 @@ async function ProductsList() {
 
   return (
     <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-      {products?.map((product: any) => (
+      {products?.map((product: Tables<'products'>) => (
         <Link key={product.id} href={`/admin/products/${product.id}`}>
           <Card className="h-full hover:shadow-lg transition-shadow cursor-pointer">
             <CardHeader>

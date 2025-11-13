@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
 import { requireAdmin, handleError } from '@/lib/utils/api-helpers'
+import { typedInsert } from '@/lib/supabase/typed-client'
 import { createPageSchema } from '@/lib/utils/validation'
 import { z } from 'zod'
 
@@ -15,7 +16,7 @@ export async function POST(request: NextRequest) {
     const supabase = await createClient()
 
     // Check if slug already exists for this tenant
-    const { data: existingPage } = await (supabase as any)
+    const { data: existingPage } = await supabase
       .from('pages')
       .select('id')
       .eq('tenant_id', validatedData.tenantId)
@@ -27,9 +28,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Create page
-    const { data: page, error } = await (supabase as any)
-      .from('pages')
-      .insert({
+    const { data: page, error } = await typedInsert(supabase, 'pages', {
         tenant_id: validatedData.tenantId,
         slug: validatedData.slug,
         title: validatedData.title,

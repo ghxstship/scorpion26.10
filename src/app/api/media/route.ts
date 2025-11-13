@@ -15,15 +15,13 @@ export async function GET(request: Request) {
     }
 
     const supabase = await createClient()
-    const { data, error } = await (supabase as any)
+    const { data, error } = await supabase
       .from('media_files')
       .select('*')
       .eq('tenant_id', tenantId)
       .order('created_at', { ascending: false })
 
-    if (error) {
-      return NextResponse.json({ error: error.message }, { status: 400 })
-    }
+    if (error) throw error
 
     return NextResponse.json(data)
   } catch (error) {

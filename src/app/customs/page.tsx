@@ -28,7 +28,7 @@ export default function CustomsPage() {
   const featuredProducts = [
     {
       id: '1',
-      name: '456Pro Performance Tee',
+      name: '456AF Performance Tee',
       description: 'Moisture-wicking, breathable fabric designed for intense training sessions',
       price: 4500,
       category: 'Apparel',
@@ -36,7 +36,7 @@ export default function CustomsPage() {
     },
     {
       id: '2',
-      name: '456Pro Resistance Band Set',
+      name: '456AF Resistance Band Set',
       description: 'Complete set of 5 resistance bands for all fitness levels',
       price: 7900,
       category: 'Equipment',
@@ -44,7 +44,7 @@ export default function CustomsPage() {
     },
     {
       id: '3',
-      name: '456Pro Training Journal',
+      name: '456AF Training Journal',
       description: 'Track your progress with our custom-designed training journal',
       price: 2900,
       category: 'Accessories',
@@ -52,7 +52,7 @@ export default function CustomsPage() {
     },
     {
       id: '4',
-      name: '456Pro Elite Gym Bag',
+      name: '456AF Elite Gym Bag',
       description: 'Spacious, durable bag with compartments for all your training gear',
       price: 8900,
       category: 'Accessories',
@@ -70,7 +70,7 @@ export default function CustomsPage() {
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">456Customs</h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Premium fitness products customized for the 456Pro training methodology.
+            Premium fitness products customized for the 456AF training methodology.
             Gear that performs as hard as you do.
           </p>
         </div>
@@ -91,14 +91,14 @@ export default function CustomsPage() {
               <Dumbbell className="h-12 w-12 text-primary mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-2">Performance-Driven</h3>
               <p className="text-muted-foreground">
-                Designed specifically to enhance your training across all 456Pro verticals
+                Designed specifically to enhance your training across all 456AF verticals
               </p>
             </div>
             <div className="text-center">
               <Package className="h-12 w-12 text-primary mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-2">Custom Designed</h3>
               <p className="text-muted-foreground">
-                Exclusive 456Pro branding and designs you won&apos;t find anywhere else
+                Exclusive 456AF branding and designs you won&apos;t find anywhere else
               </p>
             </div>
           </div>
@@ -111,7 +111,7 @@ export default function CustomsPage() {
             {productCategories.map((category, index) => (
               <Card key={index}>
                 <CardHeader>
-                  <category.icon className="h-12 w-12 text-primary mb-4" />
+                  <category.icon className="h-12 w-12 mb-4" style={{ color: 'var(--gold-600)' }} />
                   <CardTitle className="text-2xl">{category.title}</CardTitle>
                   <CardDescription className="text-base">{category.description}</CardDescription>
                 </CardHeader>
@@ -138,8 +138,8 @@ export default function CustomsPage() {
               return (
                 <Card key={product.id} className="flex flex-col">
                   <CardHeader>
-                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-                      <Icon className="h-6 w-6 text-primary" />
+                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg" style={{ backgroundColor: 'rgba(212, 175, 55, 0.1)' }}>
+                      <Icon className="h-6 w-6" style={{ color: 'var(--gold-600)' }} />
                     </div>
                     <CardTitle className="text-lg">{product.name}</CardTitle>
                     <CardDescription className="text-sm">
@@ -185,7 +185,7 @@ export default function CustomsPage() {
           <Card className="max-w-3xl mx-auto">
             <CardContent className="pt-6">
               <p className="text-center text-muted-foreground mb-6">
-                Looking to outfit your team, gym, or organization with custom 456Pro gear?
+                Looking to outfit your team, gym, or organization with custom 456AF gear?
                 We offer bulk ordering with custom branding options.
               </p>
               <div className="grid md:grid-cols-3 gap-4 text-center mb-6">

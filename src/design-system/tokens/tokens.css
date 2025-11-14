@@ -163,10 +163,18 @@
      ======================================== */
   
   /* Font Families */
-  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
-  --font-serif: var(--font-merriweather), Georgia, serif;
-  --font-mono: var(--font-jetbrains-mono), Consolas, monospace;
-  --font-display: var(--font-bebas), Impact, sans-serif;
+  --font-title: var(--font-anton), Impact, sans-serif;
+  --font-h1: var(--font-anton), Impact, sans-serif;
+  --font-h2: var(--font-bebas), Impact, sans-serif;
+  --font-h3: var(--font-bebas), Impact, sans-serif;
+  --font-h4: var(--font-bebas), Impact, sans-serif;
+  --font-h5: var(--font-bebas), Impact, sans-serif;
+  --font-h6: var(--font-bebas), Impact, sans-serif;
+  --font-body: var(--font-share-tech), system-ui, sans-serif;
+  --font-sans: var(--font-share-tech), system-ui, sans-serif;
+  --font-mono: var(--font-share-tech-mono), Consolas, monospace;
+  --font-subtitle: var(--font-share-tech-mono), Consolas, monospace;
+  --font-display: var(--font-anton), Impact, sans-serif;
   
   /* Font Sizes */
   --font-size-xs: 0.75rem;

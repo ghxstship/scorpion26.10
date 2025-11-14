@@ -109,7 +109,7 @@ export default function Club456Page() {
             <Card className="border-2 border-[var(--gold-600)]">
               <CardHeader className="text-center">
                 <CardTitle className="mb-4 font-[family-name:var(--font-bebas)] text-5xl font-black uppercase tracking-wider">
-                  BasicAF Pricing
+                  Basic_AF Pricing
                 </CardTitle>
                 <div className="mb-6">
                   <span className="font-[family-name:var(--font-bebas)] text-6xl font-black text-[var(--gold-600)]">
@@ -156,7 +156,7 @@ export default function Club456Page() {
             <div className="grid gap-6 md:grid-cols-3">
               <Card>
                 <CardHeader>
-                  <CardTitle>StrongAF</CardTitle>
+                  <CardTitle>Strong_AF</CardTitle>
                   <CardDescription>Virtual group training</CardDescription>
                   <div className="mt-4">
                     <span className="font-[family-name:var(--font-bebas)] text-3xl font-black text-[var(--gold-600)]">
@@ -168,7 +168,7 @@ export default function Club456Page() {
               </Card>
               <Card>
                 <CardHeader>
-                  <CardTitle>RareAF</CardTitle>
+                  <CardTitle>Rare_AF</CardTitle>
                   <CardDescription>Private 1-on-1 coaching</CardDescription>
                   <div className="mt-4">
                     <span className="font-[family-name:var(--font-bebas)] text-3xl font-black text-[var(--gold-600)]">
@@ -180,7 +180,7 @@ export default function Club456Page() {
               </Card>
               <Card>
                 <CardHeader>
-                  <CardTitle>FarAF</CardTitle>
+                  <CardTitle>Far_AF</CardTitle>
                   <CardDescription>Residential program</CardDescription>
                   <div className="mt-4">
                     <span className="font-[family-name:var(--font-bebas)] text-3xl font-black text-[var(--gold-600)]">

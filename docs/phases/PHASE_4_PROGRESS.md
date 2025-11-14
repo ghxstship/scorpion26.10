@@ -33,21 +33,21 @@ Homepage Flow:
 **Updates:**
 - Black background throughout
 - Massive Bebas Neue headings (96-128px)
-- Gold accents on "456Pro" in headings
+- Gold accents on "456AF" in headings
 - Updated all cards with icon boxes
 - Red icons for Fitness Verticals (Tier 1, 2, 3)
-- Gold icons for Ecosystem (456ProU, Club456, 456Customs)
+- Gold icons for Ecosystem (456AFU, Club456, 456Customs)
 - Gold-bordered founder section
 
 **Sections:**
-1. **Page Title:** "About 456Pro" with gold highlight
+1. **Page Title:** "About 456AF" with gold highlight
 2. **About Section:** Brand introduction
 3. **Fitness Brand Verticals:**
-   - 456Pro Lifestyle (Tier 1) - Red icon
-   - 456Pro Strength (Tier 2) - Red icon
-   - 456Pro Athlete (Tier 3) - Red icon
-4. **456Pro Ecosystem:**
-   - 456ProU - Gold icon (GraduationCap)
+   - 456AF Lifestyle (Tier 1) - Red icon
+   - 456AF Strength (Tier 2) - Red icon
+   - 456AF Athlete (Tier 3) - Red icon
+4. **456AF Ecosystem:**
+   - 456AFU - Gold icon (GraduationCap)
    - Club456 - Gold icon (Users)
    - 456Customs - Gold icon (Package)
 5. **Meet Our Founder:**

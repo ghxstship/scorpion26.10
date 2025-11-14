@@ -33,13 +33,13 @@ export default function CommunityPage() {
     {
       icon: Zap,
       title: 'Early Access',
-      description: 'Get first access to new programs, products, and 456Pro updates',
+      description: 'Get first access to new programs, products, and 456AF updates',
     },
   ]
 
   const membershipTiers = [
     {
-      name: 'BasicAF Member',
+      name: 'Basic_AF Member',
       price: 'Free',
       description: 'Start your fitness journey with our community',
       features: [
@@ -57,7 +57,7 @@ export default function CommunityPage() {
       period: '/month',
       description: 'Enhanced community experience with premium perks',
       features: [
-        'Everything in BasicAF',
+        'Everything in Basic_AF',
         'Weekly exclusive content',
         'Priority event registration',
         'Member-only merchandise discounts',
@@ -70,7 +70,7 @@ export default function CommunityPage() {
       name: 'Club456 Elite',
       price: '$99',
       period: '/month',
-      description: 'VIP access to the complete 456Pro experience',
+      description: 'VIP access to the complete 456AF experience',
       features: [
         'Everything in Plus',
         'Monthly 1-on-1 coach check-ins',
@@ -89,7 +89,7 @@ export default function CommunityPage() {
         {/* Hero Section */}
         <div className="text-center mb-16">
           <div className="flex justify-center mb-6">
-            <Users className="h-20 w-20 text-primary" />
+            <Users className="h-20 w-20" style={{ color: 'var(--gold-600)' }} />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Welcome to Club456</h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -105,7 +105,7 @@ export default function CommunityPage() {
             {benefits.map((benefit, index) => (
               <Card key={index}>
                 <CardHeader>
-                  <benefit.icon className="h-10 w-10 text-primary mb-2" />
+                  <benefit.icon className="h-10 w-10 mb-2" style={{ color: 'var(--gold-600)' }} />
                   <CardTitle className="text-lg">{benefit.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -146,7 +146,7 @@ export default function CommunityPage() {
                   <ul className="space-y-3">
                     {tier.features.map((feature, idx) => (
                       <li key={idx} className="flex items-start gap-2">
-                        <Heart className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                        <Heart className="h-5 w-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--gold-600)' }} />
                         <span className="text-sm">{feature}</span>
                       </li>
                     ))}
@@ -171,19 +171,19 @@ export default function CommunityPage() {
           <h2 className="text-3xl font-bold mb-8 text-center">Our Growing Community</h2>
           <div className="grid md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold text-primary mb-2">1,000+</div>
+              <div className="text-4xl font-bold mb-2" style={{ color: 'var(--gold-600)' }}>1,000+</div>
               <div className="text-muted-foreground">Active Members</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-primary mb-2">50+</div>
+              <div className="text-4xl font-bold mb-2" style={{ color: 'var(--gold-600)' }}>50+</div>
               <div className="text-muted-foreground">Weekly Workouts</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-primary mb-2">100+</div>
+              <div className="text-4xl font-bold mb-2" style={{ color: 'var(--gold-600)' }}>100+</div>
               <div className="text-muted-foreground">Success Stories</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-primary mb-2">24/7</div>
+              <div className="text-4xl font-bold mb-2" style={{ color: 'var(--gold-600)' }}>24/7</div>
               <div className="text-muted-foreground">Community Support</div>
             </div>
           </div>
@@ -227,7 +227,7 @@ export default function CommunityPage() {
         <div className="text-center">
           <h2 className="text-3xl font-bold mb-4">Ready to Join the Club?</h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Start with BasicAF for free or upgrade to unlock premium community features.
+            Start with Basic_AF for free or upgrade to unlock premium community features.
             Your fitness family is waiting!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -5,10 +5,18 @@
 
 export const typography = {
   fontFamily: {
-    sans: 'var(--font-inter), system-ui, -apple-system, sans-serif',
-    serif: 'var(--font-merriweather), Georgia, serif',
-    mono: 'var(--font-jetbrains-mono), Consolas, monospace',
-    display: 'var(--font-display), system-ui, sans-serif',
+    title: 'var(--font-title), Impact, sans-serif',
+    h1: 'var(--font-h1), Impact, sans-serif',
+    h2: 'var(--font-h2), Impact, sans-serif',
+    h3: 'var(--font-h3), Impact, sans-serif',
+    h4: 'var(--font-h4), Impact, sans-serif',
+    h5: 'var(--font-h5), Impact, sans-serif',
+    h6: 'var(--font-h6), Impact, sans-serif',
+    body: 'var(--font-body), system-ui, sans-serif',
+    sans: 'var(--font-sans), system-ui, sans-serif',
+    mono: 'var(--font-mono), Consolas, monospace',
+    subtitle: 'var(--font-subtitle), Consolas, monospace',
+    display: 'var(--font-display), Impact, sans-serif',
   },
   
   fontSize: {

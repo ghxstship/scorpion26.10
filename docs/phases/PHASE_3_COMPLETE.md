@@ -47,7 +47,7 @@
   - Font: Bebas Neue, 96-144px
   - UPPERCASE, ultra-bold
 - **Subheading:** 
-  - Highlights "456Pro" in gold
+  - Highlights "456AF" in gold
   - Highlights "Head Coach Matthew Alarcon" in white
   - 24-36px responsive text
 - **CTA Buttons:**
@@ -75,8 +75,8 @@
 
 **Features:**
 - **Section Header:**
-  - "Why Choose 456Pro" in Bebas Neue
-  - Gold highlight on "456Pro"
+  - "Why Choose 456AF" in Bebas Neue
+  - Gold highlight on "456AF"
   - Centered with description
 - **Feature Cards:**
   1. **Precision Training** - Target icon

@@ -65,14 +65,14 @@ const verticals = [
 
 const programs = [
   {
-    name: 'BasicAF',
+    name: 'Basic_AF',
     price: 30,
     annualPrice: 300,
     description: 'Community access only',
     capacity: 'Unlimited',
   },
   {
-    name: 'StrongAF',
+    name: 'Strong_AF',
     price: 350,
     annualPrice: 3500,
     description: 'Virtual group training',
@@ -80,7 +80,7 @@ const programs = [
     sessionPrice: 200,
   },
   {
-    name: 'RareAF',
+    name: 'Rare_AF',
     price: 800,
     annualPrice: 8000,
     description: 'Private 1-on-1 coaching',
@@ -88,7 +88,7 @@ const programs = [
     sessionPrice: 300,
   },
   {
-    name: 'FarAF',
+    name: 'Far_AF',
     price: 50000,
     annualPrice: null,
     description: 'Residential program',
@@ -283,19 +283,19 @@ export default function PricingPage() {
             </p>
             <div className="grid gap-6 md:grid-cols-3">
               <div className="rounded-sm border border-[var(--grey-700)] bg-[var(--grey-950)] p-6">
-                <p className="mb-2 text-sm uppercase tracking-wider text-[var(--grey-500)]">BasicAF</p>
+                <p className="mb-2 text-sm uppercase tracking-wider text-[var(--grey-500)]">Basic_AF</p>
                 <p className="font-[family-name:var(--font-bebas)] text-3xl font-black text-[var(--green-600)]">
                   Save $60
                 </p>
               </div>
               <div className="rounded-sm border border-[var(--grey-700)] bg-[var(--grey-950)] p-6">
-                <p className="mb-2 text-sm uppercase tracking-wider text-[var(--grey-500)]">StrongAF</p>
+                <p className="mb-2 text-sm uppercase tracking-wider text-[var(--grey-500)]">Strong_AF</p>
                 <p className="font-[family-name:var(--font-bebas)] text-3xl font-black text-[var(--green-600)]">
                   Save $700
                 </p>
               </div>
               <div className="rounded-sm border border-[var(--grey-700)] bg-[var(--grey-950)] p-6">
-                <p className="mb-2 text-sm uppercase tracking-wider text-[var(--grey-500)]">RareAF</p>
+                <p className="mb-2 text-sm uppercase tracking-wider text-[var(--grey-500)]">Rare_AF</p>
                 <p className="font-[family-name:var(--font-bebas)] text-3xl font-black text-[var(--green-600)]">
                   Save $1,600
                 </p>

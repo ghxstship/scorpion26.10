@@ -16,7 +16,7 @@
 
 ---
 
-### BasicAF - Community Access Only
+### Basic_AF - Community Access Only
 **Model:** Self-serve community platform  
 **Trainer Time:** 2 hours/week (community management, content posting)  
 **Maximum Capacity:** Unlimited (scalable digital platform)  
@@ -26,7 +26,7 @@
 
 ---
 
-### StrongAF - Virtual Group Training
+### Strong_AF - Virtual Group Training
 **Model:** Virtual group sessions + programming  
 **Session Structure:**
 - 3 group sessions/week @ 60 minutes each = 3 hours
@@ -51,7 +51,7 @@
 
 ---
 
-### RareAF - Private Personal Training
+### Rare_AF - Private Personal Training
 **Model:** 1-on-1 personalized coaching  
 **Session Structure:**
 - 2 sessions/week @ 60 minutes = 2 hours training time
@@ -73,7 +73,7 @@
 
 ---
 
-### FarAF - Residential Program (Ultra-Premium)
+### Far_AF - Residential Program (Ultra-Premium)
 **Model:** Immersive destination experience  
 **Session Structure:**
 - 1 client at a time (exclusive)
@@ -163,19 +163,19 @@
 ## REVENUE PROJECTIONS (Full Capacity)
 
 ### Conservative Model (Current Pricing)
-- **BasicAF:** 100 clients × $30 = $3,000/month
-- **StrongAF:** 60 clients × $300 = $18,000/month
-- **RareAF:** 6 clients × $500 = $3,000/month
-- **FarAF:** 0.25 clients/month × $30,000 = $7,500/month
+- **Basic_AF:** 100 clients × $30 = $3,000/month
+- **Strong_AF:** 60 clients × $300 = $18,000/month
+- **Rare_AF:** 6 clients × $500 = $3,000/month
+- **Far_AF:** 0.25 clients/month × $30,000 = $7,500/month
 - **Monthly Total:** $31,500
 - **Annual Total:** $378,000
 
 ### Optimized Model (Recommended Pricing)
-- **BasicAF:** 100 clients × $30 = $3,000/month
-- **StrongAF:** 60 clients × $350 = $21,000/month
-- **RareAF:** 6 clients × $800 = $4,800/month
-- **FarAF:** 0.25 clients/month × $50,000 = $12,500/month
-- **456ProU:** 1 cohort/quarter × $15,000 × 10 students = $150,000/year ÷ 12 = $12,500/month
+- **Basic_AF:** 100 clients × $30 = $3,000/month
+- **Strong_AF:** 60 clients × $350 = $21,000/month
+- **Rare_AF:** 6 clients × $800 = $4,800/month
+- **Far_AF:** 0.25 clients/month × $50,000 = $12,500/month
+- **456AFU:** 1 cohort/quarter × $15,000 × 10 students = $150,000/year ÷ 12 = $12,500/month
 - **Monthly Total:** $53,800
 - **Annual Total:** $645,600
 
@@ -185,9 +185,9 @@
 
 ## PRICING PSYCHOLOGY RECOMMENDATIONS
 
-1. **Remove "AF" from public pricing pages** - Use full names (BasicAF → "Basic" or "Foundation")
-2. **Anchor with FarAF** - Always show highest tier first to make others seem reasonable
-3. **Emphasize scarcity** - "Only 6 RareAF slots available" / "3 FarAF clients per year"
+1. **Remove "AF" from public pricing pages** - Use full names (Basic_AF → "Basic" or "Foundation")
+2. **Anchor with Far_AF** - Always show highest tier first to make others seem reasonable
+3. **Emphasize scarcity** - "Only 6 Rare_AF slots available" / "3 Far_AF clients per year"
 4. **Annual discount visibility** - "Save $720/year" vs "2 months free"
 5. **In-person session bundles** - Offer 5-pack or 10-pack discounts
 
@@ -195,11 +195,11 @@
 
 ## IMPLEMENTATION PRIORITY
 
-1. **Immediate:** Update RareAF pricing to $800/month (60% increase justified by scarcity)
+1. **Immediate:** Update Rare_AF pricing to $800/month (60% increase justified by scarcity)
 2. **Q1 2026:** Implement vertical launch fees
-3. **Q2 2026:** Increase StrongAF to $350/month
-4. **Q3 2026:** Increase FarAF to $50,000/month (for new clients)
-5. **Q4 2026:** Launch tiered 456ProU pricing
+3. **Q2 2026:** Increase Strong_AF to $350/month
+4. **Q3 2026:** Increase Far_AF to $50,000/month (for new clients)
+5. **Q4 2026:** Launch tiered 456AFU pricing
 
 ---
 

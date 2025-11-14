@@ -32,20 +32,20 @@
 **Updates:**
 - Black background (#000000)
 - Massive page title (96-128px Bebas Neue)
-- Gold highlights on "456Pro"
+- Gold highlights on "456AF"
 - 3 Fitness Brand Verticals with red icons
 - 3 Ecosystem components with gold icons
 - Gold-bordered founder section
 
 **Sections:**
-1. **Page Title:** "About 456Pro" (96-128px)
+1. **Page Title:** "About 456AF" (96-128px)
 2. **About Section:** Brand introduction
 3. **Fitness Verticals:**
-   - 456Pro Lifestyle (Tier 1) - Red dumbbell icon
-   - 456Pro Strength (Tier 2) - Red dumbbell icon
-   - 456Pro Athlete (Tier 3) - Red dumbbell icon
+   - 456AF Lifestyle (Tier 1) - Red dumbbell icon
+   - 456AF Strength (Tier 2) - Red dumbbell icon
+   - 456AF Athlete (Tier 3) - Red dumbbell icon
 4. **Ecosystem:**
-   - 456ProU - Gold GraduationCap icon
+   - 456AFU - Gold GraduationCap icon
    - Club456 - Gold Users icon
    - 456Customs - Gold Package icon
 5. **Founder:**
@@ -70,17 +70,17 @@
 - Gold-bordered CTA section
 
 **Programs:**
-1. **BasicAF** - FREE
+1. **Basic_AF** - FREE
    - Foundation tier
    - Community access
    - Users icon
    
-2. **StrongAF** - $99/month
+2. **Strong_AF** - $99/month
    - Virtual tier
    - Online platform
    - Video icon
    
-3. **RareAF** - $299/month
+3. **Rare_AF** - $299/month
    - Elite tier
    - 1-on-1 coaching
    - Zap icon

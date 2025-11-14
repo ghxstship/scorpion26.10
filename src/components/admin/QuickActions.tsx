@@ -47,7 +47,7 @@ export function QuickActions() {
               className="w-full h-auto flex-col items-start p-4 gap-2"
             >
               <div className="flex items-center gap-2 w-full">
-                <action.icon className="h-5 w-5" />
+                <action.icon className="h-5 w-5" style={{ color: 'var(--gold-600)' }} />
                 <span className="font-semibold">{action.title}</span>
               </div>
               <span className="text-xs text-muted-foreground text-left">

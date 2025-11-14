@@ -5,7 +5,7 @@ import { Badge } from '@/components/ui/badge'
 import { GraduationCap, Briefcase, Building2, Check, Calendar } from 'lucide-react'
 
 /**
- * 456ProU - Trainer Certification Academy
+ * 456AFU - Trainer Certification Academy
  * Turn trainers into business owners
  */
 
@@ -84,7 +84,7 @@ export default function ProUPage() {
               Trainer Certification Academy
             </Badge>
             <h1 className="mb-6 font-[family-name:var(--font-bebas)] text-6xl font-black uppercase tracking-wider text-[var(--grey-100)] md:text-7xl lg:text-8xl">
-              456Pro<span className="text-[var(--gold-600)]">U</span>
+              456AF<span className="text-[var(--gold-600)]">U</span>
             </h1>
             <p className="mb-8 text-xl text-[var(--grey-300)] md:text-2xl">
               Stop working for someone else. Build your own fitness empire.
@@ -122,7 +122,7 @@ export default function ProUPage() {
                 The problem is not your training skills. It is your business skills.
               </p>
               <p>
-                456ProU fixes that. We teach you the 456AF methodology AND how to build a profitable fitness business.
+                456AFU fixes that. We teach you the 456AF methodology AND how to build a profitable fitness business.
               </p>
             </div>
           </div>

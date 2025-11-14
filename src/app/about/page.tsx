@@ -11,7 +11,7 @@ export default function AboutPage() {
     <main className="min-h-screen bg-[var(--grey-950)]">
       <div className="container mx-auto px-6 py-24">
         <h1 className="mb-12 text-center font-[family-name:var(--font-bebas)] text-6xl font-black uppercase tracking-wider text-[var(--grey-100)] md:text-7xl lg:text-8xl">
-          About <span className="text-[var(--gold-600)]">456Pro</span>
+          About <span className="text-[var(--gold-600)]">456AF</span>
         </h1>
         <AboutSection />
         
@@ -25,7 +25,7 @@ export default function AboutPage() {
                 <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-sm border-2 border-[var(--red-700)] bg-[var(--grey-900)]">
                   <Dumbbell className="h-8 w-8 text-[var(--red-700)]" />
                 </div>
-                <CardTitle>456Pro Lifestyle</CardTitle>
+                <CardTitle>456AF Lifestyle</CardTitle>
                 <p className="text-sm font-bold uppercase tracking-wide text-[var(--gold-600)]">Tier 1</p>
               </CardHeader>
               <CardContent>
@@ -41,7 +41,7 @@ export default function AboutPage() {
                 <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-sm border-2 border-[var(--red-700)] bg-[var(--grey-900)]">
                   <Dumbbell className="h-8 w-8 text-[var(--red-700)]" />
                 </div>
-                <CardTitle>456Pro Strength</CardTitle>
+                <CardTitle>456AF Strength</CardTitle>
                 <p className="text-sm font-bold uppercase tracking-wide text-[var(--gold-600)]">Tier 2</p>
               </CardHeader>
               <CardContent>
@@ -57,7 +57,7 @@ export default function AboutPage() {
                 <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-sm border-2 border-[var(--red-700)] bg-[var(--grey-900)]">
                   <Dumbbell className="h-8 w-8 text-[var(--red-700)]" />
                 </div>
-                <CardTitle>456Pro Athlete</CardTitle>
+                <CardTitle>456AF Athlete</CardTitle>
                 <p className="text-sm font-bold uppercase tracking-wide text-[var(--gold-600)]">Tier 3</p>
               </CardHeader>
               <CardContent>
@@ -70,7 +70,7 @@ export default function AboutPage() {
           </div>
 
           <h2 className="mb-12 text-center font-[family-name:var(--font-bebas)] text-5xl font-black uppercase tracking-wider text-[var(--grey-100)] md:text-6xl">
-            The 456Pro <span className="text-[var(--gold-600)]">Ecosystem</span>
+            The 456AF <span className="text-[var(--gold-600)]">Ecosystem</span>
           </h2>
           <div className="grid gap-8 md:grid-cols-3">
             <Card>
@@ -78,11 +78,11 @@ export default function AboutPage() {
                 <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-sm border-2 border-[var(--gold-600)] bg-[var(--grey-900)]">
                   <GraduationCap className="h-8 w-8 text-[var(--gold-600)]" />
                 </div>
-                <CardTitle>456ProU</CardTitle>
+                <CardTitle>456AFU</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-[var(--grey-300)]">
-                  Our Trainer Certification Academy. 456Pro University (456ProU) trains the
+                  Our Trainer Certification Academy. 456AF University (456AFU) trains the
                   next generation of elite fitness coaches with our proven methodologies.
                 </p>
               </CardContent>
@@ -113,7 +113,7 @@ export default function AboutPage() {
               <CardContent>
                 <p className="text-[var(--grey-300)]">
                   Our signature customized fitness product line. Premium gear and equipment
-                  designed specifically for the 456Pro training methodology.
+                  designed specifically for the 456AF training methodology.
                 </p>
               </CardContent>
             </Card>
@@ -132,7 +132,7 @@ export default function AboutPage() {
               Founder & Head Coach
             </p>
             <p className="text-lg leading-relaxed text-[var(--grey-300)]">
-              Based in Orlando, FL, Matthew Alarcon founded 456Pro in 2025 with a vision to
+              Based in Orlando, FL, Matthew Alarcon founded 456AF in 2025 with a vision to
               revolutionize fitness training. With a comprehensive approach spanning three
               distinct verticals and four curated programs, Matthew has created a complete
               ecosystem for fitness transformation at every level.

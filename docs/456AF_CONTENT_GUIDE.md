@@ -48,8 +48,8 @@
 - "Most trainers are broke. The problem isn't your training skills. It's your business skills."
 
 ### CTAs
-- "Join BasicAF"
-- "Apply for RareAF"
+- "Join Basic_AF"
+- "Apply for Rare_AF"
 - "Stop Working for Someone Else"
 - "Get Free Assessment"
 - "Submit Your Application"
@@ -59,10 +59,10 @@
 ## PRODUCT NAMING CONVENTIONS
 
 ### Programs (Keep the "AF")
-- **BasicAF** - Community access
-- **StrongAF** - Virtual group training
-- **RareAF** - Private 1-on-1
-- **FarAF** - Residential program
+- **Basic_AF** - Community access
+- **Strong_AF** - Virtual group training
+- **Rare_AF** - Private 1-on-1
+- **Far_AF** - Residential program
 
 ### Verticals (Professional Names)
 - **456 Lifestyle** (not "LifestyleAF")
@@ -71,7 +71,7 @@
 
 ### Initiatives
 - **Club456** - Community brand
-- **456ProU** - Certification academy
+- **456AFU** - Certification academy
 
 ---
 
@@ -136,7 +136,7 @@ sessions when you need that extra push."
 
 ### Example Posts
 - "POV: You've been 'thinking about it' for 6 months. It's $30. Just join."
-- "RareAF client hit a new PR today. Only 5 slots left. Apply if you're serious."
+- "Rare_AF client hit a new PR today. Only 5 slots left. Apply if you're serious."
 - "Stop asking for a sign. This is it. Link in bio."
 
 ---
@@ -232,14 +232,14 @@ sessions when you need that extra push."
 
 ## EMAIL SEQUENCES
 
-### Welcome Sequence (BasicAF)
+### Welcome Sequence (Basic_AF)
 1. **Day 0:** "You're in. Here's what's next."
 2. **Day 3:** "Your first group workout is [Date]"
 3. **Day 7:** "How's your first week?"
 4. **Day 14:** "Ready to level up?"
 5. **Day 30:** "One month down. Keep going."
 
-### Application Sequence (456ProU)
+### Application Sequence (456AFU)
 1. **Day 0:** "Application received"
 2. **Day 3:** "What to expect next"
 3. **Day 7:** "Application status update"
@@ -280,7 +280,7 @@ sessions when you need that extra push."
 - [x] Pricing page created
 - [x] Homepage updated
 - [x] Club456 page created
-- [x] 456ProU page created
+- [x] 456AFU page created
 - [ ] Email templates (transactional)
 - [ ] Social media templates
 - [ ] Blog post templates

@@ -8,7 +8,7 @@ export default function UniversityPage() {
     {
       title: 'Level 1: Foundation',
       duration: '8 Weeks',
-      description: 'Master the fundamentals of 456Pro training methodology',
+      description: 'Master the fundamentals of 456AF training methodology',
       features: [
         'Core training principles',
         'Movement mechanics',
@@ -35,7 +35,7 @@ export default function UniversityPage() {
         'Business development',
         'Elite athlete training',
         'Mentorship program',
-        '456Pro brand partnership',
+        '456AF brand partnership',
       ],
     },
   ]
@@ -48,16 +48,16 @@ export default function UniversityPage() {
           <div className="flex justify-center mb-6">
             <GraduationCap className="h-20 w-20 text-primary" />
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">456Pro University</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">456AF University</h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Become a certified 456Pro trainer and join the next generation of elite fitness coaches.
+            Become a certified 456AF trainer and join the next generation of elite fitness coaches.
             Learn directly from Head Coach Matthew Alarcon and our team of experts.
           </p>
         </div>
 
-        {/* Why Choose 456ProU */}
+        {/* Why Choose 456AFU */}
         <div className="mb-16">
-          <h2 className="text-3xl font-bold mb-8 text-center">Why Choose 456ProU?</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center">Why Choose 456AFU?</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <Card>
               <CardHeader>
@@ -90,7 +90,7 @@ export default function UniversityPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-muted-foreground">
-                  Complete curriculum covering all 456Pro methodologies
+                  Complete curriculum covering all 456AF methodologies
                 </p>
               </CardContent>
             </Card>
@@ -148,7 +148,7 @@ export default function UniversityPage() {
             <div>
               <h3 className="text-xl font-semibold mb-4">Technical Skills</h3>
               <ul className="space-y-2 text-muted-foreground">
-                <li>• 456Pro training methodology</li>
+                <li>• 456AF training methodology</li>
                 <li>• Movement assessment and correction</li>
                 <li>• Program design across all three verticals</li>
                 <li>• Injury prevention and rehabilitation</li>
@@ -162,7 +162,7 @@ export default function UniversityPage() {
                 <li>• Marketing and branding</li>
                 <li>• Business operations</li>
                 <li>• Online coaching platforms</li>
-                <li>• 456Pro brand partnership opportunities</li>
+                <li>• 456AF brand partnership opportunities</li>
               </ul>
             </div>
           </div>
@@ -172,7 +172,7 @@ export default function UniversityPage() {
         <div className="text-center">
           <h2 className="text-3xl font-bold mb-4">Ready to Start Your Journey?</h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Join 456ProU and become part of an elite community of certified trainers
+            Join 456AFU and become part of an elite community of certified trainers
             transforming lives through fitness.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -180,7 +180,7 @@ export default function UniversityPage() {
               <Link href="/contact">Apply for Certification</Link>
             </Button>
             <Button size="lg" variant="outline" asChild>
-              <Link href="/about">Learn More About 456Pro</Link>
+              <Link href="/about">Learn More About 456AF</Link>
             </Button>
           </div>
         </div>

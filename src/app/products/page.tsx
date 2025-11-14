@@ -13,7 +13,7 @@ import { Users, Video, Zap, Crown, Check } from 'lucide-react'
 const programs = [
   {
     id: 'basicaf',
-    title: 'BasicAF',
+    title: 'Basic_AF',
     tagline: 'Community Access Only',
     description: 'Stop lurking. Community access is literally $30. What\'s your excuse? Join Club456 and get access to group workouts, basic programming, and a community that actually shows up.',
     tier: 'Foundation',
@@ -30,12 +30,12 @@ const programs = [
       'Monthly challenges',
       'Workout library',
     ],
-    cta: 'Join BasicAF',
+    cta: 'Join Basic_AF',
     highlight: false,
   },
   {
     id: 'strongaf',
-    title: 'StrongAF',
+    title: 'Strong_AF',
     tagline: 'Virtual Group Training',
     description: 'Virtual training that doesn\'t suck. 3 live group sessions per week, actual programming (not random workouts), and monthly check-ins. Plus in-person sessions when you need that extra push.',
     tier: 'Virtual',
@@ -53,12 +53,12 @@ const programs = [
       'Private Slack community',
       'Optional in-person sessions ($200/session)',
     ],
-    cta: 'Join StrongAF',
+    cta: 'Join Strong_AF',
     highlight: false,
   },
   {
     id: 'rareaf',
-    title: 'RareAF',
+    title: 'Rare_AF',
     tagline: 'Private Personal Training',
     description: 'Elite 1-on-1 coaching. Only 6 slots available. Custom programming, weekly video analysis, and direct access to your coach. This isn\'t for everyone. That\'s the point.',
     tier: 'Elite',
@@ -76,12 +76,12 @@ const programs = [
       'Nutrition guidance',
       'In-person sessions available ($300/session)',
     ],
-    cta: 'Apply for RareAF',
+    cta: 'Apply for Rare_AF',
     highlight: true,
   },
   {
     id: 'faraf',
-    title: 'FarAF',
+    title: 'Far_AF',
     tagline: 'Residential Program',
     description: 'The ultimate immersive experience. 3 clients per year. That\'s it. Live-in training at our Orlando facility or exclusive destination locations. Full lifestyle transformation. VIP everything.',
     tier: 'Ultimate',
@@ -98,7 +98,7 @@ const programs = [
       'Full lifestyle management',
       'Recovery & wellness suite',
     ],
-    cta: 'Inquire About FarAF',
+    cta: 'Inquire About Far_AF',
     highlight: false,
   },
 ]
@@ -218,16 +218,16 @@ export default function ProductsPage() {
           </div>
         </div>
 
-        {/* 456ProU CTA */}
+        {/* 456AFU CTA */}
         <div className="rounded-sm border-2 border-[var(--gold-600)] bg-gradient-to-br from-[var(--grey-900)] to-[var(--grey-950)] p-12 text-center md:p-16">
           <h2 className="mb-6 font-[family-name:var(--font-bebas)] text-4xl font-black uppercase tracking-wider text-[var(--grey-100)] md:text-5xl">
             Want to <span className="text-[var(--gold-600)]">Become a Trainer?</span>
           </h2>
           <p className="mb-8 text-lg text-[var(--grey-300)]">
-            456ProU certification academy. 3 cohorts per year. Limited spots.
+            456AFU certification academy. 3 cohorts per year. Limited spots.
           </p>
           <Button size="lg" asChild>
-            <Link href="/456prou">Learn About 456ProU</Link>
+            <Link href="/456prou">Learn About 456AFU</Link>
           </Button>
         </div>
       </div>

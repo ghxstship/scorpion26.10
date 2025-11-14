@@ -89,11 +89,11 @@ INSERT INTO products (
   is_active
 )
 VALUES
-  -- BasicAF - Community Access Only
+  -- Basic_AF - Community Access Only
   (
     '456af002-0000-0000-0000-000000000001',
     '456af000-0000-0000-0000-000000000001',
-    'BasicAF',
+    'Basic_AF',
     'Stop lurking. Community access is literally $30. What''s your excuse? Join Club456 and get access to group workouts, basic programming, and a community that actually shows up.',
     'subscription',
     'program',
@@ -110,11 +110,11 @@ VALUES
     true
   ),
   
-  -- StrongAF - Virtual Group Training
+  -- Strong_AF - Virtual Group Training
   (
     '456af002-0000-0000-0000-000000000002',
     '456af000-0000-0000-0000-000000000001',
-    'StrongAF',
+    'Strong_AF',
     'Virtual training that doesn''t suck. 3 live group sessions per week, actual programming (not random workouts), and monthly check-ins. Plus in-person sessions when you need that extra push.',
     'subscription',
     'program',
@@ -131,11 +131,11 @@ VALUES
     true
   ),
   
-  -- RareAF - Private Personal Training
+  -- Rare_AF - Private Personal Training
   (
     '456af002-0000-0000-0000-000000000003',
     '456af000-0000-0000-0000-000000000001',
-    'RareAF',
+    'Rare_AF',
     'Elite 1-on-1 coaching. Only 6 slots available. Custom programming, weekly video analysis, and direct access to your coach. This isn''t for everyone. That''s the point.',
     'subscription',
     'program',
@@ -152,11 +152,11 @@ VALUES
     true
   ),
   
-  -- FarAF - Residential/Destination Program
+  -- Far_AF - Residential/Destination Program
   (
     '456af002-0000-0000-0000-000000000004',
     '456af000-0000-0000-0000-000000000001',
-    'FarAF',
+    'Far_AF',
     'The ultimate immersive experience. 3 clients per year. That''s it. Live-in training at our Orlando facility or exclusive destination locations. Full lifestyle transformation. VIP everything. If you have to ask about price, this isn''t for you.',
     'subscription',
     'program',
@@ -175,7 +175,7 @@ VALUES
 ON CONFLICT (id) DO NOTHING;
 
 -- ============================================================================
--- PART 4: 456ProU - Trainer Certification Academy
+-- PART 4: 456AFU - Trainer Certification Academy
 -- ============================================================================
 
 INSERT INTO products (
@@ -197,11 +197,11 @@ INSERT INTO products (
   is_active
 )
 VALUES
-  -- 456ProU Tier 1 - Certification Only
+  -- 456AFU Tier 1 - Certification Only
   (
     '456af003-0000-0000-0000-000000000001',
     '456af000-0000-0000-0000-000000000001',
-    '456ProU - Certification',
+    '456AFU - Certification',
     'Get certified. Learn the 456AF methodology. 30-day intensive course. 3 cohorts per year. Limited to 10 students per cohort.',
     'digital',
     'certification',
@@ -217,11 +217,11 @@ VALUES
     true
   ),
   
-  -- 456ProU Tier 2 - Certification + Business
+  -- 456AFU Tier 2 - Certification + Business
   (
     '456af003-0000-0000-0000-000000000002',
     '456af000-0000-0000-0000-000000000001',
-    '456ProU - Business',
+    '456AFU - Business',
     'Certification + business mentorship. Learn to train AND how to build a profitable fitness business. Marketing, sales, systems. The whole package.',
     'digital',
     'certification',
@@ -237,11 +237,11 @@ VALUES
     true
   ),
   
-  -- 456ProU Tier 3 - Certification + Business + Franchise
+  -- 456AFU Tier 3 - Certification + Business + Franchise
   (
     '456af003-0000-0000-0000-000000000003',
     '456af000-0000-0000-0000-000000000001',
-    '456ProU - Elite',
+    '456AFU - Elite',
     'The full package. Certification, business training, and franchise opportunity. Build your own 456AF affiliate. Limited to 3 students per year.',
     'digital',
     'certification',
@@ -268,7 +268,7 @@ VALUES
   ('456af000-0000-0000-0000-000000000001', 'Programs', '/programs', NULL, 2, true),
   ('456af000-0000-0000-0000-000000000001', 'Pricing', '/pricing', NULL, 3, true),
   ('456af000-0000-0000-0000-000000000001', 'Club456', '/club456', NULL, 4, true),
-  ('456af000-0000-0000-0000-000000000001', '456ProU', '/456prou', NULL, 5, true),
+  ('456af000-0000-0000-0000-000000000001', '456AFU', '/456prou', NULL, 5, true),
   ('456af000-0000-0000-0000-000000000001', 'Contact', '/contact', NULL, 6, true)
 ON CONFLICT DO NOTHING;
 
@@ -281,9 +281,9 @@ VALUES
   (
     '456af000-0000-0000-0000-000000000001',
     'Marcus Rodriguez',
-    'RareAF Client',
+    'Rare_AF Client',
     '/images/testimonials/marcus.jpg',
-    'Six months in RareAF and I''m in the best shape of my life. No BS, just results. Worth every penny.',
+    'Six months in Rare_AF and I''m in the best shape of my life. No BS, just results. Worth every penny.',
     5,
     true,
     true
@@ -291,7 +291,7 @@ VALUES
   (
     '456af000-0000-0000-0000-000000000001',
     'Sarah Chen',
-    'StrongAF Member',
+    'Strong_AF Member',
     '/images/testimonials/sarah.jpg',
     'Virtual training that actually works. The programming is legit and the community keeps me accountable. Finally found something that fits my schedule.',
     5,
@@ -301,9 +301,9 @@ VALUES
   (
     '456af000-0000-0000-0000-000000000001',
     'James Thompson',
-    'FarAF Alumni',
+    'Far_AF Alumni',
     '/images/testimonials/james.jpg',
-    'The FarAF experience changed my life. 90 days of complete immersion. Lost 45 lbs, gained muscle, and learned how to maintain it. Best investment I''ve ever made.',
+    'The Far_AF experience changed my life. 90 days of complete immersion. Lost 45 lbs, gained muscle, and learned how to maintain it. Best investment I''ve ever made.',
     5,
     true,
     true
@@ -311,9 +311,9 @@ VALUES
   (
     '456af000-0000-0000-0000-000000000001',
     'Alex Rivera',
-    '456ProU Graduate',
+    '456AFU Graduate',
     '/images/testimonials/alex.jpg',
-    'Went from working a 9-5 to running my own training business in 6 months. 456ProU gave me the certification AND the business skills to actually make it work.',
+    'Went from working a 9-5 to running my own training business in 6 months. 456AFU gave me the certification AND the business skills to actually make it work.',
     5,
     true,
     false

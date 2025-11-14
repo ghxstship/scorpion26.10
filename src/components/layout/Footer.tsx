@@ -82,7 +82,7 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/university" className="text-[var(--grey-300)] hover:text-[var(--gold-600)] transition-colors">
-                  456ProU
+                  456AFU
                 </Link>
               </li>
               <li>
@@ -155,7 +155,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="mt-12 border-t border-[var(--grey-800)] pt-8 text-center">
           <p className="text-sm text-[var(--grey-400)]">
-            &copy; {currentYear} <span className="text-[var(--gold-600)] font-bold">456Pro</span>. All rights reserved. | Founded by <span className="text-[var(--grey-200)]">Matthew Alarcon</span>
+            &copy; {currentYear} <span className="text-[var(--gold-600)] font-bold">456AF</span>. All rights reserved. | Founded by <span className="text-[var(--grey-200)]">Matthew Alarcon</span>
           </p>
         </div>
       </div>

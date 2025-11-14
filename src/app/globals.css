@@ -71,7 +71,7 @@
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
-  --font-sans: var(--font-inter);
+  --font-sans: var(--font-share-tech);
   --radius-lg: calc(var(--radius) + 2px);
   --radius-md: var(--radius);
   --radius-sm: calc(var(--radius) - 2px);
@@ -83,6 +83,27 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+  
+  /* Typography System */
+  h1 {
+    font-family: var(--font-h1);
+  }
+  
+  h2, h3, h4, h5, h6 {
+    font-family: var(--font-h2);
+  }
+  
+  /* Subtitle elements */
+  .subtitle,
+  [class*="subtitle"] {
+    font-family: var(--font-subtitle);
+  }
+  
+  /* Code and monospace */
+  code, pre, kbd, samp {
+    font-family: var(--font-mono);
   }
 }
 

@@ -124,7 +124,7 @@ export default async function ProductDetailPage({ params }: { params: { id: stri
             Ready to <span className="text-[var(--gold-600)]">Transform?</span>
           </h2>
           <p className="mb-8 text-center text-lg text-[var(--grey-300)]">
-            Join thousands of athletes who have achieved their fitness goals with 456Pro.
+            Join thousands of athletes who have achieved their fitness goals with 456AF.
           </p>
           <div className="flex justify-center">
             <Button size="lg" variant="secondary" asChild>

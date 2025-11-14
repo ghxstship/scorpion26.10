@@ -1,30 +1,26 @@
 import { type NextRequest } from 'next/server'
 import { updateSession } from '@/lib/supabase/middleware'
-import { resolveTenant } from '@/lib/tenant/resolver'
+import { resolveTenantInMiddleware } from '@/lib/tenant/resolver'
 
 export async function middleware(request: NextRequest) {
-  // First, handle tenant resolution
-  const hostname = request.headers.get('host') || ''
-  
-  // Resolve tenant from subdomain or custom domain
-  const tenant = await resolveTenant(hostname)
-  
-  // Clone the request headers
-  const requestHeaders = new Headers(request.headers)
-  
-  // Add tenant ID to headers for downstream use
-  if (tenant) {
-    requestHeaders.set('x-tenant-id', tenant.id)
-    requestHeaders.set('x-tenant-slug', tenant.slug)
-  }
-  
-  // Create response with updated headers
+  // First, update session and get Supabase response
   const response = await updateSession(request)
   
-  // If we have a tenant, add it to response headers as well
-  if (tenant && response) {
-    response.headers.set('x-tenant-id', tenant.id)
-    response.headers.set('x-tenant-slug', tenant.slug)
+  // Then handle tenant resolution using the middleware-safe method
+  const hostname = request.headers.get('host') || ''
+  
+  try {
+    // Resolve tenant from subdomain or custom domain
+    const tenant = await resolveTenantInMiddleware(hostname, request)
+    
+    // Add tenant ID to response headers for downstream use
+    if (tenant && response) {
+      response.headers.set('x-tenant-id', tenant.id)
+      response.headers.set('x-tenant-slug', tenant.slug)
+    }
+  } catch (error) {
+    // Log error but don't fail the request
+    console.error('Tenant resolution failed:', error)
   }
   
   return response

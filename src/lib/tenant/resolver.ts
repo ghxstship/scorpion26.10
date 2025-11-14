@@ -1,4 +1,6 @@
 import { createClient } from '@/lib/supabase/server'
+import { createServerClient } from '@supabase/ssr'
+import type { NextRequest } from 'next/server'
 
 export interface Tenant {
   id: string
@@ -13,13 +15,57 @@ export interface Tenant {
 }
 
 /**
- * Resolve tenant from subdomain or custom domain
+ * Resolve tenant from subdomain or custom domain (middleware-safe version)
+ * @param hostname - Full hostname from request (e.g., tenant1.platform.com)
+ * @param request - NextRequest object for middleware context
+ * @returns Tenant object or null if not found
+ */
+export async function resolveTenantInMiddleware(
+  hostname: string,
+  request: NextRequest
+): Promise<Tenant | null> {
+  // Check if Supabase is configured
+  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+    console.warn('Supabase not configured, skipping tenant resolution')
+    return null
+  }
+
+  // Create middleware-safe Supabase client
+  const supabase = createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+    {
+      cookies: {
+        getAll() {
+          return request.cookies.getAll()
+        },
+        setAll() {
+          // No-op in middleware for tenant resolution
+        },
+      },
+    }
+  )
+  
+  return await resolveTenantWithClient(hostname, supabase)
+}
+
+/**
+ * Resolve tenant from subdomain or custom domain (server component version)
  * @param hostname - Full hostname from request (e.g., tenant1.platform.com)
  * @returns Tenant object or null if not found
  */
 export async function resolveTenant(hostname: string): Promise<Tenant | null> {
   const supabase = await createClient()
-  
+  return await resolveTenantWithClient(hostname, supabase)
+}
+
+/**
+ * Internal function to resolve tenant with any Supabase client
+ */
+async function resolveTenantWithClient(
+  hostname: string,
+  supabase: any // eslint-disable-line @typescript-eslint/no-explicit-any
+): Promise<Tenant | null> {
   // Get root domain from environment
   const rootDomain = process.env.NEXT_PUBLIC_ROOT_DOMAIN || 'localhost:3000'
   

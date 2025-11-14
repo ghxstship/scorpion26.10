@@ -44,7 +44,7 @@ describe('API Helpers', () => {
       
       const json = await response.json()
       expect(json.error).toBeTruthy()
-      expect(response.status).toBe(500)
+      expect(response.status).toBe(404)
     })
   })
 

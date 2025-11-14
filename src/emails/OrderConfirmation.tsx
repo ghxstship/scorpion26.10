@@ -4,6 +4,7 @@ import { EmailLayout } from './components/EmailLayout'
 import { EmailHeader } from './components/EmailHeader'
 import { EmailFooter } from './components/EmailFooter'
 import { EmailButton } from './components/EmailButton'
+import { emailColors, emailSpacing, emailTypography, emailBorderRadius } from './styles/emailTokens'
 
 interface OrderItem {
   name: string
@@ -111,102 +112,117 @@ export function OrderConfirmation({
   )
 }
 
+// Token-based styles for email compatibility
 const content = {
-  padding: '20px 30px',
+  padding: `${emailSpacing.lg} ${emailSpacing.xl}`,
 }
 
 const heading = {
-  fontSize: '24px',
-  fontWeight: 'bold',
-  margin: '0 0 20px',
-  color: '#000000',
+  fontFamily: emailTypography.fontFamily.sans,
+  fontSize: emailTypography.fontSize['2xl'],
+  fontWeight: emailTypography.fontWeight.bold,
+  margin: `0 0 ${emailSpacing.lg}`,
+  color: emailColors.offWhite,
 }
 
 const subheading = {
-  fontSize: '18px',
-  fontWeight: 'bold',
-  margin: '20px 0 10px',
-  color: '#000000',
+  fontFamily: emailTypography.fontFamily.sans,
+  fontSize: emailTypography.fontSize.lg,
+  fontWeight: emailTypography.fontWeight.bold,
+  margin: `${emailSpacing.lg} 0 ${emailSpacing.sm}`,
+  color: emailColors.offWhite,
 }
 
 const paragraph = {
-  fontSize: '16px',
+  fontFamily: emailTypography.fontFamily.sans,
+  fontSize: emailTypography.fontSize.base,
   lineHeight: '24px',
-  margin: '16px 0',
-  color: '#525252',
+  margin: `${emailSpacing.md} 0`,
+  color: emailColors.lightGrey,
 }
 
 const orderInfo = {
-  backgroundColor: '#f6f9fc',
-  padding: '16px',
-  borderRadius: '4px',
-  margin: '16px 0',
+  backgroundColor: emailColors.charcoal,
+  padding: emailSpacing.md,
+  borderRadius: emailBorderRadius.md,
+  borderLeft: `4px solid ${emailColors.richGold}`,
+  margin: `${emailSpacing.md} 0`,
 }
 
 const infoText = {
-  fontSize: '14px',
-  margin: '4px 0',
-  color: '#525252',
+  fontFamily: emailTypography.fontFamily.sans,
+  fontSize: emailTypography.fontSize.sm,
+  margin: `${emailSpacing.xs} 0`,
+  color: emailColors.lightGrey,
 }
 
 const hr = {
-  borderColor: '#e6ebf1',
-  margin: '20px 0',
+  borderTop: `1px solid ${emailColors.darkGrey}`,
+  borderBottom: 'none',
+  borderLeft: 'none',
+  borderRight: 'none',
+  margin: `${emailSpacing.lg} 0`,
 }
 
 const itemRow = {
   display: 'flex',
   justifyContent: 'space-between',
-  margin: '8px 0',
+  margin: `${emailSpacing.sm} 0`,
 }
 
 const itemName = {
-  fontSize: '14px',
-  color: '#525252',
+  fontFamily: emailTypography.fontFamily.sans,
+  fontSize: emailTypography.fontSize.sm,
+  color: emailColors.lightGrey,
   margin: 0,
 }
 
 const itemPrice = {
-  fontSize: '14px',
-  color: '#525252',
+  fontFamily: emailTypography.fontFamily.sans,
+  fontSize: emailTypography.fontSize.sm,
+  color: emailColors.lightGrey,
   margin: 0,
-  fontWeight: '500',
+  fontWeight: emailTypography.fontWeight.medium,
 }
 
 const totalsSection = {
-  marginTop: '20px',
+  marginTop: emailSpacing.lg,
 }
 
 const totalRow = {
   display: 'flex',
   justifyContent: 'space-between',
-  margin: '8px 0',
+  margin: `${emailSpacing.sm} 0`,
 }
 
 const totalLabel = {
-  fontSize: '14px',
-  color: '#525252',
+  fontFamily: emailTypography.fontFamily.sans,
+  fontSize: emailTypography.fontSize.sm,
+  color: emailColors.lightGrey,
   margin: 0,
 }
 
 const totalValue = {
-  fontSize: '14px',
-  color: '#525252',
+  fontFamily: emailTypography.fontFamily.sans,
+  fontSize: emailTypography.fontSize.sm,
+  color: emailColors.lightGrey,
   margin: 0,
 }
 
 const totalLabelBold = {
-  fontSize: '16px',
-  color: '#000000',
+  fontFamily: emailTypography.fontFamily.sans,
+  fontSize: emailTypography.fontSize.base,
+  color: emailColors.offWhite,
   margin: 0,
-  fontWeight: 'bold',
+  fontWeight: emailTypography.fontWeight.bold,
 }
 
 const totalValueBold = {
-  fontSize: '16px',
-  color: '#000000',
+  fontFamily: emailTypography.fontFamily.sans,
+  fontSize: emailTypography.fontSize.base,
+  color: emailColors.richGold,
   margin: 0,
-  fontWeight: 'bold',
+  fontWeight: emailTypography.fontWeight.bold,
 }
 
 export default OrderConfirmation

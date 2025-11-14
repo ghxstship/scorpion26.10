@@ -3,8 +3,11 @@ import Stripe from 'stripe'
 import { stripe } from '@/lib/stripe'
 import { createClient } from '@/lib/supabase/server'
 import { handleError } from '@/lib/utils/api-helpers'
-import { typedUpdate } from '@/lib/supabase/typed-client'
 
+// NOTE: Type assertions with 'as any' are used due to a known issue with @supabase/ssr v0.7.0
+// where TypeScript incorrectly infers 'never' types for table operations.
+// This is safe as the database schema is properly typed in @/types/database.
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET!
 
@@ -34,15 +37,36 @@ export async function POST(request: NextRequest) {
 
     const supabase = await createClient()
 
+    // Check if event has already been processed (idempotency)
+    const { data: existingEvent } = await supabase
+      .from('webhook_events')
+      .select('id')
+      .eq('event_id', event.id)
+      .single()
+
+    if (existingEvent) {
+      console.log(`Webhook event ${event.id} already processed, skipping`)
+      return NextResponse.json({ received: true, skipped: true })
+    }
+
+    // Store webhook event for idempotency
+    await (supabase.from('webhook_events') as any).insert({
+      event_id: event.id,
+      event_type: event.type,
+      provider: 'stripe',
+      payload: event,
+    })
+
     // Handle different event types
     switch (event.type) {
       case 'payment_intent.succeeded': {
         const paymentIntent = event.data.object as Stripe.PaymentIntent
         
         // Update order status to completed
-        const { error } = await typedUpdate(supabase, 'orders', {
+        const { error } = await (supabase
+          .from('orders') as any)
+          .update({
             status: 'completed',
-            stripe_payment_intent_id: paymentIntent.id,
             paid_at: new Date().toISOString(),
           })
           .eq('stripe_payment_intent_id', paymentIntent.id)
@@ -57,9 +81,10 @@ export async function POST(request: NextRequest) {
         const paymentIntent = event.data.object as Stripe.PaymentIntent
         
         // Update order status to failed
-        const { error } = await typedUpdate(supabase, 'orders', {
+        const { error } = await (supabase
+          .from('orders') as any)
+          .update({
             status: 'failed',
-            stripe_payment_intent_id: paymentIntent.id,
           })
           .eq('stripe_payment_intent_id', paymentIntent.id)
 
@@ -73,7 +98,9 @@ export async function POST(request: NextRequest) {
         const charge = event.data.object as Stripe.Charge
         
         // Update order status to refunded
-        const { error } = await typedUpdate(supabase, 'orders', {
+        const { error } = await (supabase
+          .from('orders') as any)
+          .update({
             status: 'refunded',
             refunded_at: new Date().toISOString(),
           })
@@ -98,9 +125,11 @@ export async function POST(request: NextRequest) {
         }
         
         // Update subscription in database
-        const { error } = await typedUpdate(supabase, 'subscriptions', {
+        const { error } = await (supabase
+          .from('subscriptions') as any)
+          .update({
             stripe_customer_id: typeof sub.customer === 'string' ? sub.customer : sub.customer.id,
-            status: sub.status as 'active' | 'canceled' | 'past_due' | 'unpaid' | 'trialing',
+            status: sub.status,
             current_period_start: new Date(sub.current_period_start * 1000).toISOString(),
             current_period_end: new Date(sub.current_period_end * 1000).toISOString(),
             cancel_at_period_end: sub.cancel_at_period_end,
@@ -117,7 +146,9 @@ export async function POST(request: NextRequest) {
         const subscription = event.data.object as Stripe.Subscription
         
         // Mark subscription as cancelled
-        const { error } = await typedUpdate(supabase, 'subscriptions', {
+        const { error } = await (supabase
+          .from('subscriptions') as any)
+          .update({
             status: 'canceled',
             cancelled_at: new Date().toISOString(),
           })

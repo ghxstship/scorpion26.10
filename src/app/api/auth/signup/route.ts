@@ -1,17 +1,11 @@
 import { createClient } from '@/lib/supabase/server'
 import { NextResponse } from 'next/server'
-import { z } from 'zod'
+import { signupSchema } from '@/lib/utils/validation'
 import { typedInsert } from '@/lib/supabase/typed-client'
+import { withRateLimit } from '@/lib/security/rate-limit'
 import type { Database } from '@/types/database'
 
-const signupSchema = z.object({
-  email: z.string().email(),
-  password: z.string().min(8),
-  fullName: z.string().min(2),
-  tenantId: z.string().uuid().optional(),
-})
-
-export async function POST(request: Request) {
+async function signupHandler(request: Request) {
   try {
     const body = await request.json()
     const { email, password, fullName, tenantId } = signupSchema.parse(body)
@@ -57,9 +51,12 @@ export async function POST(request: Request) {
       session: authData.session,
     })
   } catch (error) {
-    if (error instanceof z.ZodError) {
-      return NextResponse.json({ error: error.issues }, { status: 400 })
+    if (error && typeof error === 'object' && 'issues' in error) {
+      return NextResponse.json({ error: (error as { issues: unknown }).issues }, { status: 400 })
     }
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
   }
 }
+
+// Apply rate limiting: 5 signups per 15 minutes
+export const POST = withRateLimit(signupHandler, 'auth')

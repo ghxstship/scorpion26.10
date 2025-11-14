@@ -831,6 +831,35 @@ export interface Database {
           created_at?: string
         }
       }
+      webhook_events: {
+        Row: {
+          id: string
+          event_id: string
+          event_type: string
+          provider: string
+          processed_at: string
+          payload: Json | null
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          event_id: string
+          event_type: string
+          provider?: string
+          processed_at?: string
+          payload?: Json | null
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          event_id?: string
+          event_type?: string
+          provider?: string
+          processed_at?: string
+          payload?: Json | null
+          created_at?: string
+        }
+      }
     }
     Views: {
       [_ in never]: never

@@ -1,5 +1,4 @@
-import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
+import { NextResponse, type NextRequest } from 'next/server'
 import { applySecurityHeaders } from './middleware/security-headers'
 import { applyRateLimit } from './middleware/rate-limit'
 
@@ -12,8 +11,14 @@ export async function middleware(request: NextRequest) {
     if (rateLimitResult) return rateLimitResult
   }
 
+  // Create response
+  const response = NextResponse.next({
+    request: {
+      headers: request.headers,
+    },
+  })
+
   // Apply security headers to all routes
-  const response = NextResponse.next()
   return applySecurityHeaders(response)
 }
 

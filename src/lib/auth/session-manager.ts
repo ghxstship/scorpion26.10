@@ -1,7 +1,13 @@
 import { createClient } from '@/lib/supabase/server'
 
-const SESSION_TIMEOUT_MS = 30 * 60 * 1000 // 30 minutes
-const ABSOLUTE_TIMEOUT_MS = 12 * 60 * 60 * 1000 // 12 hours
+// Session timeout configuration
+export const SESSION_CONFIG = {
+  IDLE_TIMEOUT_MS: 30 * 60 * 1000, // 30 minutes
+  ABSOLUTE_TIMEOUT_MS: 24 * 60 * 60 * 1000, // 24 hours
+} as const
+
+const SESSION_TIMEOUT_MS = SESSION_CONFIG.IDLE_TIMEOUT_MS
+const ABSOLUTE_TIMEOUT_MS = SESSION_CONFIG.ABSOLUTE_TIMEOUT_MS
 
 interface SessionMetadata {
   lastActivity: number

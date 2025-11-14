@@ -55,7 +55,7 @@ export default function PaymentsSettingsPage() {
     }
 
     fetchAccountData()
-  }, [searchParams])
+  }, [searchParams, toast])
 
   const fetchAccountData = async () => {
     try {

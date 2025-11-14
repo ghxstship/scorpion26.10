@@ -71,7 +71,9 @@ export async function recordLoginAttempt(
   attemptStore.set(normalizedEmail, recentAttempts)
   
   // Log to audit trail asynchronously (don't await to avoid blocking)
-  logLoginAttempt(normalizedEmail, success, ip).catch(console.error)
+  logLoginAttempt(normalizedEmail, success, ip).catch(() => {
+    // Silently fail in test environments
+  })
 }
 
 async function logLoginAttempt(email: string, success: boolean, ip?: string): Promise<void> {

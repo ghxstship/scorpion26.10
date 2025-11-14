@@ -29,7 +29,7 @@ export function Header() {
         <div className="flex items-center gap-8 md:gap-12">
           <Link href="/" className="flex items-center space-x-2 group">
             <span className="font-[family-name:var(--font-bebas)] text-3xl font-black tracking-wider text-[var(--gold-600)] transition-colors hover:text-[var(--gold-500)]">
-              456PRO
+              456AF
             </span>
           </Link>
           <div className="hidden md:flex md:gap-8" role="menubar">

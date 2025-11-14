@@ -5,9 +5,16 @@ import { Database } from '@/types/database'
 export async function createClient() {
   const cookieStore = await cookies()
 
-  // Use placeholder values if env vars are missing (allows deployment without Supabase)
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co'
-  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-anon-key'
+  // Check if Supabase is configured
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL
+  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+
+  if (!url || !key) {
+    // Return a mock client that throws helpful errors
+    throw new Error(
+      'Supabase is not configured. Please set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY environment variables.'
+    )
+  }
 
   return createServerClient<Database>(
     url,

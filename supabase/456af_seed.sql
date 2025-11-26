@@ -94,12 +94,12 @@ VALUES
     '456af002-0000-0000-0000-000000000001',
     '456af000-0000-0000-0000-000000000001',
     'Basic_AF',
-    'Stop lurking. Community access is literally $30. What''s your excuse? Join Club456 and get access to group workouts, basic programming, and a community that actually shows up.',
+    'Stop lurking. Community access is literally $60. What''s your excuse? Join Club456 and get access to group workouts, basic programming, and a community that actually shows up.',
     'subscription',
     'program',
     'foundation',
     'community',
-    30.00,
+    60.00,
     NULL, -- Unlimited capacity
     0,
     30,
@@ -120,7 +120,7 @@ VALUES
     'program',
     'virtual',
     'virtual_group',
-    350.00,
+    500.00,
     60, -- Max 60 clients (3 groups of 20)
     0,
     30,
@@ -141,7 +141,7 @@ VALUES
     'program',
     'elite',
     'private',
-    800.00,
+    4000.00,
     6, -- Max 6 clients
     0,
     30,
@@ -152,17 +152,17 @@ VALUES
     true
   ),
   
-  -- Far_AF - Residential/Destination Program
+  -- Elite_AF - Residential/Destination Program
   (
     '456af002-0000-0000-0000-000000000004',
     '456af000-0000-0000-0000-000000000001',
-    'Far_AF',
+    'Elite_AF',
     'The ultimate immersive experience. 3 clients per year. That''s it. Live-in training at our Orlando facility or exclusive destination locations. Full lifestyle transformation. VIP everything. If you have to ask about price, this isn''t for you.',
     'subscription',
     'program',
     'ultimate',
     'residential',
-    50000.00,
+    30000.00,
     3, -- Max 3 clients per year
     0,
     30,
@@ -175,7 +175,7 @@ VALUES
 ON CONFLICT (id) DO NOTHING;
 
 -- ============================================================================
--- PART 4: 456AFU - Trainer Certification Academy
+-- PART 4: ProAFU - Trainer Certification Academy
 -- ============================================================================
 
 INSERT INTO products (
@@ -197,11 +197,11 @@ INSERT INTO products (
   is_active
 )
 VALUES
-  -- 456AFU Tier 1 - Certification Only
+  -- ProAFU Tier 1 - Certification Only
   (
     '456af003-0000-0000-0000-000000000001',
     '456af000-0000-0000-0000-000000000001',
-    '456AFU - Certification',
+    'ProAFU - Certification',
     'Get certified. Learn the 456AF methodology. 30-day intensive course. 3 cohorts per year. Limited to 10 students per cohort.',
     'digital',
     'certification',
@@ -217,11 +217,11 @@ VALUES
     true
   ),
   
-  -- 456AFU Tier 2 - Certification + Business
+  -- ProAFU Tier 2 - Certification + Business
   (
     '456af003-0000-0000-0000-000000000002',
     '456af000-0000-0000-0000-000000000001',
-    '456AFU - Business',
+    'ProAFU - Business',
     'Certification + business mentorship. Learn to train AND how to build a profitable fitness business. Marketing, sales, systems. The whole package.',
     'digital',
     'certification',
@@ -237,11 +237,11 @@ VALUES
     true
   ),
   
-  -- 456AFU Tier 3 - Certification + Business + Franchise
+  -- ProAFU Tier 3 - Certification + Business + Franchise
   (
     '456af003-0000-0000-0000-000000000003',
     '456af000-0000-0000-0000-000000000001',
-    '456AFU - Elite',
+    'ProAFU - Elite',
     'The full package. Certification, business training, and franchise opportunity. Build your own 456AF affiliate. Limited to 3 students per year.',
     'digital',
     'certification',
@@ -268,7 +268,7 @@ VALUES
   ('456af000-0000-0000-0000-000000000001', 'Programs', '/programs', NULL, 2, true),
   ('456af000-0000-0000-0000-000000000001', 'Pricing', '/pricing', NULL, 3, true),
   ('456af000-0000-0000-0000-000000000001', 'Club456', '/club456', NULL, 4, true),
-  ('456af000-0000-0000-0000-000000000001', '456AFU', '/456prou', NULL, 5, true),
+  ('456af000-0000-0000-0000-000000000001', 'ProAFU', '/456prou', NULL, 5, true),
   ('456af000-0000-0000-0000-000000000001', 'Contact', '/contact', NULL, 6, true)
 ON CONFLICT DO NOTHING;
 
@@ -301,9 +301,9 @@ VALUES
   (
     '456af000-0000-0000-0000-000000000001',
     'James Thompson',
-    'Far_AF Alumni',
+    'Elite_AF Alumni',
     '/images/testimonials/james.jpg',
-    'The Far_AF experience changed my life. 90 days of complete immersion. Lost 45 lbs, gained muscle, and learned how to maintain it. Best investment I''ve ever made.',
+    'The Elite_AF experience changed my life. 90 days of complete immersion. Lost 45 lbs, gained muscle, and learned how to maintain it. Best investment I''ve ever made.',
     5,
     true,
     true
@@ -311,9 +311,9 @@ VALUES
   (
     '456af000-0000-0000-0000-000000000001',
     'Alex Rivera',
-    '456AFU Graduate',
+    'ProAFU Graduate',
     '/images/testimonials/alex.jpg',
-    'Went from working a 9-5 to running my own training business in 6 months. 456AFU gave me the certification AND the business skills to actually make it work.',
+    'Went from working a 9-5 to running my own training business in 6 months. ProAFU gave me the certification AND the business skills to actually make it work.',
     5,
     true,
     false

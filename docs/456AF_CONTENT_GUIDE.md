@@ -62,7 +62,7 @@
 - **Basic_AF** - Community access
 - **Strong_AF** - Virtual group training
 - **Rare_AF** - Private 1-on-1
-- **Far_AF** - Residential program
+- **Elite_AF** - Residential program
 
 ### Verticals (Professional Names)
 - **456 Lifestyle** (not "LifestyleAF")
@@ -71,7 +71,7 @@
 
 ### Initiatives
 - **Club456** - Community brand
-- **456AFU** - Certification academy
+- **ProAFU** - Certification academy
 
 ---
 
@@ -239,7 +239,7 @@ sessions when you need that extra push."
 4. **Day 14:** "Ready to level up?"
 5. **Day 30:** "One month down. Keep going."
 
-### Application Sequence (456AFU)
+### Application Sequence (ProAFU)
 1. **Day 0:** "Application received"
 2. **Day 3:** "What to expect next"
 3. **Day 7:** "Application status update"
@@ -280,7 +280,7 @@ sessions when you need that extra push."
 - [x] Pricing page created
 - [x] Homepage updated
 - [x] Club456 page created
-- [x] 456AFU page created
+- [x] ProAFU page created
 - [ ] Email templates (transactional)
 - [ ] Social media templates
 - [ ] Blog post templates

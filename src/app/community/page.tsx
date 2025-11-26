@@ -172,19 +172,19 @@ export default function CommunityPage() {
           <div className="grid md:grid-cols-4 gap-8 text-center">
             <div>
               <div className="text-4xl font-bold mb-2" style={{ color: 'var(--gold-600)' }}>1,000+</div>
-              <div className="text-muted-foreground">Active Members</div>
+              <div className="text-foreground/80">Active Members</div>
             </div>
             <div>
               <div className="text-4xl font-bold mb-2" style={{ color: 'var(--gold-600)' }}>50+</div>
-              <div className="text-muted-foreground">Weekly Workouts</div>
+              <div className="text-foreground/80">Weekly Workouts</div>
             </div>
             <div>
               <div className="text-4xl font-bold mb-2" style={{ color: 'var(--gold-600)' }}>100+</div>
-              <div className="text-muted-foreground">Success Stories</div>
+              <div className="text-foreground/80">Success Stories</div>
             </div>
             <div>
               <div className="text-4xl font-bold mb-2" style={{ color: 'var(--gold-600)' }}>24/7</div>
-              <div className="text-muted-foreground">Community Support</div>
+              <div className="text-foreground/80">Community Support</div>
             </div>
           </div>
         </div>

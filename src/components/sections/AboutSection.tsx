@@ -15,7 +15,7 @@ export function AboutSection() {
     },
     {
       icon: BookOpen,
-      value: '456AFU',
+      value: 'ProAFU',
       label: 'Certification Academy',
     },
     {
@@ -47,7 +47,7 @@ export function AboutSection() {
               <p>
                 From our community-focused Basic_AF program to our exclusive EliteAF residential
                 experiences, we provide comprehensive training solutions backed by our certification
-                academy (456AFU) and supported by our vibrant Club456 community.
+                academy (ProAFU) and supported by our vibrant Club456 community.
               </p>
             </div>
           </div>

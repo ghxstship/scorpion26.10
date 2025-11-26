@@ -78,11 +78,11 @@ export default function AboutPage() {
                 <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-sm border-2 border-[var(--gold-600)] bg-[var(--grey-900)]">
                   <GraduationCap className="h-8 w-8 text-[var(--gold-600)]" />
                 </div>
-                <CardTitle>456AFU</CardTitle>
+                <CardTitle>ProAFU</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-[var(--grey-300)]">
-                  Our Trainer Certification Academy. 456AF University (456AFU) trains the
+                  Our Trainer Certification Academy. ProAF University (ProAFU) trains the
                   next generation of elite fitness coaches with our proven methodologies.
                 </p>
               </CardContent>

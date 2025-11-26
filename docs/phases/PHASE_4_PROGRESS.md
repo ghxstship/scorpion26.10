@@ -36,7 +36,7 @@ Homepage Flow:
 - Gold accents on "456AF" in headings
 - Updated all cards with icon boxes
 - Red icons for Fitness Verticals (Tier 1, 2, 3)
-- Gold icons for Ecosystem (456AFU, Club456, 456Customs)
+- Gold icons for Ecosystem (ProAFU, Club456, 456Customs)
 - Gold-bordered founder section
 
 **Sections:**
@@ -47,7 +47,7 @@ Homepage Flow:
    - 456AF Strength (Tier 2) - Red icon
    - 456AF Athlete (Tier 3) - Red icon
 4. **456AF Ecosystem:**
-   - 456AFU - Gold icon (GraduationCap)
+   - ProAFU - Gold icon (GraduationCap)
    - Club456 - Gold icon (Users)
    - 456Customs - Gold icon (Package)
 5. **Meet Our Founder:**

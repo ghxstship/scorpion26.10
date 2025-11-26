@@ -113,12 +113,12 @@ export default function Club456Page() {
                 </CardTitle>
                 <div className="mb-6">
                   <span className="font-[family-name:var(--font-bebas)] text-6xl font-black text-[var(--gold-600)]">
-                    $30
+                    $60
                   </span>
                   <span className="ml-2 text-xl text-[var(--grey-500)]">/month</span>
                 </div>
                 <CardDescription className="text-lg">
-                  Or $300/year (save $60 — 2 months free)
+                  Or $600/year (save $120 — 2 months free)
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
@@ -127,7 +127,7 @@ export default function Club456Page() {
                     Stop lurking. What are you waiting for?
                   </p>
                   <p className="mb-6 text-base text-[var(--grey-400)]">
-                    It is literally $30. That is less than your streaming subscriptions you do not even watch.
+                    It is literally $60. That is less than your streaming subscriptions you do not even watch.
                   </p>
                   <Button size="lg" className="w-full" asChild>
                     <Link href="/contact">Join Now</Link>
@@ -160,7 +160,7 @@ export default function Club456Page() {
                   <CardDescription>Virtual group training</CardDescription>
                   <div className="mt-4">
                     <span className="font-[family-name:var(--font-bebas)] text-3xl font-black text-[var(--gold-600)]">
-                      $350
+                      $500
                     </span>
                     <span className="text-sm text-[var(--grey-500)]">/mo</span>
                   </div>
@@ -172,7 +172,7 @@ export default function Club456Page() {
                   <CardDescription>Private 1-on-1 coaching</CardDescription>
                   <div className="mt-4">
                     <span className="font-[family-name:var(--font-bebas)] text-3xl font-black text-[var(--gold-600)]">
-                      $800
+                      $4,000
                     </span>
                     <span className="text-sm text-[var(--grey-500)]">/mo</span>
                   </div>
@@ -180,11 +180,11 @@ export default function Club456Page() {
               </Card>
               <Card>
                 <CardHeader>
-                  <CardTitle>Far_AF</CardTitle>
+                  <CardTitle>Elite_AF</CardTitle>
                   <CardDescription>Residential program</CardDescription>
                   <div className="mt-4">
                     <span className="font-[family-name:var(--font-bebas)] text-3xl font-black text-[var(--gold-600)]">
-                      $50k
+                      $30k
                     </span>
                     <span className="text-sm text-[var(--grey-500)]">/mo</span>
                   </div>

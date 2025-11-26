@@ -82,7 +82,7 @@ export default function CustomsPage() {
             <div className="text-center">
               <Sparkles className="h-12 w-12 text-primary mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-2">Premium Quality</h3>
-              <p className="text-muted-foreground">
+              <p className="text-foreground/80">
                 Every product is crafted with the highest quality materials and tested by our
                 coaches
               </p>
@@ -90,14 +90,14 @@ export default function CustomsPage() {
             <div className="text-center">
               <Dumbbell className="h-12 w-12 text-primary mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-2">Performance-Driven</h3>
-              <p className="text-muted-foreground">
+              <p className="text-foreground/80">
                 Designed specifically to enhance your training across all 456AF verticals
               </p>
             </div>
             <div className="text-center">
               <Package className="h-12 w-12 text-primary mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-2">Custom Designed</h3>
-              <p className="text-muted-foreground">
+              <p className="text-foreground/80">
                 Exclusive 456AF branding and designs you won&apos;t find anywhere else
               </p>
             </div>

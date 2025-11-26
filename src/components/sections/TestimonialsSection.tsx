@@ -45,7 +45,7 @@ export function TestimonialsSection() {
           <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
             What People Are Saying
           </h2>
-          <p className="mb-12 text-lg text-muted-foreground">
+          <p className="mb-12 text-lg text-foreground/80">
             Join thousands who have transformed their lives through proven strategies
           </p>
           <Card className="relative">

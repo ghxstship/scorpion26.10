@@ -178,9 +178,9 @@ CREATE INDEX IF NOT EXISTS idx_program_waitlist_status ON program_waitlist(statu
 -- ============================================================================
 
 COMMENT ON TABLE fitness_verticals IS '456AF fitness verticals: Lifestyle (Tier 1), Strength (Tier 2), Athlete (Tier 3)';
-COMMENT ON TABLE user_program_enrollments IS 'User enrollments in training programs (Basic_AF, Strong_AF, Rare_AF, Far_AF)';
+COMMENT ON TABLE user_program_enrollments IS 'User enrollments in training programs (Basic_AF, Strong_AF, Rare_AF, Elite_AF)';
 COMMENT ON TABLE training_sessions IS 'Individual training sessions for enrolled users';
-COMMENT ON TABLE program_waitlist IS 'Waitlist for programs at capacity (Rare_AF, Far_AF)';
+COMMENT ON TABLE program_waitlist IS 'Waitlist for programs at capacity (Rare_AF, Elite_AF)';
 
 COMMENT ON COLUMN products.category IS 'Product category: vertical, program, certification, merchandise, other';
 COMMENT ON COLUMN products.tier IS 'Program tier: tier1/tier2/tier3 for verticals, foundation/virtual/elite/ultimate for programs';

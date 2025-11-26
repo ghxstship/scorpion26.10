@@ -15,9 +15,9 @@
 - **Basic_AF:** $30/month (keep current) - Unlimited capacity
 - **Strong_AF:** $350/month (↑ from $300) - Max 60 clients
 - **Rare_AF:** $800/month (↑ from $500) - Max 6 clients
-- **Far_AF:** $50,000/month (↑ from $30,000) - Max 3 clients/year
+- **Elite_AF:** $50,000/month (↑ from $30,000) - Max 3 clients/year
 - **Vertical Launch Fees:** $150 (Tier 1), $250 (Tier 2), $500 (Tier 3)
-- **456AFU:** $8k-$25k depending on tier
+- **ProAFU:** $8k-$25k depending on tier
 
 **Revenue Impact:** +70.8% annual revenue increase at full capacity
 
@@ -30,7 +30,7 @@
 - `fitness_verticals` - 456 Lifestyle, Strength, Athlete
 - `user_program_enrollments` - Track user subscriptions
 - `training_sessions` - Schedule and track sessions
-- `program_waitlist` - Capacity management for Rare_AF/Far_AF
+- `program_waitlist` - Capacity management for Rare_AF/Elite_AF
 
 **Extended Products Table:**
 - Added `category`, `tier`, `program_type` fields
@@ -46,8 +46,8 @@
 **Created:**
 - 456AF tenant configuration
 - 3 fitness verticals (Lifestyle, Strength, Athlete)
-- 4 training programs (Basic_AF, Strong_AF, Rare_AF, Far_AF)
-- 3 456AFU certification tiers
+- 4 training programs (Basic_AF, Strong_AF, Rare_AF, Elite_AF)
+- 3 ProAFU certification tiers
 - Navigation items
 - Sample testimonials
 
@@ -64,7 +64,7 @@
 - Capacity indicators ("Only 6 slots", "60 spots available")
 - Session pricing displayed
 - Vertical selection CTA
-- 456AFU cross-sell section
+- ProAFU cross-sell section
 
 **Key Copy Examples:**
 - "Stop lurking. Community access is literally $30. What's your excuse?"
@@ -100,7 +100,7 @@
 - Upgrade path to other programs
 - "What are you waiting for?" CTA
 
-#### 456AFU Page
+#### ProAFU Page
 **File:** `src/app/456prou/page.tsx`
 
 **Content:**
@@ -133,13 +133,13 @@
 2. **View Programs** → See 4 training options
 3. **Check Pricing** → Understand vertical + program structure
 4. **Choose Vertical** → Lifestyle (Tier 1), Strength (Tier 2), or Athlete (Tier 3)
-5. **Choose Program** → Basic_AF, Strong_AF, Rare_AF, or Far_AF
+5. **Choose Program** → Basic_AF, Strong_AF, Rare_AF, or Elite_AF
 6. **Checkout** → Subscribe and start training
 
 ### Alternative Paths
 - **Community First:** Homepage → Club456 → Basic_AF signup
-- **Trainer Path:** Homepage → 456AFU → Application
-- **Premium Path:** Homepage → Programs → Rare_AF/Far_AF inquiry
+- **Trainer Path:** Homepage → ProAFU → Application
+- **Premium Path:** Homepage → Programs → Rare_AF/Elite_AF inquiry
 
 ---
 
@@ -158,9 +158,9 @@
 | Basic_AF | $30 | $300 | Unlimited | N/A |
 | Strong_AF | $350 | $3,500 | 60 spots | $200 |
 | Rare_AF | $800 | $8,000 | 6 slots | $300 |
-| Far_AF | $50,000 | N/A | 3/year | Included |
+| Elite_AF | $50,000 | N/A | 3/year | Included |
 
-### 456AFU Certification
+### ProAFU Certification
 | Tier | Price | Capacity | Duration |
 |------|-------|----------|----------|
 | Certification | $8,000 | 10/cohort | 30 days |
@@ -198,7 +198,7 @@
 - ✅ Programs page (`/products` → `/programs`)
 - ✅ Pricing page (`/pricing`)
 - ✅ Club456 page (`/club456`)
-- ✅ 456AFU page (`/456prou`)
+- ✅ ProAFU page (`/456prou`)
 - ✅ Homepage hero section
 
 ### Navigation Updates Needed
@@ -206,7 +206,7 @@ Update main navigation to include:
 - Programs (instead of Products)
 - Pricing
 - Club456
-- 456AFU
+- ProAFU
 
 ---
 
@@ -216,15 +216,15 @@ Update main navigation to include:
 - Basic_AF: 100 × $30 = $3,000/mo
 - Strong_AF: 60 × $300 = $18,000/mo
 - Rare_AF: 6 × $500 = $3,000/mo
-- Far_AF: 0.25 × $30,000 = $7,500/mo
+- Elite_AF: 0.25 × $30,000 = $7,500/mo
 - **Total: $31,500/mo ($378,000/year)**
 
 ### Optimized Model (New Pricing)
 - Basic_AF: 100 × $30 = $3,000/mo
 - Strong_AF: 60 × $350 = $21,000/mo
 - Rare_AF: 6 × $800 = $4,800/mo
-- Far_AF: 0.25 × $50,000 = $12,500/mo
-- 456AFU: $12,500/mo (averaged)
+- Elite_AF: 0.25 × $50,000 = $12,500/mo
+- ProAFU: $12,500/mo (averaged)
 - **Total: $53,800/mo ($645,600/year)**
 
 **Increase: +$267,600/year (+70.8%)**
@@ -255,10 +255,10 @@ Update main navigation to include:
 - [ ] Optimize pricing based on demand
 
 ### Long-term (Quarter 2)
-- [ ] Launch 456AFU Q1 2026 cohort
+- [ ] Launch ProAFU Q1 2026 cohort
 - [ ] Scale Strong_AF to full capacity (60 clients)
 - [ ] Fill Rare_AF slots (6 clients)
-- [ ] Book first Far_AF client
+- [ ] Book first Elite_AF client
 - [ ] Expand vertical offerings if needed
 
 ---
@@ -299,8 +299,8 @@ Update main navigation to include:
 - Basic_AF: 100 active members
 - Strong_AF: 40 active members (67% capacity)
 - Rare_AF: 4 active members (67% capacity)
-- Far_AF: 2 clients booked
-- 456AFU: 20 students enrolled (2 cohorts)
+- Elite_AF: 2 clients booked
+- ProAFU: 20 students enrolled (2 cohorts)
 
 ---
 
@@ -310,7 +310,7 @@ Update main navigation to include:
 1. **Pricing Resistance:** New pricing is 60-67% higher for some programs
    - **Mitigation:** Grandfather existing clients, emphasize value, offer payment plans
 
-2. **Capacity Constraints:** Rare_AF and Far_AF have very limited slots
+2. **Capacity Constraints:** Rare_AF and Elite_AF have very limited slots
    - **Mitigation:** Implement waitlist system, clear communication about availability
 
 3. **Brand Voice Backlash:** Direct tone may alienate some prospects
@@ -348,7 +348,7 @@ The 456AF website has been successfully updated with:
 - ✅ Clear product structure (Verticals + Programs)
 - ✅ On-brand messaging (75% Drill Sergeant, 20% Mean Girls, 5% Gen Z)
 - ✅ Complete customer journey (Homepage → Programs → Pricing → Checkout)
-- ✅ Additional offerings (Club456, 456AFU)
+- ✅ Additional offerings (Club456, ProAFU)
 
 **Revenue Impact:** Potential 70.8% increase in annual revenue  
 **Brand Positioning:** Elite Accessible fitness training  

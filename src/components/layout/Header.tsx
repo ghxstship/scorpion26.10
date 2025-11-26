@@ -16,7 +16,7 @@ export function Header() {
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
     { name: 'Programs', href: '/products' },
-    { name: '456AFU', href: '/university' },
+    { name: 'ProAFU', href: '/university' },
     { name: 'Club456', href: '/community' },
     { name: '456Customs', href: '/customs' },
     { name: 'Blog', href: '/blog' },

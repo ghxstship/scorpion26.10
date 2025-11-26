@@ -48,16 +48,16 @@ export default function UniversityPage() {
           <div className="flex justify-center mb-6">
             <GraduationCap className="h-20 w-20 text-primary" />
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">456AF University</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">ProAF University</h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Become a certified 456AF trainer and join the next generation of elite fitness coaches.
             Learn directly from Head Coach Matthew Alarcon and our team of experts.
           </p>
         </div>
 
-        {/* Why Choose 456AFU */}
+        {/* Why Choose ProAFU */}
         <div className="mb-16">
-          <h2 className="text-3xl font-bold mb-8 text-center">Why Choose 456AFU?</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center">Why Choose ProAFU?</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <Card>
               <CardHeader>
@@ -147,7 +147,7 @@ export default function UniversityPage() {
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div>
               <h3 className="text-xl font-semibold mb-4">Technical Skills</h3>
-              <ul className="space-y-2 text-muted-foreground">
+              <ul className="space-y-2 text-foreground/80">
                 <li>• 456AF training methodology</li>
                 <li>• Movement assessment and correction</li>
                 <li>• Program design across all three verticals</li>
@@ -157,7 +157,7 @@ export default function UniversityPage() {
             </div>
             <div>
               <h3 className="text-xl font-semibold mb-4">Business Skills</h3>
-              <ul className="space-y-2 text-muted-foreground">
+              <ul className="space-y-2 text-foreground/80">
                 <li>• Client acquisition and retention</li>
                 <li>• Marketing and branding</li>
                 <li>• Business operations</li>
@@ -172,7 +172,7 @@ export default function UniversityPage() {
         <div className="text-center">
           <h2 className="text-3xl font-bold mb-4">Ready to Start Your Journey?</h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Join 456AFU and become part of an elite community of certified trainers
+            Join ProAFU and become part of an elite community of certified trainers
             transforming lives through fitness.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

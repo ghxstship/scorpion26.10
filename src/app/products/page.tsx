@@ -15,9 +15,9 @@ const programs = [
     id: 'basicaf',
     title: 'Basic_AF',
     tagline: 'Community Access Only',
-    description: 'Stop lurking. Community access is literally $30. What\'s your excuse? Join Club456 and get access to group workouts, basic programming, and a community that actually shows up.',
+    description: 'Stop lurking. Community access is literally $60. What\'s your excuse? Join Club456 and get access to group workouts, basic programming, and a community that actually shows up.',
     tier: 'Foundation',
-    price: 30,
+    price: 60,
     priceLabel: '/month',
     capacity: null,
     capacityLabel: 'Unlimited',
@@ -39,7 +39,7 @@ const programs = [
     tagline: 'Virtual Group Training',
     description: 'Virtual training that doesn\'t suck. 3 live group sessions per week, actual programming (not random workouts), and monthly check-ins. Plus in-person sessions when you need that extra push.',
     tier: 'Virtual',
-    price: 350,
+    price: 500,
     priceLabel: '/month',
     sessionPrice: 200,
     capacity: 60,
@@ -62,7 +62,7 @@ const programs = [
     tagline: 'Private Personal Training',
     description: 'Elite 1-on-1 coaching. Only 6 slots available. Custom programming, weekly video analysis, and direct access to your coach. This isn\'t for everyone. That\'s the point.',
     tier: 'Elite',
-    price: 800,
+    price: 4000,
     priceLabel: '/month',
     sessionPrice: 300,
     capacity: 6,
@@ -80,12 +80,12 @@ const programs = [
     highlight: true,
   },
   {
-    id: 'faraf',
-    title: 'Far_AF',
+    id: 'eliteaf',
+    title: 'Elite_AF',
     tagline: 'Residential Program',
     description: 'The ultimate immersive experience. 3 clients per year. That\'s it. Live-in training at our Orlando facility or exclusive destination locations. Full lifestyle transformation. VIP everything.',
     tier: 'Ultimate',
-    price: 50000,
+    price: 30000,
     priceLabel: '/month',
     capacity: 3,
     capacityLabel: '3 clients per year',
@@ -98,7 +98,7 @@ const programs = [
       'Full lifestyle management',
       'Recovery & wellness suite',
     ],
-    cta: 'Inquire About Far_AF',
+    cta: 'Inquire About Elite_AF',
     highlight: false,
   },
 ]
@@ -116,7 +116,7 @@ export default function ProductsPage() {
             Choose Your Vertical → Choose Your Program → Checkout
           </p>
           <p className="text-base text-[var(--grey-400)]">
-            From $30/month community access to $50k/month residential training. Pick your level.
+            From $60/month community access to $30k/month residential training. Pick your level.
           </p>
         </div>
 
@@ -218,16 +218,16 @@ export default function ProductsPage() {
           </div>
         </div>
 
-        {/* 456AFU CTA */}
+        {/* ProAFU CTA */}
         <div className="rounded-sm border-2 border-[var(--gold-600)] bg-gradient-to-br from-[var(--grey-900)] to-[var(--grey-950)] p-12 text-center md:p-16">
           <h2 className="mb-6 font-[family-name:var(--font-bebas)] text-4xl font-black uppercase tracking-wider text-[var(--grey-100)] md:text-5xl">
             Want to <span className="text-[var(--gold-600)]">Become a Trainer?</span>
           </h2>
           <p className="mb-8 text-lg text-[var(--grey-300)]">
-            456AFU certification academy. 3 cohorts per year. Limited spots.
+            ProAFU certification academy. 3 cohorts per year. Limited spots.
           </p>
           <Button size="lg" asChild>
-            <Link href="/456prou">Learn About 456AFU</Link>
+            <Link href="/456prou">Learn About ProAFU</Link>
           </Button>
         </div>
       </div>

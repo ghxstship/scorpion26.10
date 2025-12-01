@@ -17,62 +17,23 @@ export default function AboutPage() {
         
         <div className="mt-24">
           <h2 className="mb-12 text-center font-[family-name:var(--font-bebas)] text-5xl font-black uppercase tracking-wider text-[var(--grey-100)] md:text-6xl">
-            Our Fitness Brand <span className="text-[var(--gold-600)]">Verticals</span>
-          </h2>
-          <div className="grid gap-8 md:grid-cols-3 mb-16">
-            <Card>
-              <CardHeader>
-                <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-sm border-2 border-[var(--red-700)] bg-[var(--grey-900)]">
-                  <Dumbbell className="h-8 w-8 text-[var(--red-700)]" />
-                </div>
-                <CardTitle>456AF Lifestyle</CardTitle>
-                <p className="text-sm font-bold uppercase tracking-wide text-[var(--gold-600)]">Tier 1</p>
-              </CardHeader>
-              <CardContent>
-                <p className="text-[var(--grey-300)]">
-                  Your foundation for sustainable fitness. Perfect for beginners and those
-                  looking to establish healthy habits and build a fitness lifestyle.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-sm border-2 border-[var(--red-700)] bg-[var(--grey-900)]">
-                  <Dumbbell className="h-8 w-8 text-[var(--red-700)]" />
-                </div>
-                <CardTitle>456AF Strength</CardTitle>
-                <p className="text-sm font-bold uppercase tracking-wide text-[var(--gold-600)]">Tier 2</p>
-              </CardHeader>
-              <CardContent>
-                <p className="text-[var(--grey-300)]">
-                  Build power and performance. Designed for intermediate athletes ready to
-                  take their training to the next level with focused strength development.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-sm border-2 border-[var(--red-700)] bg-[var(--grey-900)]">
-                  <Dumbbell className="h-8 w-8 text-[var(--red-700)]" />
-                </div>
-                <CardTitle>456AF Athlete</CardTitle>
-                <p className="text-sm font-bold uppercase tracking-wide text-[var(--gold-600)]">Tier 3</p>
-              </CardHeader>
-              <CardContent>
-                <p className="text-[var(--grey-300)]">
-                  Elite training for peak performance. Our highest tier for serious athletes
-                  committed to achieving championship-level results.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-
-          <h2 className="mb-12 text-center font-[family-name:var(--font-bebas)] text-5xl font-black uppercase tracking-wider text-[var(--grey-100)] md:text-6xl">
             The 456AF <span className="text-[var(--gold-600)]">Ecosystem</span>
           </h2>
-          <div className="grid gap-8 md:grid-cols-3">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+            <Card>
+              <CardHeader>
+                <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-sm border-2 border-[var(--gold-600)] bg-[var(--grey-900)]">
+                  <Dumbbell className="h-8 w-8 text-[var(--gold-600)]" />
+                </div>
+                <CardTitle>456AF</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-[var(--grey-300)]">
+                  The core training brand. Four programs designed to meet you where you are and push you where you need to go. No fluff, no filler—just results.
+                </p>
+              </CardContent>
+            </Card>
+
             <Card>
               <CardHeader>
                 <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-sm border-2 border-[var(--gold-600)] bg-[var(--grey-900)]">
@@ -82,8 +43,7 @@ export default function AboutPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-[var(--grey-300)]">
-                  Our Trainer Certification Academy. ProAF University (ProAFU) trains the
-                  next generation of elite fitness coaches with our proven methodologies.
+                  Our Trainer Certification Academy. We&apos;re not just building athletes—we&apos;re building the coaches who build athletes. Rigorous, proven methodology. Graduate ready to lead, or don&apos;t graduate at all.
                 </p>
               </CardContent>
             </Card>
@@ -97,8 +57,7 @@ export default function AboutPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-[var(--grey-300)]">
-                  Our vibrant community brand. Join Club456 to connect with like-minded
-                  fitness enthusiasts, share your journey, and stay motivated.
+                  The inner circle. Connect with people who actually show up, share what&apos;s working, and keep each other honest. This isn&apos;t a Facebook group for inspiration quotes. It&apos;s accountability with teeth.
                 </p>
               </CardContent>
             </Card>
@@ -112,8 +71,7 @@ export default function AboutPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-[var(--grey-300)]">
-                  Our signature customized fitness product line. Premium gear and equipment
-                  designed specifically for the 456AF training methodology.
+                  Gear that works as hard as you do. Premium equipment and apparel designed specifically for 456AF training. No fluff, no branding for branding&apos;s sake—just tools built for results.
                 </p>
               </CardContent>
             </Card>

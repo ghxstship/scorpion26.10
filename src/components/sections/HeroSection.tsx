@@ -25,17 +25,15 @@ export function HeroSection() {
         <div className="mx-auto max-w-5xl text-center">
           {/* Main Heading */}
           <h1 className="mb-8 text-6xl font-black uppercase leading-[0.9] tracking-wider text-[var(--grey-100)] sm:text-7xl md:text-8xl lg:text-9xl">
-            Stop Making
+            Caution
             <span className="block bg-gradient-to-r from-[var(--red-600)] via-[var(--red-700)] to-[var(--red-800)] bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(181,0,0,0.5)]">
-              Excuses
+              Mediocrity Free Zone
             </span>
           </h1>
 
           {/* Subheading */}
           <p className="mb-12 text-lg leading-relaxed text-[var(--grey-300)] sm:text-xl md:text-2xl lg:text-3xl">
-            <span className="font-bold text-[var(--gold-600)]">456 Athletics & Fitness</span> — training that actually works.
-            <br className="hidden md:block" />
-            From $30/month community access to $50k residential programs. Pick your level. Show up. Get results.
+            Pro training. Real results. No excuses.
           </p>
 
           {/* CTA Buttons */}
@@ -66,7 +64,7 @@ export function HeroSection() {
                 3
               </div>
               <div className="text-sm uppercase tracking-wide text-[var(--grey-400)]">
-                Fitness Verticals
+                Intensity Levels
               </div>
             </div>
             <div className="space-y-2">

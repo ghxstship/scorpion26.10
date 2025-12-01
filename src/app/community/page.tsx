@@ -1,85 +1,39 @@
 import Link from 'next/link'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { Users, Heart, MessageCircle, Calendar, Trophy, Zap } from 'lucide-react'
+import { Users, MessageCircle, Calendar, Trophy, Heart, Zap } from 'lucide-react'
 
 export default function CommunityPage() {
   const benefits = [
     {
       icon: Users,
       title: 'Connect with Members',
-      description: 'Join a vibrant community of fitness enthusiasts at every level',
+      description: 'Surround yourself with people who actually show up. No lurkers, no excuse-makers—just athletes at every level pushing each other to be better. Your network is about to get a serious upgrade.',
     },
     {
       icon: MessageCircle,
       title: 'Share Your Journey',
-      description: 'Post updates, celebrate wins, and get support from fellow members',
+      description: 'Post your wins. Post your losses. Get real feedback from people who\'ve been there. This isn\'t about likes—it\'s about progress. We celebrate PRs, not selfies.',
     },
     {
       icon: Calendar,
       title: 'Exclusive Events',
-      description: 'Access to Club456 meetups, workshops, and special training sessions',
+      description: 'Members-only meetups, workshops, and training sessions you won\'t find anywhere else. Show up, learn something, and leave better than you came. Or just read about it later. Your call.',
     },
     {
       icon: Trophy,
       title: 'Challenges & Competitions',
-      description: 'Participate in community challenges and track your progress',
+      description: 'Friendly competition with actual stakes. Community challenges that push you, track your progress, and remind you that "good enough" isn\'t in the vocabulary around here.',
     },
     {
       icon: Heart,
       title: 'Accountability Partners',
-      description: 'Find workout buddies and accountability partners to stay motivated',
+      description: 'Find your people. Training partners who won\'t let you skip leg day and will call you out when you\'re slacking. Motivation is nice. Accountability is better.',
     },
     {
       icon: Zap,
       title: 'Early Access',
-      description: 'Get first access to new programs, products, and 456AF updates',
-    },
-  ]
-
-  const membershipTiers = [
-    {
-      name: 'Basic_AF Member',
-      price: 'Free',
-      description: 'Start your fitness journey with our community',
-      features: [
-        'Access to Club456 community forum',
-        'Monthly group workouts',
-        'Basic training resources',
-        'Community challenges',
-      ],
-      cta: 'Join Free',
-      highlighted: false,
-    },
-    {
-      name: 'Club456 Plus',
-      price: '$29',
-      period: '/month',
-      description: 'Enhanced community experience with premium perks',
-      features: [
-        'Everything in Basic_AF',
-        'Weekly exclusive content',
-        'Priority event registration',
-        'Member-only merchandise discounts',
-        'Direct messaging with coaches',
-      ],
-      cta: 'Upgrade Now',
-      highlighted: true,
-    },
-    {
-      name: 'Club456 Elite',
-      price: '$99',
-      period: '/month',
-      description: 'VIP access to the complete 456AF experience',
-      features: [
-        'Everything in Plus',
-        'Monthly 1-on-1 coach check-ins',
-        'Exclusive Elite member events',
-        'Free 456Customs merchandise',
-        'Priority program enrollment',
-      ],
-      cta: 'Go Elite',
-      highlighted: false,
+      description: 'Be first in line for new programs, product drops, and 456AF updates. Members hear it before anyone else. Because you earned it.',
     },
   ]
 
@@ -93,8 +47,7 @@ export default function CommunityPage() {
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Welcome to Club456</h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            More than just a fitness community - Club456 is your tribe. Connect with like-minded
-            individuals, share your journey, and achieve your goals together.
+            This isn&apos;t a Facebook group full of motivational quotes and people who disappeared after January 3rd. Club456 is where serious athletes connect, compete, and hold each other accountable. You want a support system? Earn your spot at the table.
           </p>
         </div>
 
@@ -111,56 +64,6 @@ export default function CommunityPage() {
                 <CardContent>
                   <p className="text-sm text-muted-foreground">{benefit.description}</p>
                 </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-
-        {/* Membership Tiers */}
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold mb-8 text-center">Choose Your Membership</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {membershipTiers.map((tier, index) => (
-              <Card
-                key={index}
-                className={`flex flex-col ${
-                  tier.highlighted ? 'border-primary border-2 shadow-lg' : ''
-                }`}
-              >
-                {tier.highlighted && (
-                  <div className="bg-primary text-primary-foreground text-center py-2 text-sm font-semibold rounded-t-lg">
-                    Most Popular
-                  </div>
-                )}
-                <CardHeader>
-                  <CardTitle className="text-2xl">{tier.name}</CardTitle>
-                  <CardDescription className="text-base">{tier.description}</CardDescription>
-                  <div className="mt-4">
-                    <span className="text-4xl font-bold">{tier.price}</span>
-                    {tier.period && (
-                      <span className="text-muted-foreground">{tier.period}</span>
-                    )}
-                  </div>
-                </CardHeader>
-                <CardContent className="flex-1">
-                  <ul className="space-y-3">
-                    {tier.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-2">
-                        <Heart className="h-5 w-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--gold-600)' }} />
-                        <span className="text-sm">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-                <div className="p-6 pt-0">
-                  <Button
-                    asChild
-                    className="w-full"
-                    variant={tier.highlighted ? 'default' : 'outline'}
-                  >
-                    <Link href="/contact">{tier.cta}</Link>
-                  </Button>
-                </div>
               </Card>
             ))}
           </div>

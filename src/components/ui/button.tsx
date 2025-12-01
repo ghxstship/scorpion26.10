@@ -18,11 +18,11 @@ const buttonVariants = cva(
         
         // Secondary: Gold - Shield
         secondary:
-          "bg-transparent text-[var(--gold-600)] border-2 border-[var(--gold-600)] hover:bg-[var(--gold-600)] hover:text-[var(--grey-950)] hover:shadow-[var(--glow-gold)] active:bg-[var(--gold-700)] active:border-[var(--gold-700)]",
+          "bg-[var(--grey-900)] text-[var(--gold-600)] border-2 border-[var(--gold-600)] hover:bg-[var(--gold-600)] hover:text-[var(--grey-950)] hover:shadow-[var(--glow-gold)] active:bg-[var(--gold-700)] active:border-[var(--gold-700)]",
         
         // Tertiary: Ghost
         tertiary:
-          "bg-transparent text-[var(--grey-200)] border border-[var(--grey-600)] hover:bg-[var(--grey-800)] hover:border-[var(--grey-500)] active:bg-[var(--grey-700)]",
+          "bg-[var(--grey-900)] text-[var(--grey-200)] border border-[var(--grey-600)] hover:bg-[var(--grey-800)] hover:border-[var(--grey-500)] active:bg-[var(--grey-700)]",
         
         // Destructive: Error/Delete actions
         destructive:
@@ -30,11 +30,11 @@ const buttonVariants = cva(
         
         // Outline: Subtle variant
         outline:
-          "border-2 border-[var(--grey-700)] bg-transparent text-[var(--grey-100)] hover:bg-[var(--grey-850)] hover:border-[var(--grey-600)] active:bg-[var(--grey-800)]",
+          "border-2 border-[var(--grey-700)] bg-[var(--grey-900)] text-[var(--grey-100)] hover:bg-[var(--grey-850)] hover:border-[var(--grey-600)] active:bg-[var(--grey-800)]",
         
         // Ghost: Minimal variant
         ghost: 
-          "bg-transparent text-[var(--grey-300)] hover:bg-[var(--grey-800)] hover:text-[var(--grey-100)] active:bg-[var(--grey-700)]",
+          "bg-[var(--grey-900)] text-[var(--grey-300)] hover:bg-[var(--grey-800)] hover:text-[var(--grey-100)] active:bg-[var(--grey-700)]",
         
         // Link: Text-only variant
         link: 

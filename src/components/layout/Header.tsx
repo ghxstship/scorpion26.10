@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -10,6 +11,7 @@ import { Button } from '@/components/ui/button'
  * Black background with gold logo and red hover states
  */
 export function Header() {
+  const pathname = usePathname()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const navigation = [
@@ -37,8 +39,8 @@ export function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="font-[family-name:var(--font-bebas)] text-sm font-bold uppercase tracking-[0.05em] text-[var(--grey-200)] transition-all duration-200 hover:text-[var(--red-600)] border-b-3 border-transparent hover:border-[var(--red-600)] pb-1 aria-[current=page]:text-[var(--gold-600)] aria-[current=page]:border-[var(--gold-600)]"
-                aria-current={item.href === '/' ? 'page' : undefined}
+                className="font-[family-name:var(--font-bebas)] text-sm font-bold uppercase tracking-[0.05em] text-[var(--grey-200)] transition-all duration-200 hover:text-[var(--red-600)] border-b-3 border-transparent hover:border-[var(--red-600)] pb-1 aria-[current=page]:text-[var(--red-600)] aria-[current=page]:border-[var(--red-600)]"
+                aria-current={pathname === item.href ? 'page' : undefined}
               >
                 {item.name}
               </Link>
@@ -75,9 +77,9 @@ export function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="block rounded-sm px-4 py-3 font-[family-name:var(--font-bebas)] text-base font-bold uppercase tracking-wide text-[var(--grey-200)] transition-colors hover:bg-[var(--grey-800)] hover:text-[var(--red-600)] aria-[current=page]:text-[var(--gold-600)] aria-[current=page]:bg-[var(--grey-850)]"
+                className="block rounded-sm px-4 py-3 font-[family-name:var(--font-bebas)] text-base font-bold uppercase tracking-wide text-[var(--grey-200)] transition-colors hover:bg-[var(--grey-800)] hover:text-[var(--red-600)] aria-[current=page]:text-[var(--red-600)] aria-[current=page]:bg-[var(--grey-850)]"
                 onClick={() => setMobileMenuOpen(false)}
-                aria-current={item.href === '/' ? 'page' : undefined}
+                aria-current={pathname === item.href ? 'page' : undefined}
               >
                 {item.name}
               </Link>

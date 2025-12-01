@@ -2,11 +2,11 @@ import Link from 'next/link'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { Users, Video, Zap, Crown, Check } from 'lucide-react'
+import { Users, Dumbbell, Crown, Check } from 'lucide-react'
 
 /**
  * Programs Page - 456AF Training Programs
- * Choose Your Vertical → Choose Your Program → Checkout
+ * 1) Choose Your Program → 2) Choose Your Intensity → 3) Choose Your Start Date
  */
 
 // 456AF Training Programs
@@ -24,9 +24,7 @@ const programs = [
     icon: Users,
     features: [
       'Club456 community access',
-      'Group workouts',
-      'Basic programming',
-      'Community support',
+      'Virtual Group Fitness Session Access',
       'Monthly challenges',
       'Workout library',
     ],
@@ -41,42 +39,40 @@ const programs = [
     tier: 'Virtual',
     price: 500,
     priceLabel: '/month',
-    sessionPrice: 200,
     capacity: 60,
     capacityLabel: '60 spots available',
-    icon: Video,
+    icon: Dumbbell,
     features: [
-      '3 live virtual sessions/week',
+      'Everything in Basic_AF',
+      '1 Virtual Private Training Session/Week',
       'Personalized programming',
       'Monthly video check-ins',
       'Progress tracking',
-      'Private Slack community',
-      'Optional in-person sessions ($200/session)',
+      'Private Club456 Support Group Access',
     ],
     cta: 'Join Strong_AF',
     highlight: false,
   },
   {
-    id: 'rareaf',
-    title: 'Rare_AF',
+    id: 'hardaf',
+    title: 'Hard_AF',
     tagline: 'Private Personal Training',
     description: 'Elite 1-on-1 coaching. Only 6 slots available. Custom programming, weekly video analysis, and direct access to your coach. This isn\'t for everyone. That\'s the point.',
     tier: 'Elite',
     price: 4000,
     priceLabel: '/month',
-    sessionPrice: 300,
     capacity: 6,
     capacityLabel: 'Only 6 slots',
-    icon: Zap,
+    icon: Dumbbell,
     features: [
+      'Everything in Strong_AF',
       '2 private sessions/week',
       '100% custom programming',
       'Weekly video analysis',
       'Direct coach access (text/call)',
       'Nutrition guidance',
-      'In-person sessions available ($300/session)',
     ],
-    cta: 'Apply for Rare_AF',
+    cta: 'Apply for Hard_AF',
     highlight: true,
   },
   {
@@ -112,12 +108,22 @@ export default function ProductsPage() {
           <h1 className="mb-6 font-[family-name:var(--font-bebas)] text-6xl font-black uppercase tracking-wider text-[var(--grey-100)] md:text-7xl lg:text-8xl">
             456AF Training <span className="text-[var(--gold-600)]">Programs</span>
           </h1>
-          <p className="mb-4 text-lg text-[var(--grey-300)] md:text-xl">
-            Choose Your Vertical → Choose Your Program → Checkout
-          </p>
-          <p className="text-base text-[var(--grey-400)]">
-            From $60/month community access to $30k/month residential training. Pick your level.
-          </p>
+          <div className="flex items-center justify-center gap-4 text-lg text-[var(--grey-300)] md:text-xl">
+            <span className="flex items-center gap-2">
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--gold-600)] text-sm font-bold text-[var(--grey-950)]">1</span>
+              Choose Your Program
+            </span>
+            <span className="text-[var(--grey-600)]">→</span>
+            <span className="flex items-center gap-2">
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--grey-700)] text-sm font-bold text-[var(--grey-300)]">2</span>
+              Choose Your Intensity
+            </span>
+            <span className="text-[var(--grey-600)]">→</span>
+            <span className="flex items-center gap-2">
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--grey-700)] text-sm font-bold text-[var(--grey-300)]">3</span>
+              Choose Your Start Date
+            </span>
+          </div>
         </div>
 
         {/* Programs Grid */}
@@ -172,11 +178,6 @@ export default function ProductsPage() {
                         {program.priceLabel}
                       </span>
                     </div>
-                    {program.sessionPrice && (
-                      <p className="mt-2 text-sm text-[var(--grey-400)]">
-                        In-person sessions: ${program.sessionPrice}/session
-                      </p>
-                    )}
                   </div>
 
                   {/* Features */}
@@ -200,20 +201,73 @@ export default function ProductsPage() {
           })}
         </div>
 
-        {/* Vertical Selection CTA */}
+        {/* Intensity Levels */}
+        <div className="mb-24">
+          <h2 className="mb-12 text-center font-[family-name:var(--font-bebas)] text-5xl font-black uppercase tracking-wider text-[var(--grey-100)] md:text-6xl">
+            Choose Your <span className="text-[var(--gold-600)]">Intensity Level</span>
+          </h2>
+          <div className="grid gap-8 md:grid-cols-3">
+            <Card>
+              <CardHeader>
+                <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-sm border-2 border-[var(--red-700)] bg-[var(--grey-900)]">
+                  <Dumbbell className="h-8 w-8 text-[var(--red-700)]" />
+                </div>
+                <CardTitle>Rookie</CardTitle>
+                <p className="text-sm font-bold uppercase tracking-wide text-[var(--gold-600)]">Tier 1</p>
+              </CardHeader>
+              <CardContent>
+                <p className="text-[var(--grey-300)]">
+                  Everyone starts somewhere. This is where you build the habits, learn the fundamentals, and prove you belong on the court. No ego, no shortcuts—just the foundation that everything else gets built on.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-sm border-2 border-[var(--red-700)] bg-[var(--grey-900)]">
+                  <Dumbbell className="h-8 w-8 text-[var(--red-700)]" />
+                </div>
+                <CardTitle>Starter</CardTitle>
+                <p className="text-sm font-bold uppercase tracking-wide text-[var(--gold-600)]">Tier 2</p>
+              </CardHeader>
+              <CardContent>
+                <p className="text-[var(--grey-300)]">
+                  You&apos;ve earned your spot. Now it&apos;s time to push. Focused strength and performance training for athletes ready to stop riding the bench and start making an impact. This is where good becomes dangerous.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-sm border-2 border-[var(--red-700)] bg-[var(--grey-900)]">
+                  <Dumbbell className="h-8 w-8 text-[var(--red-700)]" />
+                </div>
+                <CardTitle>MVP</CardTitle>
+                <p className="text-sm font-bold uppercase tracking-wide text-[var(--gold-600)]">Tier 3</p>
+              </CardHeader>
+              <CardContent>
+                <p className="text-[var(--grey-300)]">
+                  You don&apos;t get here by accident. Elite-level training for those chasing championship results. If you&apos;re not ready to be coached hard, held accountable, and outwork everyone in the room—stay on the bench a little longer.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+
+        {/* Intensity Selection CTA */}
         <div className="mb-24 rounded-sm border-2 border-[var(--red-700)] bg-[var(--grey-900)] p-12 text-center md:p-16">
           <h2 className="mb-6 font-[family-name:var(--font-bebas)] text-4xl font-black uppercase tracking-wider text-[var(--grey-100)] md:text-5xl">
-            First Time? <span className="text-[var(--gold-600)]">Choose Your Vertical</span>
+            Not Sure If 456AF Is For You? <span className="text-[var(--gold-600)]">We Got You!</span>
           </h2>
           <p className="mb-8 text-lg text-[var(--grey-300)]">
-            456 Lifestyle (Tier 1) → 456 Strength (Tier 2) → 456 Athlete (Tier 3)
+            Rookie (Tier 1) → Starter (Tier 2) → MVP (Tier 3)
           </p>
           <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
             <Button size="lg" asChild variant="outline">
-              <Link href="/pricing">View Vertical Pricing</Link>
+              <Link href="/pricing">Read Client Testimonials</Link>
             </Button>
             <Button size="lg" asChild>
-              <Link href="/contact">Get Assessment</Link>
+              <Link href="/contact">Schedule Free Assessment</Link>
             </Button>
           </div>
         </div>

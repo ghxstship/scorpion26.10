@@ -21,7 +21,7 @@ export function Header() {
     { name: 'ProAF University', href: '/university' },
     { name: 'Team456', href: '/community' },
     { name: '456Customs', href: '/customs' },
-    { name: 'Blog', href: '/blog' },
+    { name: 'Testimonials', href: '/testimonials' },
     { name: 'About', href: '/about' },
     { name: 'Contact', href: '/contact' },
   ]

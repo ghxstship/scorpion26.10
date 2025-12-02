@@ -95,8 +95,8 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="text-[var(--grey-300)] hover:text-[var(--gold-600)] transition-colors">
-                  Blog
+                <Link href="/testimonials" className="text-[var(--grey-300)] hover:text-[var(--gold-600)] transition-colors">
+                  Testimonials
                 </Link>
               </li>
             </ul>

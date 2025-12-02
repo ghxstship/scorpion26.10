@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Anton, Bebas_Neue, Share_Tech, Share_Tech_Mono, Permanent_Marker } from "next/font/google";
+import { Anton, Bebas_Neue, Share_Tech, Share_Tech_Mono, Permanent_Marker, Black_Ops_One } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -36,6 +36,12 @@ const permanentMarker = Permanent_Marker({
   variable: "--font-permanent-marker",
 });
 
+const blackOpsOne = Black_Ops_One({
+  weight: ["400"],
+  subsets: ["latin"],
+  variable: "--font-black-ops",
+});
+
 export const metadata: Metadata = {
   title: "456AF | Pro Strength Training for High Performers",
   description: "20 years of elite coaching. NBA players, Olympians, and athletes who refuse to settle. Based in Orlando. No excuses accepted.",
@@ -48,7 +54,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${anton.variable} ${bebasNeue.variable} ${shareTech.variable} ${shareTechMono.variable} ${permanentMarker.variable} font-sans antialiased bg-[var(--color-surface-primary)] text-[var(--color-text-primary)]`}>
+      <body className={`${anton.variable} ${bebasNeue.variable} ${shareTech.variable} ${shareTechMono.variable} ${permanentMarker.variable} ${blackOpsOne.variable} font-sans antialiased bg-[var(--color-surface-primary)] text-[var(--color-text-primary)]`}>
         <SkipNav />
         <div className="flex min-h-screen flex-col">
           <Header />

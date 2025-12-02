@@ -37,7 +37,7 @@ const permanentMarker = Permanent_Marker({
 });
 
 export const metadata: Metadata = {
-  title: "456AF - Pro-Level Training for Serious Athletes",
+  title: "456AF - Pro Strength Training for High Performers",
   description: "20 years of elite coaching. NBA players, Olympians, and athletes who refuse to settle. Based in Orlando. No excuses accepted.",
 };
 

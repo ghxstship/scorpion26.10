@@ -38,7 +38,7 @@ export function AboutSection() {
           </p>
           
           <p className="text-[var(--grey-400)] italic">
-            If not, there&apos;s a smoothie bar down the street. They&apos;d love to have you.
+            If not, there&apos;s a smoothie bar down the street. They&apos;d love to have you. Local AF.
           </p>
         </div>
       </div>

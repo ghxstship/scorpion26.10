@@ -45,29 +45,45 @@ export function HeroSection() {
           </div>
 
           {/* Stats Bar */}
-          <div className="mt-16 grid grid-cols-1 gap-8 border-t border-[var(--grey-800)] pt-12 sm:grid-cols-3">
-            <div className="space-y-2">
-              <div className="text-5xl font-black text-[var(--gold-600)]" style={{ fontFamily: 'var(--font-h2)' }}>
+          <div className="mt-16 grid grid-cols-2 gap-6 border-t border-[var(--grey-800)] pt-12 sm:grid-cols-5">
+            <div className="space-y-2 text-center">
+              <div className="font-[family-name:var(--font-anton)] text-5xl font-black text-[var(--gold-600)]">
                 4
               </div>
               <div className="text-sm uppercase tracking-wide text-[var(--grey-400)]">
                 Training Programs
               </div>
             </div>
-            <div className="space-y-2">
-              <div className="text-5xl font-black text-[var(--gold-600)]" style={{ fontFamily: 'var(--font-h2)' }}>
+            <div className="space-y-2 text-center">
+              <div className="font-[family-name:var(--font-anton)] text-5xl font-black text-[var(--gold-600)]">
                 3
               </div>
               <div className="text-sm uppercase tracking-wide text-[var(--grey-400)]">
                 Intensity Levels
               </div>
             </div>
-            <div className="space-y-2">
-              <div className="text-5xl font-black text-[var(--gold-600)]" style={{ fontFamily: 'var(--font-h2)' }}>
+            <div className="space-y-2 text-center">
+              <div className="font-[family-name:var(--font-anton)] text-5xl font-black text-[var(--gold-600)]">
+                2
+              </div>
+              <div className="text-sm uppercase tracking-wide text-[var(--grey-400)]">
+                Choices
+              </div>
+            </div>
+            <div className="space-y-2 text-center">
+              <div className="font-[family-name:var(--font-anton)] text-5xl font-black text-[var(--gold-600)]">
+                1
+              </div>
+              <div className="text-sm uppercase tracking-wide text-[var(--grey-400)]">
+                Life
+              </div>
+            </div>
+            <div className="space-y-2 text-center col-span-2 sm:col-span-1">
+              <div className="font-[family-name:var(--font-anton)] text-5xl font-black text-[var(--gold-600)]">
                 0
               </div>
               <div className="text-sm uppercase tracking-wide text-[var(--grey-400)]">
-                BS Excuses Accepted
+                Excuses
               </div>
             </div>
           </div>

@@ -42,11 +42,6 @@ export function ProgramTiersSection() {
               key={tier.name} 
               className={tier.highlight ? 'border-2 border-[var(--gold-600)] relative' : ''}
             >
-              {tier.highlight && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[var(--gold-600)] text-[var(--grey-950)] px-4 py-1 text-xs font-bold uppercase tracking-wider rounded-sm">
-                  Most Popular
-                </div>
-              )}
               <CardHeader className="text-center">
                 <CardTitle className="text-3xl">{tier.name}</CardTitle>
               </CardHeader>

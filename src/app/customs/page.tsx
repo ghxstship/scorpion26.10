@@ -119,17 +119,17 @@ export default function CustomsPage() {
           </div>
         </div>
 
-        {/* Club456 Member Benefits */}
+        {/* Team456 Member Benefits */}
         <div className="mb-20 rounded-sm border-2 border-[var(--gold-600)] bg-[var(--grey-900)] p-8 md:p-12">
           <div className="text-center">
             <h2 className="font-[family-name:var(--font-bebas)] text-4xl md:text-5xl font-black uppercase tracking-wider text-[var(--grey-100)] mb-6">
-              Club456 <span className="text-[var(--gold-600)]">Perks</span>
+              Team456 <span className="text-[var(--gold-600)]">Perks</span>
             </h2>
             <p className="text-lg text-[var(--grey-300)] mb-8 max-w-2xl mx-auto leading-relaxed">
               Being part of the team has its benefits. Plus members get 15% off. Elite members get 25% off. Not a member yet? Fix that.
             </p>
             <Button size="lg" asChild>
-              <Link href="/community">Join Club456</Link>
+              <Link href="/community">Join Team456</Link>
             </Button>
           </div>
         </div>

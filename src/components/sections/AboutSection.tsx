@@ -26,7 +26,7 @@ export function AboutSection() {
           </p>
           
           <p>
-            We run a full ecosystem: elite coaching programs, ProAFU certification academy for those ready to lead, and Club456—a community where accountability isn&apos;t optional and excuses get left at the door.
+            We run a full ecosystem: elite coaching programs, ProAFU certification academy for those ready to lead, and Team456—a community where accountability isn&apos;t optional and excuses get left at the door.
           </p>
           
           <p>

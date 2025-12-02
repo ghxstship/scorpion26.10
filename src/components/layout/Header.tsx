@@ -19,7 +19,7 @@ export function Header() {
     { name: 'Home', href: '/' },
     { name: 'Programs', href: '/products' },
     { name: 'ProAF University', href: '/university' },
-    { name: 'Club456', href: '/community' },
+    { name: 'Team456', href: '/community' },
     { name: '456Customs', href: '/customs' },
     { name: 'Blog', href: '/blog' },
     { name: 'About', href: '/about' },

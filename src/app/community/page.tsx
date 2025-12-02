@@ -45,15 +45,15 @@ export default function CommunityPage() {
           <div className="flex justify-center mb-6">
             <Users className="h-20 w-20" style={{ color: 'var(--gold-600)' }} />
           </div>
-          <h1 className="font-[family-name:var(--font-bebas)] text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-wider text-[var(--grey-100)] mb-4">Welcome to <span className="text-[var(--gold-600)]">Club456</span></h1>
+          <h1 className="font-[family-name:var(--font-bebas)] text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-wider text-[var(--grey-100)] mb-4">Welcome to <span className="text-[var(--gold-600)]">Team456</span></h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            This isn&apos;t a Facebook group full of motivational quotes and people who disappeared after January 3rd. Club456 is where serious athletes connect, compete, and hold each other accountable. You want a support system? Earn your spot at the table.
+            This isn&apos;t a Facebook group full of motivational quotes and people who disappeared after January 3rd. Team456 is where serious athletes connect, compete, and hold each other accountable. You want a support system? Earn your spot at the table.
           </p>
         </div>
 
         {/* Community Benefits */}
         <div className="mb-16">
-          <h2 className="font-[family-name:var(--font-bebas)] text-4xl md:text-5xl font-black uppercase tracking-wider text-[var(--grey-100)] mb-8 text-center">Why Join <span className="text-[var(--gold-600)]">Club456?</span></h2>
+          <h2 className="font-[family-name:var(--font-bebas)] text-4xl md:text-5xl font-black uppercase tracking-wider text-[var(--grey-100)] mb-8 text-center">Why Join <span className="text-[var(--gold-600)]">Team456?</span></h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {benefits.map((benefit, index) => (
               <Card key={index}>
@@ -99,7 +99,7 @@ export default function CommunityPage() {
             <Card>
               <CardContent className="pt-6">
                 <p className="text-muted-foreground mb-4">
-                  &quot;Club456 has been a game-changer for my fitness journey. The support and
+                  &quot;Team456 has been a game-changer for my fitness journey. The support and
                   motivation from the community keeps me going every day.&quot;
                 </p>
                 <p className="font-semibold">- Sarah M.</p>
@@ -108,7 +108,7 @@ export default function CommunityPage() {
             <Card>
               <CardContent className="pt-6">
                 <p className="text-muted-foreground mb-4">
-                  &quot;I&apos;ve tried many fitness programs, but the community aspect of Club456 is
+                  &quot;I&apos;ve tried many fitness programs, but the community aspect of Team456 is
                   what makes it special. I&apos;ve made lifelong friends here.&quot;
                 </p>
                 <p className="font-semibold">- Mike T.</p>
@@ -117,7 +117,7 @@ export default function CommunityPage() {
             <Card>
               <CardContent className="pt-6">
                 <p className="text-muted-foreground mb-4">
-                  &quot;The accountability and encouragement from Club456 members helped me achieve
+                  &quot;The accountability and encouragement from Team456 members helped me achieve
                   goals I never thought possible.&quot;
                 </p>
                 <p className="font-semibold">- Jessica R.</p>
@@ -135,7 +135,7 @@ export default function CommunityPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" asChild>
-              <Link href="/contact">Join Club456 Free</Link>
+              <Link href="/contact">Join Team456 Free</Link>
             </Button>
             <Button size="lg" variant="outline" asChild>
               <Link href="/products">View Training Programs</Link>

@@ -86,7 +86,7 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/community" className="text-[var(--grey-300)] hover:text-[var(--gold-600)] transition-colors">
-                  Club456
+                  Team456
                 </Link>
               </li>
               <li>

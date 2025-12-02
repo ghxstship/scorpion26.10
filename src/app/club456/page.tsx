@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Users, Calendar, Dumbbell, MessageSquare, Trophy, Heart } from 'lucide-react'
 
 /**
- * Club456 - Community Health & Wellness Initiative
+ * Team456 - Community Health & Wellness Initiative
  * The foundation of 456AF - community-driven fitness
  */
 
@@ -41,7 +41,7 @@ const benefits = [
   },
 ]
 
-export default function Club456Page() {
+export default function Team456Page() {
   return (
     <main className="min-h-screen bg-[var(--grey-950)]">
       {/* Hero */}
@@ -49,7 +49,7 @@ export default function Club456Page() {
         <div className="container px-6">
           <div className="mx-auto max-w-4xl text-center">
             <h1 className="mb-6 font-[family-name:var(--font-bebas)] text-6xl font-black uppercase tracking-wider text-[var(--grey-100)] md:text-7xl lg:text-8xl">
-              Club<span className="text-[var(--gold-600)]">456</span>
+              Team<span className="text-[var(--gold-600)]">456</span>
             </h1>
             <p className="mb-8 text-xl text-[var(--grey-300)] md:text-2xl">
               Community health & wellness. $30/month. Zero excuses.
@@ -59,7 +59,7 @@ export default function Club456Page() {
             </p>
             <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
               <Button size="lg" asChild>
-                <Link href="/contact">Join Club456</Link>
+                <Link href="/contact">Join Team456</Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
                 <Link href="/programs">View All Programs</Link>
@@ -151,7 +151,7 @@ export default function Club456Page() {
               Ready for <span className="text-[var(--gold-600)]">More?</span>
             </h2>
             <p className="mb-12 text-lg text-[var(--grey-300)]">
-              Club456 is just the beginning. When you are ready to level up, we have programs for that.
+              Team456 is just the beginning. When you are ready to level up, we have programs for that.
             </p>
             <div className="grid gap-6 md:grid-cols-3">
               <Card>

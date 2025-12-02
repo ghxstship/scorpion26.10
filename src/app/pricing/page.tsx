@@ -80,7 +80,7 @@ const programs = [
     sessionPrice: 200,
   },
   {
-    name: 'Hard_AF',
+    name: 'Forged_AF',
     price: 4000,
     annualPrice: 40000,
     description: 'Private 1-on-1 coaching',

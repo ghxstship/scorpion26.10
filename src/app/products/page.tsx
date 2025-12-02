@@ -55,7 +55,7 @@ const programs = [
   },
   {
     id: 'hardaf',
-    title: 'Hard_AF',
+    title: 'Forged_AF',
     tagline: 'Private Personal Training',
     description: 'Elite 1-on-1 coaching. Only 6 slots available. Custom programming, weekly video analysis, and direct access to your coach. This isn\'t for everyone. That\'s the point.',
     tier: 'Physical',
@@ -72,12 +72,12 @@ const programs = [
       'Direct coach access (text/call)',
       'Nutrition guidance',
     ],
-    cta: 'Apply for Hard_AF',
+    cta: 'Apply for Forged_AF',
     highlight: true,
   },
   {
     id: 'eliteaf',
-    title: 'Elite_AF',
+    title: 'Rare_AF',
     tagline: 'Residential Program',
     description: 'The ultimate immersive experience. 3 clients per year. That\'s it. Live-in training at our Orlando facility or exclusive destination locations. Full lifestyle transformation. VIP everything.',
     tier: 'Ultimate',
@@ -94,7 +94,7 @@ const programs = [
       'Full lifestyle management',
       'Recovery & wellness suite',
     ],
-    cta: 'Inquire About Elite_AF',
+    cta: 'Inquire About Rare_AF',
     highlight: false,
   },
 ]

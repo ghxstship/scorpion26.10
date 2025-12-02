@@ -180,7 +180,7 @@ export default function Team456Page() {
               </Card>
               <Card>
                 <CardHeader>
-                  <CardTitle>Elite_AF</CardTitle>
+                  <CardTitle>Rare_AF</CardTitle>
                   <CardDescription>Residential program</CardDescription>
                   <div className="mt-4">
                     <span className="font-[family-name:var(--font-bebas)] text-3xl font-black text-[var(--gold-600)]">

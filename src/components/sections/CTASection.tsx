@@ -13,7 +13,7 @@ export function CTASection() {
               Ready to Stop Making <span className="text-[var(--gold-600)]">Excuses?</span>
             </h2>
             <p className="mb-10 text-lg text-[var(--grey-300)] md:text-xl">
-              Join the athletes who decided &ldquo;good enough&rdquo; wasn&apos;t good enough. Your first session is waiting.
+              Join the professionals who decided not to celebrate mediocrity.
             </p>
             <Button size="lg" asChild>
               <Link href="/pricing">

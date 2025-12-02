@@ -47,6 +47,30 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* Why 456? */}
+        <section className="mx-auto max-w-4xl mb-24">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 font-[family-name:var(--font-bebas)] text-5xl font-black uppercase tracking-wider text-[var(--grey-100)] md:text-6xl">
+              Why <span className="text-[var(--gold-600)]">456?</span>
+            </h2>
+            <p className="text-xl text-[var(--grey-400)] italic">If you know, you know.</p>
+          </div>
+
+          <div className="space-y-6 text-lg leading-relaxed text-[var(--grey-300)]">
+            <p>
+              In the dice game Cee-lo, rolling 4-5-6 is an instant win. Game over. Collect your money. No debate.
+            </p>
+            
+            <p>
+              That&apos;s the standard we train to. Not &quot;pretty good.&quot; Not &quot;almost.&quot; The outcome that ends the conversation.
+            </p>
+            
+            <p className="text-xl font-bold text-[var(--grey-100)]">
+              You don&apos;t come here to compete. You come here to win.
+            </p>
+          </div>
+        </section>
+
         {/* Meet Your Coach */}
         <div className="mx-auto max-w-4xl rounded-sm border-2 border-[var(--gold-600)] bg-[var(--grey-900)] p-12 md:p-16">
           <div className="text-center mb-12">

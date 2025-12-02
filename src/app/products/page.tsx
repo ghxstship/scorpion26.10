@@ -278,7 +278,7 @@ export default function ProductsPage() {
             Ready to Coach? <span className="text-[var(--gold-600)]">Prove It.</span>
           </h2>
           <p className="mb-8 text-lg text-[var(--grey-300)]">
-            AFU trains coaches who build champions. 3 cohorts per year. Limited spots.
+            AF University trains coaches who build champions. 3 cohorts per year. Limited spots.
           </p>
           <Button size="lg" asChild>
             <Link href="/university">Apply to AF University</Link>

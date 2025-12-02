@@ -42,9 +42,6 @@ export default function CommunityPage() {
       <div className="container mx-auto px-4 py-16">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <div className="flex justify-center mb-6">
-            <Users className="h-20 w-20" style={{ color: 'var(--gold-600)' }} />
-          </div>
           <h1 className="font-[family-name:var(--font-bebas)] text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-wider text-[var(--grey-100)] mb-4">Welcome to <span className="text-[var(--gold-600)]">Team456</span></h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             This isn&apos;t a Facebook group full of motivational quotes and people who disappeared after January 3rd. Team456 is where serious athletes connect, compete, and hold each other accountable. You want a support system? Earn your spot at the table.

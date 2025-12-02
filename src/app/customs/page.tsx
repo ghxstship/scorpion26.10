@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { Package, Shirt, Dumbbell, ShoppingBag, Droplets, Users, Award, Lock } from 'lucide-react'
+import { Shirt, Dumbbell, ShoppingBag, Droplets, Users, Award, Lock, Package } from 'lucide-react'
 
 export default function CustomsPage() {
   const valueProps = [
@@ -60,11 +60,6 @@ export default function CustomsPage() {
       <div className="container mx-auto px-6 py-24">
         {/* Hero Section */}
         <div className="text-center mb-20">
-          <div className="flex justify-center mb-8">
-            <div className="inline-flex h-20 w-20 items-center justify-center rounded-sm border-2 border-[var(--gold-600)] bg-[var(--grey-900)]">
-              <Package className="h-10 w-10 text-[var(--gold-600)]" />
-            </div>
-          </div>
           <h1 className="font-[family-name:var(--font-bebas)] text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-wider text-[var(--grey-100)] mb-6">
             Gear That Works Harder Than<br /><span className="text-[var(--gold-600)]">Your Excuses</span>
           </h1>

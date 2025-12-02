@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { GraduationCap, Award, Users, BookOpen, Rocket } from 'lucide-react'
+import { Award, Users, BookOpen, Rocket } from 'lucide-react'
 
 export default function UniversityPage() {
   const certificationLevels = [
@@ -30,11 +30,6 @@ export default function UniversityPage() {
       <div className="container mx-auto px-6 py-24">
         {/* Hero Section */}
         <div className="text-center mb-24">
-          <div className="flex justify-center mb-8">
-            <div className="inline-flex h-24 w-24 items-center justify-center rounded-sm border-2 border-[var(--gold-600)] bg-[var(--grey-900)]">
-              <GraduationCap className="h-12 w-12 text-[var(--gold-600)]" />
-            </div>
-          </div>
           <h1 className="mb-6 font-[family-name:var(--font-bebas)] text-6xl font-black uppercase tracking-wider text-[var(--grey-100)] md:text-7xl lg:text-8xl">
             Stop Following. <span className="text-[var(--gold-600)]">Start Coaching.</span>
           </h1>

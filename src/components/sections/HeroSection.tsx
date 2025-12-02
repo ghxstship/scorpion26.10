@@ -15,18 +15,13 @@ export function HeroSection() {
         aria-hidden="true"
       />
       
-      {/* Red Glow Effect */}
-      <div 
-        className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[var(--red-700)] opacity-10 blur-[120px] rounded-full"
-        aria-hidden="true"
-      />
 
       <div className="container relative z-10 px-6">
         <div className="mx-auto max-w-5xl text-center">
           {/* Main Heading */}
           <h1 className="mb-8 text-6xl font-black uppercase leading-[0.9] tracking-wider text-[var(--grey-100)] sm:text-7xl md:text-8xl lg:text-9xl">
             Caution:
-            <span className="block bg-gradient-to-r from-[var(--red-600)] via-[var(--red-700)] to-[var(--red-800)] bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(181,0,0,0.5)]">
+            <span className="block bg-gradient-to-r from-[var(--red-600)] via-[var(--red-700)] to-[var(--red-800)] bg-clip-text text-transparent">
               Mediocrity-Free Zone
             </span>
           </h1>

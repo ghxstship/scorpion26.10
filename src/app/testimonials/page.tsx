@@ -134,8 +134,50 @@ export default function TestimonialsPage() {
           ))}
         </div>
 
-        {/* CTA */}
-        <div className="mt-20 text-center">
+        {/* Submit Testimonial CTA */}
+        <div className="mt-20">
+          <div className="rounded-sm border border-[var(--grey-700)] bg-[var(--grey-850)] p-12 max-w-4xl mx-auto">
+            <div className="text-center mb-10">
+              <h2 className="font-[family-name:var(--font-bebas)] text-4xl md:text-5xl font-black uppercase tracking-wider text-[var(--grey-100)] mb-4">
+                Share Your <span className="text-[var(--gold-600)]">Story</span>
+              </h2>
+              <p className="text-lg text-[var(--grey-300)] max-w-2xl mx-auto">
+                Got results? We want to hear about it. Submit your testimonial and inspire the next generation of 456AF athletes.
+              </p>
+            </div>
+            <div className="grid md:grid-cols-2 gap-6">
+              <a
+                href="https://form.typeform.com/to/JIBsiox8"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group rounded-sm border-2 border-[var(--gold-600)] bg-[var(--grey-900)] p-8 text-center transition-all hover:bg-[var(--gold-600)] hover:shadow-[var(--glow-gold)]"
+              >
+                <h3 className="font-[family-name:var(--font-bebas)] text-2xl font-bold uppercase tracking-wide text-[var(--gold-600)] mb-2 group-hover:text-[var(--grey-950)]">
+                  Client Testimonial
+                </h3>
+                <p className="text-[var(--grey-300)] group-hover:text-[var(--grey-800)]">
+                  For 456AF athletes and program members
+                </p>
+              </a>
+              <a
+                href="https://form.typeform.com/to/hRwHoWuM"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group rounded-sm border-2 border-[var(--grey-600)] bg-[var(--grey-900)] p-8 text-center transition-all hover:border-[var(--gold-600)] hover:bg-[var(--gold-600)] hover:shadow-[var(--glow-gold)]"
+              >
+                <h3 className="font-[family-name:var(--font-bebas)] text-2xl font-bold uppercase tracking-wide text-[var(--grey-100)] mb-2 group-hover:text-[var(--grey-950)]">
+                  Peer Testimonial
+                </h3>
+                <p className="text-[var(--grey-300)] group-hover:text-[var(--grey-800)]">
+                  For coaches, trainers, and industry peers
+                </p>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Join CTA */}
+        <div className="mt-16 text-center">
           <div className="rounded-sm border-2 border-[var(--gold-600)] bg-[var(--grey-900)] p-12 max-w-3xl mx-auto">
             <h2 className="font-[family-name:var(--font-bebas)] text-4xl md:text-5xl font-black uppercase tracking-wider text-[var(--grey-100)] mb-4">
               Ready to Write Your <span className="text-[var(--gold-600)]">Story?</span>

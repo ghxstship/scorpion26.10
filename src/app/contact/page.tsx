@@ -11,6 +11,7 @@ export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    category: '',
     subject: '',
     message: '',
   })
@@ -26,13 +27,13 @@ export default function ContactPage() {
 
     setSuccess(true)
     setLoading(false)
-    setFormData({ name: '', email: '', subject: '', message: '' })
+    setFormData({ name: '', email: '', category: '', subject: '', message: '' })
 
     setTimeout(() => setSuccess(false), 5000)
   }
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     setFormData((prev) => ({
       ...prev,
@@ -95,6 +96,28 @@ export default function ContactPage() {
                   </div>
                 </div>
                 <div className="space-y-2">
+                  <label htmlFor="category" className="text-sm font-medium">
+                    Category
+                  </label>
+                  <select
+                    id="category"
+                    name="category"
+                    value={formData.category}
+                    onChange={handleChange}
+                    required
+                    className="flex h-10 w-full rounded-sm border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                  >
+                    <option value="">Select a category...</option>
+                    <option value="training-programs">Training Programs</option>
+                    <option value="proafu">ProAF University</option>
+                    <option value="team456">Team456 Community</option>
+                    <option value="456customs">456Customs Gear</option>
+                    <option value="bookings">Bookings & Speaking</option>
+                    <option value="media">Media & Press</option>
+                    <option value="general">General Inquiry</option>
+                  </select>
+                </div>
+                <div className="space-y-2">
                   <label htmlFor="subject" className="text-sm font-medium">
                     Subject
                   </label>
@@ -150,7 +173,7 @@ export default function ContactPage() {
               <div>
                 <h3 className="mb-1 font-semibold">Phone</h3>
                 <p className="text-sm text-muted-foreground">
-                  +1 (555) 123-4567
+                  (407) 686-0934
                 </p>
               </div>
             </CardContent>
@@ -164,11 +187,9 @@ export default function ContactPage() {
               <div>
                 <h3 className="mb-1 font-semibold">Office</h3>
                 <p className="text-sm text-muted-foreground">
-                  123 Business Ave
+                  860 N State Rd 434
                   <br />
-                  Suite 100
-                  <br />
-                  New York, NY 10001
+                  Altamonte Springs, FL 32714
                 </p>
               </div>
             </CardContent>

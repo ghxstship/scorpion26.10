@@ -153,8 +153,8 @@ export default function ContactPage() {
         <div className="space-y-6">
           <Card>
             <CardContent className="flex items-start gap-4 p-6">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm bg-primary/10">
-                <Mail className="h-5 w-5 text-primary" />
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm border-2 border-[var(--gold-600)] bg-[var(--grey-900)]">
+                <Mail className="h-5 w-5 text-[var(--gold-600)]" />
               </div>
               <div>
                 <h3 className="mb-1 font-semibold">Email</h3>
@@ -167,8 +167,8 @@ export default function ContactPage() {
 
           <Card>
             <CardContent className="flex items-start gap-4 p-6">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm bg-primary/10">
-                <Phone className="h-5 w-5 text-primary" />
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm border-2 border-[var(--gold-600)] bg-[var(--grey-900)]">
+                <Phone className="h-5 w-5 text-[var(--gold-600)]" />
               </div>
               <div>
                 <h3 className="mb-1 font-semibold">Phone</h3>
@@ -181,8 +181,8 @@ export default function ContactPage() {
 
           <Card>
             <CardContent className="flex items-start gap-4 p-6">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm bg-primary/10">
-                <MapPin className="h-5 w-5 text-primary" />
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm border-2 border-[var(--gold-600)] bg-[var(--grey-900)]">
+                <MapPin className="h-5 w-5 text-[var(--gold-600)]" />
               </div>
               <div>
                 <h3 className="mb-1 font-semibold">Office</h3>

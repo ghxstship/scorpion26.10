@@ -43,8 +43,8 @@ export default function ContactPage() {
   return (
     <div className="container py-12 md:py-20">
       <div className="mx-auto max-w-4xl text-center">
-        <h1 className="mb-4 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-          Get in Touch
+        <h1 className="mb-4 font-[family-name:var(--font-bebas)] text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-wider text-[var(--grey-100)]">
+          Get in <span className="text-[var(--gold-600)]">Touch</span>
         </h1>
         <p className="mb-12 text-lg text-muted-foreground md:text-xl">
           Have questions? We&apos;d love to hear from you. Send us a message and we&apos;ll respond as soon as possible.

@@ -28,7 +28,7 @@ export function TestimonialsSection() {
       <div className="container px-6">
         <div className="mx-auto max-w-4xl text-center">
           {/* Section Header */}
-          <h2 className="mb-4 font-[family-name:var(--font-bebas)] text-5xl font-black uppercase tracking-wider text-[var(--grey-100)] md:text-6xl lg:text-7xl">
+          <h2 className="mb-4 font-[family-name:var(--font-bebas)] text-4xl font-black uppercase tracking-wider text-[var(--grey-100)] md:text-5xl">
             Results Speak <span className="text-[var(--gold-600)]">Louder</span>
           </h2>
           <p className="mb-12 text-lg text-[var(--grey-300)] md:text-xl">

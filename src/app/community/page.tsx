@@ -45,7 +45,7 @@ export default function CommunityPage() {
           <div className="flex justify-center mb-6">
             <Users className="h-20 w-20" style={{ color: 'var(--gold-600)' }} />
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Welcome to Club456</h1>
+          <h1 className="font-[family-name:var(--font-bebas)] text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-wider text-[var(--grey-100)] mb-4">Welcome to <span className="text-[var(--gold-600)]">Club456</span></h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             This isn&apos;t a Facebook group full of motivational quotes and people who disappeared after January 3rd. Club456 is where serious athletes connect, compete, and hold each other accountable. You want a support system? Earn your spot at the table.
           </p>
@@ -53,7 +53,7 @@ export default function CommunityPage() {
 
         {/* Community Benefits */}
         <div className="mb-16">
-          <h2 className="text-3xl font-bold mb-8 text-center">Why Join Club456?</h2>
+          <h2 className="font-[family-name:var(--font-bebas)] text-4xl md:text-5xl font-black uppercase tracking-wider text-[var(--grey-100)] mb-8 text-center">Why Join <span className="text-[var(--gold-600)]">Club456?</span></h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {benefits.map((benefit, index) => (
               <Card key={index}>
@@ -71,7 +71,7 @@ export default function CommunityPage() {
 
         {/* Community Stats */}
         <div className="mb-16 bg-muted/50 rounded-2xl p-8 md:p-12">
-          <h2 className="text-3xl font-bold mb-8 text-center">Our Growing Community</h2>
+          <h2 className="font-[family-name:var(--font-bebas)] text-4xl md:text-5xl font-black uppercase tracking-wider text-[var(--grey-100)] mb-8 text-center">Our Growing <span className="text-[var(--gold-600)]">Community</span></h2>
           <div className="grid md:grid-cols-4 gap-8 text-center">
             <div>
               <div className="text-4xl font-bold mb-2" style={{ color: 'var(--gold-600)' }}>1,000+</div>
@@ -94,7 +94,7 @@ export default function CommunityPage() {
 
         {/* What Members Say */}
         <div className="mb-16">
-          <h2 className="text-3xl font-bold mb-8 text-center">What Our Members Say</h2>
+          <h2 className="font-[family-name:var(--font-bebas)] text-4xl md:text-5xl font-black uppercase tracking-wider text-[var(--grey-100)] mb-8 text-center">What Our Members <span className="text-[var(--gold-600)]">Say</span></h2>
           <div className="grid md:grid-cols-3 gap-6">
             <Card>
               <CardContent className="pt-6">
@@ -128,7 +128,7 @@ export default function CommunityPage() {
 
         {/* CTA Section */}
         <div className="text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Join the Club?</h2>
+          <h2 className="font-[family-name:var(--font-bebas)] text-4xl md:text-5xl font-black uppercase tracking-wider text-[var(--grey-100)] mb-4">Ready to Join the <span className="text-[var(--gold-600)]">Club?</span></h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
             Start with Basic_AF for free or upgrade to unlock premium community features.
             Your fitness family is waiting!

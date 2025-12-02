@@ -35,7 +35,7 @@ export default function UniversityPage() {
               <GraduationCap className="h-12 w-12 text-[var(--gold-600)]" />
             </div>
           </div>
-          <h1 className="mb-6 font-[family-name:var(--font-bebas)] text-5xl font-black uppercase tracking-wider text-[var(--grey-100)] md:text-6xl lg:text-7xl">
+          <h1 className="mb-6 font-[family-name:var(--font-bebas)] text-6xl font-black uppercase tracking-wider text-[var(--grey-100)] md:text-7xl lg:text-8xl">
             Stop Following. <span className="text-[var(--gold-600)]">Start Coaching.</span>
           </h1>
           <p className="mx-auto max-w-4xl text-lg leading-relaxed text-[var(--grey-300)] md:text-xl">

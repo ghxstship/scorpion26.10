@@ -43,8 +43,8 @@ export default function BlogPage() {
   return (
     <div className="container py-12 md:py-20">
       <div className="mx-auto max-w-4xl text-center mb-12">
-        <h1 className="mb-4 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-          Blog & Insights
+        <h1 className="mb-4 font-[family-name:var(--font-bebas)] text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-wider text-[var(--grey-100)]">
+          Blog & <span className="text-[var(--gold-600)]">Insights</span>
         </h1>
         <p className="text-lg text-muted-foreground md:text-xl">
           Strategies, insights, and stories to help you achieve peak performance

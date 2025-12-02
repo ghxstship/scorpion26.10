@@ -21,7 +21,7 @@ export default function SpeakingPage() {
     <main className="min-h-screen">
       <div className="bg-black text-white py-20">
         <div className="container mx-auto px-4">
-          <h1 className="text-5xl font-bold mb-4">Speaking Engagements</h1>
+          <h1 className="font-[family-name:var(--font-bebas)] text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-wider text-[var(--grey-100)] mb-4">Speaking <span className="text-[var(--gold-600)]">Engagements</span></h1>
           <p className="text-xl text-gray-300">
             Book me for your next event and inspire your audience
           </p>
@@ -29,7 +29,7 @@ export default function SpeakingPage() {
       </div>
 
       <div className="container mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold mb-8">Speaking Topics</h2>
+        <h2 className="font-[family-name:var(--font-bebas)] text-4xl md:text-5xl font-black uppercase tracking-wider text-[var(--grey-100)] mb-8">Speaking <span className="text-[var(--gold-600)]">Topics</span></h2>
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           {topics.map((topic) => (
             <div key={topic.title} className="border rounded-lg p-6">
@@ -40,7 +40,7 @@ export default function SpeakingPage() {
         </div>
 
         <div className="bg-gray-50 rounded-lg p-8 text-center">
-          <h2 className="text-2xl font-bold mb-4">Book a Speaking Engagement</h2>
+          <h2 className="font-[family-name:var(--font-bebas)] text-4xl md:text-5xl font-black uppercase tracking-wider text-[var(--grey-100)] mb-4">Book a Speaking <span className="text-[var(--gold-600)]">Engagement</span></h2>
           <p className="text-gray-600 mb-6">
             Interested in having me speak at your event? Get in touch to discuss availability.
           </p>

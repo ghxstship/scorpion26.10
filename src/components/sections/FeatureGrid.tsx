@@ -52,7 +52,7 @@ export function FeatureGrid() {
       <div className="container px-6">
         {/* Section Header */}
         <div className="mb-16 text-center">
-          <h2 className="mb-4 font-[family-name:var(--font-bebas)] text-5xl font-black uppercase tracking-wider text-[var(--grey-100)] md:text-6xl lg:text-7xl">
+          <h2 className="mb-4 font-[family-name:var(--font-bebas)] text-4xl font-black uppercase tracking-wider text-[var(--grey-100)] md:text-5xl">
             Why <span className="text-[var(--gold-600)]">456AF?</span>
           </h2>
           <p className="mx-auto max-w-3xl text-lg text-[var(--grey-300)] md:text-xl">

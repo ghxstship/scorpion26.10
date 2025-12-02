@@ -109,7 +109,7 @@ export default function ContactPage() {
                   >
                     <option value="">Select a category...</option>
                     <option value="training-programs">Training Programs</option>
-                    <option value="proafu">ProAF University</option>
+                    <option value="afu">AFU University</option>
                     <option value="team456">Team456 Community</option>
                     <option value="456customs">456Customs Gear</option>
                     <option value="bookings">Bookings & Engagements</option>

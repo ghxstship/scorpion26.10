@@ -272,16 +272,16 @@ export default function ProductsPage() {
           </div>
         </div>
 
-        {/* ProAFU CTA */}
+        {/* AFU CTA */}
         <div className="mx-auto max-w-4xl rounded-sm border-2 border-[var(--gold-600)] bg-gradient-to-br from-[var(--grey-900)] to-[var(--grey-950)] p-12 text-center md:p-16">
           <h2 className="mb-6 font-[family-name:var(--font-bebas)] text-4xl font-black uppercase tracking-wider text-[var(--grey-100)] md:text-5xl">
             Ready to Coach? <span className="text-[var(--gold-600)]">Prove It.</span>
           </h2>
           <p className="mb-8 text-lg text-[var(--grey-300)]">
-            ProAFU trains coaches who build champions. 3 cohorts per year. Limited spots.
+            AFU trains coaches who build champions. 3 cohorts per year. Limited spots.
           </p>
           <Button size="lg" asChild>
-            <Link href="/university">Apply to ProAF University</Link>
+            <Link href="/university">Apply to AF University</Link>
           </Button>
         </div>
       </div>

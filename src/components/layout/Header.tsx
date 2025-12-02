@@ -18,7 +18,7 @@ export function Header() {
   const navigation = [
     { name: 'Home', href: '/' },
     { name: 'Programs', href: '/products' },
-    { name: 'ProAF University', href: '/university' },
+    { name: 'AF University', href: '/university' },
     { name: 'Team456', href: '/community' },
     { name: '456Customs', href: '/customs' },
     { name: 'Bookings', href: '/bookings' },

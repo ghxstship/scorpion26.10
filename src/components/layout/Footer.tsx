@@ -81,7 +81,7 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/university" className="text-[var(--grey-300)] hover:text-[var(--gold-600)] transition-colors">
-                  ProAF University
+                  AF University
                 </Link>
               </li>
               <li>

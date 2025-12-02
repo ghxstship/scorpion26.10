@@ -34,14 +34,14 @@ export default function UniversityPage() {
             Stop Following.<br /><span className="text-[var(--gold-600)]">Start Coaching.</span>
           </h1>
           <p className="mx-auto max-w-4xl text-lg leading-relaxed text-[var(--grey-300)] md:text-xl">
-            ProAF University isn&apos;t a weekend seminar with a PDF certificate. It&apos;s a rigorous coaching program that transforms dedicated trainers into elite-level coaches. Learn directly from Head Coach Matthew Alarcon and our team of master trainers—if you can keep up.
+            AF University isn&apos;t a weekend seminar with a PDF certificate. It&apos;s a rigorous coaching program that transforms dedicated trainers into elite-level coaches. Learn directly from Head Coach Matthew Alarcon and our team of master trainers—if you can keep up.
           </p>
         </div>
 
-        {/* Why Choose ProAFU */}
+        {/* Why Choose AFU */}
         <div className="mb-24">
           <h2 className="mb-12 text-center font-[family-name:var(--font-bebas)] text-4xl font-black uppercase tracking-wider text-[var(--grey-100)] md:text-5xl">
-            Why <span className="text-[var(--gold-600)]">ProAFU?</span>
+            Why <span className="text-[var(--gold-600)]">AFU?</span>
           </h2>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             <Card>
@@ -141,7 +141,7 @@ export default function UniversityPage() {
             This isn&apos;t for people who want to &ldquo;get into fitness.&rdquo; It&apos;s for people ready to dedicate themselves to the craft of coaching and join an elite community of certified trainers who are actually transforming lives.
           </p>
           <Button size="lg" asChild>
-            <Link href="/contact">Apply to ProAFU</Link>
+            <Link href="/contact">Apply to AFU</Link>
           </Button>
         </div>
       </div>

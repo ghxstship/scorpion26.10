@@ -254,20 +254,20 @@ export default function ProductsPage() {
           </div>
         </div>
 
-        {/* Intensity Selection CTA */}
+        {/* Assessment CTA */}
         <div className="mb-24 rounded-sm border-2 border-[var(--red-700)] bg-[var(--grey-900)] p-12 text-center md:p-16">
           <h2 className="mb-6 font-[family-name:var(--font-bebas)] text-4xl font-black uppercase tracking-wider text-[var(--grey-100)] md:text-5xl">
-            Not Sure If 456AF Is For You? <span className="text-[var(--gold-600)]">We Got You!</span>
+            Still Thinking About It? <span className="text-[var(--gold-600)]">Let&apos;s Talk.</span>
           </h2>
           <p className="mb-8 text-lg text-[var(--grey-300)]">
-            Rookie (Tier 1) → Starter (Tier 2) → MVP (Tier 3)
+            Free assessment. No commitment. We&apos;ll find the right fit—or tell you if we&apos;re not it.
           </p>
           <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
             <Button size="lg" asChild variant="outline">
-              <Link href="/pricing">Read Client Testimonials</Link>
+              <Link href="/testimonials">See the Proof</Link>
             </Button>
             <Button size="lg" asChild>
-              <Link href="/contact">Schedule Free Assessment</Link>
+              <Link href="/contact">Book Free Assessment</Link>
             </Button>
           </div>
         </div>
@@ -275,13 +275,13 @@ export default function ProductsPage() {
         {/* ProAFU CTA */}
         <div className="rounded-sm border-2 border-[var(--gold-600)] bg-gradient-to-br from-[var(--grey-900)] to-[var(--grey-950)] p-12 text-center md:p-16">
           <h2 className="mb-6 font-[family-name:var(--font-bebas)] text-4xl font-black uppercase tracking-wider text-[var(--grey-100)] md:text-5xl">
-            Want to <span className="text-[var(--gold-600)]">Become a Trainer?</span>
+            Ready to Coach? <span className="text-[var(--gold-600)]">Prove It.</span>
           </h2>
           <p className="mb-8 text-lg text-[var(--grey-300)]">
-            ProAFU certification academy. 3 cohorts per year. Limited spots.
+            ProAFU trains coaches who build champions. 3 cohorts per year. Limited spots.
           </p>
           <Button size="lg" asChild>
-            <Link href="/456prou">Learn About ProAFU</Link>
+            <Link href="/university">Apply to ProAF University</Link>
           </Button>
         </div>
       </div>

@@ -61,7 +61,7 @@ export default function CustomsPage() {
         {/* Hero Section */}
         <div className="text-center mb-20">
           <h1 className="font-[family-name:var(--font-bebas)] text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-wider text-[var(--grey-100)] mb-6">
-            Gear That Works Harder Than<br /><span className="text-[var(--gold-600)]">Your Excuses</span>
+            Custom Gear for<br /><span className="text-[var(--gold-600)]">Weak Excuses</span>
           </h1>
           <p className="text-lg md:text-xl text-[var(--grey-300)] max-w-4xl mx-auto leading-relaxed">
             456Customs isn&apos;t merch. It&apos;s equipment. Every piece is designed for the way we train—tested by our coaches, built to last, and engineered to perform. Leave the pretty gym fits for the people taking selfies at Planet Fitness.

@@ -15,105 +15,105 @@ const testimonials = [
       'This man is literally the G.O.A.T. I have never felt better. Down 40 pounds. I apply everything he teaches in my day to day routine.',
     author: 'Elizabeth Roell',
     title: 'The Transformation',
-    rating: 5,
+    rating: 10,
   },
   {
     content:
       'My hips were fixed. I was able to perform aerials again with more strength and confidence! In addition, I lost weight and got my dream body!',
     author: 'Elena B.',
     title: 'The Results',
-    rating: 5,
+    rating: 10,
   },
   {
     content:
       'I gained over 30 lbs in muscle. I grew a super nice butt while maintaining a slim waist.',
     author: 'Bailey Vick',
     title: 'The Gains',
-    rating: 5,
+    rating: 10,
   },
   {
     content:
       'I\'m back to running and my hip doesn\'t hurt anymore!',
     author: 'Vicky O.',
     title: 'The Comeback',
-    rating: 5,
+    rating: 10,
   },
   {
     content:
       'For the past eight years, Matt has trained our entire family. My son was in peak condition to play three years of varsity basketball and eventually earned a university volleyball scholarship. My daughter is already thriving, playing for the top volleyball club in Florida.',
     author: 'Anja D.',
     title: 'The Family Legacy',
-    rating: 5,
+    rating: 10,
   },
   {
     content:
       'He\'s so in tune with his clients… saved my best friend\'s life when he recognized signs of a major health issue—he immediately took action. Very impressive. No one else had a clue what was happening.',
     author: 'Vicky O.',
     title: 'The Lifesaver',
-    rating: 5,
+    rating: 10,
   },
   {
     content:
       'Every session was like a therapy session in dark times. He would listen to me rant while pushing my body to a limit I didn\'t know possible.',
     author: 'Bailey Vick',
     title: 'The Whole Package',
-    rating: 5,
+    rating: 10,
   },
   {
     content:
       'I love his old school approach and he is not afraid to call you out. I never wanted to disappoint and he always made you \'finish your breakfast\'!',
     author: 'M. Buell',
     title: 'The Approach',
-    rating: 5,
+    rating: 10,
   },
   {
     content:
       'Matthew\'s ability to explain anything, adapt to skill and fitness levels, and pivot with individualized complications give me the confidence to approach new challenges with courage instead of fear.',
     author: 'Shannon M.',
     title: 'The Mindset Shift',
-    rating: 5,
+    rating: 10,
   },
   {
     content:
       'My back was in pain and yet Matt did not focus on my back. We did other exercises, unexpectedly to me, and it helped my back. He knows what he is doing. I have total confidence in him.',
     author: 'Tom Klusman',
     title: 'The Unexpected Win',
-    rating: 5,
+    rating: 10,
   },
   {
     content:
       'Matt can act gruff and demanding but he is caring and understanding. His demeanor works! He pushes you as far as you want to be pushed.',
     author: 'Tom Klusman',
     title: 'The Real Talk',
-    rating: 5,
+    rating: 10,
   },
   {
     content:
       'Do it. It will be the best experience of your life. Not only will you want to workout but you will learn the meaning behind every workout and learn way more about your body than you ever thought.',
     author: 'Elena B.',
     title: 'The Endorsement',
-    rating: 5,
+    rating: 10,
   },
   {
     content:
       'Be ready to work. Don\'t waste his time or more importantly, your own! If you want change, he\'s your guy.',
     author: 'M. Buell',
     title: 'The No-Nonsense Call',
-    rating: 5,
+    rating: 10,
   },
   {
     content:
       'Matt is the real deal and promotes all aspects of fitness and not just strength or endurance. Balance and flexibility are critically important to everyday life.',
     author: 'Neal Mumbert',
     title: 'The Real Deal',
-    rating: 5,
+    rating: 10,
   },
   {
     content:
       'In a personal fitness journey, nobody else can do the work for you, but an expert can make that work much more effective. Motivational heckling is a feature, not a bug.',
     author: 'Shannon M.',
     title: 'The Mic Drop',
-    rating: 5,
+    rating: 10,
   },
 ]
 

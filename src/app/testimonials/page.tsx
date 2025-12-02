@@ -164,10 +164,10 @@ export default function TestimonialsPage() {
                   </div>
                 </div>
 
-                {/* Rating */}
-                <div className="flex gap-1 mb-4">
+                {/* Rating - NPS Style 10 Stars */}
+                <div className="flex gap-0.5 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-[var(--gold-600)] text-[var(--gold-600)]" />
+                    <Star key={i} className="h-3 w-3 fill-[var(--gold-600)] text-[var(--gold-600)]" />
                   ))}
                 </div>
 

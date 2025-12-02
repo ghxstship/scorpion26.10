@@ -45,23 +45,23 @@ export function HeroSection() {
           </div>
 
           {/* Countdown Stats - Vertical */}
-          <div className="mt-16 flex flex-col items-center gap-6 border-t border-[var(--grey-800)] pt-12">
+          <div className="mt-16 flex flex-col items-start gap-8 border-t border-[var(--grey-800)] pt-12 mx-auto max-w-md">
             {[
               { num: '4', label: 'Training Programs', delay: '0ms' },
-              { num: '3', label: 'Intensity Levels', delay: '100ms' },
-              { num: '2', label: 'Choices', delay: '200ms' },
-              { num: '1', label: 'Life', delay: '300ms' },
-              { num: '0', label: 'Excuses', delay: '400ms' },
+              { num: '3', label: 'Intensity Levels', delay: '150ms' },
+              { num: '2', label: 'Choices', delay: '300ms' },
+              { num: '1', label: 'Life', delay: '450ms' },
+              { num: '0', label: 'Excuses', delay: '600ms' },
             ].map((item, index) => (
               <div 
                 key={index} 
-                className="flex items-center gap-4 opacity-0 animate-[fadeSlideIn_0.6s_ease-out_forwards]"
+                className="flex items-center gap-6 opacity-0 animate-[fadeSlideIn_0.6s_ease-out_forwards] w-full"
                 style={{ animationDelay: item.delay }}
               >
-                <div className="font-[family-name:var(--font-anton)] text-6xl md:text-7xl font-black text-[var(--gold-600)] w-20 text-right">
+                <div className="font-[family-name:var(--font-anton)] text-7xl md:text-8xl font-black text-[var(--gold-600)] w-24 text-center flex-shrink-0">
                   {item.num}
                 </div>
-                <div className="text-lg md:text-xl uppercase tracking-wider text-[var(--grey-300)]">
+                <div className="text-xl md:text-2xl uppercase tracking-wider text-[var(--grey-300)] text-left">
                   {item.label}
                 </div>
               </div>

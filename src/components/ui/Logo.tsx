@@ -21,7 +21,7 @@ export function Logo({ className, size = 'md' }: LogoProps) {
     <span className={cn('inline-flex items-baseline', className)}>
       <span 
         className={cn(
-          'font-[family-name:var(--font-bebas)] font-black tracking-wider text-[var(--gold-600)]',
+          'font-[family-name:var(--font-bebas)] font-black tracking-wider text-white',
           sizeClasses[size]
         )}
       >

@@ -31,7 +31,7 @@ export function RichTextEditor({
       }),
       Image.configure({
         HTMLAttributes: {
-          class: 'rounded-lg max-w-full h-auto',
+          class: 'rounded-sm max-w-full h-auto',
         },
       }),
       Link.configure({
@@ -65,7 +65,7 @@ export function RichTextEditor({
   }
 
   return (
-    <div className="border rounded-lg overflow-hidden">
+    <div className="border rounded-sm overflow-hidden">
       {editable && <Toolbar editor={editor} />}
       <EditorContent editor={editor} />
     </div>

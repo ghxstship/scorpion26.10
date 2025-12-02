@@ -114,7 +114,7 @@ export function CookieConsent() {
               {Object.entries(COOKIE_CATEGORIES).map(([key, { required, description }]) => (
                 <label
                   key={key}
-                  className="flex items-start gap-3 rounded-md border border-[var(--color-border-subtle)] p-3 hover:bg-[var(--color-surface-secondary)] transition-colors duration-[var(--duration-fast)]"
+                  className="flex items-start gap-3 rounded-sm border border-[var(--color-border-subtle)] p-3 hover:bg-[var(--color-surface-secondary)] transition-colors duration-[var(--duration-fast)]"
                 >
                   <input
                     type="checkbox"

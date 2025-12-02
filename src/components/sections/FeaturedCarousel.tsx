@@ -48,7 +48,7 @@ export function FeaturedCarousel({
   const currentItem = items[currentIndex]
 
   return (
-    <div className="relative w-full overflow-hidden rounded-lg bg-muted">
+    <div className="relative w-full overflow-hidden rounded-sm bg-muted">
       <div className="relative aspect-[21/9] md:aspect-[21/7]">
         <Image
           src={currentItem.imageUrl}

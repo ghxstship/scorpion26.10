@@ -88,7 +88,7 @@ export function BlogPost({ post, author }: BlogPostProps) {
 
       {/* Featured Image */}
       {post.featured_image && (
-        <div className="relative aspect-[21/9] rounded-lg overflow-hidden mb-8">
+        <div className="relative aspect-[21/9] rounded-sm overflow-hidden mb-8">
           <Image
             src={post.featured_image}
             alt={post.title}

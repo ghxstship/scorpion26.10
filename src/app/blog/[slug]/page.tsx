@@ -102,7 +102,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
               alt={post.title}
               width={1200}
               height={630}
-              className="rounded-xl w-full"
+              className="rounded-sm w-full"
             />
           </div>
         )}
@@ -122,7 +122,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
           </div>
         </div>
 
-        <div className="mt-12 bg-muted/50 rounded-xl p-8 text-center">
+        <div className="mt-12 bg-muted/50 rounded-sm p-8 text-center">
           <h3 className="text-2xl font-bold mb-4">Ready to Transform Your Performance?</h3>
           <p className="text-foreground/80 mb-6">
             Explore our programs and start your journey to excellence today.

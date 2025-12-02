@@ -55,7 +55,7 @@ export default function BlogPage() {
         {categories.map((category) => (
           <button
             key={category}
-            className="px-4 py-2 rounded-full border hover:bg-accent transition-colors"
+            className="px-4 py-2 rounded-sm border hover:bg-accent transition-colors"
           >
             {category}
           </button>
@@ -65,7 +65,7 @@ export default function BlogPage() {
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {blogPosts.map((post) => (
           <Card key={post.id} className="flex flex-col hover:shadow-lg transition-shadow">
-            <div className="h-48 bg-muted rounded-t-xl" />
+            <div className="h-48 bg-muted rounded-sm" />
             <CardHeader>
               <div className="flex items-center gap-4 text-sm text-muted-foreground mb-2">
                 <span className="flex items-center gap-1">
@@ -96,7 +96,7 @@ export default function BlogPage() {
       </div>
 
       <div className="mt-12 text-center">
-        <button className="px-6 py-3 border rounded-md hover:bg-accent transition-colors">
+        <button className="px-6 py-3 border rounded-sm hover:bg-accent transition-colors">
           Load More Articles
         </button>
       </div>

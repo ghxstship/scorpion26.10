@@ -179,7 +179,7 @@ export default function PaymentsSettingsPage() {
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
-            <div className="flex items-start space-x-4 p-4 border rounded-lg bg-muted/50">
+            <div className="flex items-start space-x-4 p-4 border rounded-sm bg-muted/50">
               <AlertCircle className="h-5 w-5 text-blue-500 mt-0.5" />
               <div className="space-y-1">
                 <p className="text-sm font-medium">What is Stripe Connect?</p>
@@ -257,7 +257,7 @@ export default function PaymentsSettingsPage() {
           </div>
 
           {!account.details_submitted && (
-            <div className="flex items-start space-x-4 p-4 border rounded-lg bg-yellow-50 dark:bg-yellow-950">
+            <div className="flex items-start space-x-4 p-4 border rounded-sm bg-yellow-50 dark:bg-yellow-950">
               <AlertCircle className="h-5 w-5 text-yellow-600 dark:text-yellow-400 mt-0.5" />
               <div className="space-y-1">
                 <p className="text-sm font-medium">Action Required</p>

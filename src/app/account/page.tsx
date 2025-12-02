@@ -26,7 +26,7 @@ export default async function AccountPage() {
         
         <div className="grid md:grid-cols-3 gap-8">
           <div className="md:col-span-1">
-            <div className="bg-white border rounded-lg p-6">
+            <div className="bg-white border rounded-sm p-6">
               <h2 className="text-xl font-bold mb-4">Profile</h2>
               <p className="text-gray-600 mb-2">
                 <strong>Email:</strong> {user.email}
@@ -42,17 +42,17 @@ export default async function AccountPage() {
 
           <div className="md:col-span-2">
             <div className="grid gap-6">
-              <Link href="/account/purchases" className="border rounded-lg p-6 hover:border-black transition">
+              <Link href="/account/purchases" className="border rounded-sm p-6 hover:border-black transition">
                 <h3 className="text-xl font-bold mb-2">My Purchases</h3>
                 <p className="text-gray-600">View your order history and downloads</p>
               </Link>
 
-              <Link href="/account/bookings" className="border rounded-lg p-6 hover:border-black transition">
+              <Link href="/account/bookings" className="border rounded-sm p-6 hover:border-black transition">
                 <h3 className="text-xl font-bold mb-2">My Bookings</h3>
                 <p className="text-gray-600">Manage your upcoming appointments</p>
               </Link>
 
-              <Link href="/account/settings" className="border rounded-lg p-6 hover:border-black transition">
+              <Link href="/account/settings" className="border rounded-sm p-6 hover:border-black transition">
                 <h3 className="text-xl font-bold mb-2">Settings</h3>
                 <p className="text-gray-600">Update your account preferences</p>
               </Link>

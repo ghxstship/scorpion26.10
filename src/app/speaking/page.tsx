@@ -32,14 +32,14 @@ export default function SpeakingPage() {
         <h2 className="font-[family-name:var(--font-bebas)] text-4xl md:text-5xl font-black uppercase tracking-wider text-[var(--grey-100)] mb-8">Speaking <span className="text-[var(--gold-600)]">Topics</span></h2>
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           {topics.map((topic) => (
-            <div key={topic.title} className="border rounded-lg p-6">
+            <div key={topic.title} className="border rounded-sm p-6">
               <h3 className="text-xl font-bold mb-2">{topic.title}</h3>
               <p className="text-gray-600">{topic.description}</p>
             </div>
           ))}
         </div>
 
-        <div className="bg-gray-50 rounded-lg p-8 text-center">
+        <div className="bg-gray-50 rounded-sm p-8 text-center">
           <h2 className="font-[family-name:var(--font-bebas)] text-4xl md:text-5xl font-black uppercase tracking-wider text-[var(--grey-100)] mb-4">Book a Speaking <span className="text-[var(--gold-600)]">Engagement</span></h2>
           <p className="text-gray-600 mb-6">
             Interested in having me speak at your event? Get in touch to discuss availability.

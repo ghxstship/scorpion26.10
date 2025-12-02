@@ -30,7 +30,7 @@ export default async function BookingsPage() {
         ) : (
           <div className="space-y-4">
             {bookings.map((booking: BookingWithDetails) => (
-              <div key={booking.id} className="border rounded-lg p-6">
+              <div key={booking.id} className="border rounded-sm p-6">
                 <div className="flex justify-between items-start">
                   <div>
                     <p className="font-bold">{booking.products?.title}</p>

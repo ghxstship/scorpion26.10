@@ -30,7 +30,7 @@ export default async function PurchasesPage() {
         ) : (
           <div className="space-y-4">
             {orders.map((order: OrderWithItems) => (
-              <div key={order.id} className="border rounded-lg p-6">
+              <div key={order.id} className="border rounded-sm p-6">
                 <div className="flex justify-between items-start mb-4">
                   <div>
                     <p className="font-bold">Order #{order.id.slice(0, 8)}</p>

@@ -58,7 +58,7 @@ export function ProductDetail({ product, variants = [], onAddToCart }: ProductDe
     <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
       {/* Product Images */}
       <div className="space-y-4">
-        <div className="relative aspect-square rounded-lg overflow-hidden bg-muted">
+        <div className="relative aspect-square rounded-sm overflow-hidden bg-muted">
           {product.image_url ? (
             <Image
               src={product.image_url}

@@ -70,7 +70,7 @@ export default function CommunityPage() {
         </div>
 
         {/* Community Stats */}
-        <div className="mb-16 bg-muted/50 rounded-2xl p-8 md:p-12">
+        <div className="mb-16 bg-muted/50 rounded-sm p-8 md:p-12">
           <h2 className="font-[family-name:var(--font-bebas)] text-4xl md:text-5xl font-black uppercase tracking-wider text-[var(--grey-100)] mb-8 text-center">Our Growing <span className="text-[var(--gold-600)]">Community</span></h2>
           <div className="grid md:grid-cols-4 gap-8 text-center">
             <div>

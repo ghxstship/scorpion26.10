@@ -48,7 +48,7 @@ function SidebarContent({ pathname }: { pathname: string }) {
                 key={item.name}
                 href={item.href}
                 className={cn(
-                  'flex items-center gap-3 rounded-lg px-3 py-2 transition-all hover:text-primary',
+                  'flex items-center gap-3 rounded-sm px-3 py-2 transition-all hover:text-primary',
                   isActive
                     ? 'bg-muted text-primary'
                     : 'text-muted-foreground'

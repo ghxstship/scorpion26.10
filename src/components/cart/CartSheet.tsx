@@ -15,11 +15,11 @@ export function CartSheet() {
     <>
       <button
         onClick={() => setIsOpen(true)}
-        className="relative p-2 hover:bg-accent rounded-md transition-colors"
+        className="relative p-2 hover:bg-accent rounded-sm transition-colors"
       >
         <ShoppingCart className="h-5 w-5" />
         {getTotalItems() > 0 && (
-          <span className="absolute -top-1 -right-1 h-5 w-5 rounded-full bg-primary text-primary-foreground text-xs flex items-center justify-center">
+          <span className="absolute -top-1 -right-1 h-5 w-5 rounded-sm bg-primary text-primary-foreground text-xs flex items-center justify-center">
             {getTotalItems()}
           </span>
         )}
@@ -36,7 +36,7 @@ export function CartSheet() {
               <h2 className="text-lg font-semibold">Shopping Cart</h2>
               <button
                 onClick={() => setIsOpen(false)}
-                className="p-2 hover:bg-accent rounded-md transition-colors"
+                className="p-2 hover:bg-accent rounded-sm transition-colors"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -52,7 +52,7 @@ export function CartSheet() {
                 <div className="space-y-4">
                   {items.map((item) => (
                     <div key={item.id} className="flex gap-4 border-b pb-4">
-                      <div className="h-20 w-20 rounded-md bg-muted flex-shrink-0" />
+                      <div className="h-20 w-20 rounded-sm bg-muted flex-shrink-0" />
                       <div className="flex-1 min-w-0">
                         <h3 className="font-medium truncate">{item.title}</h3>
                         <p className="text-sm text-muted-foreground">

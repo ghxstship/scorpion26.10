@@ -80,7 +80,7 @@ export function BookingForm({
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Booking Summary */}
           {selectedDate && selectedTime && (
-            <div className="rounded-lg bg-muted p-4 space-y-2">
+            <div className="rounded-sm bg-muted p-4 space-y-2">
               <h3 className="font-semibold">{serviceName}</h3>
               <p className="text-sm text-muted-foreground">
                 {formatDate(selectedDate)} at {selectedTime}

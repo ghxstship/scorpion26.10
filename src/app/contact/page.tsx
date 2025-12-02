@@ -63,7 +63,7 @@ export default function ContactPage() {
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-4">
                 {success && (
-                  <div className="rounded-md bg-green-50 p-4 text-sm text-green-800">
+                  <div className="rounded-sm bg-green-50 p-4 text-sm text-green-800">
                     Thank you for your message! We&apos;ll be in touch soon.
                   </div>
                 )}
@@ -130,7 +130,7 @@ export default function ContactPage() {
         <div className="space-y-6">
           <Card>
             <CardContent className="flex items-start gap-4 p-6">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm bg-primary/10">
                 <Mail className="h-5 w-5 text-primary" />
               </div>
               <div>
@@ -144,7 +144,7 @@ export default function ContactPage() {
 
           <Card>
             <CardContent className="flex items-start gap-4 p-6">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm bg-primary/10">
                 <Phone className="h-5 w-5 text-primary" />
               </div>
               <div>
@@ -158,7 +158,7 @@ export default function ContactPage() {
 
           <Card>
             <CardContent className="flex items-start gap-4 p-6">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm bg-primary/10">
                 <MapPin className="h-5 w-5 text-primary" />
               </div>
               <div>

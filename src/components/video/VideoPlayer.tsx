@@ -24,7 +24,7 @@ export function VideoPlayer({ video, hasAccess = true }: VideoPlayerProps) {
   // If premium video and user doesn't have access, show lock screen
   if (video.is_premium && !hasAccess) {
     return (
-      <div className="relative aspect-video bg-gradient-to-br from-gray-900 to-gray-800 rounded-lg overflow-hidden">
+      <div className="relative aspect-video bg-gradient-to-br from-gray-900 to-gray-800 rounded-sm overflow-hidden">
         {video.thumbnail_url && (
           // eslint-disable-next-line @next/next/no-img-element
           <img
@@ -62,7 +62,7 @@ export function VideoPlayer({ video, hasAccess = true }: VideoPlayerProps) {
     }
 
     return (
-      <div className="relative aspect-video rounded-lg overflow-hidden">
+      <div className="relative aspect-video rounded-sm overflow-hidden">
         <iframe
           src={`https://www.youtube.com/embed/${videoId}?autoplay=${isPlaying ? 1 : 0}`}
           title={video.title}
@@ -82,7 +82,7 @@ export function VideoPlayer({ video, hasAccess = true }: VideoPlayerProps) {
     }
 
     return (
-      <div className="relative aspect-video rounded-lg overflow-hidden">
+      <div className="relative aspect-video rounded-sm overflow-hidden">
         <iframe
           src={`https://player.vimeo.com/video/${videoId}?autoplay=${isPlaying ? 1 : 0}`}
           title={video.title}
@@ -96,7 +96,7 @@ export function VideoPlayer({ video, hasAccess = true }: VideoPlayerProps) {
 
   // Custom video (direct URL)
   return (
-    <div className="relative aspect-video rounded-lg overflow-hidden bg-black">
+    <div className="relative aspect-video rounded-sm overflow-hidden bg-black">
       <video
         src={video.url}
         controls

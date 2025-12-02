@@ -65,7 +65,7 @@ export function RecentOrders({ orders }: RecentOrdersProps) {
               <Link
                 key={order.id}
                 href={`/admin/orders/${order.id}`}
-                className="flex items-center justify-between p-3 rounded-lg hover:bg-muted transition-colors"
+                className="flex items-center justify-between p-3 rounded-sm hover:bg-muted transition-colors"
               >
                 <div className="space-y-1">
                   <p className="text-sm font-medium">

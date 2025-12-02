@@ -31,7 +31,7 @@ export default function UniversityPage() {
         {/* Hero Section */}
         <div className="text-center mb-24">
           <h1 className="mb-6 font-[family-name:var(--font-bebas)] text-6xl font-black uppercase tracking-wider text-[var(--grey-100)] md:text-7xl lg:text-8xl">
-            Stop Following. <span className="text-[var(--gold-600)]">Start Coaching.</span>
+            Stop Following.<br /><span className="text-[var(--gold-600)]">Start Coaching.</span>
           </h1>
           <p className="mx-auto max-w-4xl text-lg leading-relaxed text-[var(--grey-300)] md:text-xl">
             ProAF University isn&apos;t a weekend seminar with a PDF certificate. It&apos;s a rigorous coaching program that transforms dedicated trainers into elite-level coaches. Learn directly from Head Coach Matthew Alarcon and our team of master trainers—if you can keep up.

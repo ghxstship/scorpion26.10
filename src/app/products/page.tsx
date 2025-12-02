@@ -267,7 +267,7 @@ export default function ProductsPage() {
               <Link href="/testimonials">See the Proof</Link>
             </Button>
             <Button size="lg" asChild>
-              <Link href="/contact">Book Free Assessment</Link>
+              <Link href="/contact">Book Complimentary Assessment</Link>
             </Button>
           </div>
         </div>

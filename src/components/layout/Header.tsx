@@ -23,7 +23,7 @@ export function Header() {
     { name: '456Customs', href: '/customs' },
     { name: 'Bookings', href: '/bookings' },
     { name: 'Testimonials', href: '/testimonials' },
-    { name: 'About', href: '/about' },
+    { name: 'Story', href: '/story' },
     { name: 'Contact', href: '/contact' },
   ]
 

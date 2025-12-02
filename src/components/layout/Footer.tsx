@@ -70,8 +70,8 @@ export function Footer() {
             </h4>
             <ul className="space-y-3 text-sm">
               <li>
-                <Link href="/about" className="text-[var(--grey-300)] hover:text-[var(--gold-600)] transition-colors">
-                  About
+                <Link href="/story" className="text-[var(--grey-300)] hover:text-[var(--gold-600)] transition-colors">
+                  Story
                 </Link>
               </li>
               <li>

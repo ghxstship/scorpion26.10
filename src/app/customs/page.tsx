@@ -24,6 +24,12 @@ export default function CustomsPage() {
 
   const products = [
     {
+      id: 'mobile-fitness-kit',
+      name: 'Mobile Fitness Kit',
+      description: "Everything you need to train anywhere. We don't waste work—this kit keeps you moving whether you're traveling, at home, or stuck without a gym. Compact, complete, no excuses.",
+      icon: Package,
+    },
+    {
       id: 'gym-bag',
       name: 'Gym Bag',
       description: 'Spacious, durable, and organized for athletes who actually bring their gear. Multiple compartments, reinforced straps, and enough room for everything except excuses.',

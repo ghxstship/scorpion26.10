@@ -124,7 +124,7 @@ export default function CommunityPage() {
         </div>
 
         {/* CTA Section */}
-        <div className="rounded-sm border-2 border-[var(--gold-600)] bg-[var(--grey-900)] p-12 text-center md:p-16">
+        <div className="mx-auto max-w-4xl rounded-sm border-2 border-[var(--gold-600)] bg-[var(--grey-900)] p-12 text-center md:p-16">
           <h2 className="font-[family-name:var(--font-bebas)] text-4xl md:text-5xl font-black uppercase tracking-wider text-[var(--grey-100)] mb-4">Done Going It <span className="text-[var(--gold-600)]">Alone?</span></h2>
           <p className="text-lg text-[var(--grey-300)] mb-8 max-w-2xl mx-auto">
             Accountability beats motivation every time. Join the crew that actually shows up.

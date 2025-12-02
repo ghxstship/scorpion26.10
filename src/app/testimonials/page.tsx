@@ -178,7 +178,7 @@ export default function TestimonialsPage() {
 
         {/* Join CTA */}
         <div className="mt-16 text-center">
-          <div className="rounded-sm border-2 border-[var(--gold-600)] bg-[var(--grey-900)] p-12 max-w-3xl mx-auto">
+          <div className="mx-auto max-w-4xl rounded-sm border-2 border-[var(--gold-600)] bg-[var(--grey-900)] p-12 text-center md:p-16">
             <h2 className="font-[family-name:var(--font-bebas)] text-4xl md:text-5xl font-black uppercase tracking-wider text-[var(--grey-100)] mb-4">
               Ready to Write Your <span className="text-[var(--gold-600)]">Story?</span>
             </h2>

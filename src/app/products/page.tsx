@@ -255,7 +255,7 @@ export default function ProductsPage() {
         </div>
 
         {/* Assessment CTA */}
-        <div className="mb-24 rounded-sm border-2 border-[var(--red-700)] bg-[var(--grey-900)] p-12 text-center md:p-16">
+        <div className="mx-auto mb-24 max-w-4xl rounded-sm border-2 border-[var(--red-700)] bg-[var(--grey-900)] p-12 text-center md:p-16">
           <h2 className="mb-6 font-[family-name:var(--font-bebas)] text-4xl font-black uppercase tracking-wider text-[var(--grey-100)] md:text-5xl">
             Still Thinking About It? <span className="text-[var(--gold-600)]">Let&apos;s Talk.</span>
           </h2>
@@ -273,7 +273,7 @@ export default function ProductsPage() {
         </div>
 
         {/* ProAFU CTA */}
-        <div className="rounded-sm border-2 border-[var(--gold-600)] bg-gradient-to-br from-[var(--grey-900)] to-[var(--grey-950)] p-12 text-center md:p-16">
+        <div className="mx-auto max-w-4xl rounded-sm border-2 border-[var(--gold-600)] bg-gradient-to-br from-[var(--grey-900)] to-[var(--grey-950)] p-12 text-center md:p-16">
           <h2 className="mb-6 font-[family-name:var(--font-bebas)] text-4xl font-black uppercase tracking-wider text-[var(--grey-100)] md:text-5xl">
             Ready to Coach? <span className="text-[var(--gold-600)]">Prove It.</span>
           </h2>

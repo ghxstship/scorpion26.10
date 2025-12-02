@@ -90,7 +90,7 @@ export default function AboutPage() {
         </div>
 
         {/* CTA */}
-        <div className="mt-24 rounded-sm border-2 border-[var(--gold-600)] bg-[var(--grey-900)] p-12 text-center md:p-16">
+        <div className="mx-auto mt-24 max-w-4xl rounded-sm border-2 border-[var(--gold-600)] bg-[var(--grey-900)] p-12 text-center md:p-16">
           <h2 className="mb-6 font-[family-name:var(--font-bebas)] text-4xl font-black uppercase tracking-wider text-[var(--grey-100)] md:text-5xl">
             Ready to <span className="text-[var(--gold-600)]">Train?</span>
           </h2>

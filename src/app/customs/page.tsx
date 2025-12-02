@@ -152,7 +152,7 @@ export default function CustomsPage() {
         </div>
 
         {/* CTA Section */}
-        <div className="text-center rounded-sm border-2 border-[var(--gold-600)] bg-[var(--grey-900)] p-12 md:p-16">
+        <div className="mx-auto max-w-4xl rounded-sm border-2 border-[var(--gold-600)] bg-[var(--grey-900)] p-12 text-center md:p-16">
           <h2 className="font-[family-name:var(--font-bebas)] text-4xl md:text-5xl font-black uppercase tracking-wider text-[var(--grey-100)] mb-8">
             Stop training in gear that quits <span className="text-[var(--gold-600)]">before you do.</span>
           </h2>

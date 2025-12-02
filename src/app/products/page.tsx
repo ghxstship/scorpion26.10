@@ -58,7 +58,7 @@ const programs = [
     title: 'Forged_AF',
     tagline: 'Private Personal Training',
     description: 'Elite 1-on-1 coaching. Only 6 slots available. Custom programming, weekly video analysis, and direct access to your coach. This isn\'t for everyone. That\'s the point.',
-    tier: 'Physical',
+    tier: 'Private',
     price: 4000,
     priceLabel: '/month',
     capacity: 6,

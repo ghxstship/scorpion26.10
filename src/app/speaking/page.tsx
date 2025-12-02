@@ -39,9 +39,9 @@ export default function SpeakingPage() {
           ))}
         </div>
 
-        <div className="bg-gray-50 rounded-sm p-8 text-center">
+        <div className="rounded-sm border-2 border-[var(--gold-600)] bg-[var(--grey-900)] p-12 text-center md:p-16">
           <h2 className="font-[family-name:var(--font-bebas)] text-4xl md:text-5xl font-black uppercase tracking-wider text-[var(--grey-100)] mb-4">Book Coach <span className="text-[var(--gold-600)]">Alarcon</span></h2>
-          <p className="text-gray-600 mb-6">
+          <p className="text-[var(--grey-300)] mb-8 text-lg">
             Your audience deserves more than motivational fluff. Let&apos;s talk real performance.
           </p>
           <Button asChild size="lg">

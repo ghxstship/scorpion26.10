@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { Card, CardContent } from '@/components/ui/card'
-import { Quote, Star } from 'lucide-react'
+import { Star } from 'lucide-react'
 
 /**
  * Testimonials Page
@@ -15,105 +15,105 @@ const testimonials = [
       'This man is literally the G.O.A.T. I have never felt better. Down 40 pounds. I apply everything he teaches in my day to day routine.',
     author: 'Elizabeth Roell',
     title: 'The Transformation',
-    rating: 10,
+    rating: 5,
   },
   {
     content:
       'My hips were fixed. I was able to perform aerials again with more strength and confidence! In addition, I lost weight and got my dream body!',
     author: 'Elena B.',
     title: 'The Results',
-    rating: 10,
+    rating: 5,
   },
   {
     content:
       'I gained over 30 lbs in muscle. I grew a super nice butt while maintaining a slim waist.',
     author: 'Bailey Vick',
     title: 'The Gains',
-    rating: 10,
+    rating: 5,
   },
   {
     content:
       'I\'m back to running and my hip doesn\'t hurt anymore!',
     author: 'Vicky O.',
     title: 'The Comeback',
-    rating: 10,
+    rating: 5,
   },
   {
     content:
       'For the past eight years, Matt has trained our entire family. My son was in peak condition to play three years of varsity basketball and eventually earned a university volleyball scholarship. My daughter is already thriving, playing for the top volleyball club in Florida.',
     author: 'Anja D.',
     title: 'The Family Legacy',
-    rating: 10,
+    rating: 5,
   },
   {
     content:
       'He\'s so in tune with his clients… saved my best friend\'s life when he recognized signs of a major health issue—he immediately took action. Very impressive. No one else had a clue what was happening.',
     author: 'Vicky O.',
     title: 'The Lifesaver',
-    rating: 10,
+    rating: 5,
   },
   {
     content:
       'Every session was like a therapy session in dark times. He would listen to me rant while pushing my body to a limit I didn\'t know possible.',
     author: 'Bailey Vick',
     title: 'The Whole Package',
-    rating: 10,
+    rating: 5,
   },
   {
     content:
       'I love his old school approach and he is not afraid to call you out. I never wanted to disappoint and he always made you \'finish your breakfast\'!',
     author: 'M. Buell',
     title: 'The Approach',
-    rating: 10,
+    rating: 5,
   },
   {
     content:
       'Matthew\'s ability to explain anything, adapt to skill and fitness levels, and pivot with individualized complications give me the confidence to approach new challenges with courage instead of fear.',
     author: 'Shannon M.',
     title: 'The Mindset Shift',
-    rating: 10,
+    rating: 5,
   },
   {
     content:
       'My back was in pain and yet Matt did not focus on my back. We did other exercises, unexpectedly to me, and it helped my back. He knows what he is doing. I have total confidence in him.',
     author: 'Tom Klusman',
     title: 'The Unexpected Win',
-    rating: 10,
+    rating: 5,
   },
   {
     content:
       'Matt can act gruff and demanding but he is caring and understanding. His demeanor works! He pushes you as far as you want to be pushed.',
     author: 'Tom Klusman',
     title: 'The Real Talk',
-    rating: 10,
+    rating: 5,
   },
   {
     content:
       'Do it. It will be the best experience of your life. Not only will you want to workout but you will learn the meaning behind every workout and learn way more about your body than you ever thought.',
     author: 'Elena B.',
     title: 'The Endorsement',
-    rating: 10,
+    rating: 5,
   },
   {
     content:
       'Be ready to work. Don\'t waste his time or more importantly, your own! If you want change, he\'s your guy.',
     author: 'M. Buell',
     title: 'The No-Nonsense Call',
-    rating: 10,
+    rating: 5,
   },
   {
     content:
       'Matt is the real deal and promotes all aspects of fitness and not just strength or endurance. Balance and flexibility are critically important to everyday life.',
     author: 'Neal Mumbert',
     title: 'The Real Deal',
-    rating: 10,
+    rating: 5,
   },
   {
     content:
       'In a personal fitness journey, nobody else can do the work for you, but an expert can make that work much more effective. Motivational heckling is a feature, not a bug.',
     author: 'Shannon M.',
     title: 'The Mic Drop',
-    rating: 10,
+    rating: 5,
   },
 ]
 
@@ -153,34 +153,32 @@ export default function TestimonialsPage() {
         </div>
 
         {/* Testimonials Grid */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="group">
-              <CardContent className="p-8">
-                {/* Quote Icon */}
-                <div className="mb-6">
-                  <div className="inline-flex h-12 w-12 items-center justify-center rounded-sm border-2 border-[var(--gold-600)] bg-[var(--grey-900)] transition-all duration-300 group-hover:bg-[var(--gold-600)]">
-                    <Quote className="h-6 w-6 text-[var(--gold-600)] transition-colors group-hover:text-[var(--grey-950)]" />
-                  </div>
-                </div>
-
-                {/* Rating - NPS Style 10 Stars */}
-                <div className="flex gap-0.5 mb-4">
+            <Card key={index} className="group relative overflow-hidden">
+              <CardContent className="p-6 flex flex-col h-full">
+                {/* Stars at top */}
+                <div className="flex gap-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="h-3 w-3 fill-[var(--gold-600)] text-[var(--gold-600)]" />
+                    <Star key={i} className="h-4 w-4 fill-[var(--gold-600)] text-[var(--gold-600)]" />
                   ))}
                 </div>
 
                 {/* Content */}
-                <blockquote className="mb-6 text-[var(--grey-200)] leading-relaxed">
+                <blockquote className="flex-1 text-[var(--grey-200)] leading-relaxed mb-6">
                   &ldquo;{testimonial.content}&rdquo;
                 </blockquote>
 
-                {/* Author */}
-                <div className="border-t border-[var(--grey-800)] pt-4">
-                  <div className="font-bold text-[var(--grey-100)]">{testimonial.author}</div>
-                  <div className="text-sm text-[var(--gold-600)] uppercase tracking-wider">
-                    {testimonial.title}
+                {/* Author - Bottom aligned */}
+                <div className="flex items-center gap-3 pt-4 border-t border-[var(--grey-800)]">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--gold-600)] text-[var(--grey-950)] font-bold text-sm">
+                    {testimonial.author.split(' ').map(n => n[0]).join('')}
+                  </div>
+                  <div>
+                    <div className="font-bold text-[var(--grey-100)] text-sm">{testimonial.author}</div>
+                    <div className="text-xs text-[var(--gold-600)] uppercase tracking-wider">
+                      {testimonial.title}
+                    </div>
                   </div>
                 </div>
               </CardContent>

@@ -135,10 +135,10 @@ export default function UniversityPage() {
         {/* CTA Section */}
         <div className="mx-auto max-w-4xl rounded-sm border-2 border-[var(--gold-600)] bg-[var(--grey-900)] p-12 text-center md:p-16">
           <h2 className="mb-6 font-[family-name:var(--font-bebas)] text-4xl font-black uppercase tracking-wider text-[var(--grey-100)] md:text-5xl">
-            Ready to Stop Watching From the <span className="text-[var(--gold-600)]">Sidelines?</span>
+            Stop watching. <span className="text-[var(--gold-600)]">Start leading.</span>
           </h2>
           <p className="mx-auto mb-8 max-w-3xl text-lg leading-relaxed text-[var(--grey-300)]">
-            This isn&apos;t for people who want to &ldquo;get into fitness.&rdquo; It&apos;s for people ready to dedicate themselves to the craft of coaching and join an elite community of certified trainers who are actually transforming lives.
+            This isn&apos;t for people who want to &ldquo;get into fitness.&rdquo; It&apos;s for people ready to dedicate themselves to the craft of coaching and join an elite community of certified trainers who actually walk the walk.
           </p>
           <Button size="lg" asChild>
             <Link href="/contact">Apply to AFU</Link>

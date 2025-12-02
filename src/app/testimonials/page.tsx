@@ -183,7 +183,7 @@ export default function TestimonialsPage() {
               Ready to Write Your <span className="text-[var(--gold-600)]">Story?</span>
             </h2>
             <p className="text-lg text-[var(--grey-300)] mb-8">
-              Join the athletes who stopped making excuses and started making progress.
+              Stop reading about results. Start earning them.
             </p>
             <Link
               href="/products"

@@ -116,10 +116,10 @@ export default function AboutPage() {
         {/* CTA */}
         <div className="mx-auto mt-24 max-w-4xl rounded-sm border-2 border-[var(--gold-600)] bg-[var(--grey-900)] p-12 text-center md:p-16">
           <h2 className="mb-6 font-[family-name:var(--font-bebas)] text-4xl font-black uppercase tracking-wider text-[var(--grey-100)] md:text-5xl">
-            Ready to <span className="text-[var(--gold-600)]">Train?</span>
+            Ready to Say Goodbye to <span className="text-[var(--gold-600)]">Average?</span>
           </h2>
           <p className="mb-8 text-lg text-[var(--grey-300)] max-w-2xl mx-auto">
-            Stop reading about results. Start earning them.
+            Don&apos;t roll the dice on your health. Start playing to win.
           </p>
           <div className="flex flex-col gap-4 sm:flex-row sm:justify-center sm:gap-6">
             <Button size="lg" asChild>

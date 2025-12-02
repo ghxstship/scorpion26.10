@@ -12,50 +12,107 @@ import { Quote, Star } from 'lucide-react'
 const testimonials = [
   {
     content:
-      'I\'ve tried every program out there. This is the first one that actually delivered. The coaching is legit, the community keeps you accountable, and the results? They speak for themselves.',
-    author: 'Marcus T.',
-    title: '456AF Athlete',
-    program: 'Strong_AF',
+      'This man is literally the G.O.A.T. I have never felt better. Down 40 pounds. I apply everything he teaches in my day to day routine.',
+    author: 'Elizabeth Roell',
+    title: 'The Transformation',
     rating: 5,
   },
   {
     content:
-      'Coach Alarcon doesn\'t sugarcoat anything. That\'s exactly what I needed. In 6 months I\'ve made more progress than in 3 years of "figuring it out" on my own.',
-    author: 'Sarah K.',
-    title: '456AF Athlete',
-    program: 'Hard_AF',
+      'My hips were fixed. I was able to perform aerials again with more strength and confidence! In addition, I lost weight and got my dream body!',
+    author: 'Elena B.',
+    title: 'The Results',
     rating: 5,
   },
   {
     content:
-      'The Team456 community is different. No toxic positivity, no excuses—just people who show up and put in work. Found my people.',
-    author: 'David R.',
-    title: 'Team456 Member',
-    program: 'Basic_AF',
+      'I gained over 30 lbs in muscle. I grew a super nice butt while maintaining a slim waist.',
+    author: 'Bailey Vick',
+    title: 'The Gains',
     rating: 5,
   },
   {
     content:
-      'ProAFU changed how I coach. The methodology is rigorous, the feedback is brutal (in a good way), and I graduated actually ready to lead. Worth every penny.',
-    author: 'Jennifer M.',
-    title: 'ProAFU Graduate',
-    program: 'ProAF University',
+      'I\'m back to running and my hip doesn\'t hurt anymore!',
+    author: 'Vicky O.',
+    title: 'The Comeback',
     rating: 5,
   },
   {
     content:
-      'I was skeptical about virtual training. Then I joined Strong_AF. The programming is personalized, the check-ins keep me honest, and I\'m stronger than I\'ve ever been.',
-    author: 'Chris L.',
-    title: '456AF Athlete',
-    program: 'Strong_AF',
+      'For the past eight years, Matt has trained our entire family. My son was in peak condition to play three years of varsity basketball and eventually earned a university volleyball scholarship. My daughter is already thriving, playing for the top volleyball club in Florida.',
+    author: 'Anja D.',
+    title: 'The Family Legacy',
     rating: 5,
   },
   {
     content:
-      'Hard_AF is no joke. 1-on-1 coaching with direct access to your coach? That level of attention to detail is why I finally hit my goals.',
-    author: 'Amanda P.',
-    title: '456AF Athlete',
-    program: 'Hard_AF',
+      'He\'s so in tune with his clients… saved my best friend\'s life when he recognized signs of a major health issue—he immediately took action. Very impressive. No one else had a clue what was happening.',
+    author: 'Vicky O.',
+    title: 'The Lifesaver',
+    rating: 5,
+  },
+  {
+    content:
+      'Every session was like a therapy session in dark times. He would listen to me rant while pushing my body to a limit I didn\'t know possible.',
+    author: 'Bailey Vick',
+    title: 'The Whole Package',
+    rating: 5,
+  },
+  {
+    content:
+      'I love his old school approach and he is not afraid to call you out. I never wanted to disappoint and he always made you \'finish your breakfast\'!',
+    author: 'M. Buell',
+    title: 'The Approach',
+    rating: 5,
+  },
+  {
+    content:
+      'Matthew\'s ability to explain anything, adapt to skill and fitness levels, and pivot with individualized complications give me the confidence to approach new challenges with courage instead of fear.',
+    author: 'Shannon M.',
+    title: 'The Mindset Shift',
+    rating: 5,
+  },
+  {
+    content:
+      'My back was in pain and yet Matt did not focus on my back. We did other exercises, unexpectedly to me, and it helped my back. He knows what he is doing. I have total confidence in him.',
+    author: 'Tom Klusman',
+    title: 'The Unexpected Win',
+    rating: 5,
+  },
+  {
+    content:
+      'Matt can act gruff and demanding but he is caring and understanding. His demeanor works! He pushes you as far as you want to be pushed.',
+    author: 'Tom Klusman',
+    title: 'The Real Talk',
+    rating: 5,
+  },
+  {
+    content:
+      'Do it. It will be the best experience of your life. Not only will you want to workout but you will learn the meaning behind every workout and learn way more about your body than you ever thought.',
+    author: 'Elena B.',
+    title: 'The Endorsement',
+    rating: 5,
+  },
+  {
+    content:
+      'Be ready to work. Don\'t waste his time or more importantly, your own! If you want change, he\'s your guy.',
+    author: 'M. Buell',
+    title: 'The No-Nonsense Call',
+    rating: 5,
+  },
+  {
+    content:
+      'Matt is the real deal and promotes all aspects of fitness and not just strength or endurance. Balance and flexibility are critically important to everyday life.',
+    author: 'Neal Mumbert',
+    title: 'The Real Deal',
+    rating: 5,
+  },
+  {
+    content:
+      'In a personal fitness journey, nobody else can do the work for you, but an expert can make that work much more effective. Motivational heckling is a feature, not a bug.',
+    author: 'Shannon M.',
+    title: 'The Mic Drop',
     rating: 5,
   },
 ]
@@ -124,9 +181,6 @@ export default function TestimonialsPage() {
                   <div className="font-bold text-[var(--grey-100)]">{testimonial.author}</div>
                   <div className="text-sm text-[var(--gold-600)] uppercase tracking-wider">
                     {testimonial.title}
-                  </div>
-                  <div className="text-xs text-[var(--grey-500)] mt-1">
-                    {testimonial.program}
                   </div>
                 </div>
               </CardContent>

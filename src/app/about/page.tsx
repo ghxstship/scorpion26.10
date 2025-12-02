@@ -1,24 +1,57 @@
 /**
- * About Page - Meet Your Coach
- * Full biography of Head Coach Matthew Alarcon
+ * About Page - 456AF Story + Meet Your Coach
+ * Brand story and full biography of Head Coach Matthew Alarcon
  */
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-[var(--grey-950)]">
       <div className="container mx-auto px-6 py-24">
-        {/* Page Header */}
-        <div className="mx-auto max-w-4xl mb-16 text-center">
-          <h1 className="mb-4 font-[family-name:var(--font-bebas)] text-6xl font-black uppercase tracking-wider text-[var(--grey-100)] md:text-7xl lg:text-8xl">
-            Meet Your <span className="text-[var(--gold-600)]">Coach</span>
-          </h1>
-        </div>
+        {/* The 456AF Story */}
+        <section className="mx-auto max-w-4xl mb-24">
+          <div className="mb-12 text-center">
+            <h1 className="mb-4 font-[family-name:var(--font-bebas)] text-6xl font-black uppercase tracking-wider text-[var(--grey-100)] md:text-7xl lg:text-8xl">
+              The 456AF <span className="text-[var(--gold-600)]">Story</span>
+            </h1>
+          </div>
 
-        {/* Full Bio */}
+          <div className="space-y-6 text-lg leading-relaxed text-[var(--grey-300)]">
+            <p className="text-2xl font-bold text-[var(--grey-100)]">Listen up.</p>
+            
+            <p>
+              456AF was founded in 2025 by Head Coach Matthew Alarcon in Orlando, FL, with one mission: build athletes who perform, not posers who take mirror selfies between sets.
+            </p>
+            
+            <p>
+              This isn&apos;t a place to &quot;find yourself.&quot; You&apos;re not here for vibes. You&apos;re here because you&apos;re ready to put in work that actually moves the needle—and you want coaches who know the difference between training and just sweating.
+            </p>
+            
+            <p>
+              We run a full ecosystem: elite coaching programs, ProAFU certification academy for those ready to lead, and Team456—a community where accountability isn&apos;t optional and excuses get left at the door.
+            </p>
+            
+            <p>
+              Your comfort zone? Not our concern. Your results? That&apos;s the only thing that matters.
+            </p>
+            
+            <p>
+              So if you&apos;re ready to stop playing and start performing, welcome to the team.
+            </p>
+            
+            <p className="text-[var(--grey-400)] italic">
+              If not, there&apos;s a smoothie bar down the street. They&apos;d love to have you. Local AF.
+            </p>
+          </div>
+        </section>
+
+        {/* Meet Your Coach */}
         <div className="mx-auto max-w-4xl rounded-sm border-2 border-[var(--gold-600)] bg-[var(--grey-900)] p-12 md:p-16">
           <div className="text-center mb-12">
-            <h2 className="mb-2 font-[family-name:var(--font-bebas)] text-4xl font-bold uppercase tracking-wide text-[var(--grey-100)] md:text-5xl">
-              Head Coach Matthew Alarcon
+            <h2 className="mb-2 font-[family-name:var(--font-bebas)] text-5xl font-bold uppercase tracking-wide text-[var(--grey-100)] md:text-6xl">
+              Meet Your <span className="text-[var(--gold-600)]">Coach</span>
             </h2>
+            <h3 className="font-[family-name:var(--font-bebas)] text-3xl font-bold uppercase tracking-wide text-[var(--grey-300)] md:text-4xl">
+              Head Coach Matthew Alarcon
+            </h3>
           </div>
 
           <div className="space-y-6 text-lg leading-relaxed text-[var(--grey-300)]">

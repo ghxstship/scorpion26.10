@@ -15,7 +15,7 @@ export default function UniversityPage() {
       title: 'Level 2: Advanced',
       duration: '12 Weeks',
       subtitle: 'Advanced Certification',
-      description: 'Programming, periodization, and advanced coaching techniques. You&apos;ll learn how to build programs that actually produce results—not just technically correct—but game-changing.',
+      description: "Programming, periodization, and advanced coaching techniques. You'll learn how to build programs that actually produce results—not just technically correct—but game-changing.",
     },
     {
       title: 'Level 3: Pro',

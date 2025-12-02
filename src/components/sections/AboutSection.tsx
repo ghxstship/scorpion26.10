@@ -6,11 +6,11 @@ export function AboutSection() {
   return (
     <section className="bg-[var(--grey-950)]">
       <div className="mx-auto max-w-4xl">
-        {/* Section Header */}
+        {/* Page Header */}
         <div className="mb-12 text-center">
-          <h2 className="mb-4 font-[family-name:var(--font-bebas)] text-5xl font-black uppercase tracking-wider text-[var(--grey-100)] md:text-6xl lg:text-7xl">
+          <h1 className="mb-4 font-[family-name:var(--font-bebas)] text-6xl font-black uppercase tracking-wider text-[var(--grey-100)] md:text-7xl lg:text-8xl">
             The 456AF <span className="text-[var(--gold-600)]">Story</span>
-          </h2>
+          </h1>
         </div>
 
         {/* Story Content */}

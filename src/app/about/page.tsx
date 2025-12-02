@@ -8,9 +8,6 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen bg-[var(--grey-950)]">
       <div className="container mx-auto px-6 py-24">
-        <h1 className="mb-12 text-center font-[family-name:var(--font-bebas)] text-6xl font-black uppercase tracking-wider text-[var(--grey-100)] md:text-7xl lg:text-8xl">
-          About <span className="text-[var(--gold-600)]">456AF</span>
-        </h1>
         <AboutSection />
 
         <div className="mt-24 rounded-sm border-2 border-[var(--gold-600)] bg-[var(--grey-900)] p-12 md:p-16">

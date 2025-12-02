@@ -1,3 +1,7 @@
+import Link from 'next/link'
+import { Button } from '@/components/ui/button'
+import { ArrowRight } from 'lucide-react'
+
 /**
  * About Page - 456AF Story + Meet Your Coach
  * Brand story and full biography of Head Coach Matthew Alarcon
@@ -82,6 +86,27 @@ export default function AboutPage() {
             <p className="text-xl font-bold text-[var(--gold-600)] pt-4">
               You&apos;re not hiring a trainer. You&apos;re hiring a coach who&apos;s built champions—and knows exactly what it takes to build you into one.
             </p>
+          </div>
+        </div>
+
+        {/* CTA */}
+        <div className="mt-24 text-center">
+          <h2 className="mb-6 font-[family-name:var(--font-bebas)] text-4xl font-black uppercase tracking-wider text-[var(--grey-100)] md:text-5xl">
+            Ready to <span className="text-[var(--gold-600)]">Train?</span>
+          </h2>
+          <p className="mb-8 text-lg text-[var(--grey-300)] max-w-2xl mx-auto">
+            Stop reading about results. Start earning them.
+          </p>
+          <div className="flex flex-col gap-4 sm:flex-row sm:justify-center sm:gap-6">
+            <Button size="lg" asChild>
+              <Link href="/products">
+                View Programs
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
+            <Button size="lg" variant="secondary" asChild>
+              <Link href="/contact">Get in Touch</Link>
+            </Button>
           </div>
         </div>
       </div>

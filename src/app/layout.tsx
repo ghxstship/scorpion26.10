@@ -37,8 +37,8 @@ const permanentMarker = Permanent_Marker({
 });
 
 export const metadata: Metadata = {
-  title: "Personal Brand Platform - Transform Your Potential",
-  description: "Discover proven strategies and insights to achieve peak performance in every aspect of your life.",
+  title: "456AF - Pro-Level Training for Serious Athletes",
+  description: "20 years of elite coaching. NBA players, Olympians, and athletes who refuse to settle. Based in Orlando. No excuses accepted.",
 };
 
 export default function RootLayout({

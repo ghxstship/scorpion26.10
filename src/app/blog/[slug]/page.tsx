@@ -123,9 +123,9 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
         </div>
 
         <div className="mt-12 bg-muted/50 rounded-sm p-8 text-center">
-          <h3 className="text-2xl font-bold mb-4">Ready to Transform Your Performance?</h3>
+          <h3 className="text-2xl font-bold mb-4">Done Reading. Ready to Work?</h3>
           <p className="text-foreground/80 mb-6">
-            Explore our programs and start your journey to excellence today.
+            Knowledge without action is just entertainment. Pick a program and get after it.
           </p>
           <Button size="lg" asChild>
             <Link href="/products">View Programs</Link>

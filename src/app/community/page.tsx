@@ -128,10 +128,9 @@ export default function CommunityPage() {
 
         {/* CTA Section */}
         <div className="text-center">
-          <h2 className="font-[family-name:var(--font-bebas)] text-4xl md:text-5xl font-black uppercase tracking-wider text-[var(--grey-100)] mb-4">Ready to Join the <span className="text-[var(--gold-600)]">Club?</span></h2>
+          <h2 className="font-[family-name:var(--font-bebas)] text-4xl md:text-5xl font-black uppercase tracking-wider text-[var(--grey-100)] mb-4">Done Going It <span className="text-[var(--gold-600)]">Alone?</span></h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Start with Basic_AF for free or upgrade to unlock premium community features.
-            Your fitness family is waiting!
+            Accountability beats motivation every time. Join the crew that actually shows up.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" asChild>

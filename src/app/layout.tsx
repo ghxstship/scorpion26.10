@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Anton, Bebas_Neue, Share_Tech, Share_Tech_Mono } from "next/font/google";
+import { Anton, Bebas_Neue, Share_Tech, Share_Tech_Mono, Permanent_Marker } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -30,6 +30,12 @@ const shareTechMono = Share_Tech_Mono({
   variable: "--font-share-tech-mono",
 });
 
+const permanentMarker = Permanent_Marker({
+  weight: ["400"],
+  subsets: ["latin"],
+  variable: "--font-permanent-marker",
+});
+
 export const metadata: Metadata = {
   title: "Personal Brand Platform - Transform Your Potential",
   description: "Discover proven strategies and insights to achieve peak performance in every aspect of your life.",
@@ -42,7 +48,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${anton.variable} ${bebasNeue.variable} ${shareTech.variable} ${shareTechMono.variable} font-sans antialiased bg-[var(--color-surface-primary)] text-[var(--color-text-primary)]`}>
+      <body className={`${anton.variable} ${bebasNeue.variable} ${shareTech.variable} ${shareTechMono.variable} ${permanentMarker.variable} font-sans antialiased bg-[var(--color-surface-primary)] text-[var(--color-text-primary)]`}>
         <SkipNav />
         <div className="flex min-h-screen flex-col">
           <Header />

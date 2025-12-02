@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { Facebook, Twitter, Instagram, Linkedin, Youtube } from 'lucide-react'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
+import { Logo } from '@/components/ui/Logo'
 
 /**
  * Spartan Warrior Footer Component
@@ -16,9 +17,7 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-4">
           {/* Brand Section */}
           <div className="space-y-6">
-            <h3 className="font-[family-name:var(--font-bebas)] text-3xl font-black tracking-wider text-[var(--gold-600)]">
-              456AF
-            </h3>
+            <Logo size="lg" />
             <p className="text-sm text-[var(--grey-300)] leading-relaxed">
               We don&apos;t do average. Neither should you.
             </p>

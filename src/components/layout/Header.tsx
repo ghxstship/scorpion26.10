@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { Logo } from '@/components/ui/Logo'
 
 /**
  * Spartan Warrior Header Component
@@ -29,10 +30,8 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-[var(--grey-800)] bg-black/95 backdrop-blur-lg">
       <nav className="container flex h-20 items-center justify-between px-6" aria-label="Main navigation" role="navigation">
         <div className="flex items-center gap-8 md:gap-12">
-          <Link href="/" className="flex items-center space-x-2 group">
-            <span className="font-[family-name:var(--font-bebas)] text-3xl font-black tracking-wider text-[var(--gold-600)] transition-colors hover:text-[var(--gold-500)]">
-              456AF
-            </span>
+          <Link href="/" className="flex items-center group">
+            <Logo size="md" className="transition-opacity hover:opacity-80" />
           </Link>
           <div className="hidden md:flex md:gap-8" role="menubar">
             {navigation.map((item) => (

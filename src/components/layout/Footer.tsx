@@ -95,6 +95,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/bookings" className="text-[var(--grey-300)] hover:text-[var(--gold-600)] transition-colors">
+                  Bookings
+                </Link>
+              </li>
+              <li>
                 <Link href="/testimonials" className="text-[var(--grey-300)] hover:text-[var(--gold-600)] transition-colors">
                   Testimonials
                 </Link>

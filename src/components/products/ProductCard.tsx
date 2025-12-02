@@ -66,7 +66,7 @@ export function ProductCard({ product, onAddToCart }: ProductCardProps) {
         {/* Badges */}
         <div className="absolute top-3 right-3 flex flex-col gap-2">
           {isNew && (
-            <Badge className="bg-[var(--red-700)] border-2 border-[var(--red-900)] text-[var(--grey-50)] font-[family-name:var(--font-bebas)] uppercase tracking-wide shadow-[var(--glow-red)]">
+            <Badge className="bg-[var(--red-700)] border-2 border-[var(--red-900)] text-[var(--grey-50)] font-[family-name:var(--font-bebas)] uppercase tracking-wide ">
               <Flame className="mr-1 h-3 w-3" />
               New
             </Badge>

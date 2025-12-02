@@ -135,7 +135,7 @@ export default function ProductsPage() {
             return (
               <Card 
                 key={program.id} 
-                className={`group flex flex-col ${isHighlight ? 'border-2 border-[var(--gold-600)] shadow-[var(--glow-gold)]' : ''}`}
+                className={`group flex flex-col ${isHighlight ? 'border-2 border-[var(--gold-600)] ' : ''}`}
               >
                 <CardHeader>
                   {/* Tier Badge & Capacity */}
@@ -151,7 +151,7 @@ export default function ProductsPage() {
                   </div>
 
                   {/* Icon */}
-                  <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-sm border-2 border-[var(--red-700)] bg-[var(--grey-900)] transition-all duration-300 group-hover:border-[var(--gold-600)] group-hover:bg-[var(--gold-600)] group-hover:shadow-[var(--glow-gold)]">
+                  <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-sm border-2 border-[var(--red-700)] bg-[var(--grey-900)] transition-all duration-300 group-hover:border-[var(--gold-600)] group-hover:bg-[var(--gold-600)]">
                     <Icon className="h-8 w-8 text-[var(--red-700)] transition-colors group-hover:text-[var(--grey-950)]" />
                   </div>
 

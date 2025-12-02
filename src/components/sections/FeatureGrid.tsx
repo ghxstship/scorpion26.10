@@ -67,7 +67,7 @@ export function FeatureGrid() {
             return (
               <Card key={feature.title} className="group">
                 <CardHeader>
-                  <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-sm border-2 border-[var(--gold-600)] bg-[var(--grey-900)] transition-all duration-300 group-hover:bg-[var(--gold-600)] group-hover:shadow-[var(--glow-gold)]">
+                  <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-sm border-2 border-[var(--gold-600)] bg-[var(--grey-900)] transition-all duration-300 group-hover:bg-[var(--gold-600)] ">
                     <Icon className="h-8 w-8 text-[var(--gold-600)] transition-colors group-hover:text-[var(--grey-950)]" />
                   </div>
                   <CardTitle>{feature.title}</CardTitle>

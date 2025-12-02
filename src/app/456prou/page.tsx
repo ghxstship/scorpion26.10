@@ -147,7 +147,7 @@ export default function ProUPage() {
               return (
                 <Card 
                   key={tier.id}
-                  className={`flex flex-col ${tier.highlight ? 'border-2 border-[var(--gold-600)] shadow-[var(--glow-gold)]' : ''}`}
+                  className={`flex flex-col ${tier.highlight ? 'border-2 border-[var(--gold-600)] ' : ''}`}
                 >
                   <CardHeader>
                     <div className="mb-4 flex items-center justify-between">

@@ -150,7 +150,7 @@ export default function TestimonialsPage() {
                 href="https://form.typeform.com/to/JIBsiox8"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group rounded-sm border-2 border-[var(--gold-600)] bg-[var(--grey-900)] p-8 text-center transition-all hover:bg-[var(--gold-600)] hover:shadow-[var(--glow-gold)]"
+                className="group rounded-sm border-2 border-[var(--gold-600)] bg-[var(--grey-900)] p-8 text-center transition-all hover:bg-[var(--gold-600)] "
               >
                 <h3 className="font-[family-name:var(--font-bebas)] text-2xl font-bold uppercase tracking-wide text-[var(--gold-600)] mb-2 group-hover:text-[var(--grey-950)]">
                   Client Testimonial
@@ -163,7 +163,7 @@ export default function TestimonialsPage() {
                 href="https://form.typeform.com/to/hRwHoWuM"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group rounded-sm border-2 border-[var(--grey-600)] bg-[var(--grey-900)] p-8 text-center transition-all hover:border-[var(--gold-600)] hover:bg-[var(--gold-600)] hover:shadow-[var(--glow-gold)]"
+                className="group rounded-sm border-2 border-[var(--grey-600)] bg-[var(--grey-900)] p-8 text-center transition-all hover:border-[var(--gold-600)] hover:bg-[var(--gold-600)] "
               >
                 <h3 className="font-[family-name:var(--font-bebas)] text-2xl font-bold uppercase tracking-wide text-[var(--grey-100)] mb-2 group-hover:text-[var(--grey-950)]">
                   Peer Testimonial
@@ -187,7 +187,7 @@ export default function TestimonialsPage() {
             </p>
             <Link
               href="/products"
-              className="inline-flex items-center justify-center rounded-sm bg-[var(--gold-600)] px-8 py-4 font-bold uppercase tracking-wider text-[var(--grey-950)] transition-all hover:bg-[var(--gold-500)] hover:shadow-[var(--glow-gold)]"
+              className="inline-flex items-center justify-center rounded-sm bg-[var(--gold-600)] px-8 py-4 font-bold uppercase tracking-wider text-[var(--grey-950)] transition-all hover:bg-[var(--gold-500)] "
             >
               View Programs
             </Link>

@@ -87,7 +87,7 @@ export default function Team456Page() {
               return (
                 <Card key={benefit.title} className="group">
                   <CardHeader>
-                    <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-sm border-2 border-[var(--red-700)] bg-[var(--grey-900)] transition-all duration-300 group-hover:border-[var(--gold-600)] group-hover:bg-[var(--gold-600)] group-hover:shadow-[var(--glow-gold)]">
+                    <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-sm border-2 border-[var(--red-700)] bg-[var(--grey-900)] transition-all duration-300 group-hover:border-[var(--gold-600)] group-hover:bg-[var(--gold-600)] ">
                       <Icon className="h-6 w-6 text-[var(--red-700)] transition-colors group-hover:text-[var(--grey-950)]" />
                     </div>
                     <CardTitle className="text-xl">{benefit.title}</CardTitle>

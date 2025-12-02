@@ -7,11 +7,6 @@ export function CTASection() {
     <section className="bg-[var(--grey-950)] py-24 md:py-32">
       <div className="container px-6">
         <div className="relative overflow-hidden rounded-sm border-2 border-[var(--gold-600)] bg-[var(--grey-900)] px-8 py-16 text-center md:px-16 md:py-24">
-          {/* Red Glow Effect */}
-          <div 
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[var(--red-700)] opacity-10 blur-[100px] rounded-full"
-            aria-hidden="true"
-          />
           
           <div className="relative z-10 mx-auto max-w-3xl">
             <h2 className="mb-6 font-[family-name:var(--font-bebas)] text-4xl font-black uppercase tracking-wider text-[var(--grey-100)] sm:text-5xl md:text-6xl">

@@ -14,11 +14,11 @@ const buttonVariants = cva(
       variant: {
         // Primary: Deep Red - Call to Arms
         default:
-          "bg-gradient-to-br from-[var(--red-700)] to-[var(--red-800)] text-[var(--grey-50)] border-2 border-[var(--red-900)] shadow-md hover:from-[var(--red-600)] hover:to-[var(--red-700)] hover:shadow-[var(--glow-red)] hover:scale-[1.02] active:scale-[0.98] active:bg-[var(--red-800)]",
+          "bg-[var(--red-700)] text-[var(--grey-50)] border-2 border-[var(--red-900)] hover:bg-[var(--red-600)] active:bg-[var(--red-800)]",
         
         // Secondary: Gold - Shield
         secondary:
-          "bg-[var(--grey-900)] text-[var(--gold-600)] border-2 border-[var(--gold-600)] hover:bg-[var(--gold-600)] hover:text-[var(--grey-950)] hover:shadow-[var(--glow-gold)] active:bg-[var(--gold-700)] active:border-[var(--gold-700)]",
+          "bg-[var(--grey-900)] text-[var(--gold-600)] border-2 border-[var(--gold-600)] hover:bg-[var(--gold-600)] hover:text-[var(--grey-950)] active:bg-[var(--gold-700)] active:border-[var(--gold-700)]",
         
         // Tertiary: Ghost
         tertiary:
@@ -26,7 +26,7 @@ const buttonVariants = cva(
         
         // Destructive: Error/Delete actions
         destructive:
-          "bg-[var(--red-600)] text-[var(--grey-50)] border-2 border-[var(--red-700)] shadow-sm hover:bg-[var(--red-700)] hover:shadow-[var(--glow-red)] active:bg-[var(--red-800)]",
+          "bg-[var(--red-600)] text-[var(--grey-50)] border-2 border-[var(--red-700)] hover:bg-[var(--red-700)] active:bg-[var(--red-800)]",
         
         // Outline: Subtle variant
         outline:

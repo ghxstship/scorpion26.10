@@ -1,9 +1,9 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Target, Zap, Trophy, Users, Dumbbell, TrendingUp } from 'lucide-react'
+import { Target, TrendingUp, Brain, Users, Dumbbell, BarChart3 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 
 /**
- * Spartan Warrior Feature Grid Component
+ * Why 456AF Feature Grid Component
  * Dark cards with gold icons and hover effects
  */
 
@@ -16,33 +16,33 @@ interface Feature {
 const features: Feature[] = [
   {
     icon: Target,
-    title: 'Precision Training',
-    description: 'Scientifically-designed programs tailored to your specific goals and fitness level.',
-  },
-  {
-    icon: Zap,
-    title: 'Maximum Results',
-    description: 'Proven methodologies that deliver measurable improvements in strength and performance.',
-  },
-  {
-    icon: Trophy,
-    title: 'Champion Mindset',
-    description: 'Develop the mental fortitude and discipline of elite athletes through our coaching.',
-  },
-  {
-    icon: Users,
-    title: 'Elite Community',
-    description: 'Join a brotherhood of warriors committed to excellence and mutual growth.',
-  },
-  {
-    icon: Dumbbell,
-    title: 'Expert Guidance',
-    description: 'Learn from Head Coach Matthew Alarcon with 10+ years of elite training experience.',
+    title: 'Precision Programming',
+    description: 'Science-backed, goal-specific training built for results—not for Instagram. We don\'t do random, and we don\'t do "just winging it."',
   },
   {
     icon: TrendingUp,
-    title: 'Continuous Progress',
-    description: 'Track your evolution with data-driven insights and progressive overload principles.',
+    title: 'Measurable Results',
+    description: 'Our methodologies are built on data, not whatever\'s trending this week. You\'ll see the progress in your numbers. Your gym crush will notice too.',
+  },
+  {
+    icon: Brain,
+    title: 'Mental Discipline',
+    description: 'Talent gets you in the door. Discipline keeps you there. We build the focus and resilience that separate people who talk from people who perform.',
+  },
+  {
+    icon: Users,
+    title: 'Committed Community',
+    description: 'Athletes who show up, put in work, and don\'t need a pep talk every five minutes. Support? Yes. Coddling? Find another program.',
+  },
+  {
+    icon: Dumbbell,
+    title: 'World-Class Coaching',
+    description: 'Head Coach Matthew Alarcon brings 10+ years of elite experience. This isn\'t advice from someone who "did research." It\'s coaching from someone who\'s done the reps.',
+  },
+  {
+    icon: BarChart3,
+    title: 'Data-Driven Progress',
+    description: 'Track everything. Know your baselines, hit your benchmarks, own your trajectory. If you\'re guessing, you\'re already behind.',
   },
 ]
 
@@ -53,10 +53,10 @@ export function FeatureGrid() {
         {/* Section Header */}
         <div className="mb-16 text-center">
           <h2 className="mb-4 font-[family-name:var(--font-bebas)] text-5xl font-black uppercase tracking-wider text-[var(--grey-100)] md:text-6xl lg:text-7xl">
-            Why Choose <span className="text-[var(--gold-600)]">456AF</span>
+            Why <span className="text-[var(--gold-600)]">456AF?</span>
           </h2>
           <p className="mx-auto max-w-3xl text-lg text-[var(--grey-300)] md:text-xl">
-            Experience the difference that elite-level training and unwavering commitment can make in your fitness journey.
+            Elite training. Measurable results. Zero hand-holding.
           </p>
         </div>
 

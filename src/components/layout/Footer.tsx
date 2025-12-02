@@ -17,10 +17,10 @@ export function Footer() {
           {/* Brand Section */}
           <div className="space-y-6">
             <h3 className="font-[family-name:var(--font-bebas)] text-3xl font-black tracking-wider text-[var(--gold-600)]">
-              456PRO
+              456AF
             </h3>
             <p className="text-sm text-[var(--grey-300)] leading-relaxed">
-              Transforming lives through elite fitness training and performance excellence.
+              We don&apos;t do average. Neither should you.
             </p>
             <p className="text-sm text-[var(--grey-400)] font-bold">
               📍 Orlando, FL | Est. 2025
@@ -82,7 +82,7 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/university" className="text-[var(--grey-300)] hover:text-[var(--gold-600)] transition-colors">
-                  ProAFU
+                  ProAF University
                 </Link>
               </li>
               <li>

@@ -1,164 +1,118 @@
 import Link from 'next/link'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { Package, Shirt, Dumbbell, Watch, ShoppingBag, Sparkles } from 'lucide-react'
+import { Package, Shirt, Dumbbell, ShoppingBag, Droplets, Users, Award, Lock } from 'lucide-react'
 
 export default function CustomsPage() {
-  const productCategories = [
+  const valueProps = [
     {
-      icon: Shirt,
-      title: 'Apparel',
-      description: 'Premium training wear designed for performance',
-      items: ['Training shirts', 'Performance shorts', 'Hoodies & jackets', 'Compression gear'],
+      icon: Award,
+      title: 'Built to Our Standards',
+      description: 'Every product is crafted with premium materials and stress-tested by our coaching staff. If it can\'t survive a real session, it doesn\'t ship.',
     },
     {
       icon: Dumbbell,
-      title: 'Equipment',
-      description: 'Professional-grade training equipment',
-      items: ['Resistance bands', 'Training accessories', 'Recovery tools', 'Custom weights'],
+      title: 'Designed for 456AF Training',
+      description: 'This isn\'t generic gear with a logo slapped on it. Each product is purpose-built to support our methodology across all tiers.',
     },
     {
-      icon: Watch,
-      title: 'Tech & Accessories',
-      description: 'Smart gear to track and optimize performance',
-      items: ['Fitness trackers', 'Training journals', 'Water bottles', 'Gym bags'],
+      icon: Lock,
+      title: 'Exclusive to the 456AF Community',
+      description: 'You won\'t find this anywhere else. Wear it like you earned it—because you did.',
     },
   ]
 
-  const featuredProducts = [
+  const products = [
     {
-      id: '1',
-      name: '456AF Performance Tee',
-      description: 'Moisture-wicking, breathable fabric designed for intense training sessions',
-      price: 4500,
-      category: 'Apparel',
-      icon: Shirt,
+      id: 'gym-bag',
+      name: 'Gym Bag',
+      description: 'Spacious, durable, and organized for athletes who actually bring their gear. Multiple compartments, reinforced straps, and enough room for everything except excuses.',
+      icon: ShoppingBag,
     },
     {
-      id: '2',
-      name: '456AF Resistance Band Set',
-      description: 'Complete set of 5 resistance bands for all fitness levels',
-      price: 7900,
-      category: 'Equipment',
-      icon: Dumbbell,
-    },
-    {
-      id: '3',
-      name: '456AF Training Journal',
-      description: 'Track your progress with our custom-designed training journal',
-      price: 2900,
-      category: 'Accessories',
+      id: 'foam-roller',
+      name: 'Foam Roller',
+      description: 'Recovery isn\'t optional. High-density foam that gets into the spots you\'ve been ignoring. Your muscles will thank you. Eventually.',
       icon: Package,
     },
     {
-      id: '4',
-      name: '456AF Elite Gym Bag',
-      description: 'Spacious, durable bag with compartments for all your training gear',
-      price: 8900,
-      category: 'Accessories',
-      icon: ShoppingBag,
+      id: 'resistance-bands',
+      name: 'Resistance Bands',
+      description: 'Full set for every fitness level and movement pattern. Warm-ups, accessory work, mobility—no gym required. Small enough to travel, tough enough to last.',
+      icon: Dumbbell,
+    },
+    {
+      id: 'tank-top',
+      name: 'Tank Top',
+      description: 'Moisture-wicking, breathable, built for sessions where "light sweat" isn\'t an option. Designed to move with you, not against you. Looks good too—but that\'s secondary.',
+      icon: Shirt,
+    },
+    {
+      id: 'water-bottle',
+      name: 'Water Bottle',
+      description: 'Stay hydrated or go home. Insulated, leak-proof, and sized for people who actually drink water during training. Not a suggestion.',
+      icon: Droplets,
     },
   ]
 
   return (
-    <main className="min-h-screen">
-      <div className="container mx-auto px-4 py-16">
+    <main className="min-h-screen bg-[var(--grey-950)]">
+      <div className="container mx-auto px-6 py-24">
         {/* Hero Section */}
-        <div className="text-center mb-16">
-          <div className="flex justify-center mb-6">
-            <Package className="h-20 w-20 text-primary" />
+        <div className="text-center mb-20">
+          <div className="flex justify-center mb-8">
+            <div className="inline-flex h-20 w-20 items-center justify-center rounded-sm border-2 border-[var(--gold-600)] bg-[var(--grey-900)]">
+              <Package className="h-10 w-10 text-[var(--gold-600)]" />
+            </div>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">456Customs</h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Premium fitness products customized for the 456AF training methodology.
-            Gear that performs as hard as you do.
+          <h1 className="font-[family-name:var(--font-bebas)] text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-wider text-[var(--grey-100)] mb-6">
+            Gear That Works As Hard As <span className="text-[var(--gold-600)]">You Do</span>
+          </h1>
+          <p className="text-lg md:text-xl text-[var(--grey-300)] max-w-4xl mx-auto leading-relaxed">
+            456Customs isn&apos;t merch. It&apos;s equipment. Every piece is designed for the way we train—tested by our coaches, built to last, and engineered to perform. Leave the pretty gym fits for the people taking selfies at Planet Fitness.
           </p>
         </div>
 
-        {/* Why 456Customs */}
-        <div className="mb-16 bg-muted/50 rounded-2xl p-8 md:p-12">
-          <h2 className="text-3xl font-bold mb-8 text-center">Why Choose 456Customs?</h2>
+        {/* Value Props */}
+        <div className="mb-20">
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <Sparkles className="h-12 w-12 text-primary mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Premium Quality</h3>
-              <p className="text-foreground/80">
-                Every product is crafted with the highest quality materials and tested by our
-                coaches
-              </p>
-            </div>
-            <div className="text-center">
-              <Dumbbell className="h-12 w-12 text-primary mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Performance-Driven</h3>
-              <p className="text-foreground/80">
-                Designed specifically to enhance your training across all 456AF verticals
-              </p>
-            </div>
-            <div className="text-center">
-              <Package className="h-12 w-12 text-primary mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Custom Designed</h3>
-              <p className="text-foreground/80">
-                Exclusive 456AF branding and designs you won&apos;t find anywhere else
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Product Categories */}
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold mb-8 text-center">Product Categories</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {productCategories.map((category, index) => (
-              <Card key={index}>
-                <CardHeader>
-                  <category.icon className="h-12 w-12 mb-4" style={{ color: 'var(--gold-600)' }} />
-                  <CardTitle className="text-2xl">{category.title}</CardTitle>
-                  <CardDescription className="text-base">{category.description}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2">
-                    {category.items.map((item, idx) => (
-                      <li key={idx} className="text-sm text-muted-foreground">
-                        • {item}
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
+            {valueProps.map((prop, index) => (
+              <div key={index} className="text-center p-6">
+                <div className="inline-flex h-16 w-16 items-center justify-center rounded-sm border-2 border-[var(--gold-600)] bg-[var(--grey-900)] mb-6">
+                  <prop.icon className="h-8 w-8 text-[var(--gold-600)]" />
+                </div>
+                <h3 className="font-[family-name:var(--font-bebas)] text-2xl font-bold uppercase tracking-wide text-[var(--grey-100)] mb-3">
+                  {prop.title}
+                </h3>
+                <p className="text-[var(--grey-300)] leading-relaxed">
+                  {prop.description}
+                </p>
+              </div>
             ))}
           </div>
         </div>
 
-        {/* Featured Products */}
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold mb-8 text-center">Featured Products</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {featuredProducts.map((product) => {
+        {/* Products */}
+        <div className="mb-20">
+          <h2 className="font-[family-name:var(--font-bebas)] text-4xl md:text-5xl font-black uppercase tracking-wider text-center text-[var(--grey-100)] mb-12">
+            The <span className="text-[var(--gold-600)]">Gear</span>
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {products.map((product) => {
               const Icon = product.icon
               return (
-                <Card key={product.id} className="flex flex-col">
+                <Card key={product.id}>
                   <CardHeader>
-                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg" style={{ backgroundColor: 'rgba(212, 175, 55, 0.1)' }}>
-                      <Icon className="h-6 w-6" style={{ color: 'var(--gold-600)' }} />
+                    <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-sm border-2 border-[var(--gold-600)] bg-[var(--grey-900)]">
+                      <Icon className="h-7 w-7 text-[var(--gold-600)]" />
                     </div>
-                    <CardTitle className="text-lg">{product.name}</CardTitle>
-                    <CardDescription className="text-sm">
-                      {product.description}
-                    </CardDescription>
+                    <CardTitle className="text-xl">{product.name}</CardTitle>
                   </CardHeader>
-                  <CardContent className="flex-1">
-                    <div className="text-2xl font-bold">
-                      ${(product.price / 100).toFixed(2)}
-                    </div>
-                    <div className="text-xs text-muted-foreground mt-1">
-                      {product.category}
-                    </div>
+                  <CardContent>
+                    <p className="text-[var(--grey-300)] leading-relaxed">
+                      {product.description}
+                    </p>
                   </CardContent>
-                  <CardFooter>
-                    <Button asChild className="w-full" variant="outline">
-                      <Link href="/contact">Pre-Order</Link>
-                    </Button>
-                  </CardFooter>
                 </Card>
               )
             })}
@@ -166,12 +120,13 @@ export default function CustomsPage() {
         </div>
 
         {/* Club456 Member Benefits */}
-        <div className="mb-16 bg-primary/5 rounded-2xl p-8 md:p-12 border-2 border-primary/20">
+        <div className="mb-20 rounded-sm border-2 border-[var(--gold-600)] bg-[var(--grey-900)] p-8 md:p-12">
           <div className="text-center">
-            <h2 className="text-3xl font-bold mb-4">Club456 Member Exclusive</h2>
-            <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
-              Club456 members receive special discounts on all 456Customs products.
-              Plus members get 15% off, Elite members get 25% off!
+            <h2 className="font-[family-name:var(--font-bebas)] text-4xl md:text-5xl font-black uppercase tracking-wider text-[var(--grey-100)] mb-6">
+              Club456 <span className="text-[var(--gold-600)]">Perks</span>
+            </h2>
+            <p className="text-lg text-[var(--grey-300)] mb-8 max-w-2xl mx-auto leading-relaxed">
+              Being part of the team has its benefits. Plus members get 15% off. Elite members get 25% off. Not a member yet? Fix that.
             </p>
             <Button size="lg" asChild>
               <Link href="/community">Join Club456</Link>
@@ -179,52 +134,36 @@ export default function CustomsPage() {
           </div>
         </div>
 
-        {/* Custom Orders */}
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold mb-8 text-center">Custom Team Orders</h2>
-          <Card className="max-w-3xl mx-auto">
-            <CardContent className="pt-6">
-              <p className="text-center text-muted-foreground mb-6">
-                Looking to outfit your team, gym, or organization with custom 456AF gear?
-                We offer bulk ordering with custom branding options.
-              </p>
-              <div className="grid md:grid-cols-3 gap-4 text-center mb-6">
-                <div>
-                  <div className="text-2xl font-bold text-primary mb-1">10+</div>
-                  <div className="text-sm text-muted-foreground">Minimum Order</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-primary mb-1">20%</div>
-                  <div className="text-sm text-muted-foreground">Bulk Discount</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-primary mb-1">Free</div>
-                  <div className="text-sm text-muted-foreground">Custom Branding</div>
-                </div>
+        {/* Bulk Orders */}
+        <div className="mb-20">
+          <div className="rounded-sm border border-[var(--grey-700)] bg-[var(--grey-850)] p-8 md:p-12 max-w-4xl mx-auto">
+            <div className="flex items-center justify-center mb-6">
+              <div className="inline-flex h-16 w-16 items-center justify-center rounded-sm border-2 border-[var(--gold-600)] bg-[var(--grey-900)]">
+                <Users className="h-8 w-8 text-[var(--gold-600)]" />
               </div>
-              <div className="text-center">
-                <Button asChild>
-                  <Link href="/contact">Request Custom Quote</Link>
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
+            </div>
+            <h2 className="font-[family-name:var(--font-bebas)] text-4xl md:text-5xl font-black uppercase tracking-wider text-center text-[var(--grey-100)] mb-6">
+              Outfit Your <span className="text-[var(--gold-600)]">Team</span>
+            </h2>
+            <p className="text-center text-[var(--grey-300)] mb-8 max-w-2xl mx-auto leading-relaxed">
+              Gyms, teams, organizations—if you need custom 456AF gear in bulk, we&apos;ve got you. Custom branding options available. Reach out and let&apos;s talk.
+            </p>
+            <div className="text-center">
+              <Button asChild variant="outline">
+                <Link href="/contact">Request Custom Quote</Link>
+              </Button>
+            </div>
+          </div>
         </div>
 
         {/* CTA Section */}
-        <div className="text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Gear Up?</h2>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Elevate your training with 456Customs. Premium products designed for champions.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" asChild>
-              <Link href="/contact">Shop Now</Link>
-            </Button>
-            <Button size="lg" variant="outline" asChild>
-              <Link href="/products">View Training Programs</Link>
-            </Button>
-          </div>
+        <div className="text-center rounded-sm border-2 border-[var(--gold-600)] bg-[var(--grey-900)] p-12 md:p-16">
+          <h2 className="font-[family-name:var(--font-bebas)] text-4xl md:text-5xl font-black uppercase tracking-wider text-[var(--grey-100)] mb-8">
+            Stop training in gear that quits <span className="text-[var(--gold-600)]">before you do.</span>
+          </h2>
+          <Button size="lg" asChild>
+            <Link href="/contact">Shop 456Customs</Link>
+          </Button>
         </div>
       </div>
     </main>

@@ -27,7 +27,7 @@ export default function BookingsPage() {
     },
     {
       icon: Mic,
-      title: 'Anti-Motivational Keynotes',
+      title: 'Semi-Motivational Keynotes',
       description: 'Tired of "you can do it" speeches? Book a talk that actually says something. Real strategies, uncomfortable truths, zero fluff.',
     },
     {

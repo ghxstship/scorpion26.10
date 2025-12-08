@@ -32,7 +32,7 @@ const features: Feature[] = [
   {
     icon: Users,
     title: 'Committed Community',
-    description: 'Athletes who show up, put in work, and don\'t need a pep talk every five minutes. Support? Yes. Coddling? Find another program.',
+    description: 'Professionals who show up, put in work, and don\'t need a pep talk every five minutes. Support? Yes. Coddling? Find another program.',
   },
   {
     icon: Dumbbell,

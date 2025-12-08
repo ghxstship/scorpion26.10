@@ -118,7 +118,7 @@ const testimonials = [
 ]
 
 const stats = [
-  { value: '500+', label: 'Athletes Trained' },
+  { value: '500+', label: 'Professionals Trained' },
   { value: '97.5%', label: 'Goal Achievement Rate' },
   { value: '4.98', label: 'Average Rating' },
   { value: '10+', label: 'Years Experience' },
